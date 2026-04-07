@@ -1,0 +1,53 @@
+Reference,Component,Net,Pin(s),Cap_Ref,Value,Type,Package,Qty,Placement_Notes,ESR_max,SRF_min
+U1,SAMRH71F20C,VCC_3V3,VDD1,C1,100nF,X7R MLCC,0402,1,Within 0.5mm of pin VDD1,50mΩ,100MHz
+U1,SAMRH71F20C,VCC_3V3,VDD2,C2,100nF,X7R MLCC,0402,1,Within 0.5mm of pin VDD2,50mΩ,100MHz
+U1,SAMRH71F20C,VCC_3V3,VDD3,C3,100nF,X7R MLCC,0402,1,Within 0.5mm of pin VDD3,50mΩ,100MHz
+U1,SAMRH71F20C,VCC_3V3,VDDIOP,C4,100nF,X7R MLCC,0402,1,Within 0.5mm of VDDIOP,50mΩ,100MHz
+U1,SAMRH71F20C,VCC_3V3,BULK,C5,10µF,X5R MLCC,0805,1,Within 5mm of U1 power island; bulk reservoir,10mΩ,1MHz
+U1,SAMRH71F20C,VCC_3V3,BULK2,C6,4.7µF,X5R MLCC,0603,1,Secondary bulk; pair with C5,15mΩ,2MHz
+U2,ATECC608B,VCC_3V3,VCC(6),C7,100nF,X7R MLCC,0402,1,Within 0.5mm of pin 6,50mΩ,100MHz
+U2,ATECC608B,VCC_3V3,BULK,C8,1µF,X5R MLCC,0402,1,Within 3mm; shared with I2C pull-up area,20mΩ,10MHz
+U3,XQRKU060,VCC_0V9_FPGA_CORE,VCCINT×16,C9-C24,100nF,X7R MLCC,0402,16,One cap per VCCINT ball; route directly under BGA,50mΩ,200MHz
+U3,XQRKU060,VCC_0V9_FPGA_CORE,VCCINT_BULK,C25,47µF,Low-ESR POSCAP,D-case,2,One each side of FPGA; 10mΩ ESR or better,10mΩ,500kHz
+U3,XQRKU060,VCC_0V9_FPGA_CORE,VCCINT_BULK2,C26,10µF,X5R MLCC,1206,4,Corners of FPGA keep-out zone,10mΩ,1MHz
+U3,XQRKU060,VCC_1V8,VCCO_0×8,C27-C34,100nF,X7R MLCC,0402,8,One per VCCO_0 ball,50mΩ,150MHz
+U3,XQRKU060,VCC_1V8,VCCO_1×8,C35-C42,100nF,X7R MLCC,0402,8,One per VCCO_1 ball,50mΩ,150MHz
+U3,XQRKU060,VCC_1V8,VCCO_BULK,C43,22µF,X5R MLCC,1210,2,Shared bulk for all VCCO banks,10mΩ,1MHz
+U3,XQRKU060,VCC_1V8,VCCAUX×4,C44-C47,100nF,X7R MLCC,0402,4,One per VCCAUX pin,50mΩ,150MHz
+U3,XQRKU060,VCC_1V8,VCCAUX_BULK,C48,10µF,X5R MLCC,0805,1,Near VCCAUX cluster,15mΩ,2MHz
+U4,Apollo4 Blue,VCC_AON,VDD,C49,100nF,X7R MLCC,0402,1,Within 0.5mm of VDD pin,50mΩ,100MHz
+U4,Apollo4 Blue,VCC_AON,VDDIO,C50,100nF,X7R MLCC,0402,1,Within 0.5mm of VDDIO,50mΩ,100MHz
+U4,Apollo4 Blue,VCC_AON,BULK,C51,4.7µF,X5R MLCC,0603,1,Within 5mm of U4,15mΩ,2MHz
+U5,ECC SDRAM,VCC_3V3,VDD×4,C52-C55,100nF,X7R MLCC,0402,4,One per VDD power ball,50mΩ,150MHz
+U5,ECC SDRAM,VCC_1V8,VDDQ×4,C56-C59,100nF,X7R MLCC,0402,4,One per VDDQ ball,50mΩ,150MHz
+U5,ECC SDRAM,VCC_3V3,VDD_BULK,C60,10µF,X5R MLCC,0805,1,Within 5mm of U5,10mΩ,1MHz
+U5,ECC SDRAM,VCC_1V8,VDDQ_BULK,C61,10µF,X5R MLCC,0805,1,Within 5mm of U5 — same pour as VDDQ,10mΩ,1MHz
+U6,BQ25570,VCC_3V3,VSTOR,C62,10µF,X5R MLCC,0805,1,On VSTOR output node,15mΩ,2MHz
+U6,BQ25570,VCC_3V3,VSTOR2,C63,100nF,X7R MLCC,0402,1,High-frequency bypass on VSTOR,50mΩ,100MHz
+U6,BQ25570,V_SOLAR,VIN,C64,22µF,X5R MLCC,1210,1,Input to MPPT — handles solar panel capacitance,10mΩ,1MHz
+U6,BQ25570,V_SOLAR,VIN_HF,C65,100nF,X7R MLCC,0402,1,HF bypass on VIN,50mΩ,200MHz
+U7,TPS65086A,VCC_3V3,VOUT1_OUT,C66,22µF,X5R MLCC,1210,2,At output of 3.3V buck; differential pair across rails,10mΩ,500kHz
+U7,TPS65086A,VCC_3V3,VOUT1_HF,C67,100nF,X7R MLCC,0402,2,HF bypass at VOUT1,50mΩ,100MHz
+U7,TPS65086A,VCC_1V8,VOUT2_OUT,C68,22µF,X5R MLCC,1210,2,At output of 1.8V buck,10mΩ,500kHz
+U7,TPS65086A,VCC_1V8,VOUT2_HF,C69,100nF,X7R MLCC,0402,2,HF bypass at VOUT2,50mΩ,100MHz
+U7,TPS65086A,VCC_0V9_FPGA_CORE,VOUT3_OUT,C70,47µF,Low-ESR POSCAP,D-case,2,At output of 0.9V buck — FPGA core hungry at startup,5mΩ,200kHz
+U7,TPS65086A,VCC_0V9_FPGA_CORE,VOUT3_HF,C71,100nF,X7R MLCC,0402,2,HF bypass at VOUT3,50mΩ,200MHz
+U7,TPS65086A,VCC_AON,LDO1_OUT,C72,4.7µF,X5R MLCC,0603,1,At LDO1 output (AON rail),15mΩ,2MHz
+U7,TPS65086A,VIN,VIN_ALL,C73,47µF,X5R MLCC,1210,2,PMIC input bulk; at VIN1/VIN2/VIN3 pin cluster,10mΩ,500kHz
+;; ── Signal termination caps ────────────────────────────────
+U1-U5,MEM_DQ_TERM,VCC_1V8,ODT,C74-C81,100pF,C0G NP0,0402,8,Series cap NOT used — ODT is on-die; these are optional test caps for each DQ byte lane,—,—
+U1-U3,SPI0_FILT,VCC_3V3,SPI_HF,C82-C85,10pF,C0G NP0,0402,4,Optional HF filter on each SPI line; omit if SI sim shows clean eyes,—,—
+;; ── Crystal load caps ──────────────────────────────────────
+Y1,32.768kHz_XTAL,GND,LOAD,C86,12pF,C0G NP0,0402,2,One each side of Y1; value tuned to crystal CL spec,—,—
+;; ── I2C filter caps ────────────────────────────────────────
+BUS,I2C0_SDA,GND,SDA_FILT,C87,100pF,C0G NP0,0402,1,Low-pass against RF coupling on I2C SDA,—,—
+BUS,I2C0_SCL,GND,SCL_FILT,C88,100pF,C0G NP0,0402,1,Low-pass against RF coupling on I2C SCL,—,—
+;; ── SUMMARY ────────────────────────────────────────────────
+;; Total decoupling cap count: 88 references (some qty>1: total ~120 physical capacitors)
+;; Critical placement rules:
+;;   1. 0402 caps: place on SAME layer as IC, within 0.5mm of target pad
+;;   2. Bulk caps: via-in-pad or adjacent; minimize via inductance on return path
+;;   3. FPGA VCCINT: use via-in-pad design; conventional vias too inductive at 200MHz
+;;   4. Never share a decoupling cap between two different ICs on different power domains
+;;   5. Cap GND return: via directly to GND plane L2 from cap GND pad — NOT daisy-chained
+;;   6. POSCAP: orient so that the positive terminal connects closest to IC power pad

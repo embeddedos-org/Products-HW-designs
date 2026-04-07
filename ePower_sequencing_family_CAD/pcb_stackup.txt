@@ -1,0 +1,195 @@
+================================================================================
+  ULP-SSN — PCB STACKUP DEFINITION
+  12-Layer High-Speed Mixed-Signal Board
+  Revision: 1.0  |  Date: 2026-04-06
+  Board Size: 150mm × 100mm  |  Total Thickness: 1.6mm ± 0.1mm
+  Manufacturer spec: IPC-6012 Class 3 (Space/Military)
+================================================================================
+
+LAYER STACKUP (top to bottom)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ #   Layer Name        Type          Cu Weight   Thickness    Material / εr
+───────────────────────────────────────────────────────────────────────────────
+ 1   TOP (F.Cu)        Signal        1 oz        35 µm        —
+     Prepreg           Dielectric    —           100 µm       Panasonic R-1566W / εr 3.76 @ 1GHz
+ 2   GND (In1.Cu)      Plane         2 oz        70 µm        — (reference plane for L1)
+     Core              Dielectric    —           200 µm       Panasonic R-1566W / εr 3.76
+ 3   PWR (In2.Cu)      Plane         1 oz        35 µm        — (3.3V / 1.8V pours)
+     Prepreg           Dielectric    —           100 µm       Panasonic R-1566W / εr 3.76
+ 4   SIG1 (In3.Cu)     Signal        0.5 oz      17.5 µm      — (SPI, UART, GPIO — horizontal routing)
+     Core              Dielectric    —           200 µm       Panasonic R-1566W / εr 3.76
+ 5   GND2 (In4.Cu)     Plane         1 oz        35 µm        — (reference plane for L4 & L6)
+     Prepreg           Dielectric    —           100 µm       Panasonic R-1566W / εr 3.76
+ 6   SIG2 (In5.Cu)     Signal        0.5 oz      17.5 µm      — (Memory bus — horizontal)
+     Core              Dielectric    —           200 µm       Panasonic R-1566W / εr 3.76
+ 7   SIG3 (In6.Cu)     Signal        0.5 oz      17.5 µm      — (Memory bus — vertical)
+     Prepreg           Dielectric    —           100 µm       Panasonic R-1566W / εr 3.76
+ 8   GND3 (In7.Cu)     Plane         1 oz        35 µm        — (reference plane for L6/L7/L9)
+     Core              Dielectric    —           200 µm       Panasonic R-1566W / εr 3.76
+ 9   SIG4 (In8.Cu)     Signal        0.5 oz      17.5 µm      — (FPGA config, misc routing — horiz)
+     Prepreg           Dielectric    —           100 µm       Panasonic R-1566W / εr 3.76
+10   PWR2 (In9.Cu)     Plane         2 oz        70 µm        — (0.9V FPGA core / AON rails)
+     Core              Dielectric    —           200 µm       Panasonic R-1566W / εr 3.76
+11   GND4 (In10.Cu)    Plane         2 oz        70 µm        — (bottom-side reference; RF guard)
+     Prepreg           Dielectric    —           100 µm       Panasonic R-1566W / εr 3.76
+12   BOT (B.Cu)        Signal        1 oz        35 µm        —
+───────────────────────────────────────────────────────────────────────────────
+     TOTAL BOARD THICKNESS:                      1.572 mm    (target 1.6mm with finish)
+     Surface finish: ENIG (Electroless Nickel Immersion Gold), 3–5 µin Au / 150–200 µin Ni
+     Solder mask: LPI (Liquid Photo-Imageable), green, both sides, 15–25 µm
+     Silkscreen: White LPI, top side only (bottom silkscreen omitted — space is tight)
+
+COPPER WEIGHT RATIONALE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  L1 (1 oz):  Mixed signal top — fine pitch BGA fanout requires ≥75 µm trace/space
+  L2 (2 oz):  GND plane — heavy copper for low impedance, thermal dissipation
+  L3 (1 oz):  Power plane — carries 3.3V (500mA) and 1.8V (300mA)
+  L4, L6, L7, L9 (0.5 oz): High-speed signal layers — thinner Cu = finer lines for
+              controlled impedance without excessively wide traces
+  L5, L8 (1 oz): Inner GND reference planes
+  L10 (2 oz): FPGA 0.9V core — 2A peak at FPGA startup requires low-resistance path
+  L11 (2 oz): Bottom GND — doubles as RF shield ground for antenna area
+  L12 (1 oz): Bottom signal — miscellaneous routing, test points
+
+CONTROLLED IMPEDANCE TARGETS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Net class         Layers      Zo target   Trace W    Space    Tolerance
+  ──────────────────────────────────────────────────────────────────────
+  SPI0 (50Ω SE)     L1, L4      50 Ω ±10%  0.11 mm    0.11 mm  ±10%
+  Memory DQ (50Ω)   L6, L7      50 Ω ±10%  0.10 mm    0.10 mm  ±10%
+  Memory CLK (50Ω)  L6          50 Ω ±10%  0.10 mm    —        ±5%
+  UART (uncontrolled)L1, L4     —          0.15 mm    0.15 mm  —
+  I2C (uncontrolled) L1         —          0.15 mm    0.15 mm  —
+  Power planes       L3, L10    —          N/A (pour) —        —
+  RF/antenna trace   L1         50 Ω ±5%   0.22 mm    —        ±5%
+
+  Impedance calculation basis: Panasonic R-1566W εr=3.76, prepreg h=100µm
+  Microstrip formula: Zo = (87/√(εr+1.41)) × ln(5.98h / (0.8w+t))
+  Verify with manufacturer's field solver before tape-out.
+
+TRACE WIDTH vs CURRENT CAPACITY (IPC-2221, 10°C rise, 1 oz Cu, 25°C ambient)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Width      Max current (external)   Max current (internal)
+  0.10 mm    0.35 A                   0.17 A
+  0.15 mm    0.50 A                   0.25 A
+  0.25 mm    0.75 A                   0.37 A
+  0.50 mm    1.3 A                    0.65 A
+  1.00 mm    2.3 A                    1.15 A
+  2.00 mm    4.0 A                    2.0 A
+
+  Power rail minimum widths (with derating factor 0.5×):
+    VCC_3V3 (500mA):    ≥ 0.50 mm  (use plane pour — not trace routing)
+    VCC_1V8 (300mA):    ≥ 0.30 mm  (use plane pour)
+    VCC_0V9 (2A peak):  ≥ 2.0 mm   (use plane pour — L10 entire pour)
+    V_SOLAR input:       ≥ 1.0 mm
+    GND returns:         use filled copper pour on all GND layers
+
+================================================================================
+  VIA DRILL CHART
+================================================================================
+
+  Via Type       Drill (finished)  Annular ring  Aspect ratio  Usage
+  ─────────────────────────────────────────────────────────────────────────────
+  Standard via   0.20 mm           0.125 mm      8:1           General signal routing
+  Standard via   0.25 mm           0.15 mm       6.4:1         Power connections
+  Standard via   0.30 mm           0.175 mm      5.3:1         Heavy power, GND stitching
+  Micro-via      0.10 mm           0.075 mm      1:1 (L1↔L2)  BGA fanout (FPGA, MCU)
+  Micro-via      0.10 mm           0.075 mm      1:1 (L11↔L12) Bottom BGA fanout
+  Buried via     0.15 mm           0.10 mm       —             L4↔L8 (signal skip)
+  Via-in-pad     0.20 mm (filled)  0.125 mm      8:1           FPGA VCCINT decap under BGA
+  Via-in-pad     0.10 mm (filled)  0.075 mm      1:1           MCU BGA inner row fanout
+
+  Via-in-pad notes:
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ All via-in-pad must be copper-filled + capped (VIPPO process).         │
+  │ Non-filled via-in-pad causes solder wicking → open joints under BGA.  │
+  │ Specify to fab: "Via-in-pad: electroless copper fill, planarize, cap" │
+  └─────────────────────────────────────────────────────────────────────────┘
+
+  Via grid / keepout rules:
+    Under FPGA BGA (35×35mm):   0.20mm via on 0.80mm grid (1 via per ball)
+    Under MCU BGA (13×13mm):    0.15mm via on 0.80mm grid
+    RF / antenna area:           NO vias within 3mm of RF trace
+    Board edge:                  No copper within 0.3mm of routed edge
+    Solder mask opening:         Via + 0.1mm per side (tented vias elsewhere)
+
+================================================================================
+  GROUND PLANE RULES
+================================================================================
+
+  L2 (primary GND):
+    - Uninterrupted copper pour across full board area
+    - Slot/moat between AGND (U4 area) and DGND (everywhere else)
+    - Bridge AGND ↔ DGND at ONE point only: under U4 VDD decap
+    - No signal traces routed on L2 under any circumstances
+    - GND stitching vias: 0.30mm, placed every 15mm on board perimeter
+    - GND stitching: row of vias every 5mm along edge of high-speed areas
+
+  L5, L8 (inner GND planes):
+    - Full copper pour; may have anti-pad clearances for via fanout
+    - Anti-pad diameter: drill + 0.40mm clearance minimum
+    - These planes primarily serve as EMI shields between signal layers
+
+  L11 (bottom GND / RF guard):
+    - Full copper pour, uninterrupted in RF antenna zone
+    - Hatch fill NOT permitted (solid copper only for RF shielding)
+    - Under-antenna area: no components on L12 bottom side
+
+================================================================================
+  DESIGN RULE CONSTRAINTS (DRC settings)
+================================================================================
+
+  Clearance rules:
+    Minimum trace-to-trace:          0.10 mm
+    Minimum trace-to-via:            0.10 mm
+    Minimum via-to-via (edge):       0.20 mm
+    Minimum BGA pad-to-pad:          0.20 mm (0.80mm pitch BGAs)
+    Minimum soldermask expansion:    0.05 mm per side
+    Minimum annular ring (PTH):      0.125 mm
+    Minimum annular ring (micro):    0.075 mm
+    Board edge to copper:            0.30 mm
+    Board edge to via:               0.50 mm
+    RF trace to any other copper:    0.50 mm minimum
+
+  Silkscreen:
+    Min line width:                  0.10 mm
+    Silkscreen to pad clearance:     0.20 mm (or silkscreen clipped)
+    Reference designators:           Required on all components (flight build: can omit)
+
+  Drill:
+    Min drill (PTH):                 0.20 mm
+    Min drill (micro-via):           0.10 mm
+    Max aspect ratio (PTH):          10:1 preferred, 12:1 absolute max
+    Drill registration tolerance:    ±0.05 mm
+
+================================================================================
+  SPECIAL FABRICATION NOTES
+================================================================================
+
+  1. Impedance control:  Order with impedance control on layers 1, 4, 6, 7, 12.
+     Provide Gerbers with impedance stack-up table. Request TDR verification report.
+
+  2. Via-in-pad (VIPPO): Required under U3 FPGA (VCCINT pads), U1 MCU (inner BGA).
+     Specify: Copper-fill, electroless copper, planarize, cap with solder-mask.
+
+  3. Material: Panasonic R-1566W or equivalent Tg≥170°C halogen-free laminate.
+     Do NOT substitute FR4 (Tg 130°C) — FPGA power dissipation will delaminate.
+
+  4. IPC class: Manufacture to IPC-6012 Class 3 (high reliability / military).
+     Require AOI (Automated Optical Inspection) on all layers.
+     Require electrical test: flying probe or bed-of-nails continuity + isolation.
+
+  5. Radiation consideration: For flight hardware, avoid any laminate with
+     boron-containing fillers (borophosphosilicate glass). Use standard E-glass weave.
+     Specify void-free lamination (no voids in prepreg under BGA landing areas).
+
+  6. Copper plating uniformity: ±10% variation max across board for via walls.
+     Thin via walls cause opens under thermal cycling in space (−55°C to +125°C).
+
+  7. Cleanliness: IPC-CH-65B. No-clean flux only. Aqueous wash after reflow if
+     flux is not no-clean certified. Ionic contamination: < 1.56 µg NaCl eq/cm².
+
+  8. Conformal coat: MIL-I-46058 Type ER (epoxy resin) or Type SR (silicone).
+     Apply after functional test. Mask J1, J2, J3 connectors and test points.
+     Coat thickness: 50–130 µm (per IPC-A-610).

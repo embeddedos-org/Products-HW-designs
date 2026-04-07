@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ULP-SSN — Power Sequencing Timing Diagram</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500&display=swap');
+:root{
+  --bg:#080b10; --bg2:#0d1018; --bg3:#131820;
+  --border:#1c2333; --border2:#263040;
+  --text:#bfcde0; --text2:#6478a0; --text3:#303d55;
+  --mono:'JetBrains Mono',monospace;
+  --sans:'DM Sans',sans-serif;
+  --rail-aon:#00ff88;
+  --rail-33:#00d4ff;
+  --rail-18:#aa66ff;
+  --rail-09:#ff6644;
+  --rail-5v:#ffaa00;
+  --ev-good:#00ff88;
+  --ev-warn:#ffaa00;
+  --ev-boot:#00d4ff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh}
+
+.topbar{
+  background:var(--bg2); border-bottom:1px solid var(--border);
+  padding:0 24px; height:50px; display:flex; align-items:center; gap:20px;
+}
+.tlogo{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--rail-33);letter-spacing:.06em}
+.tlogo span{color:var(--text2);font-weight:400}
+.tsub{font-family:var(--mono);font-size:10px;color:var(--text3);margin-left:auto}
+
+.main{display:grid;grid-template-columns:1fr 300px;height:calc(100vh - 50px);overflow:hidden}
+
+/* ── TIMING CANVAS AREA ── */
+.timing-wrap{display:flex;flex-direction:column;overflow:hidden}
+.ctrl-bar{
+  background:var(--bg2); border-bottom:1px solid var(--border);
+  padding:10px 20px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+}
+.ctrl-label{font-family:var(--mono);font-size:10px;color:var(--text2)}
+.ctrl-btn{
+  font-family:var(--mono);font-size:10px;padding:5px 14px;border-radius:5px;
+  border:1px solid var(--border2);background:transparent;color:var(--text);cursor:pointer;
+  transition:all .15s;
+}
+.ctrl-btn:hover{border-color:var(--rail-33);color:var(--rail-33)}
+.ctrl-btn.on{background:var(--rail-33);color:#000;border-color:transparent;font-weight:700}
+.speed-row{display:flex;align-items:center;gap:6px}
+.speed-row input[type=range]{width:100px;accent-color:var(--rail-33)}
+
+.diagram-scroll{flex:1;overflow:hidden;position:relative}
+canvas#timing{display:block;width:100%;height:100%}
+
+.cursor-line{
+  position:absolute;top:0;bottom:0;width:1px;background:rgba(255,255,255,.2);
+  pointer-events:none;display:none;
+}
+.tooltip{
+  position:absolute;background:var(--bg2);border:1px solid var(--border2);
+  border-radius:6px;padding:6px 10px;font-family:var(--mono);font-size:10px;
+  color:var(--text);pointer-events:none;display:none;z-index:10;
+  white-space:nowrap; line-height:1.7;
+}
+
+/* ── SIDEBAR ── */
+.sidebar{
+  background:var(--bg2);border-left:1px solid var(--border);
+  overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;
+}
+.sh{font-family:var(--mono);font-size:9px;font-weight:700;color:var(--text3);
+    letter-spacing:.12em;text-transform:uppercase;padding:14px 16px 6px}
+
+.rail-item{
+  display:flex;align-items:center;gap:10px;padding:8px 16px;
+  border-bottom:1px solid var(--border);cursor:pointer;transition:background .12s;
+}
+.rail-item:hover{background:var(--bg3)}
+.rail-swatch{width:3px;height:32px;border-radius:2px;flex-shrink:0}
+.rail-info{flex:1}
+.rail-name{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--text)}
+.rail-chip{font-family:var(--mono);font-size:9px;color:var(--text2);margin-top:1px}
+.rail-val{font-family:var(--mono);font-size:11px;font-weight:700;text-align:right}
+
+.ev-list{padding:8px 0}
+.ev-item{padding:6px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .12s}
+.ev-item:hover{background:var(--bg3)}
+.ev-time{font-family:var(--mono);font-size:10px;color:var(--text2)}
+.ev-name{font-family:var(--mono);font-size:11px;color:var(--text);margin-top:1px}
+.ev-note{font-family:var(--mono);font-size:9px;color:var(--text3);margin-top:2px;line-height:1.5}
+
+.warn-box{
+  margin:10px 16px;padding:10px 12px;border-radius:6px;
+  border:1px solid rgba(255,170,0,.25);background:rgba(255,170,0,.06);
+  font-family:var(--mono);font-size:10px;color:#ffaa00;line-height:1.6;
+}
+.ok-box{
+  margin:10px 16px;padding:10px 12px;border-radius:6px;
+  border:1px solid rgba(0,255,136,.2);background:rgba(0,255,136,.05);
+  font-family:var(--mono);font-size:10px;color:var(--rail-aon);line-height:1.6;
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="tlogo">ULP-SSN <span>/ Power Sequencing</span></span>
+  <span class="tsub">SAMRH71 + XQRKU060 + Apollo4 + ATECC608B | Boot &amp; Shutdown sequences</span>
+</div>
+
+<div class="main">
+
+  <div class="timing-wrap">
+    <div class="ctrl-bar">
+      <span class="ctrl-label">Sequence:</span>
+      <button class="ctrl-btn on" id="btn-boot" onclick="setSeq('boot',this)">Power-on boot</button>
+      <button class="ctrl-btn" id="btn-sleep" onclick="setSeq('sleep',this)">Sleep entry</button>
+      <button class="ctrl-btn" id="btn-wake" onclick="setSeq('wake',this)">Wake-up</button>
+      <button class="ctrl-btn" id="btn-shutdown" onclick="setSeq('shutdown',this)">Shutdown</button>
+      <div class="speed-row" style="margin-left:auto">
+        <span class="ctrl-label">Zoom:</span>
+        <input type="range" id="zoom-r" min="0.5" max="4" step="0.1" value="1" oninput="setZoom(this.value)">
+        <span class="ctrl-label" id="zoom-val">1×</span>
+      </div>
+      <button class="ctrl-btn" onclick="toggleAnim()">▶ Animate</button>
+    </div>
+    <div class="diagram-scroll" id="diag" onmousemove="moveCursor(event)" onmouseleave="hideCursor()">
+      <canvas id="timing"></canvas>
+      <div class="cursor-line" id="cur"></div>
+      <div class="tooltip" id="tip"></div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sh">Power rails</div>
+    <div id="rail-list"></div>
+    <div class="sh" style="margin-top:6px">Sequence events</div>
+    <div class="ev-list" id="ev-list"></div>
+    <div class="sh" style="margin-top:6px">Constraints</div>
+    <div class="warn-box">VCCINT (0.9V) must reach 0.85V before VCCO (1.8V) starts ramping — FPGA spec §4.2</div>
+    <div class="warn-box">V_AON must be stable for ≥ 2ms before EN_MCU asserted</div>
+    <div class="warn-box">ECC SDRAM tRFC = 110ns min — allow 200µs after VDD/VDDQ stable before CKE</div>
+    <div class="ok-box">Shutdown: reverse sequence. VCCO must fall before VCCINT — same rule in reverse.</div>
+    <div class="ok-box">All EN_* lines default LOW. PMIC latches state — safe on power loss.</div>
+  </aside>
+
+</div>
+
+<script>
+// ═══════════════════════════════════════════
+//  DATA
+// ═══════════════════════════════════════════
+const RAILS = [
+  { id:'aon',   name:'V_AON (1.8V)',   chip:'Ambiq Apollo4 — always on',     color:'#00ff88', volt:1.8  },
+  { id:'33v',   name:'VCC_3V3',        chip:'MCU, SE, SDRAM VDD, FPGA VCCO', color:'#00d4ff', volt:3.3  },
+  { id:'18v',   name:'VCC_1V8',        chip:'FPGA VCCO, SDRAM VDDQ, SIG I/O',color:'#aa66ff', volt:1.8  },
+  { id:'09v',   name:'VCC_0V9',        chip:'FPGA VCCINT (core)',             color:'#ff6644', volt:0.9  },
+  { id:'5v',    name:'V_SOLAR/VSTOR',  chip:'MPPT input, PMIC Vin',          color:'#ffaa00', volt:'4–5' },
+];
+
+// Sequences: array of rail ramp events + annotation events
+// Each rail event: { rail, t0_ms, t1_ms }  (ramp from 0→1 between t0 and t1, or 1→0)
+// t in ms. Annotations: { t_ms, label, color, note, side }
+
+const SEQS = {
+  boot: {
+    title: 'Power-on boot sequence',
+    duration_ms: 250,
+    ramps: [
+      { rail:'5v',  t0:0,   t1:5,   dir:1 },   // Solar/MPPT input
+      { rail:'aon', t0:5,   t1:20,  dir:1 },   // AON rail first
+      { rail:'09v', t0:25,  t1:50,  dir:1 },   // FPGA core next — VCCINT before VCCO
+      { rail:'18v', t0:55,  t1:80,  dir:1 },   // 1.8V (FPGA VCCO + SDRAM VDDQ)
+      { rail:'33v', t0:60,  t1:90,  dir:1 },   // 3.3V overlaps 1.8V ramp slightly
+    ],
+    events:[
+      { t:5,   label:'MPPT locks', color:'#ffaa00', note:'BQ25570 VOC sample complete\nMPPT operating point set', side:'top' },
+      { t:20,  label:'AON stable', color:'#00ff88', note:'Apollo4 boots\nBegins monitoring rails via I2C\nAll EN_* still LOW', side:'top' },
+      { t:25,  label:'EN_FPGA assert', color:'#ff6644', note:'Apollo4 GPIO2 → HIGH\nPMIC enables 0.9V VCCINT buck', side:'bot' },
+      { t:50,  label:'VCCINT PG', color:'#ff6644', note:'PMIC PGOOD1 asserts\nApollo4 sees power-good\nWaits 5ms before next rail', side:'top' },
+      { t:55,  label:'EN_MCU + VCCO', color:'#aa66ff', note:'Apollo4 GPIO1 → HIGH (EN_MCU)\nAnd enables 1.8V simultaneously\nFPGA VCCO starts ramping', side:'bot' },
+      { t:90,  label:'3V3 + 1V8 stable', color:'#00d4ff', note:'Both rails at target\nSDRAM VDD/VDDQ stable\n200µs SDRAM init wait starts', side:'top' },
+      { t:100, label:'SE validates', color:'#00ff88', note:'ATECC608B powers up\nMCU queries secure element\nFirmware hash check begins', side:'bot' },
+      { t:140, label:'MCU boots', color:'#00d4ff', note:'Hash check pass\nSAMRH71 executes signed image\nFPGA PROG_B toggled', side:'top' },
+      { t:175, label:'FPGA loads', color:'#ff6644', note:'Bitstream loaded via SPI0\nFPGA DONE asserts HIGH\nTMR logic active', side:'bot' },
+      { t:210, label:'EN_RADIO', color:'#ffaa00', note:'MCU enables radio\nUHF/VHF transceiver powers up\nSystem fully operational', side:'top' },
+    ],
+  },
+  sleep: {
+    title: 'Sleep entry sequence',
+    duration_ms: 120,
+    ramps: [
+      { rail:'5v',  t0:0,   t1:5,   dir:1, hold:1 },
+      { rail:'aon', t0:0,   t1:5,   dir:1, hold:1 },
+      { rail:'09v', t0:0,   t1:5,   dir:1, hold:1 },
+      { rail:'18v', t0:0,   t1:5,   dir:1, hold:1 },
+      { rail:'33v', t0:0,   t1:5,   dir:1, hold:1 },
+      // Sleep: shut down in order
+      { rail:'33v', t0:20,  t1:40,  dir:-1 },  // 3V3 first
+      { rail:'18v', t0:25,  t1:45,  dir:-1 },  // 1V8 overlaps
+      { rail:'09v', t0:50,  t1:70,  dir:-1 },  // VCCINT after VCCO fully off
+    ],
+    events:[
+      { t:5,   label:'All rails up', color:'#00d4ff', note:'System running', side:'top' },
+      { t:15,  label:'MCU commands sleep', color:'#00d4ff', note:'Saves state to MRAM\nSends DONE to Apollo4', side:'bot' },
+      { t:20,  label:'EN_MCU LOW', color:'#00d4ff', note:'Apollo4 GPIO1 → LOW\nPMIC shuts off 3.3V buck', side:'top' },
+      { t:25,  label:'VCCO off', color:'#aa66ff', note:'1.8V rail collapses\nFPGA I/O banks depowered', side:'bot' },
+      { t:50,  label:'VCCINT off', color:'#ff6644', note:'After VCCO fully settled <50mV\nSafe to cut FPGA core', side:'top' },
+      { t:75,  label:'Deep sleep', color:'#00ff88', note:'Apollo4 in 1µA sleep\nMonitoring wakeup trigger\nAll other rails off', side:'bot' },
+    ],
+  },
+  wake: {
+    title: 'Wake-up sequence (from deep sleep)',
+    duration_ms: 180,
+    ramps: [
+      { rail:'5v',  t0:0,   t1:5,   dir:1, hold:1 },
+      { rail:'aon', t0:0,   t1:5,   dir:1, hold:1 },
+      { rail:'09v', t0:10,  t1:35,  dir:1 },
+      { rail:'18v', t0:40,  t1:65,  dir:1 },
+      { rail:'33v', t0:42,  t1:72,  dir:1 },
+    ],
+    events:[
+      { t:0,   label:'Wakeup trigger', color:'#00ff88', note:'GPIO or RTC alarm wakes Apollo4\nExits 1µA deep sleep (3ms)', side:'top' },
+      { t:8,   label:'Rail check', color:'#00ff88', note:'Apollo4 reads PMIC I2C\nVerifies solar/bat voltage OK', side:'bot' },
+      { t:10,  label:'EN_FPGA', color:'#ff6644', note:'VCCINT ramp starts', side:'top' },
+      { t:35,  label:'VCCINT PG', color:'#ff6644', note:'Power-good asserts\n5ms hold before VCCO', side:'bot' },
+      { t:40,  label:'EN_MCU + VCCO', color:'#aa66ff', note:'1.8V and 3.3V ramp together', side:'top' },
+      { t:72,  label:'All rails stable', color:'#00d4ff', note:'SDRAM 200µs init begins', side:'bot' },
+      { t:90,  label:'SE re-validate', color:'#00ff88', note:'Boot attestation re-runs\nEven on wake — zero trust', side:'top' },
+      { t:130, label:'MCU resumes', color:'#00d4ff', note:'Restores state from MRAM\nFPGA reloads bitstream', side:'bot' },
+    ],
+  },
+  shutdown: {
+    title: 'Controlled shutdown sequence',
+    duration_ms: 120,
+    ramps: [
+      { rail:'5v',  t0:0,  t1:5,  dir:1, hold:1 },
+      { rail:'aon', t0:0,  t1:5,  dir:1, hold:1 },
+      { rail:'09v', t0:0,  t1:5,  dir:1, hold:1 },
+      { rail:'18v', t0:0,  t1:5,  dir:1, hold:1 },
+      { rail:'33v', t0:0,  t1:5,  dir:1, hold:1 },
+      { rail:'33v', t0:15, t1:35, dir:-1 },
+      { rail:'18v', t0:20, t1:40, dir:-1 },
+      { rail:'09v', t0:45, t1:65, dir:-1 },
+      { rail:'aon', t0:80, t1:100,dir:-1 },
+    ],
+    events:[
+      { t:5,   label:'System running', color:'#00d4ff', note:'All rails stable', side:'top' },
+      { t:10,  label:'Flush + halt', color:'#00d4ff', note:'MCU writes critical state to MRAM\nHalts CPU, disables clocks', side:'bot' },
+      { t:15,  label:'3V3 ramps down', color:'#00d4ff', note:'MCU, SE, SDRAM VDD off\nRadio already off (EN_RADIO LOW)', side:'top' },
+      { t:20,  label:'1V8 ramps down', color:'#aa66ff', note:'FPGA VCCO, SDRAM VDDQ off', side:'bot' },
+      { t:45,  label:'VCCINT off', color:'#ff6644', note:'FPGA core off — VCCO has been\n<50mV for ≥5ms: safe to cut', side:'top' },
+      { t:80,  label:'AON shutdown', color:'#00ff88', note:'Apollo4 writes shutdown flag\nCuts own LDO last\nBoard fully dead', side:'bot' },
+      { t:100, label:'All rails off', color:'#ffaa00', note:'Only VSTOR cap energy remaining\nLeakage path only', side:'top' },
+    ],
+  },
+};
+
+// ═══════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════
+let currentSeq = 'boot';
+let zoom = 1;
+let animT = 0;
+let animRunning = false;
+let animRAF = null;
+
+// ═══════════════════════════════════════════
+//  RENDER SIDEBAR
+// ═══════════════════════════════════════════
+function renderSidebar() {
+  document.getElementById('rail-list').innerHTML = RAILS.map(r => `
+    <div class="rail-item">
+      <div class="rail-swatch" style="background:${r.color}"></div>
+      <div class="rail-info">
+        <div class="rail-name">${r.name}</div>
+        <div class="rail-chip">${r.chip}</div>
+      </div>
+      <div class="rail-val" style="color:${r.color}">${r.volt}V</div>
+    </div>`).join('');
+
+  const seq = SEQS[currentSeq];
+  document.getElementById('ev-list').innerHTML = seq.events.map(e => `
+    <div class="ev-item" onclick="jumpTo(${e.t})">
+      <div class="ev-time" style="color:${e.color}">t = ${e.t} ms</div>
+      <div class="ev-name">${e.label}</div>
+      <div class="ev-note">${e.note.replace(/\n/g,'<br>')}</div>
+    </div>`).join('');
+}
+
+// ═══════════════════════════════════════════
+//  CANVAS DRAW
+// ═══════════════════════════════════════════
+const canvas = document.getElementById('timing');
+const ctx = canvas.getContext('2d');
+
+const ROW_H    = 72;
+const LABEL_W  = 150;
+const PAD_TOP  = 40;
+const PAD_BOT  = 30;
+
+function resize() {
+  const wrap = document.getElementById('diag');
+  canvas.width  = wrap.clientWidth;
+  canvas.height = wrap.clientHeight;
+  draw();
+}
+
+function getRailState(rail, t_ms, seq) {
+  // Returns 0..1 value for this rail at time t
+  let val = 0;
+  for (const ramp of seq.ramps) {
+    if (ramp.rail !== rail) continue;
+    if (t_ms < ramp.t0) continue;
+    if (ramp.dir === 1) {
+      if (t_ms >= ramp.t1) { val = ramp.hold ? val : 1; val = 1; }
+      else val = (t_ms - ramp.t0) / (ramp.t1 - ramp.t0);
+    } else {
+      if (t_ms >= ramp.t1) val = 0;
+      else val = 1 - (t_ms - ramp.t0) / (ramp.t1 - ramp.t0);
+    }
+  }
+  return Math.max(0, Math.min(1, val));
+}
+
+function draw(playhead_ms) {
+  const seq   = SEQS[currentSeq];
+  const dur   = seq.duration_ms;
+  const W     = canvas.width;
+  const H     = canvas.height;
+  const chartW = (W - LABEL_W - 20) * zoom;
+  const chartH = H - PAD_TOP - PAD_BOT;
+  const rowH  = Math.min(ROW_H, chartH / RAILS.length);
+
+  ctx.clearRect(0, 0, W, H);
+
+  // Background
+  ctx.fillStyle = '#080b10';
+  ctx.fillRect(0, 0, W, H);
+
+  // Grid lines (time ticks)
+  const tickInterval = pickTickInterval(dur);
+  ctx.save();
+  ctx.strokeStyle = '#1c2333';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([4,4]);
+  for (let t = 0; t <= dur; t += tickInterval) {
+    const x = LABEL_W + (t / dur) * (W - LABEL_W - 20);
+    ctx.beginPath(); ctx.moveTo(x, PAD_TOP - 10); ctx.lineTo(x, H - PAD_BOT); ctx.stroke();
+    // Tick label
+    ctx.setLineDash([]);
+    ctx.fillStyle = '#303d55';
+    ctx.font = `9px 'JetBrains Mono',monospace`;
+    ctx.textAlign = 'center';
+    ctx.fillText(`${t}ms`, x, PAD_TOP - 2);
+    ctx.setLineDash([4,4]);
+  }
+  ctx.restore();
+
+  // Rail waveforms
+  for (let ri = 0; ri < RAILS.length; ri++) {
+    const rail  = RAILS[ri];
+    const y0    = PAD_TOP + ri * rowH;
+    const waveH = rowH * 0.55;
+    const baseline = y0 + rowH * 0.85;
+
+    // Label
+    ctx.save();
+    ctx.fillStyle = rail.color;
+    ctx.font = `bold 10px 'JetBrains Mono',monospace`;
+    ctx.textAlign = 'right';
+    ctx.fillText(rail.name, LABEL_W - 10, baseline - waveH / 2 + 4);
+    ctx.fillStyle = '#303d55';
+    ctx.font = `9px 'JetBrains Mono',monospace`;
+    ctx.fillText(`${rail.volt}V`, LABEL_W - 10, baseline - waveH / 2 + 16);
+    ctx.restore();
+
+    // Waveform
+    const chartW2 = W - LABEL_W - 20;
+    const steps = Math.min(chartW2, 400);
+    ctx.save();
+    ctx.beginPath();
+    for (let s = 0; s <= steps; s++) {
+      const t = (s / steps) * dur;
+      const v = getRailState(rail.id, t, seq);
+      const x = LABEL_W + (t / dur) * chartW2;
+      const y = baseline - v * waveH;
+      s === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = rail.color;
+    ctx.lineWidth = 2.5;
+    ctx.lineJoin = 'round';
+    ctx.stroke();
+
+    // Fill under waveform
+    ctx.lineTo(LABEL_W + chartW2, baseline);
+    ctx.lineTo(LABEL_W, baseline);
+    ctx.closePath();
+    ctx.fillStyle = rail.color + '18';
+    ctx.fill();
+
+    // Baseline tick
+    ctx.strokeStyle = '#1c2333';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(LABEL_W, baseline);
+    ctx.lineTo(W - 20, baseline);
+    ctx.stroke();
+
+    ctx.restore();
+  }
+
+  // Event annotations
+  const chartW3 = W - LABEL_W - 20;
+  for (const ev of seq.events) {
+    const x = LABEL_W + (ev.t / dur) * chartW3;
+    const isTop = ev.side === 'top';
+
+    ctx.save();
+    // Vertical line
+    ctx.strokeStyle = ev.color + '80';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([3,3]);
+    ctx.beginPath();
+    ctx.moveTo(x, PAD_TOP - 8);
+    ctx.lineTo(x, H - PAD_BOT);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Diamond marker
+    ctx.fillStyle = ev.color;
+    const dy = isTop ? PAD_TOP - 6 : H - PAD_BOT + 4;
+    ctx.beginPath();
+    ctx.moveTo(x, dy - 5);
+    ctx.lineTo(x + 4, dy);
+    ctx.lineTo(x, dy + 5);
+    ctx.lineTo(x - 4, dy);
+    ctx.closePath();
+    ctx.fill();
+
+    // Label pill
+    const labelY = isTop ? PAD_TOP - 22 : H - PAD_BOT + 18;
+    ctx.font = `bold 9px 'JetBrains Mono',monospace`;
+    const tw = ctx.measureText(ev.label).width;
+    const px = Math.max(LABEL_W + 4, Math.min(x - tw/2, W - 24 - tw));
+    ctx.fillStyle = ev.color + '22';
+    roundRect2(ctx, px - 4, labelY - 11, tw + 8, 14, 3);
+    ctx.fill();
+    ctx.strokeStyle = ev.color + '55';
+    ctx.lineWidth = 0.5;
+    roundRect2(ctx, px - 4, labelY - 11, tw + 8, 14, 3);
+    ctx.stroke();
+    ctx.fillStyle = ev.color;
+    ctx.fillText(ev.label, px, labelY);
+
+    ctx.restore();
+  }
+
+  // Playhead
+  if (playhead_ms !== undefined) {
+    const x = LABEL_W + (playhead_ms / dur) * chartW3;
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255,255,255,0.6)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(x, 0); ctx.lineTo(x, H);
+    ctx.stroke();
+    ctx.fillStyle = 'rgba(255,255,255,0.8)';
+    ctx.font = `bold 10px 'JetBrains Mono',monospace`;
+    ctx.textAlign = 'center';
+    ctx.fillText(`${Math.round(playhead_ms)}ms`, x, 12);
+    ctx.restore();
+  }
+}
+
+function roundRect2(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x+r,y); ctx.lineTo(x+w-r,y); ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+  ctx.lineTo(x+w,y+h-r); ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+  ctx.lineTo(x+r,y+h); ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+  ctx.lineTo(x,y+r); ctx.quadraticCurveTo(x,y,x+r,y);
+  ctx.closePath();
+}
+
+function pickTickInterval(dur) {
+  if (dur <= 50)  return 5;
+  if (dur <= 100) return 10;
+  if (dur <= 250) return 25;
+  return 50;
+}
+
+// ═══════════════════════════════════════════
+//  INTERACTIONS
+// ═══════════════════════════════════════════
+function setSeq(id, btn) {
+  currentSeq = id;
+  stopAnim();
+  document.querySelectorAll('.ctrl-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  renderSidebar();
+  draw();
+}
+
+function setZoom(v) {
+  zoom = parseFloat(v);
+  document.getElementById('zoom-val').textContent = parseFloat(v).toFixed(1) + '×';
+  draw();
+}
+
+function jumpTo(t) {
+  draw(t);
+}
+
+let hoverX = 0;
+function moveCursor(e) {
+  const rect = document.getElementById('diag').getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const cur = document.getElementById('cur');
+  const tip = document.getElementById('tip');
+  cur.style.display = 'block';
+  cur.style.left = x + 'px';
+
+  const seq = SEQS[currentSeq];
+  const chartW = canvas.width - LABEL_W - 20;
+  const t = Math.max(0, ((x - LABEL_W) / chartW) * seq.duration_ms);
+  if (x < LABEL_W) { tip.style.display='none'; return; }
+
+  // Rail values at cursor
+  const lines = RAILS.map(r => {
+    const v = getRailState(r.id, t, seq);
+    const volts = (v * parseFloat(r.volt)).toFixed(2);
+    return `<span style="color:${r.color}">${r.id.padEnd(5)}</span>  ${volts}V`;
+  }).join('\n');
+
+  tip.style.display = 'block';
+  tip.style.left = (x + 12) + 'px';
+  tip.style.top = '40px';
+  tip.innerHTML = `<div style="color:#6478a0;margin-bottom:4px">t = ${t.toFixed(1)} ms</div>` +
+    lines.split('\n').map(l=>`<div>${l}</div>`).join('');
+}
+
+function hideCursor() {
+  document.getElementById('cur').style.display = 'none';
+  document.getElementById('tip').style.display = 'none';
+}
+
+// Animate playhead
+function toggleAnim() {
+  if (animRunning) { stopAnim(); return; }
+  animRunning = true;
+  const seq = SEQS[currentSeq];
+  const dur = seq.duration_ms;
+  animT = 0;
+  const speed = 60; // ms of sequence time per second
+  let last = null;
+  function step(ts) {
+    if (!animRunning) return;
+    if (last) animT += (ts - last) / 1000 * speed;
+    last = ts;
+    if (animT >= dur) { animT = dur; stopAnim(); draw(); return; }
+    draw(animT);
+    animRAF = requestAnimationFrame(step);
+  }
+  animRAF = requestAnimationFrame(step);
+}
+
+function stopAnim() {
+  animRunning = false;
+  if (animRAF) cancelAnimationFrame(animRAF);
+}
+
+// ═══════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════
+renderSidebar();
+resize();
+window.addEventListener('resize', resize);
+</script>
+</body>
+</html>
