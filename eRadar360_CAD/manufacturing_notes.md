@@ -162,4 +162,4 @@
 
 ---
 
-*Document: ERAD360-MFG-001 Rev A | Date: 2026-04-15 | embeddedOS.org*
+*Document: ERAD360-MFG-001 Rev A | Date: 2026-04-15 | EmbeddedOS*

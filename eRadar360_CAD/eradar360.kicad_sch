@@ -5,7 +5,7 @@
     (title "eRadar360 / Aegis One — Main Schematic")
     (date "2026-04-15")
     (rev "A")
-    (company "embeddedOS.org")
+    (company "EmbeddedOS")
     (comment 1 "Next-Generation Driver Awareness System")
     (comment 2 "120mm x 85mm, 10-layer hybrid PCB")
     (comment 3 "ERAD360-SCH-001 Rev A")

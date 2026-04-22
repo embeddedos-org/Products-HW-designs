@@ -109,4 +109,4 @@ Your car knows your speed, cruise state, and lane. Feeding this into alert logic
 
 ## License
 
-Proprietary — embeddedOS.org
+Proprietary — EmbeddedOS
