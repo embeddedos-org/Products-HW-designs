@@ -44,8 +44,8 @@ The ULP-SSN is a space-grade compute and sensor fusion board designed for the eP
 
 | Product | Role |
 |---------|------|
-| [ePAM Space Shuttle](../ePAM_CAD_Design/space_shuttle/) | Primary avionics: sensor fusion, trajectory, RCS, telemetry |
-| [ePAM Combo Unit](../ePAM_CAD_Design/combo_unit/) | Space-mode avionics: same role during trans-atmospheric flight |
+| [ePAM Space Shuttle](../) | Primary avionics: sensor fusion, trajectory, RCS, telemetry |
+| [ePAM Combo Unit](../../combo_unit/) | Space-mode avionics: same role during trans-atmospheric flight |
 
 ## 12-Layer PCB Stackup
 

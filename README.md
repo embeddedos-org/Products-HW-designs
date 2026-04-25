@@ -12,7 +12,6 @@ Hardware designs, EE documentation, and board datasheets for EmbeddedOS products
 | Product | Description | Status |
 |---------|-------------|--------|
 | `eRadar360_CAD/` | Next-gen driver awareness radar system — 120mm × 85mm, 10-layer hybrid PCB | Active |
-| `ePower_sequencing_family_CAD/` | Power sequencing and management board family | Active |
 | `eHealth365_CAD_Design/` | Two-device health monitoring system — Smart Ring Pro + Smart Patch Pro with 3D models | Active |
 | `ePAM_CAD_Design/` | Personal Air Mobility — 4 solar-hybrid vehicles (Urban Drone, Space Shuttle, Eco Car, Combo Unit) | Active |
 

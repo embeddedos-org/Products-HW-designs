@@ -85,7 +85,7 @@ The Space Shuttle is a 4-seat suborbital vehicle for space tourism and point-to-
 
 ## Avionics Board — ULP-SSN (ePower Sequencing Family)
 
-The Space Shuttle avionics are built on the **ULP-SSN** (Ultra-Low Power Space Sensor Node) board from the `ePower_sequencing_family_CAD/` product in this repo.
+The Space Shuttle avionics are built on the **ULP-SSN** (Ultra-Low Power Space Sensor Node) board from the `ePAM_CAD_Design/space_shuttle/avionics_ulp_ssn/` product in this repo.
 
 ### ULP-SSN Board Specifications
 
@@ -138,7 +138,7 @@ The ULP-SSN board's power sequencing is critical for space operations:
 
 ### Cross-Reference
 
-See full board design: [`ePower_sequencing_family_CAD/`](../ePower_sequencing_family_CAD/)
+See full board design: [`ePAM_CAD_Design/space_shuttle/avionics_ulp_ssn/`](avionics_ulp_ssn/)
 - `ulp_ssn.net` — Full netlist (FPGA + MCU + radio + power)
 - `ulp_ssn_schematic.html` — Interactive schematic viewer
 - `power_sequencing.html` — Timing diagrams (boot/sleep/wake/shutdown)
