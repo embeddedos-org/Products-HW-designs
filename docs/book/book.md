@@ -1,3 +1,14 @@
+---
+title: "eHardware Designs & Products — Official Reference Guide"
+author: "Srikanth Patchava & EmbeddedOS Contributors"
+date: "April 2026"
+version: "v1.0.0"
+bibliography: references.bib
+csl: ieee.csl
+titlepage: true
+titlepage-background: "cover.png"
+---
+
 <!-- eHardware — EmbeddedOS Hardware Design Products: Product Reference -->
 <!-- Generated: April 2026 -->
 
@@ -37,8 +48,8 @@ for engineers, designers, product managers, and manufacturing partners working w
 the eHardware ecosystem.
 
 The EmbeddedOS organization develops a vertically integrated hardware-software
-platform spanning automotive radar, wearable health monitoring, and personal air
-mobility. Each product line is designed from first principles with full KiCad
+platform spanning automotive radar [@skolnik2008], wearable [@patel2012] health monitoring, and personal air
+mobility. Each product line is designed from first principles with full KiCad [@kicad_eda]
 schematics, netlists, PCB layouts, 3D mechanical models, bills of materials, and
 production-ready manufacturing documentation.
 
@@ -55,7 +66,7 @@ This reference covers three major product lines:
    90% of all measurable health metrics.
 
 3. **ePAM** — The Personal Air Mobility platform, consisting of four vehicle types: Eco Car,
-   Urban Drone eVTOL, Space Shuttle, and Combo Unit, unified by a shared power architecture
+   Urban Drone eVTOL, Space Shuttle, and Combo Unit, unified by a shared power [@erickson2005] architecture
    and the ULP-SSN avionics board.
 
 Each chapter provides detailed hardware specifications, schematic descriptions, BOM
@@ -193,7 +204,7 @@ All eHardware products follow these core design principles:
 3. **Thermal Management:** Thermal simulations and heat dissipation strategies are
    integral to every PCB layout.
 
-4. **EMC Compliance:** Electromagnetic compatibility is addressed at the schematic
+4. **EMC [@paul2006] Compliance:** Electromagnetic compatibility is addressed at the schematic
    level through proper grounding, shielding, and filtering.
 
 5. **Supply Chain Resilience:** BOMs include alternate components and second-source
@@ -257,7 +268,7 @@ The eRadar360 system consists of the following major subsystems:
 ### 2.3.2 10-Layer Hybrid Stackup
 
 The eRadar360 uses a 10-layer hybrid PCB stackup optimized for high-frequency
-RF signal integrity and mixed-signal isolation:
+RF signal integrity [@johnson2003] and mixed-signal isolation:
 
 | Layer | Name | Type | Material | Thickness (µm) | Purpose |
 |-------|------|------|----------|-----------------|---------|
@@ -1025,7 +1036,7 @@ with flight-specific firmware:
 
 The Space Shuttle is a 4-seat suborbital vehicle capable of reaching 100 km altitude
 (the Kármán line). It uses a solar-thermal rocket propulsion system and is controlled
-by the ULP-SSN avionics platform — a 12-layer IPC-6012 Class 3 space/military-grade
+by the ULP-SSN avionics platform — a 12-layer IPC [@ipc2221]-6012 Class 3 space/military-grade
 circuit board.
 
 ## 8.2 Vehicle Specifications
@@ -2229,3 +2240,8 @@ Radiation tolerance: 50 krad TID
 *By Srikanth Patchava & EmbeddedOS Contributors*
 *April 2026 — First Edition*
 *© EmbeddedOS Organization. All rights reserved.*
+
+## References
+
+::: {#refs}
+:::
