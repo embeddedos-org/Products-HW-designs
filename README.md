@@ -1,6 +1,9 @@
 # Products-HW-designs
 
 [![License](https://img.shields.io/badge/license-Proprietary-red)](LICENSE)
+[![CI](https://github.com/embeddedos-org/Products-HW-designs/actions/workflows/ci.yml/badge.svg)](https://github.com/embeddedos-org/Products-HW-designs/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/embeddedos-org/Products-HW-designs/actions/workflows/codeql.yml/badge.svg)](https://github.com/embeddedos-org/Products-HW-designs/actions/workflows/codeql.yml)
+[![Scorecard](https://github.com/embeddedos-org/Products-HW-designs/actions/workflows/scorecard.yml/badge.svg)](https://github.com/embeddedos-org/Products-HW-designs/actions/workflows/scorecard.yml)
 
 Hardware designs, EE documentation, and board datasheets for EmbeddedOS products.
 
@@ -79,3 +82,11 @@ Production hardware **must** disable all debug interfaces to prevent unauthorize
 ## License
 
 Proprietary — see individual product directories for details.
+
+## Contributing
+
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+
+
+---
+Part of the [EmbeddedOS Organization](https://embeddedos-org.github.io).
