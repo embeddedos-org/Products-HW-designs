@@ -61,6 +61,9 @@ production-ready manufacturing documentation.
 
 ## Scope of This Book
 
+
+![Figure: eHardware-Designs-Products — 3D Product Visualization](images/product-3d.png)
+
 This reference covers three major product lines:
 
 1. **eRadar360** — A 120mm × 85mm automotive driver awareness radar with a 10-layer
