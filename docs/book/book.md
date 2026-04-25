@@ -18,6 +18,9 @@ titlepage-background: "cover.png"
 
 ## Product Reference
 
+![Figure: eHardware System Architecture — PCB design through manufacturing](images/architecture.png)
+
+
 **By Srikanth Patchava & EmbeddedOS Contributors**
 
 **April 2026 — First Edition**
