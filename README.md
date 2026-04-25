@@ -4,6 +4,7 @@
 [![CodeQL](https://github.com/embeddedos-org/eHardware-Designs-Products/actions/workflows/codeql.yml/badge.svg)](https://github.com/embeddedos-org/eHardware-Designs-Products/actions/workflows/codeql.yml)
 [![Scorecard](https://github.com/embeddedos-org/eHardware-Designs-Products/actions/workflows/scorecard.yml/badge.svg)](https://github.com/embeddedos-org/eHardware-Designs-Products/actions/workflows/scorecard.yml)
 [![License](https://img.shields.io/badge/license-Proprietary-red)](LICENSE)
+[![Book](https://github.com/embeddedos-org/eHardware-Designs-Products/actions/workflows/book-build.yml/badge.svg)](https://github.com/embeddedos-org/eHardware-Designs-Products/actions/workflows/book-build.yml)
 
 Hardware designs, schematics, PCB layouts, 3D models, BOMs, and product datasheets for the EmbeddedOS hardware product line.
 
