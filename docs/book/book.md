@@ -240,6 +240,10 @@ The eHardware designs integrate with several companion repositories:
 
 # Chapter 2: eRadar360 — Driver Awareness Radar
 
+> **Note:** The eRadar360 design files (schematics, BOM, PCB layout) have moved to a standalone repository:
+> [embeddedos-org/eRadar360_CAD](https://github.com/embeddedos-org/eRadar360_CAD).
+> The documentation below is retained for reference.
+
 ## 2.1 Product Overview
 
 The eRadar360 is a compact, high-performance millimeter-wave radar module designed

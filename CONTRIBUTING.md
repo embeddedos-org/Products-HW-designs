@@ -1,4 +1,4 @@
-# Contributing to Products-HW-designs
+# Contributing to eHardware-Designs-Products
 
 Thank you for your interest in contributing!
 
@@ -13,8 +13,8 @@ Thank you for your interest in contributing!
 ## Development Setup
 
 ```bash
-git clone https://github.com/embeddedos-org/Products-HW-designs.git
-cd Products-HW-designs
+git clone https://github.com/embeddedos-org/eHardware-Designs-Products.git
+cd eHardware-Designs-Products
 cmake -B build
 cmake --build build
 ctest --test-dir build --output-on-failure

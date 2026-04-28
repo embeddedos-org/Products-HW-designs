@@ -12,16 +12,12 @@ Hardware designs, schematics, PCB layouts, 3D models, BOMs, and product datashee
 
 | Product | Description | Devices | Status |
 |---------|-------------|---------|--------|
-| [`eRadar360_CAD/`](eRadar360_CAD/) | Next-gen driver awareness radar — 120mm x 85mm, 10-layer hybrid PCB | 1 board | Active |
-| [`eHealth365_CAD_Design/`](eHealth365_CAD_Design/) | Two-device health monitoring — Smart Ring Pro + Smart Patch Pro with 3D models, mobile app | 2 wearables + app | Active |
-| [`ePAM_CAD_Design/`](ePAM_CAD_Design/) | Personal Air Mobility — 4 solar-hybrid vehicles (Urban Drone, Space Shuttle, Eco Car, Combo Unit) + mobile app | 4 vehicles + app | Active |
+| [\Health365_CAD_Design/\](eHealth365_CAD_Design/) | Two-device health monitoring — Smart Ring Pro + Smart Patch Pro with 3D models, mobile app | 2 wearables + app | Active |
+| [\PAM_CAD_Design/\](ePAM_CAD_Design/) | Personal Air Mobility — 4 solar-hybrid vehicles (Urban Drone, Space Shuttle, Eco Car, Combo Unit) + mobile app | 4 vehicles + app | Active |
+
+> **Note:** eRadar360 has moved to its own repository: [embeddedos-org/eRadar360_CAD](https://github.com/embeddedos-org/eRadar360_CAD)
 
 ## Product Summary
-
-### eRadar360 — Driver Awareness Radar
-- 120mm x 85mm, 10-layer hybrid PCB
-- Radar sensor array for automotive ADAS
-- Full KiCad schematics, BOM, pick-and-place, antenna design
 
 ### eHealth365 — Health Monitoring System
 - **Smart Ring Pro**: Titanium ring, 2.5mm wide, 4g — HR/HRV, SpO2, temperature, accelerometer, ketone breath port, skin conductance
@@ -30,10 +26,10 @@ Hardware designs, schematics, PCB layouts, 3D models, BOMs, and product datashee
 - Coverage: ~90% of all health metrics with 2 devices
 
 ### ePAM — Personal Air Mobility
-- **Eco Car**: 4-5 seat solar-hybrid ground vehicle, $28-45K, 500-900km range
-- **Urban Drone**: 4-seat eVTOL, $85-120K, 300-500km range, 8x tilt-rotors
-- **Space Shuttle**: 4-seat suborbital, $2-4M, 100km altitude, solar-thermal rocket
-- **Combo Unit**: 4-seat trans-atmospheric, $5-9M, drone-to-space in one vehicle
+- **Eco Car**: 4-5 seat solar-hybrid ground vehicle, \-45K, 500-900km range
+- **Urban Drone**: 4-seat eVTOL, \-120K, 300-500km range, 8x tilt-rotors
+- **Space Shuttle**: 4-seat suborbital, \-4M, 100km altitude, solar-thermal rocket
+- **Combo Unit**: 4-seat trans-atmospheric, \-9M, drone-to-space in one vehicle
 - **ULP-SSN Avionics**: 12-layer IPC-6012 Class 3 Space/Military board (Kintex FPGA + Apollo4 MCU)
 - Tesla-like mobile app: single app controls all 4 vehicles
 - Shared power architecture: solar + H2 fuel cell + solid-state battery + kinetic regen
@@ -44,35 +40,20 @@ Each product directory contains:
 
 | File Type | Description | Extension |
 |-----------|-------------|-----------|
-| **Schematics** | Full KiCad electrical schematics | `.kicad_sch` |
-| **Netlists** | Component connectivity data | `.net` |
-| **PCB stackup** | Layer definitions, materials, impedance | `.txt` |
-| **BOM** | Bill of materials with costs | `.csv` |
-| **Product datasheet** | Complete specifications | `.md` |
-| **Manufacturing notes** | Assembly, QC, production instructions | `.md` |
-| **3D models** | Mechanical design specs & exploded views | `.md` |
-| **Interactive schematics** | Browser-viewable schematic diagrams | `.html` |
-| **Business plans** | Cost analysis, go-to-market, regulatory | `.md` |
-| **App architecture** | Mobile app UI specs & tech stack | `.md` |
+| **Schematics** | Full KiCad electrical schematics | \.kicad_sch\ |
+| **Netlists** | Component connectivity data | \.net\ |
+| **PCB stackup** | Layer definitions, materials, impedance | \.txt\ |
+| **BOM** | Bill of materials with costs | \.csv\ |
+| **Product datasheet** | Complete specifications | \.md\ |
+| **Manufacturing notes** | Assembly, QC, production instructions | \.md\ |
+| **3D models** | Mechanical design specs & exploded views | \.md\ |
+| **Interactive schematics** | Browser-viewable schematic diagrams | \.html\ |
+| **Business plans** | Cost analysis, go-to-market, regulatory | \.md\ |
+| **App architecture** | Mobile app UI specs & tech stack | \.md\ |
 
 ## Repository Structure
 
-```
-eHardware-Designs-Products/
-├── eRadar360_CAD/
-│   ├── eradar360.kicad_sch              KiCad schematic
-│   ├── eradar360.net                    Netlist
-│   ├── eradar360_schematic.html         Interactive schematic
-│   ├── pcb_stackup.txt                  10-layer stackup
-│   ├── bom.csv                          Bill of materials
-│   ├── pick_and_place.csv               Pick-and-place coordinates
-│   ├── decoupling_cap_map.csv           Decoupling capacitor map
-│   ├── antenna_design.md                RF antenna design
-│   ├── product_datasheet.md             Full specifications
-│   ├── bring_up_guide.md                Board power-on testing
-│   ├── manufacturing_notes.md           Assembly instructions
-│   └── power_sequencing.html            Power timing diagrams
-│
+\eHardware-Designs-Products/
 ├── eHealth365_CAD_Design/
 │   ├── smart_ring_pro/                  Smart Ring Pro (finger, 24/7)
 │   │   ├── ring_schematic.kicad_sch
@@ -124,45 +105,42 @@ eHardware-Designs-Products/
 ├── CODE_OF_CONDUCT.md
 ├── SECURITY.md
 └── CODEOWNERS
-```
-
+\
 ## Requirements
 
 - [KiCad](https://www.kicad.org/) 7.0+ for schematic and PCB viewing/editing
 - Python 3.10+ for automated design scripts
-- Web browser for interactive schematic viewers (`.html` files)
+- Web browser for interactive schematic viewers (\.html\ files)
 
 ## Getting Started
 
-```bash
+\\ash
 # Clone the repository
 git clone https://github.com/embeddedos-org/eHardware-Designs-Products.git
 cd eHardware-Designs-Products
 
 # Open a schematic in KiCad
-kicad eRadar360_CAD/eradar360.kicad_sch
+kicad eHealth365_CAD_Design/smart_ring_pro/ring_schematic.kicad_sch
 
 # View interactive schematics in browser
-open eRadar360_CAD/eradar360_schematic.html
 open ePAM_CAD_Design/space_shuttle/avionics_ulp_ssn/ulp_ssn_schematic.html
 
 # View power sequencing timing diagrams
 open ePAM_CAD_Design/space_shuttle/avionics_ulp_ssn/power_sequencing.html
-```
-
+\
 ## CI/CD — CAD Validation
 
 The CI pipeline automatically validates all design files on every push and PR:
 
 | Check | What It Validates |
 |-------|------------------|
-| **KiCad schematic syntax** | Parses all `.kicad_sch` files for valid S-expression syntax |
-| **Netlist consistency** | Validates `.net` files for proper component references |
-| **BOM completeness** | Checks all `.csv` BOMs have required columns (Reference, Description, Qty) |
-| **PCB stackup** | Validates layer count and thickness definitions in `.txt` stackup files |
-| **Documentation** | Checks all product directories have a `product_datasheet.md` |
+| **KiCad schematic syntax** | Parses all \.kicad_sch\ files for valid S-expression syntax |
+| **Netlist consistency** | Validates \.net\ files for proper component references |
+| **BOM completeness** | Checks all \.csv\ BOMs have required columns (Reference, Description, Qty) |
+| **PCB stackup** | Validates layer count and thickness definitions in \.txt\ stackup files |
+| **Documentation** | Checks all product directories have a \product_datasheet.md\ |
 | **Markdown links** | Validates internal cross-references between docs |
-| **HTML schematics** | Checks `.html` files are valid and loadable |
+| **HTML schematics** | Checks \.html\ files are valid and loadable |
 | **CSV format** | Validates BOM and pick-and-place CSV formatting |
 | **File size** | Ensures no accidentally committed large binary files |
 
@@ -170,6 +148,7 @@ The CI pipeline automatically validates all design files on every push and PR:
 
 | Repo | Relationship |
 |------|-------------|
+| [eRadar360_CAD](https://github.com/embeddedos-org/eRadar360_CAD) | Driver awareness radar hardware design (standalone repo) |
 | [eos](https://github.com/embeddedos-org/eos) | Embedded firmware for all hardware products |
 | [eAI](https://github.com/embeddedos-org/eAI) | AI inference for wearable health scoring & autonomous flight |
 | [eNI](https://github.com/embeddedos-org/eNI) | Neural interface for biosignal processing (eHealth365) |

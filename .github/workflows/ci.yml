@@ -176,7 +176,6 @@ jobs:
         run: |
           ERRORS=0
           PRODUCTS=(
-            "eRadar360_CAD"
             "eHealth365_CAD_Design/smart_ring_pro"
             "eHealth365_CAD_Design/smart_patch_pro"
             "ePAM_CAD_Design/eco_car"
@@ -198,7 +197,6 @@ jobs:
 
       - name: Check product READMEs exist
         run: |
-          for dir in eRadar360_CAD eHealth365_CAD_Design ePAM_CAD_Design; do
             if [ -f "$dir/README.md" ]; then
               echo "OK: $dir/README.md"
             else
