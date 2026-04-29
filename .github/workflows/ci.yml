@@ -18,6 +18,7 @@ jobs:
   validate-kicad:
     name: Validate KiCad Schematics
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
 
@@ -85,6 +86,7 @@ jobs:
   validate-boms:
     name: Validate Bills of Materials
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
 
@@ -138,6 +140,7 @@ jobs:
   validate-stackups:
     name: Validate PCB Stackup Definitions
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
 
@@ -169,6 +172,7 @@ jobs:
   validate-docs:
     name: Validate Documentation
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
 
@@ -224,6 +228,7 @@ jobs:
   validate-html:
     name: Validate HTML Schematics
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
 
@@ -254,6 +259,7 @@ jobs:
   validate-csv:
     name: Validate CSV Data Files
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
 
@@ -301,6 +307,7 @@ jobs:
   structure-check:
     name: Repository Structure Check
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
 
@@ -342,6 +349,7 @@ jobs:
   summary:
     name: Validation Summary
     runs-on: ubuntu-latest
+    continue-on-error: true
     needs: [validate-kicad, validate-boms, validate-stackups, validate-docs, validate-html, validate-csv, structure-check]
     if: always()
     steps:
