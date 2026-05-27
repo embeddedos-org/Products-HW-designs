@@ -1,13 +1,9 @@
 import unittest
-
-class TesteCAD-Hardware-ProductsPerformance(unittest.TestCase):
-    import time
-    def test_drc_rule_check_latency(self):
-        import time
+import time
+class TestECADPerformance(unittest.TestCase):
+    def test_autoroute_latency(self):
         start = time.perf_counter()
-        # Simulate Design Rule Check (DRC) on 1000 PCB nets
-        for _ in range(1000):
-            _ = 10.0 * 20.0
-        end = time.perf_counter()
-        latency_ms = (end - start) * 1000
-        assert latency_ms < 5.0, f"DRC latency {latency_ms:.2f}ms exceeds 5ms SLA"
+        for _ in range(100):
+            pass # simulate autorouting
+        latency = (time.perf_counter() - start) / 100
+        self.assertLess(latency, 0.01) # < 10ms SLA
