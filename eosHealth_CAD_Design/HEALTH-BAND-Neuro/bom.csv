@@ -1,0 +1,39 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,STM32H743,LQFP176,STMicroelectronics,STM32H743VIT6,ARM Cortex-M7 480MHz application MCU,9.80,9.80,Mouser
+U2,1,nRF5340,QFN73,Nordic Semiconductor,nRF5340-QKAA-R7,Dual-core BLE SoC,6.50,6.50,Mouser
+U3,1,ADS1293,TQFP32,Texas Instruments,ADS1293IPAP,3-channel ECG AFE 24-bit,8.50,8.50,Mouser
+U4,1,ADS1299,TQFP64,Texas Instruments,ADS1299IPAGR,8-channel EEG AFE 24-bit,18.50,18.50,Mouser
+U5,1,AD8232,LFCSP20,Analog Devices,AD8232ACPZ-R7,Single-lead heart rate monitor AFE,3.20,3.20,Mouser
+U6,1,MAX86141,OLGA14,Maxim Integrated,MAX86141EFF+T,Optical PPG + SpO2 AFE,4.20,4.20,Mouser
+U7,1,M10,LCC,u-blox,M10050-KB,GNSS module GPS+GLONASS+Galileo,8.90,8.90,Mouser
+U8,1,DRV8833,WSON16,Texas Instruments,DRV8833PWPR,H-bridge motor driver (TENS output),1.45,1.45,Mouser
+U9,1,BMI270,LGA14,Bosch Sensortec,BMI270,6-axis IMU,1.85,1.85,Mouser
+U10,1,W25Q256JV,SOIC8,Winbond,W25Q256JVSIQ,32MB QSPI NOR Flash,1.20,1.20,Mouser
+U11,1,TPS65987D,VQFN40,Texas Instruments,TPS65987DDHRSQ,USB-C PD controller,4.50,4.50,Mouser
+U12,1,BQ25895,WLCSP,Texas Instruments,BQ25895RTWR,USB-C fast charger IC,2.80,2.80,Mouser
+U13,1,TPS62840,WSON6,Texas Instruments,TPS62840DGRR,1.8V buck 750mA,0.65,0.65,Mouser
+U14,1,TPS62840,WSON6,Texas Instruments,TPS62840DGRR,3.3V buck 750mA,0.65,0.65,Mouser
+U15,1,TPS62840,WSON6,Texas Instruments,TPS62840DGRR,1.2V buck 750mA (STM32 core),0.65,0.65,Mouser
+U16,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Cryptographic co-processor,0.95,0.95,Mouser
+DISP1,1,AMOLED 1.4in,Module,AUO,H139BLN01.0,1.4in 454x454 AMOLED display,18.50,18.50,AUO
+ANT1,1,GPS patch antenna,SMD,Taoglas,FXP73.07.0100A,GPS/GNSS patch antenna,2.20,2.20,Mouser
+ANT2,1,BLE chip antenna,SMD,Molex,2450AT18D0100E,2.4GHz BLE chip antenna,0.45,0.45,Mouser
+BAT1,1,LiPo 400mAh,Custom,Custom,EOS-BAT-400,3.7V 400mAh LiPo custom shape,4.50,4.50,Custom
+J1,1,Magnetic pogo 4-pin,Custom,Custom,EOS-POGO-4P,Magnetic charging connector,1.80,1.80,Custom
+SW1,1,Crown encoder,Custom,Custom,EOS-CROWN-6MM,Rotary encoder crown 6mm,2.50,2.50,Custom
+SW2,1,Side button,SMD,Alps Alpine,SKRPACE010,Side tactile button,0.25,0.25,Mouser
+VIB1,1,LRA Motor,SMD,AAC Technologies,C10-100,LRA haptic motor 300mN,2.20,2.20,Mouser
+ELEC1-6,6,Gold electrode,Custom,Custom,EOS-ELEC-AU,Gold-plated SS316L electrode,0.85,5.10,Custom
+TENS_ISO1,1,Isolation transformer,Custom,Custom,EOS-ISO-TENS,TENS output isolation transformer,3.50,3.50,Custom
+C1-C20,20,100nF,0402,Murata,GRM155R61C104KA88D,Decoupling capacitors,0.02,0.40,Mouser
+C21-C30,10,10µF,0402,Murata,GRM155R61A106ME44D,Bulk capacitors,0.08,0.80,Mouser
+R1-R20,20,10kΩ,0402,Yageo,RC0402FR-0710KL,Pull-up/pull-down resistors,0.01,0.20,Mouser
+L1-L3,3,4.7µH,0402,Murata,LQM2HPN4R7MG0L,Power inductors,0.35,1.05,Mouser
+PCB,1,6-layer 36x36mm,Custom,Custom,EOS-PCB-HBN-R2,6-layer ENIG circular PCB,8.50,8.50,JLCPCB
+CASE,1,PC+Al case,Custom,Custom,EOS-CASE-HBN,Polycarbonate + aluminum case,12.00,12.00,Custom
+GLASS,1,Gorilla Glass 5,Custom,Custom,EOS-GG5-1.4IN,1.4in Gorilla Glass 5 display cover,4.50,4.50,Custom
+BAND,1,Silicone band 22mm,Custom,Custom,EOS-BAND-22MM,Medical-grade silicone band 22mm,3.20,3.20,Custom
+,,,,,,,,
+,,,,,,TOTAL BOM COST (materials only):,$148.60,
+,,,,,,Target COGS (incl. assembly + test):,$220.00,
+,,,,,,Target MSRP:,$599.00,

@@ -1,0 +1,31 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,nRF5340,QFN73,Nordic Semiconductor,nRF5340-QKAA-R7,Dual-core BLE SoC ARM Cortex-M33,6.50,6.50,Mouser
+U2,3,LMP91000,SOT23-8,Texas Instruments,LMP91000SD/NOPB,Electrochemical AFE (2 sensors each),2.80,8.40,Mouser
+U3,1,AD5940,LFCSP44,Analog Devices,AD5940BCPZ-RL,Bioimpedance measurement IC,8.75,8.75,Mouser
+U4,1,W25Q32JV,WSON8,Winbond,W25Q32JVSSIQ,4MB QSPI NOR Flash,0.45,0.45,Mouser
+U5,1,TPS62840,WSON6,Texas Instruments,TPS62840DGRR,1.8V buck 750mA,0.65,0.65,Mouser
+U6,1,TPS62840,WSON6,Texas Instruments,TPS62840DGRR,3.3V buck 750mA,0.65,0.65,Mouser
+U7,1,MCP73831,SOT23-5,Microchip,MCP73831T-2ACI/OT,LiPo battery charger IC,0.45,0.45,Mouser
+ANT1,1,BLE chip antenna,SMD,Molex,2450AT18D0100E,2.4GHz chip antenna,0.45,0.45,Mouser
+BAT1,1,LiPo 50mAh,Custom,Custom,EOS-BAT-50,3.7V 50mAh LiPo custom,2.20,2.20,Custom
+J1,1,ZIF 8-pin,SMD,Molex,503480-0800,ZIF connector to flex substrate,0.85,0.85,Mouser
+J2,1,USB-C 2.0,SMD,Amphenol,12401610E4#2A,USB-C charging port,0.55,0.55,Mouser
+SENSOR_GOx,1,Glucose biosensor,Custom,Custom,EOS-BIO-GLUC,GOx enzymatic glucose electrode,4.50,4.50,Custom
+SENSOR_LOx,1,Lactate biosensor,Custom,Custom,EOS-BIO-LACT,LOx enzymatic lactate electrode,4.50,4.50,Custom
+SENSOR_MIP,1,Cortisol biosensor,Custom,Custom,EOS-BIO-CORT,MIP cortisol electrode,6.80,6.80,Custom
+SENSOR_ISE_NA,1,Sodium ISE,Custom,Custom,EOS-BIO-NA,Sodium ion-selective electrode,3.20,3.20,Custom
+SENSOR_ISE_K,1,Potassium ISE,Custom,Custom,EOS-BIO-K,Potassium ion-selective electrode,3.20,3.20,Custom
+SENSOR_PANI,1,pH electrode,Custom,Custom,EOS-BIO-PH,PANI pH potentiometric electrode,2.80,2.80,Custom
+SENSOR_AGCL,1,Reference electrode,Custom,Custom,EOS-BIO-REF,Ag/AgCl reference electrode,1.50,1.50,Custom
+FLEX_PCB,1,PI flex substrate,Custom,Custom,EOS-FLEX-HL,Polyimide 2-layer flex PCB 50x30mm,8.50,8.50,Custom
+RIGID_PCB,1,4-layer 25x15mm,Custom,Custom,EOS-PCB-HL-R2,4-layer ENIG rigid PCB 25x15mm,3.80,3.80,JLCPCB
+PDMS,1,Microfluidic channel,Custom,Custom,EOS-PDMS-MF,PDMS microfluidic layer,2.50,2.50,Custom
+ADHESIVE,1,3M 1524 medical,Custom,Custom,EOS-ADH-3M1524,Medical adhesive layer 45x25mm,1.20,1.20,Custom
+ABS_MODULE,1,ABS enclosure,Custom,Custom,EOS-ENC-HL-ABS,Medical ABS electronics module,2.80,2.80,Custom
+C1-C15,15,100nF,0402,Murata,GRM155R61C104KA88D,Decoupling capacitors,0.02,0.30,Mouser
+C16-C20,5,10µF,0402,Murata,GRM155R61A106ME44D,Bulk capacitors,0.08,0.40,Mouser
+R1-R15,15,10kΩ,0402,Yageo,RC0402FR-0710KL,Pull-up/pull-down resistors,0.01,0.15,Mouser
+,,,,,,,,
+,,,,,,TOTAL BOM COST (materials only):,$77.35,
+,,,,,,Target COGS (incl. assembly + test):,$125.00,
+,,,,,,Target MSRP:,$199.00 (device) + $49/month (sensor subscription),

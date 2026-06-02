@@ -1,0 +1,25 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,nRF5340,QFN73,Nordic Semiconductor,nRF5340-QKAA-R7,Dual-core BLE SoC ARM Cortex-M33,6.50,6.50,Mouser
+U2,1,AS7058,OLGA,ams OSRAM,AS7058-AWLT-S,3-channel PPG AFE,5.80,5.80,Mouser
+U3,1,BMA456,LGA12,Bosch Sensortec,BMA456,Ultra-low power accelerometer,1.20,1.20,Mouser
+U4,1,W25Q32JV,WSON8,Winbond,W25Q32JVSSIQ,4MB QSPI NOR Flash,0.45,0.45,Mouser
+U5,1,BQ25504,VSSOP10,Texas Instruments,BQ25504RGTR,Wireless charging receiver IC,2.80,2.80,Mouser
+U6,1,TPS62840,WSON6,Texas Instruments,TPS62840DGRR,1.8V buck 750mA,0.65,0.65,Mouser
+BAT1,1,LiPo 22mAh,Custom,Custom,EOS-BAT-22-RING,3.7V 22mAh toroidal LiPo,4.20,4.20,Custom
+COIL1,1,Qi RX coil,Custom,Custom,EOS-QI-RING,Qi wireless charging RX coil,2.50,2.50,Custom
+PPG_LED1,2,Green LED 525nm,Custom,Custom,EOS-LED-G525,Green PPG LED 525nm,0.45,0.90,Custom
+PPG_LED2,1,Red LED 660nm,Custom,Custom,EOS-LED-R660,Red PPG LED 660nm,0.45,0.45,Custom
+PPG_LED3,1,IR LED 940nm,Custom,Custom,EOS-LED-IR940,IR PPG LED 940nm,0.45,0.45,Custom
+THERM1,1,NTC 10kΩ,Custom,Custom,EOS-NTC-10K,NTC thermistor 10kΩ 0.5mm,0.15,0.15,Custom
+ELEC1-2,2,Gold EDA electrode,Custom,Custom,EOS-ELEC-EDA,Gold-plated EDA electrode,0.85,1.70,Custom
+SAP1-3,3,Sapphire window 2mm,Custom,Custom,EOS-SAP-2MM,Sapphire optical window 2mm,1.80,5.40,Custom
+C1-C10,10,100nF,0201,Murata,GRM033R61A104KE84D,Decoupling capacitors 0201,0.02,0.20,Mouser
+C11-C15,5,1µF,0201,Murata,GRM033R61A105ME44D,Filter capacitors 0201,0.04,0.20,Mouser
+R1-R8,8,10kΩ,0201,Yageo,RC0201FR-0710KL,Pull-up resistors 0201,0.01,0.08,Mouser
+PCB,1,Rigid-flex 22x5mm,Custom,Custom,EOS-PCB-HR-R2,4-layer rigid-flex arc PCB,12.00,12.00,Custom
+SHELL_TI,1,Titanium ring,Custom,Custom,EOS-RING-TI-S10,Ti-6Al-4V CNC ring size 10,22.00,22.00,Custom
+INNER_BAND,1,LSR silicone band,Custom,Custom,EOS-RING-LSR-S10,Medical LSR inner band size 10,3.50,3.50,Custom
+,,,,,,,,
+,,,,,,TOTAL BOM COST (materials only):,$66.13,
+,,,,,,Target COGS (incl. assembly + test):,$105.00,
+,,,,,,Target MSRP:,$349.00,

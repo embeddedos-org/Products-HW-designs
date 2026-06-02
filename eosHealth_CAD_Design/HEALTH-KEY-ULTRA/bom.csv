@@ -1,0 +1,39 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,nRF5340,QFN73,Nordic Semiconductor,nRF5340-QKAA-R7,Dual-core BLE SoC ARM Cortex-M33,6.50,6.50,Mouser
+U2,1,MAX86141,OLGA14,Maxim Integrated,MAX86141EFF+T,Optical PPG + SpO2 AFE,4.20,4.20,Mouser
+U3,1,AD5940,LFCSP44,Analog Devices,AD5940BCPZ-RL,Bioimpedance measurement IC,8.75,8.75,Mouser
+U4,1,MAX30208,WLP9,Maxim Integrated,MAX30208EWS+T,High-accuracy temperature sensor,2.10,2.10,Mouser
+U5,1,BMI270,LGA14,Bosch Sensortec,BMI270,6-axis IMU (accel + gyro),1.85,1.85,Mouser
+U6,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Cryptographic co-processor,0.95,0.95,Mouser
+U7,1,MCP73831,SOT23-5,Microchip,MCP73831T-2ACI/OT,LiPo battery charger IC,0.45,0.45,Mouser
+U8,1,TPS62840,WSON6,Texas Instruments,TPS62840DGRR,1.8V buck converter 750mA,0.65,0.65,Mouser
+U9,1,TPS62840,WSON6,Texas Instruments,TPS62840DGRR,3.3V buck converter 750mA,0.65,0.65,Mouser
+U10,1,W25Q64JV,SOIC8,Winbond,W25Q64JVSSIQ,8MB QSPI NOR Flash,0.55,0.55,Mouser
+U11,1,SSD1306,COG,Solomon Systech,SSD1306Z,0.49in OLED driver,1.20,1.20,Mouser
+U12,1,CH340C,SOP16,WCH,CH340C,USB to UART bridge,0.35,0.35,Mouser
+ANT1,1,2450AT18D0100E,SMD,Molex,2450AT18D0100E,2.4GHz chip antenna,0.45,0.45,Mouser
+DISP1,1,OLED 0.49in,Module,Generic,SSD1306-0.49,0.49in 64x32 OLED display,3.50,3.50,Aliexpress
+BAT1,1,LiPo 120mAh,Custom,Custom,EOS-BAT-120,3.7V 120mAh LiPo 38x16x4mm,2.80,2.80,Custom
+J1,1,USB-C 2.0,SMD,Amphenol,12401610E4#2A,USB-C 2.0 receptacle,0.55,0.55,Mouser
+SW1,1,Tactile 2x2,SMD,Alps Alpine,SKRPACE010,Side tactile button,0.25,0.25,Mouser
+VIB1,1,ERM Motor,SMD,Jinlong Machinery,Z4FC1B1810251,ERM vibration motor 150mN,0.85,0.85,Mouser
+LED1,1,LED Green,0402,Würth,150060VS75000,Status LED green,0.05,0.05,Mouser
+LED2,1,LED Red,0402,Würth,150060RS75000,Status LED red,0.05,0.05,Mouser
+C1-C10,10,100nF,0402,Murata,GRM155R61C104KA88D,Decoupling capacitors 100nF,0.02,0.20,Mouser
+C11-C15,5,10µF,0402,Murata,GRM155R61A106ME44D,Bulk capacitors 10µF,0.08,0.40,Mouser
+C16-C18,3,1µF,0402,Murata,GRM155R61A105KE15D,Filter capacitors 1µF,0.03,0.09,Mouser
+R1-R10,10,10kΩ,0402,Yageo,RC0402FR-0710KL,Pull-up/pull-down resistors,0.01,0.10,Mouser
+R11-R15,5,100Ω,0402,Yageo,RC0402FR-07100RL,Current limiting resistors,0.01,0.05,Mouser
+L1,1,2.2µH,0402,Murata,LQM2HPN2R2MG0L,Power inductor 2.2µH,0.35,0.35,Mouser
+L2,1,4.7µH,0402,Murata,LQM2HPN4R7MG0L,Power inductor 4.7µH,0.35,0.35,Mouser
+XTAL1,1,32.768kHz,SMD,Epson,FC-135R 32.7680KA-AG3,RTC crystal 32.768kHz,0.45,0.45,Mouser
+PCB,1,4-layer 38x18mm,Custom,Custom,EOS-PCB-HKU-R2,4-layer ENIG PCB 38x18mm,3.20,3.20,JLCPCB
+ENCLOSURE,1,Titanium CNC,Custom,Custom,EOS-ENC-HKU-TI,Ti-6Al-4V CNC enclosure,18.00,18.00,Custom
+SAPPHIRE,1,Sapphire window 3mm,Custom,Custom,EOS-SAP-3MM,Sapphire optical window 3mm,2.50,2.50,Custom
+ORING,1,Silicone O-ring,Custom,Custom,EOS-OR-2.5MM,Silicone O-ring 2.5mm ID,0.15,0.15,Custom
+KEYRING,1,SS316L keyring,Custom,Custom,EOS-KR-8MM,Stainless steel keyring 8mm,0.45,0.45,Custom
+CABLE,1,USB-C cable 0.3m,Retail,Generic,USB-C-30CM,USB-C charging cable 0.3m,1.20,1.20,Retail
+,,,,,,,,
+,,,,,,TOTAL BOM COST (materials only):,$57.89,
+,,,,,,Target COGS (incl. assembly + test):,$89.00,
+,,,,,,Target MSRP:,$299.00,

@@ -1,0 +1,296 @@
+(kicad_sch (version 20231120) (generator "EoS Health Design Tools")
+  (title_block
+    (title "HEALTH-LAB — Main PCB Schematic (Base + Ultra)")
+    (date "2026-06-01")
+    (rev "A")
+    (company "Embedded Operating Systems Research Foundation")
+    (comment 1 "Inventor: Srikanth Patchava")
+    (comment 2 "Patent Docket: EOS-2026-004")
+    (comment 3 "Base: nRF52833 + 1x LMP91000 + 4 analytes + 7-day")
+    (comment 4 "Ultra: nRF52840 + 3x LMP91000 + DMSA + SCBN + 7 analytes + 14-day")
+  )
+
+  ;; ============================================================
+  ;; SHEET 1: MAIN MCU — nRF52840 (Ultra) / nRF52833 (Base)
+  ;; ============================================================
+
+  (comp (ref "U1") (value "nRF52840-QIAA")
+    (description "Nordic nRF52840 ARM Cortex-M4F, BLE 5.3, 1MB Flash, 256KB RAM, WLCSP 7x7")
+    (pins
+      (pin (num "VDD")   (name "VDD")   (net "VCC_1V8"))
+      (pin (num "GND")   (name "GND")   (net "GND"))
+      (pin (num "ANT")   (name "ANT")   (net "BLE_ANT"))
+      ;; SPI0 — Potentiostat 1 (W1: glucose, W2: lactate)
+      (pin (num "P0.04") (name "SPI0_SCK")  (net "POT1_SCK"))
+      (pin (num "P0.05") (name "SPI0_MOSI") (net "POT1_MOSI"))
+      (pin (num "P0.06") (name "SPI0_MISO") (net "POT1_MISO"))
+      (pin (num "P0.07") (name "SPI0_CS1")  (net "POT1_CS_N"))
+      ;; SPI1 — Potentiostat 2 (W3: cortisol, W4: uric acid) — Ultra
+      (pin (num "P0.12") (name "SPI1_SCK")  (net "POT2_SCK"))
+      (pin (num "P0.13") (name "SPI1_MOSI") (net "POT2_MOSI"))
+      (pin (num "P0.14") (name "SPI1_MISO") (net "POT2_MISO"))
+      (pin (num "P0.15") (name "SPI1_CS2")  (net "POT2_CS_N"))
+      ;; SPI2 — Potentiostat 3 (W5: Na+, W6: K+, W7: pH) — Ultra
+      (pin (num "P0.20") (name "SPI2_SCK")  (net "POT3_SCK"))
+      (pin (num "P0.21") (name "SPI2_MOSI") (net "POT3_MOSI"))
+      (pin (num "P0.22") (name "SPI2_MISO") (net "POT3_MISO"))
+      (pin (num "P0.23") (name "SPI2_CS3")  (net "POT3_CS_N"))
+      ;; I2C0 — Temperature + Accelerometer + PPG
+      (pin (num "P0.26") (name "I2C0_SDA")  (net "I2C_SDA"))
+      (pin (num "P0.27") (name "I2C0_SCL")  (net "I2C_SCL"))
+      ;; I2C1 — PMIC
+      (pin (num "P0.28") (name "I2C1_SDA")  (net "I2C1_SDA"))
+      (pin (num "P0.29") (name "I2C1_SCL")  (net "I2C1_SCL"))
+      ;; GPIO — Iontophoresis control (Ultra)
+      (pin (num "P0.30") (name "IONTO_EN")  (net "IONTO_EN"))
+      (pin (num "P0.31") (name "IONTO_DIR") (net "IONTO_DIR"))
+      (pin (num "P1.00") (name "IONTO_INT") (net "IONTO_INT"))
+      ;; ADC — Reference electrode monitoring
+      (pin (num "P0.02") (name "AIN0")      (net "REF1_MON"))
+      (pin (num "P0.03") (name "AIN1")      (net "REF2_MON"))
+      (pin (num "P0.04") (name "AIN2")      (net "REF3_MON"))
+      ;; Debug
+      (pin (num "SWDIO")  (name "SWDIO")  (net "SWDIO"))
+      (pin (num "SWDCLK") (name "SWDCLK") (net "SWDCLK"))
+    )
+  )
+  (comp (ref "C1") (value "100nF") (description "VDD decoupling 0201") (net_pos "VCC_1V8") (net_neg "GND"))
+  (comp (ref "C2") (value "10uF")  (description "VDD bulk 0402")       (net_pos "VCC_1V8") (net_neg "GND"))
+
+  ;; BLE antenna
+  (comp (ref "ANT1") (value "2.4GHz Chip Antenna") (description "Johanson 2450AT18A100E")
+    (pins
+      (pin (num "1") (name "RF")  (net "BLE_ANT"))
+      (pin (num "2") (name "GND") (net "GND"))
+    )
+  )
+
+  ;; ============================================================
+  ;; SHEET 2: POTENTIOSTAT AFEs — LMP91000 (×3 Ultra, ×1 Base)
+  ;; ============================================================
+
+  ;; U2 — LMP91000 Potentiostat 1 (glucose + lactate — both tiers)
+  (comp (ref "U2") (value "LMP91000SDX/NOPB")
+    (description "TI LMP91000 Configurable AFE Potentiostat, SOT-23-8")
+    (pins
+      (pin (num "VDD")  (name "VDD")  (net "VCC_1V8"))
+      (pin (num "GND")  (name "GND")  (net "GND"))
+      (pin (num "SCK")  (name "SCK")  (net "POT1_SCK"))
+      (pin (num "SDI")  (name "SDI")  (net "POT1_MOSI"))
+      (pin (num "SDO")  (name "SDO")  (net "POT1_MISO"))
+      (pin (num "CS")   (name "CS")   (net "POT1_CS_N"))
+      (pin (num "WE")   (name "WE")   (net "WE1"))
+      (pin (num "RE")   (name "RE")   (net "RE1"))
+      (pin (num "CE")   (name "CE")   (net "CE1"))
+      (pin (num "VOUT") (name "VOUT") (net "POT1_VOUT"))
+    )
+  )
+  ;; Electrode connections — W1 (glucose), W2 (lactate), R1 (reference)
+  (comp (ref "W1_PAD") (value "GOx Electrode") (description "Glucose oxidase working electrode — NEBA aerosol jet printed Pt-black")
+    (pins (pin (num "1") (name "WE") (net "WE1")))
+  )
+  (comp (ref "W2_PAD") (value "LOx Electrode") (description "Lactate oxidase working electrode — NEBA")
+    (pins (pin (num "1") (name "WE") (net "WE1")))
+  )
+  (comp (ref "R1_PAD") (value "Ag/AgCl Reference 1") (description "Primary Ag/AgCl reference electrode — SCBN")
+    (pins (pin (num "1") (name "RE") (net "RE1")))
+  )
+  (comp (ref "CE1_PAD") (value "Pt Counter Electrode 1") (description "Platinum counter electrode")
+    (pins (pin (num "1") (name "CE") (net "CE1")))
+  )
+
+  ;; U3 — LMP91000 Potentiostat 2 (cortisol + uric acid — Ultra only)
+  (comp (ref "U3") (value "LMP91000SDX/NOPB")
+    (description "TI LMP91000 Configurable AFE Potentiostat 2, SOT-23-8")
+    (pins
+      (pin (num "VDD")  (name "VDD")  (net "VCC_1V8"))
+      (pin (num "GND")  (name "GND")  (net "GND"))
+      (pin (num "SCK")  (name "SCK")  (net "POT2_SCK"))
+      (pin (num "SDI")  (name "SDI")  (net "POT2_MOSI"))
+      (pin (num "SDO")  (name "SDO")  (net "POT2_MISO"))
+      (pin (num "CS")   (name "CS")   (net "POT2_CS_N"))
+      (pin (num "WE")   (name "WE")   (net "WE2"))
+      (pin (num "RE")   (name "RE")   (net "RE2"))
+      (pin (num "CE")   (name "CE")   (net "CE2"))
+      (pin (num "VOUT") (name "VOUT") (net "POT2_VOUT"))
+    )
+  )
+  (comp (ref "W3_PAD") (value "MIP Cortisol Electrode") (description "Molecularly imprinted polymer cortisol electrode — NEBA")
+    (pins (pin (num "1") (name "WE") (net "WE2")))
+  )
+  (comp (ref "W4_PAD") (value "UOx Uric Acid Electrode") (description "Uricase uric acid electrode — NEBA")
+    (pins (pin (num "1") (name "WE") (net "WE2")))
+  )
+  (comp (ref "R2_PAD") (value "Ag/AgCl Reference 2") (description "Second Ag/AgCl reference — SCBN")
+    (pins (pin (num "1") (name "RE") (net "RE2")))
+  )
+
+  ;; U4 — LMP91000 Potentiostat 3 (Na+, K+, pH — Ultra only)
+  (comp (ref "U4") (value "LMP91000SDX/NOPB")
+    (description "TI LMP91000 Configurable AFE Potentiostat 3, SOT-23-8")
+    (pins
+      (pin (num "VDD")  (name "VDD")  (net "VCC_1V8"))
+      (pin (num "GND")  (name "GND")  (net "GND"))
+      (pin (num "SCK")  (name "SCK")  (net "POT3_SCK"))
+      (pin (num "SDI")  (name "SDI")  (net "POT3_MOSI"))
+      (pin (num "SDO")  (name "SDO")  (net "POT3_MISO"))
+      (pin (num "CS")   (name "CS")   (net "POT3_CS_N"))
+      (pin (num "WE")   (name "WE")   (net "WE3"))
+      (pin (num "RE")   (name "RE")   (net "RE3"))
+      (pin (num "CE")   (name "CE")   (net "CE3"))
+      (pin (num "VOUT") (name "VOUT") (net "POT3_VOUT"))
+    )
+  )
+  (comp (ref "W5_PAD") (value "Valinomycin Na+ ISE") (description "Sodium ion-selective electrode — NEBA")
+    (pins (pin (num "1") (name "WE") (net "WE3")))
+  )
+  (comp (ref "W6_PAD") (value "Nonactin K+ ISE") (description "Potassium ion-selective electrode — NEBA")
+    (pins (pin (num "1") (name "WE") (net "WE3")))
+  )
+  (comp (ref "W7_PAD") (value "IrOx pH Electrode") (description "Iridium oxide pH electrode — NEBA")
+    (pins (pin (num "1") (name "WE") (net "WE3")))
+  )
+  (comp (ref "R3_PAD") (value "Ag/AgCl Reference 3") (description "Third Ag/AgCl reference — SCBN vertex 3")
+    (pins (pin (num "1") (name "RE") (net "RE3")))
+  )
+
+  ;; ============================================================
+  ;; SHEET 3: IONTOPHORESIS CIRCUIT (Ultra only)
+  ;; ============================================================
+
+  ;; H-bridge for iontophoresis current direction control
+  (comp (ref "Q1") (value "Si2302ADS") (description "N-MOSFET 20V 2A SOT-23, ionto H-bridge high-side A")
+    (pins
+      (pin (num "G") (name "G") (net "IONTO_HA"))
+      (pin (num "D") (name "D") (net "IONTO_VOUT"))
+      (pin (num "S") (name "S") (net "VCC_3V3"))
+    )
+  )
+  (comp (ref "Q2") (value "Si2302ADS") (description "N-MOSFET 20V 2A SOT-23, ionto H-bridge high-side B")
+    (pins
+      (pin (num "G") (name "G") (net "IONTO_HB"))
+      (pin (num "D") (name "D") (net "IONTO_VOUT_B"))
+      (pin (num "S") (name "S") (net "VCC_3V3"))
+    )
+  )
+  (comp (ref "Q3") (value "Si2302ADS") (description "N-MOSFET 20V 2A SOT-23, ionto H-bridge low-side A")
+    (pins
+      (pin (num "G") (name "G") (net "IONTO_LA"))
+      (pin (num "D") (name "D") (net "IONTO_VOUT"))
+      (pin (num "S") (name "S") (net "GND"))
+    )
+  )
+  (comp (ref "Q4") (value "Si2302ADS") (description "N-MOSFET 20V 2A SOT-23, ionto H-bridge low-side B")
+    (pins
+      (pin (num "G") (name "G") (net "IONTO_LB"))
+      (pin (num "D") (name "D") (net "IONTO_VOUT_B"))
+      (pin (num "S") (name "S") (net "GND"))
+    )
+  )
+  ;; Iontophoresis current sense
+  (comp (ref "U5") (value "INA213AIDCK")
+    (description "TI INA213 Current Sense Amplifier 26V 50mV/V SC-70-5")
+    (pins
+      (pin (num "VCC")  (name "VCC")  (net "VCC_1V8"))
+      (pin (num "GND")  (name "GND")  (net "GND"))
+      (pin (num "IN+")  (name "IN+")  (net "IONTO_VOUT"))
+      (pin (num "IN-")  (name "IN-")  (net "IONTO_SENSE"))
+      (pin (num "OUT")  (name "OUT")  (net "IONTO_INT"))
+    )
+  )
+  (comp (ref "R_SENSE") (value "1R") (description "Iontophoresis current sense resistor 0402 1W") (net_pos "IONTO_VOUT") (net_neg "IONTO_SENSE"))
+  ;; Iontophoresis electrodes
+  (comp (ref "IA_PAD") (value "Pt Iontophoresis Anode") (description "Platinum iontophoresis anode electrode")
+    (pins (pin (num "1") (name "IA") (net "IONTO_VOUT")))
+  )
+  (comp (ref "IC_PAD") (value "Pt Iontophoresis Cathode") (description "Platinum iontophoresis cathode electrode")
+    (pins (pin (num "1") (name "IC") (net "IONTO_VOUT_B")))
+  )
+
+  ;; ============================================================
+  ;; SHEET 4: TEMPERATURE + ACCELEROMETER + PPG
+  ;; ============================================================
+
+  (comp (ref "U6") (value "MAX30208EWS+")
+    (description "Maxim MAX30208 digital temp sensor ±0.1C WLP 1.5x1.5")
+    (pins
+      (pin (num "VDD") (name "VDD") (net "VCC_1V8"))
+      (pin (num "GND") (name "GND") (net "GND"))
+      (pin (num "SDA") (name "SDA") (net "I2C_SDA"))
+      (pin (num "SCL") (name "SCL") (net "I2C_SCL"))
+    )
+  )
+  (comp (ref "U7") (value "LIS2DH12TR")
+    (description "ST LIS2DH12 3-axis accelerometer ±16g LGA 2x2")
+    (pins
+      (pin (num "VDD")   (name "VDD")   (net "VCC_1V8"))
+      (pin (num "VDDIO") (name "VDDIO") (net "VCC_1V8"))
+      (pin (num "GND")   (name "GND")   (net "GND"))
+      (pin (num "SDA")   (name "SDA")   (net "I2C_SDA"))
+      (pin (num "SCL")   (name "SCL")   (net "I2C_SCL"))
+      (pin (num "INT1")  (name "INT1")  (net "ACCEL_INT1"))
+    )
+  )
+  (comp (ref "U8") (value "MAX30101EFD+")
+    (description "Maxim MAX30101 PPG AFE 3-wavelength OLGA-14")
+    (pins
+      (pin (num "VDD")  (name "VDD")  (net "VCC_1V8"))
+      (pin (num "VLED") (name "VLED") (net "VCC_3V3"))
+      (pin (num "GND")  (name "GND")  (net "GND"))
+      (pin (num "SDA")  (name "SDA")  (net "I2C_SDA"))
+      (pin (num "SCL")  (name "SCL")  (net "I2C_SCL"))
+      (pin (num "INT")  (name "INT")  (net "PPG_INT_N"))
+    )
+  )
+  (comp (ref "R1") (value "4.7k") (description "I2C SDA pull-up 0201") (net_pos "VCC_1V8") (net_neg "I2C_SDA"))
+  (comp (ref "R2") (value "4.7k") (description "I2C SCL pull-up 0201") (net_pos "VCC_1V8") (net_neg "I2C_SCL"))
+
+  ;; ============================================================
+  ;; SHEET 5: POWER MANAGEMENT
+  ;; ============================================================
+
+  (comp (ref "U9") (value "MAX77734EWA+")
+    (description "Maxim MAX77734 PMIC LiPo charger + 3 LDOs + 1 buck WLP 1.6x1.6")
+    (pins
+      (pin (num "CHGIN") (name "CHGIN") (net "NFC_VOUT"))
+      (pin (num "BATT")  (name "BATT")  (net "VBATT"))
+      (pin (num "SYS")   (name "SYS")   (net "VSYS"))
+      (pin (num "LDO1")  (name "LDO1")  (net "VCC_1V8"))
+      (pin (num "LDO2")  (name "LDO2")  (net "VCC_3V3"))
+      (pin (num "SDA")   (name "SDA")   (net "I2C1_SDA"))
+      (pin (num "SCL")   (name "SCL")   (net "I2C1_SCL"))
+      (pin (num "GND")   (name "GND")   (net "GND"))
+    )
+  )
+  ;; Battery — Ultra: 45mAh flexible LiPo
+  (comp (ref "BAT1") (value "Grepow GRP3040") (description "Grepow GRP3040 45mAh flexible LiPo 3.7V")
+    (pins
+      (pin (num "1") (name "BATT+") (net "VBATT"))
+      (pin (num "2") (name "BATT-") (net "GND"))
+    )
+  )
+  ;; NFC charging coil
+  (comp (ref "L1") (value "TDK WCT-1501") (description "TDK WCT-1501 NFC inductive charging coil 13.56MHz")
+    (pins
+      (pin (num "1") (name "COIL1") (net "NFC_COIL_1"))
+      (pin (num "2") (name "COIL2") (net "NFC_COIL_2"))
+    )
+  )
+  (comp (ref "D1") (value "PMEG2010AEA") (description "NFC rectifier diode 1") (net_pos "NFC_COIL_1") (net_neg "NFC_VOUT"))
+  (comp (ref "D2") (value "PMEG2010AEA") (description "NFC rectifier diode 2") (net_pos "NFC_COIL_2") (net_neg "NFC_VOUT"))
+  (comp (ref "C10") (value "100uF") (description "NFC output filter 0402") (net_pos "NFC_VOUT") (net_neg "GND"))
+
+  ;; ============================================================
+  ;; SHEET 6: DEBUG
+  ;; ============================================================
+
+  (comp (ref "J1") (value "SWD_POGO") (description "4-pin pogo pad SWD programming")
+    (pins
+      (pin (num "1") (name "SWDIO")  (net "SWDIO"))
+      (pin (num "2") (name "SWDCLK") (net "SWDCLK"))
+      (pin (num "3") (name "GND")    (net "GND"))
+      (pin (num "4") (name "VCC")    (net "VCC_1V8"))
+    )
+  )
+
+)

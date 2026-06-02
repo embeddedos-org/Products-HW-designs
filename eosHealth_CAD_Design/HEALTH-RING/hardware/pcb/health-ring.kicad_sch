@@ -1,0 +1,320 @@
+(kicad_sch (version 20231120) (generator "EoS Health Design Tools")
+  (title_block
+    (title "HEALTH-RING — Main PCB Schematic (Base + Ultra)")
+    (date "2026-06-01")
+    (rev "A")
+    (company "Embedded Operating Systems Research Foundation")
+    (comment 1 "Inventor: Srikanth Patchava")
+    (comment 2 "Patent Docket: EOS-2026-003")
+    (comment 3 "Base: nRF52833 + MAX30001 + MAX30101 + ZPIES + KEHS")
+    (comment 4 "Ultra: nRF52840 + MAX32666 + MAX30003 + MAX86176 + DAEA + PPTT")
+  )
+
+  ;; ============================================================
+  ;; SHEET 1: MAIN MCU — nRF52840 (Ultra) / nRF52833 (Base)
+  ;; ============================================================
+
+  ;; U1 — nRF52840 Main MCU (Ultra variant)
+  (comp (ref "U1") (value "nRF52840-QIAA")
+    (description "Nordic nRF52840 ARM Cortex-M4F, BLE 5.3, 1MB Flash, 256KB RAM, WLCSP 7x7")
+    (pins
+      ;; Power
+      (pin (num "VDD")    (name "VDD")    (net "VCC_1V8"))
+      (pin (num "VDDIO")  (name "VDDIO")  (net "VCC_1V8"))
+      (pin (num "GND")    (name "GND")    (net "GND"))
+      ;; BLE RF
+      (pin (num "ANT")    (name "ANT")    (net "BLE_ANT"))
+      (pin (num "DCCH")   (name "DCCH")   (net "BLE_DCCH"))
+      ;; SPI0 — ECG AFE
+      (pin (num "P0.04")  (name "SPI0_SCK")  (net "ECG_SCK"))
+      (pin (num "P0.05")  (name "SPI0_MOSI") (net "ECG_MOSI"))
+      (pin (num "P0.06")  (name "SPI0_MISO") (net "ECG_MISO"))
+      (pin (num "P0.07")  (name "SPI0_CS")   (net "ECG_CS_N"))
+      (pin (num "P0.08")  (name "ECG_INT")   (net "ECG_INT_N"))
+      ;; SPI1 — PPG AFE
+      (pin (num "P0.12")  (name "SPI1_SCK")  (net "PPG_SCK"))
+      (pin (num "P0.13")  (name "SPI1_MOSI") (net "PPG_MOSI"))
+      (pin (num "P0.14")  (name "SPI1_MISO") (net "PPG_MISO"))
+      (pin (num "P0.15")  (name "SPI1_CS")   (net "PPG_CS_N"))
+      (pin (num "P0.16")  (name "PPG_INT")   (net "PPG_INT_N"))
+      ;; I2C0 — Temperature + IMU
+      (pin (num "P0.26")  (name "I2C0_SDA")  (net "I2C_SDA"))
+      (pin (num "P0.27")  (name "I2C0_SCL")  (net "I2C_SCL"))
+      ;; I2C1 — PMIC + Gas + Pressure
+      (pin (num "P0.28")  (name "I2C1_SDA")  (net "I2C1_SDA"))
+      (pin (num "P0.29")  (name "I2C1_SCL")  (net "I2C1_SCL"))
+      ;; UART — AI co-processor (Ultra)
+      (pin (num "P0.20")  (name "UART_TX")   (net "MCU_TX"))
+      (pin (num "P0.22")  (name "UART_RX")   (net "MCU_RX"))
+      ;; ADC — PPTT piezo signal + KEHS harvester
+      (pin (num "P0.02")  (name "AIN0")      (net "PPTT_ADC"))
+      (pin (num "P0.03")  (name "AIN1")      (net "KEHS_ADC"))
+      ;; GPIO
+      (pin (num "P0.30")  (name "NFC_CHARGE_EN") (net "NFC_EN"))
+      (pin (num "P0.31")  (name "HAPTIC_EN")     (net "HAPTIC_EN"))
+      ;; Debug
+      (pin (num "SWDIO")  (name "SWDIO")  (net "SWDIO"))
+      (pin (num "SWDCLK") (name "SWDCLK") (net "SWDCLK"))
+    )
+  )
+
+  ;; Decoupling caps for U1
+  (comp (ref "C1")  (value "100nF") (description "VDD decoupling 0201") (net_pos "VCC_1V8") (net_neg "GND"))
+  (comp (ref "C2")  (value "100nF") (description "VDD decoupling 0201") (net_pos "VCC_1V8") (net_neg "GND"))
+  (comp (ref "C3")  (value "10uF")  (description "VDD bulk 0402")       (net_pos "VCC_1V8") (net_neg "GND"))
+
+  ;; 32 MHz crystal
+  (comp (ref "X1") (value "32MHz XTAL") (description "SiTime SIT1532 32MHz TCXO 0.5ppm")
+    (pins
+      (pin (num "XC1") (name "XC1") (net "XC1"))
+      (pin (num "XC2") (name "XC2") (net "XC2"))
+    )
+  )
+  (comp (ref "C4") (value "12pF") (description "Crystal load cap 0201") (net_pos "XC1") (net_neg "GND"))
+  (comp (ref "C5") (value "12pF") (description "Crystal load cap 0201") (net_pos "XC2") (net_neg "GND"))
+
+  ;; 32.768 kHz RTC crystal
+  (comp (ref "X2") (value "32.768kHz XTAL") (description "Epson FC-135 32.768kHz")
+    (pins
+      (pin (num "XL1") (name "XL1") (net "XL1"))
+      (pin (num "XL2") (name "XL2") (net "XL2"))
+    )
+  )
+
+  ;; BLE antenna (chip antenna)
+  (comp (ref "ANT1") (value "2.4GHz Chip Antenna") (description "Johanson 2450AT18A100E")
+    (pins
+      (pin (num "1") (name "RF") (net "BLE_ANT"))
+      (pin (num "2") (name "GND") (net "GND"))
+    )
+  )
+  (comp (ref "L1") (value "2.2nH") (description "RF matching inductor 0201") (net_pos "BLE_DCCH") (net_neg "BLE_ANT"))
+  (comp (ref "C6") (value "1.8pF") (description "RF matching cap 0201") (net_pos "BLE_ANT") (net_neg "GND"))
+
+  ;; ============================================================
+  ;; SHEET 2: ECG FRONT-END
+  ;; ============================================================
+
+  ;; U2 — MAX30003 ECG AFE (Ultra) / MAX30001 (Base)
+  (comp (ref "U2") (value "MAX30003EWV+")
+    (description "Maxim MAX30003 Ultra-Low-Power Single-Channel ECG AFE, 18-bit ADC, 512Hz, OLGA-20")
+    (pins
+      (pin (num "VDD1")  (name "VDD1")  (net "VCC_1V8"))
+      (pin (num "VDD2")  (name "VDD2")  (net "VCC_1V8"))
+      (pin (num "GND")   (name "GND")   (net "GND"))
+      (pin (num "SCLK")  (name "SCLK")  (net "ECG_SCK"))
+      (pin (num "MOSI")  (name "MOSI")  (net "ECG_MOSI"))
+      (pin (num "MISO")  (name "MISO")  (net "ECG_MISO"))
+      (pin (num "CS")    (name "CS")    (net "ECG_CS_N"))
+      (pin (num "INTB")  (name "INTB")  (net "ECG_INT_N"))
+      ;; DAEA electrode inputs (Ultra) / ZPIES electrode inputs (Base)
+      (pin (num "ECGP")  (name "ECGP")  (net "ELECTRODE_P"))
+      (pin (num "ECGN")  (name "ECGN")  (net "ELECTRODE_N"))
+      ;; RLD (right leg drive for noise rejection)
+      (pin (num "RLD")   (name "RLD")   (net "RLD_OUT"))
+      ;; Bias
+      (pin (num "RBIAS") (name "RBIAS") (net "RBIAS"))
+    )
+  )
+  ;; ESD protection on electrode inputs
+  (comp (ref "D1") (value "PRTR5V0U2X") (description "ESD TVS diode pair, 5V, SOT363")
+    (pins
+      (pin (num "A1") (name "A1") (net "ELECTRODE_P"))
+      (pin (num "A2") (name "A2") (net "ELECTRODE_N"))
+      (pin (num "K")  (name "K")  (net "GND"))
+    )
+  )
+  ;; Electrode input filter
+  (comp (ref "R1") (value "1M") (description "Electrode bias resistor 0201") (net_pos "ELECTRODE_P") (net_neg "GND"))
+  (comp (ref "R2") (value "1M") (description "Electrode bias resistor 0201") (net_pos "ELECTRODE_N") (net_neg "GND"))
+  (comp (ref "C7") (value "100nF") (description "ECG AFE decoupling 0201") (net_pos "VCC_1V8") (net_neg "GND"))
+  (comp (ref "R3") (value "100k") (description "RBIAS resistor 0201") (net_pos "RBIAS") (net_neg "GND"))
+
+  ;; ============================================================
+  ;; SHEET 3: PPG FRONT-END
+  ;; ============================================================
+
+  ;; U3 — MAX86176 5-wavelength PPG AFE (Ultra) / MAX30101 3-wavelength (Base)
+  (comp (ref "U3") (value "MAX86176EWV+")
+    (description "Maxim MAX86176 Optical AFE, 5 LED drivers, 22-bit ADC, 100Hz/channel, OLGA-20")
+    (pins
+      (pin (num "VDD")   (name "VDD")   (net "VCC_1V8"))
+      (pin (num "VLED")  (name "VLED")  (net "VCC_3V3"))
+      (pin (num "GND")   (name "GND")   (net "GND"))
+      (pin (num "SCLK")  (name "SCLK")  (net "PPG_SCK"))
+      (pin (num "MOSI")  (name "MOSI")  (net "PPG_MOSI"))
+      (pin (num "MISO")  (name "MISO")  (net "PPG_MISO"))
+      (pin (num "CS")    (name "CS")    (net "PPG_CS_N"))
+      (pin (num "INT")   (name "INT")   (net "PPG_INT_N"))
+      ;; LED driver outputs
+      (pin (num "LED1")  (name "LED1")  (net "LED_660NM"))
+      (pin (num "LED2")  (name "LED2")  (net "LED_730NM"))
+      (pin (num "LED3")  (name "LED3")  (net "LED_850NM"))
+      (pin (num "LED4")  (name "LED4")  (net "LED_940NM"))
+      (pin (num "LED5")  (name "LED5")  (net "LED_1300NM"))
+      ;; Photodetector inputs
+      (pin (num "PD1")   (name "PD1")   (net "PD_ANODE_1"))
+      (pin (num "PD2")   (name "PD2")   (net "PD_ANODE_2"))
+    )
+  )
+  ;; LED array — MSHE (Ultra)
+  (comp (ref "LED1") (value "660nm LED")  (description "Osram SFH 7050 660nm, 100mA, SMD") (net_pos "LED_660NM")  (net_neg "GND"))
+  (comp (ref "LED2") (value "730nm LED")  (description "Osram SFH 7050 730nm, 100mA, SMD") (net_pos "LED_730NM")  (net_neg "GND"))
+  (comp (ref "LED3") (value "850nm LED")  (description "Osram SFH 7050 850nm, 100mA, SMD") (net_pos "LED_850NM")  (net_neg "GND"))
+  (comp (ref "LED4") (value "940nm LED")  (description "Osram SFH 7050 940nm, 100mA, SMD") (net_pos "LED_940NM")  (net_neg "GND"))
+  (comp (ref "LED5") (value "1300nm LED") (description "Thorlabs LED1300L 1300nm, 50mA, SMD") (net_pos "LED_1300NM") (net_neg "GND"))
+  ;; Photodetectors
+  (comp (ref "PD1") (value "Si Photodetector") (description "Hamamatsu S12698 broadband 400-1100nm, SMD") (net_pos "VCC_1V8") (net_neg "PD_ANODE_1"))
+  (comp (ref "PD2") (value "InGaAs Photodetector") (description "Hamamatsu G12183 900-1700nm, SMD") (net_pos "VCC_1V8") (net_neg "PD_ANODE_2"))
+  ;; Decoupling
+  (comp (ref "C8")  (value "100nF") (description "PPG AFE VDD decoupling 0201") (net_pos "VCC_1V8") (net_neg "GND"))
+  (comp (ref "C9")  (value "10uF")  (description "VLED bulk cap 0402")           (net_pos "VCC_3V3") (net_neg "GND"))
+
+  ;; ============================================================
+  ;; SHEET 4: PIEZO — PPTT (Ultra) + KEHS (Base)
+  ;; ============================================================
+
+  ;; U4 — MEMS Piezoelectric Transducer (PPTT — Ultra)
+  (comp (ref "PIEZO1") (value "PKGS-00ZX1") (description "Murata PKGS-00ZX1 MEMS piezo, 0.1-20Hz, SMD")
+    (pins
+      (pin (num "1") (name "OUT+") (net "PPTT_RAW_P"))
+      (pin (num "2") (name "OUT-") (net "GND"))
+    )
+  )
+  ;; PPTT signal conditioning
+  (comp (ref "R4") (value "10M")  (description "Piezo bias resistor 0201") (net_pos "PPTT_RAW_P") (net_neg "GND"))
+  (comp (ref "C10") (value "10nF") (description "PPTT AC coupling 0201")   (net_pos "PPTT_RAW_P") (net_neg "PPTT_ADC"))
+  (comp (ref "R5") (value "100k") (description "PPTT ADC input resistor 0201") (net_pos "PPTT_ADC") (net_neg "GND"))
+
+  ;; U5 — MEMS Piezo Cantilever (KEHS — Base)
+  (comp (ref "PIEZO2") (value "Mide V21BL") (description "Mide V21BL MEMS piezo cantilever, kinetic harvesting")
+    (pins
+      (pin (num "1") (name "AC+") (net "KEHS_AC_P"))
+      (pin (num "2") (name "AC-") (net "KEHS_AC_N"))
+    )
+  )
+  ;; KEHS bridge rectifier
+  (comp (ref "D2") (value "PMEG2010AEA") (description "Schottky diode 20V 1A SOD323") (net_pos "KEHS_AC_P") (net_neg "KEHS_RECT_P"))
+  (comp (ref "D3") (value "PMEG2010AEA") (description "Schottky diode 20V 1A SOD323") (net_pos "KEHS_AC_N") (net_neg "KEHS_RECT_P"))
+  (comp (ref "D4") (value "PMEG2010AEA") (description "Schottky diode 20V 1A SOD323") (net_pos "GND")       (net_neg "KEHS_AC_P"))
+  (comp (ref "D5") (value "PMEG2010AEA") (description "Schottky diode 20V 1A SOD323") (net_pos "GND")       (net_neg "KEHS_AC_N"))
+  (comp (ref "C11") (value "47uF") (description "KEHS rectifier filter cap 0402") (net_pos "KEHS_RECT_P") (net_neg "GND"))
+  ;; KEHS boost converter
+  (comp (ref "U6") (value "TPS61099") (description "TI TPS61099 boost converter 0.5-5V in, 5V out, SC-70")
+    (pins
+      (pin (num "VIN")  (name "VIN")  (net "KEHS_RECT_P"))
+      (pin (num "VOUT") (name "VOUT") (net "KEHS_VOUT"))
+      (pin (num "EN")   (name "EN")   (net "KEHS_EN"))
+      (pin (num "GND")  (name "GND")  (net "GND"))
+    )
+  )
+  (comp (ref "L2") (value "4.7uH") (description "Boost converter inductor 0402") (net_pos "KEHS_RECT_P") (net_neg "KEHS_SW"))
+  (comp (ref "C12") (value "10uF") (description "Boost output cap 0402") (net_pos "KEHS_VOUT") (net_neg "GND"))
+
+  ;; ============================================================
+  ;; SHEET 5: POWER MANAGEMENT
+  ;; ============================================================
+
+  ;; U7 — MAX77734 PMIC
+  (comp (ref "U7") (value "MAX77734EWA+")
+    (description "Maxim MAX77734 PMIC: LiPo charger + 3 LDOs + 1 buck, WLP 1.6x1.6")
+    (pins
+      (pin (num "CHGIN")  (name "CHGIN")  (net "NFC_VOUT"))
+      (pin (num "CHGIN2") (name "CHGIN2") (net "KEHS_VOUT"))
+      (pin (num "BATT")   (name "BATT")   (net "VBATT"))
+      (pin (num "SYS")    (name "SYS")    (net "VSYS"))
+      (pin (num "LDO1")   (name "LDO1")   (net "VCC_1V8"))
+      (pin (num "LDO2")   (name "LDO2")   (net "VCC_3V3"))
+      (pin (num "BUCK")   (name "BUCK")   (net "VCC_1V2"))
+      (pin (num "SDA")    (name "SDA")    (net "I2C1_SDA"))
+      (pin (num "SCL")    (name "SCL")    (net "I2C1_SCL"))
+      (pin (num "GND")    (name "GND")    (net "GND"))
+    )
+  )
+  ;; Battery — Ultra: 25mAh solid-state LiPo
+  (comp (ref "BAT1") (value "Cymbet CBC050") (description "Cymbet CBC050 25mAh solid-state LiPo, 3.7V nominal")
+    (pins
+      (pin (num "1") (name "BATT+") (net "VBATT"))
+      (pin (num "2") (name "BATT-") (net "GND"))
+    )
+  )
+  ;; NFC charging coil
+  (comp (ref "L3") (value "TDK WCT-1001") (description "TDK WCT-1001 NFC inductive charging coil, 13.56MHz")
+    (pins
+      (pin (num "1") (name "COIL1") (net "NFC_COIL_1"))
+      (pin (num "2") (name "COIL2") (net "NFC_COIL_2"))
+    )
+  )
+  ;; NFC rectifier
+  (comp (ref "D6") (value "PMEG2010AEA") (description "NFC rectifier diode 1") (net_pos "NFC_COIL_1") (net_neg "NFC_VOUT"))
+  (comp (ref "D7") (value "PMEG2010AEA") (description "NFC rectifier diode 2") (net_pos "NFC_COIL_2") (net_neg "NFC_VOUT"))
+  (comp (ref "C13") (value "100uF") (description "NFC output filter cap 0402") (net_pos "NFC_VOUT") (net_neg "GND"))
+  (comp (ref "C14") (value "100nF") (description "PMIC decoupling 0201")       (net_pos "VSYS")    (net_neg "GND"))
+
+  ;; ============================================================
+  ;; SHEET 6: AI CO-PROCESSOR (Ultra only)
+  ;; ============================================================
+
+  ;; U8 — MAX32666 AI Co-processor (Ultra)
+  (comp (ref "U8") (value "MAX32666GWE+")
+    (description "Maxim MAX32666 Arm Cortex-M4F + CNN accelerator, 1MB Flash, 560KB RAM, WLP 2.5x2.5")
+    (pins
+      (pin (num "VDD")  (name "VDD")  (net "VCC_1V8"))
+      (pin (num "GND")  (name "GND")  (net "GND"))
+      (pin (num "RX")   (name "RX")   (net "MCU_TX"))
+      (pin (num "TX")   (name "TX")   (net "MCU_RX"))
+      (pin (num "INT")  (name "INT")  (net "AI_INT_N"))
+    )
+  )
+  (comp (ref "C15") (value "100nF") (description "AI co-proc decoupling 0201") (net_pos "VCC_1V8") (net_neg "GND"))
+
+  ;; ============================================================
+  ;; SHEET 7: TEMPERATURE + IMU
+  ;; ============================================================
+
+  ;; U9 — MAX30208 Temperature Sensor
+  (comp (ref "U9") (value "MAX30208EWS+")
+    (description "Maxim MAX30208 digital temp sensor, ±0.1C accuracy, 0.005C resolution, WLP 1.5x1.5")
+    (pins
+      (pin (num "VDD") (name "VDD") (net "VCC_1V8"))
+      (pin (num "GND") (name "GND") (net "GND"))
+      (pin (num "SDA") (name "SDA") (net "I2C_SDA"))
+      (pin (num "SCL") (name "SCL") (net "I2C_SCL"))
+      (pin (num "INT") (name "INT") (net "TEMP_INT_N"))
+    )
+  )
+  ;; U10 — LSM6DSO32 IMU (Ultra) / LSM6DSO (Base)
+  (comp (ref "U10") (value "LSM6DSO32TR")
+    (description "ST LSM6DSO32 6-axis IMU, ±32g accel, ±2000dps gyro, LGA 2.5x3.0")
+    (pins
+      (pin (num "VDD")    (name "VDD")    (net "VCC_1V8"))
+      (pin (num "VDDIO")  (name "VDDIO")  (net "VCC_1V8"))
+      (pin (num "GND")    (name "GND")    (net "GND"))
+      (pin (num "SDA")    (name "SDA")    (net "I2C_SDA"))
+      (pin (num "SCL")    (name "SCL")    (net "I2C_SCL"))
+      (pin (num "INT1")   (name "INT1")   (net "IMU_INT1"))
+      (pin (num "INT2")   (name "INT2")   (net "IMU_INT2"))
+    )
+  )
+  ;; I2C pull-ups
+  (comp (ref "R6") (value "4.7k") (description "I2C SDA pull-up 0201") (net_pos "VCC_1V8") (net_neg "I2C_SDA"))
+  (comp (ref "R7") (value "4.7k") (description "I2C SCL pull-up 0201") (net_pos "VCC_1V8") (net_neg "I2C_SCL"))
+
+  ;; ============================================================
+  ;; SHEET 8: DEBUG + PROGRAMMING
+  ;; ============================================================
+
+  ;; J1 — SWD Debug Header (2-pin pogo pad)
+  (comp (ref "J1") (value "SWD_POGO") (description "2-pin pogo pad for SWD programming (SWDIO, SWDCLK)")
+    (pins
+      (pin (num "1") (name "SWDIO")  (net "SWDIO"))
+      (pin (num "2") (name "SWDCLK") (net "SWDCLK"))
+      (pin (num "3") (name "GND")    (net "GND"))
+      (pin (num "4") (name "VCC")    (net "VCC_1V8"))
+    )
+  )
+  ;; ESD on SWD
+  (comp (ref "R8") (value "100") (description "SWDIO series resistor 0201") (net_pos "SWDIO")  (net_neg "SWDIO_PAD"))
+  (comp (ref "R9") (value "100") (description "SWDCLK series resistor 0201") (net_pos "SWDCLK") (net_neg "SWDCLK_PAD"))
+
+)
