@@ -1,0 +1,25 @@
+Reference,Description,Manufacturer,MPN,Quantity,Unit,Unit_Cost_USD,Total_Cost_USD,Category,Notes
+U1A/B/C,Rockchip RK3588S SoC (TMR Triple Set),Rockchip,RK3588S,3,EA,85.00,255.00,Flight Computer,Three FCCs for TMR voting
+U2A/B/C,STM32H7B3ZIT6 ARM Cortex-M7 (TMR Triple Set),STMicroelectronics,STM32H7B3ZIT6,6,EA,18.50,111.00,Flight Computer,Hard real-time motor co-processor
+U3,Xilinx XC7S50 FPGA (TMR Voter),AMD Xilinx,XC7S50-1CSGA324C,1,EA,45.00,45.00,Flight Computer,Hardware TMR voting logic
+U4,Autotalks TEKTON3 V2X Transceiver,Autotalks,TEKTON3,2,EA,120.00,240.00,Communications,Primary + backup V2X
+U5,Qualcomm SDX65 5G mmWave Modem,Qualcomm,SDX65M,1,EA,280.00,280.00,Communications,5G connectivity for fleet management
+U6,Epson G362P IMU (6-DOF),Seiko Epson,G362P,4,EA,95.00,380.00,Sensors,Dual primary + dual backup IMU
+U7,u-blox ZED-F9P RTK GPS Module,u-blox,ZED-F9P,3,EA,75.00,225.00,Sensors,Triple-frequency RTK GPS
+U8,Livox Mid-360 Solid-State LiDAR,Livox,Mid-360,4,EA,599.00,2396.00,Sensors,360-degree obstacle detection (quad)
+U9,ADS-B In/Out Transponder,uAvionix,ping200X,1,EA,1200.00,1200.00,Sensors,FAA-required ADS-B transponder
+U10,Sony IMX678 4K Camera Module,Sony,IMX678,8,EA,45.00,360.00,Sensors,8x perimeter cameras
+U11,TI INA3221 Triple-Channel Power Monitor,Texas Instruments,INA3221,8,EA,3.20,25.60,Power,Battery bus monitoring
+U12,Infineon TLE9879 Motor Driver IC,Infineon,TLE9879QXA40,12,EA,12.50,150.00,Motor Driver,Per VTOL motor channel
+U13,Infineon TLE9879 Motor Driver IC,Infineon,TLE9879QXA40,4,EA,12.50,50.00,Motor Driver,Per ducted fan channel
+M1,90kW MagLev BLDC Outrunner Motor,AGL Custom,AS-T-MOT-90K,12,EA,2800.00,33600.00,Propulsion,VTOL lift motors (custom wound)
+M2,120kW Ducted Fan Assembly,AGL Custom,AS-T-FAN-120K,4,EA,4500.00,18000.00,Propulsion,Cruise ducted fans
+B1,60kWh Pure Solid-State Silicon-Anode Pack,QuantumScape / Custom,AS-T-BAT-60K,8,EA,28000.00,224000.00,Energy,Modular hot-swappable packs
+S1,Perovskite-on-Silicon Solar Film 6m2 panel,Saule Technologies,PSK-6M2-28,8,EA,2200.00,17600.00,Energy,48m2 total wing coverage
+C1,Aerospace Prepreg Carbon-Fiber Wing Skin,Toray,T800H-12K-40B,80,M2,145.00,11600.00,Structure,Wing upper/lower skins
+C2,Titanium 6Al-4V Structural Frame Members,VSMPO-AVISMA,Ti-6Al-4V,120,KG,85.00,10200.00,Structure,Primary load-bearing frame
+C3,Aerospace Epoxy Resin System,Hexion,EPON 862,15,KG,65.00,975.00,Structure,Aerospace-grade matrix resin
+P1,Ballistic Parachute System (Heavy),Galaxy GRS,GRS-12-CARGO,2,EA,8500.00,17000.00,Safety,Dual rocket-deployed emergency chutes
+P2,Emergency Locator Transmitter (ELT),ACR Electronics,ELT-400,2,EA,450.00,900.00,Safety,406 MHz COSPAS-SARSAT (dual)
+P3,Emergency Oxygen System (10-pax),B/E Aerospace,OXY-10PAX,1,EA,3200.00,3200.00,Safety,Passenger emergency oxygen
+TOTAL,,,,,,,342592.60,,Approximate BOM cost (excl. labor and assembly)

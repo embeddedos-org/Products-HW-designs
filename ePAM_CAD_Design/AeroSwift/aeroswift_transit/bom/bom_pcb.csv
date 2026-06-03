@@ -1,0 +1,21 @@
+Reference,Description,Manufacturer,MPN,Quantity,Unit,Unit_Cost_USD,Total_Cost_USD,Category,Notes
+U1,Rockchip RK3588S SoC (6-core ARM + 32-TOPS NPU),Rockchip,RK3588S,1,EA,85.00,85.00,Flight Computer,Main AeroOS processor
+U2,STM32H7B3ZIT6 ARM Cortex-M7 280MHz,STMicroelectronics,STM32H7B3ZIT6,2,EA,18.50,37.00,Flight Computer,Hard real-time motor co-processor (dual)
+U3,Autotalks TEKTON3 V2X Transceiver,Autotalks,TEKTON3,1,EA,120.00,120.00,Communications,DSRC + C-V2X sidelink
+U4,Epson G362P IMU (6-DOF ±300deg/s ±8g),Seiko Epson,G362P,2,EA,95.00,190.00,Sensors,Primary + backup IMU
+U5,u-blox ZED-F9P RTK GPS Module,u-blox,ZED-F9P,2,EA,75.00,150.00,Sensors,Dual-frequency RTK GPS
+U6,Livox Mid-360 Solid-State LiDAR,Livox,Mid-360,2,EA,599.00,1198.00,Sensors,360-degree obstacle detection
+U7,Sony IMX678 4K Camera Module,Sony,IMX678,6,EA,45.00,270.00,Sensors,6x perimeter cameras
+U8,TI INA3221 Triple-Channel Power Monitor,Texas Instruments,INA3221,4,EA,3.20,12.80,Power,Battery bus monitoring
+U9,Infineon TLE9879 Motor Driver IC,Infineon,TLE9879QXA40,8,EA,12.50,100.00,Motor Driver,Per VTOL motor channel
+U10,Infineon TLE9879 Motor Driver IC,Infineon,TLE9879QXA40,2,EA,12.50,25.00,Motor Driver,Per cruise propeller channel
+M1,35kW MagLev BLDC Outrunner Motor,AGL Custom,AS-MOT-35K,8,EA,850.00,6800.00,Propulsion,VTOL lift motors (custom wound)
+M2,40kW Push-Pull Composite Propeller Motor,AGL Custom,AS-MOT-40K,2,EA,1200.00,2400.00,Propulsion,Cruise propulsion
+B1,22.5kWh Semi-Solid-State Li-Metal Pack,CATL / Custom,AS-BAT-22K,4,EA,8500.00,34000.00,Energy,Modular swappable packs
+S1,Perovskite-on-Silicon Solar Film 3m2 panel,Saule Technologies,PSK-3M2-28,4,EA,1200.00,4800.00,Energy,12m2 total wing coverage
+C1,Carbon Fiber Prepreg Wing Skin (per m2),Toray,T700S-12K,18,M2,85.00,1530.00,Structure,Wing upper/lower skins
+C2,Carbon Fiber Boom Tube 50mm OD,Toray,T300-50OD,4,EA,220.00,880.00,Structure,VTOL motor boom tubes
+C3,Bio-Epoxy Resin System,Sicomin,SR GreenPoxy 56,5,KG,45.00,225.00,Structure,Sustainable matrix resin
+P1,Ballistic Parachute System,Galaxy GRS,GRS-6-PILOT,1,EA,3200.00,3200.00,Safety,Rocket-deployed emergency chute
+P2,Emergency Locator Transmitter (ELT),ACR Electronics,ELT-400,1,EA,450.00,450.00,Safety,406 MHz COSPAS-SARSAT
+TOTAL,,,,,,,56472.80,,Approximate BOM cost (excl. labor and assembly)
