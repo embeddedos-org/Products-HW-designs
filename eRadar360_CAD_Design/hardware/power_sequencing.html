@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eRadar360 — Power Sequencing</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#1a1a2e;color:#e0e0e0;display:flex;height:100vh}
+.sidebar{width:320px;background:#16213e;padding:20px;overflow-y:auto;border-right:1px solid #0f3460}
+.main{flex:1;display:flex;flex-direction:column}
+h1{font-size:18px;color:#00d4ff;margin-bottom:15px;letter-spacing:1px}
+h2{font-size:14px;color:#e94560;margin:15px 0 8px;text-transform:uppercase;letter-spacing:0.5px}
+.rail{padding:8px 12px;margin:4px 0;border-radius:6px;background:#1a1a2e;border-left:4px solid}
+.rail-5v{border-color:#ff6b6b}.rail-3v3{border-color:#ffd93d}.rail-1v8{border-color:#6bcb77}
+.rail-0v85{border-color:#4d96ff}.rail-1v1{border-color:#9b59b6}.rail-oled{border-color:#e94560}
+.rail .name{font-weight:bold;font-size:13px}.rail .val{font-size:11px;color:#888;margin-top:2px}
+.tabs{display:flex;background:#16213e;border-bottom:1px solid #0f3460}
+.tab{padding:10px 20px;cursor:pointer;color:#888;font-size:13px;border-bottom:2px solid transparent;transition:all 0.2s}
+.tab.active{color:#00d4ff;border-bottom-color:#00d4ff}
+.tab:hover{color:#fff}
+.canvas-wrap{flex:1;position:relative;background:#0a0a1a}
+canvas{width:100%;height:100%}
+.controls{display:flex;align-items:center;gap:15px;padding:10px 20px;background:#16213e;border-top:1px solid #0f3460}
+.btn{padding:6px 16px;border:1px solid #0f3460;background:#1a1a2e;color:#e0e0e0;border-radius:4px;cursor:pointer;font-size:12px}
+.btn:hover{background:#0f3460}.btn.active{background:#e94560;border-color:#e94560;color:#fff}
+.time-display{font-family:monospace;font-size:14px;color:#00d4ff;min-width:80px}
+.event{font-size:11px;padding:4px 8px;margin:2px 0;background:#1a1a2e;border-radius:3px;border-left:3px solid #0f3460}
+.event.warn{border-color:#ffd93d;color:#ffd93d}
+.event.ok{border-color:#6bcb77}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.legend-item{font-size:11px;display:flex;align-items:center;gap:4px}
+.legend-dot{width:10px;height:10px;border-radius:2px}
+</style>
+</head>
+<body>
+<div class="sidebar">
+  <h1>⚡ eRadar360 Power Sequencing</h1>
+  <h2>Power Rails</h2>
+  <div class="rail rail-5v"><div class="name">VCC_5V — USB Input</div><div class="val">5.00V / 3A max — J1 USB-C VBUS</div></div>
+  <div class="rail rail-3v3"><div class="name">VCC_3V3 — Digital Logic</div><div class="val">3.30V / 1.5A — GPS, CAN, V2X, STM32, Flash</div></div>
+  <div class="rail rail-1v1"><div class="name">VCC_1V1 — Radar Core</div><div class="val">1.10V / 800mA — AWR2944 ×2 analog+digital</div></div>
+  <div class="rail rail-0v85"><div class="name">VCC_0V85 — CPU Core</div><div class="val">0.85V / 4A — RK3588S CPU+NPU+GPU core</div></div>
+  <div class="rail rail-1v8"><div class="name">VCC_1V8 — DDR4 / IO</div><div class="val">1.80V / 1A — DDR4, MIPI, radar I/O</div></div>
+  <div class="rail rail-oled"><div class="name">VCC_OLED — Display</div><div class="val">12.0V / 200mA — AMOLED ELVDD boost</div></div>
+  <h2>Sequence Events</h2>
+  <div id="events"></div>
+  <h2>Constraints</h2>
+  <div class="event warn">⚠ RK3588S VDD_CPU (0.85V) must be stable before VDDIO (1.8V) — datasheet §3.4</div>
+  <div class="event warn">⚠ AWR2944 AVDD (1.1V) must ramp before VDDIO (1.8V) — TI SWRS222</div>
+  <div class="event warn">⚠ DDR4 VDD/VDDQ must be stable 200µs before CKE assert</div>
+  <div class="event warn">⚠ OLED boost enable after 3.3V stable — inrush current limit</div>
+  <div class="event ok">✓ Shutdown is reverse order of power-on</div>
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#ff6b6b"></div>5V</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#ffd93d"></div>3.3V</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#9b59b6"></div>1.1V</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#4d96ff"></div>0.85V</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#6bcb77"></div>1.8V</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#e94560"></div>OLED</div>
+  </div>
+</div>
+<div class="main">
+  <div class="tabs">
+    <div class="tab active" onclick="setSeq(0)">Power On</div>
+    <div class="tab" onclick="setSeq(1)">Sleep Entry</div>
+    <div class="tab" onclick="setSeq(2)">Wake Up</div>
+    <div class="tab" onclick="setSeq(3)">Shutdown</div>
+  </div>
+  <div class="canvas-wrap"><canvas id="cv"></canvas></div>
+  <div class="controls">
+    <button class="btn" id="playBtn" onclick="togglePlay()">▶ Play</button>
+    <button class="btn" onclick="resetAnim()">⟲ Reset</button>
+    <div class="time-display" id="timeDisp">0.0 ms</div>
+    <input type="range" id="slider" min="0" max="1000" value="0" style="flex:1" oninput="onSlider()">
+    <span style="font-size:11px;color:#888">Speed:</span>
+    <button class="btn" onclick="setSpeed(0.5)">0.5×</button>
+    <button class="btn active" onclick="setSpeed(1)">1×</button>
+    <button class="btn" onclick="setSpeed(2)">2×</button>
+  </div>
+</div>
+<script>
+const cv=document.getElementById('cv'),ctx=cv.getContext('2d');
+const rails=[
+  {name:'VCC_5V',color:'#ff6b6b',target:5.0},
+  {name:'VCC_3V3',color:'#ffd93d',target:3.3},
+  {name:'VCC_1V1',color:'#9b59b6',target:1.1},
+  {name:'VCC_0V85',color:'#4d96ff',target:0.85},
+  {name:'VCC_1V8',color:'#6bcb77',target:1.8},
+  {name:'VCC_OLED',color:'#e94560',target:12.0}
+];
+const sequences=[
+  {name:'Power On',dur:25,events:[
+    {t:0,rail:0,action:'ramp',dur:0.5,text:'USB-C connected, 5V available'},
+    {t:1,rail:1,action:'ramp',dur:1.5,text:'PMIC BUCK1 enables 3.3V'},
+    {t:3,rail:2,action:'ramp',dur:1.0,text:'PMIC BUCK4 enables 1.1V (radar core)'},
+    {t:5,rail:3,action:'ramp',dur:2.0,text:'PMIC BUCK3 enables 0.85V (CPU core)'},
+    {t:8,rail:4,action:'ramp',dur:1.5,text:'PMIC BUCK2 enables 1.8V (DDR4 + I/O)'},
+    {t:10.2,rail:-1,action:'note',text:'DDR4 CKE held LOW — wait 200µs'},
+    {t:10.4,rail:-1,action:'note',text:'DDR4 CKE asserted — training begins'},
+    {t:15,rail:5,action:'ramp',dur:2.0,text:'OLED boost enables 12V'},
+    {t:18,rail:-1,action:'note',text:'Display initialized — welcome screen'},
+    {t:20,rail:-1,action:'note',text:'All subsystems ready — radar scanning'}
+  ]},
+  {name:'Sleep Entry',dur:20,events:[
+    {t:0,rail:-1,action:'note',text:'Sleep command received'},
+    {t:1,rail:5,action:'down',dur:1.0,text:'OLED boost disabled'},
+    {t:3,rail:4,action:'down',dur:1.0,text:'DDR4 enters self-refresh, 1.8V off'},
+    {t:5,rail:3,action:'down',dur:1.0,text:'CPU core 0.85V off (STM32 stays on 3.3V)'},
+    {t:7,rail:2,action:'down',dur:0.5,text:'Radar 1.1V off'},
+    {t:9,rail:-1,action:'note',text:'Sleep state — only 3.3V + 5V active (STM32 monitors wake)'}
+  ]},
+  {name:'Wake Up',dur:15,events:[
+    {t:0,rail:-1,action:'note',text:'Wake trigger (button or V2X alert)'},
+    {t:1,rail:2,action:'ramp',dur:1.0,text:'Radar 1.1V re-enabled'},
+    {t:3,rail:3,action:'ramp',dur:2.0,text:'CPU core 0.85V re-enabled'},
+    {t:6,rail:4,action:'ramp',dur:1.5,text:'DDR4 1.8V re-enabled, exit self-refresh'},
+    {t:9,rail:5,action:'ramp',dur:2.0,text:'OLED boost re-enabled'},
+    {t:12,rail:-1,action:'note',text:'System fully awake — resume scanning'}
+  ]},
+  {name:'Shutdown',dur:25,events:[
+    {t:0,rail:-1,action:'note',text:'Shutdown command — save state to flash'},
+    {t:2,rail:5,action:'down',dur:1.0,text:'OLED off first'},
+    {t:4,rail:4,action:'down',dur:1.0,text:'1.8V off (DDR4 flushed)'},
+    {t:6,rail:3,action:'down',dur:1.0,text:'0.85V CPU off'},
+    {t:8,rail:2,action:'down',dur:0.5,text:'1.1V radar off'},
+    {t:10,rail:1,action:'down',dur:1.0,text:'3.3V off'},
+    {t:12,rail:0,action:'down',dur:0.5,text:'5V disconnected'},
+    {t:14,rail:-1,action:'note',text:'All rails at 0V — safe to disconnect'}
+  ]}
+];
+let curSeq=0,playT=0,playing=false,speed=1,animId=null,lastFrame=0;
+function resize(){cv.width=cv.parentElement.clientWidth;cv.height=cv.parentElement.clientHeight}
+window.addEventListener('resize',resize);resize();
+function setSeq(i){curSeq=i;playT=0;playing=false;document.getElementById('playBtn').textContent='▶ Play';
+  document.querySelectorAll('.tab').forEach((t,j)=>{t.classList.toggle('active',j===i)});updateEvents();draw()}
+function togglePlay(){playing=!playing;document.getElementById('playBtn').textContent=playing?'⏸ Pause':'▶ Play';
+  if(playing){lastFrame=performance.now();animId=requestAnimationFrame(animate)}}
+function resetAnim(){playT=0;playing=false;document.getElementById('playBtn').textContent='▶ Play';draw()}
+function setSpeed(s){speed=s;document.querySelectorAll('.controls .btn').forEach(b=>{
+  if(b.textContent.includes('×'))b.classList.toggle('active',b.textContent===s+'×')})}
+function onSlider(){const s=sequences[curSeq];playT=s.dur*(document.getElementById('slider').value/1000);draw()}
+function animate(ts){if(!playing)return;const dt=(ts-lastFrame)/1000*speed;lastFrame=ts;
+  playT+=dt;const s=sequences[curSeq];if(playT>s.dur){playT=s.dur;playing=false;
+  document.getElementById('playBtn').textContent='▶ Play'}draw();if(playing)animId=requestAnimationFrame(animate)}
+function getRailV(railIdx,t){const s=sequences[curSeq];let v=0;
+  if(curSeq===0)v=0;else v=rails[railIdx].target;
+  for(const e of s.events){if(e.rail!==railIdx)continue;
+    if(e.action==='ramp'){if(t<e.t)continue;if(t>=e.t+e.dur)v=rails[railIdx].target;
+      else v=(t-e.t)/e.dur*rails[railIdx].target}
+    if(e.action==='down'){if(t<e.t)continue;if(t>=e.t+e.dur)v=0;
+      else v=rails[railIdx].target*(1-(t-e.t)/e.dur)}}return v}
+function updateEvents(){const el=document.getElementById('events');const s=sequences[curSeq];
+  el.innerHTML=s.events.map(e=>`<div class="event${e.action==='note'?' ok':''}">${e.t.toFixed(1)}ms — ${e.text}</div>`).join('')}
+function draw(){const w=cv.width,h=cv.height,s=sequences[curSeq];
+  ctx.fillStyle='#0a0a1a';ctx.fillRect(0,0,w,h);
+  const ml=80,mr=40,mt=30,mb=40,gw=w-ml-mr,gh=h-mt-mb;
+  const rh=gh/rails.length;
+  ctx.strokeStyle='#1a2a4a';ctx.lineWidth=1;
+  for(let i=0;i<=10;i++){const x=ml+gw*i/10;ctx.beginPath();ctx.moveTo(x,mt);ctx.lineTo(x,h-mb);ctx.stroke();
+    ctx.fillStyle='#555';ctx.font='10px monospace';ctx.textAlign='center';
+    ctx.fillText((s.dur*i/10).toFixed(1)+'ms',x,h-mb+15)}
+  rails.forEach((r,i)=>{const y=mt+rh*i+rh*0.15,bh=rh*0.7;
+    ctx.fillStyle='#111';ctx.fillRect(ml,y,gw,bh);
+    ctx.fillStyle=r.color+'33';ctx.fillRect(ml,y,gw,bh);
+    ctx.fillStyle=r.color;ctx.font='bold 11px sans-serif';ctx.textAlign='right';
+    ctx.fillText(r.name,ml-8,y+bh/2+4);
+    ctx.beginPath();ctx.strokeStyle=r.color;ctx.lineWidth=2;
+    for(let px=0;px<gw;px++){const t=s.dur*px/gw;const v=getRailV(i,t);
+      const vy=y+bh-bh*(v/r.target)*0.85-bh*0.05;
+      if(px===0)ctx.moveTo(ml+px,vy);else ctx.lineTo(ml+px,vy)}ctx.stroke();
+    const cv2=getRailV(i,playT);ctx.fillStyle='#fff';ctx.font='10px monospace';ctx.textAlign='left';
+    ctx.fillText(cv2.toFixed(2)+'V',ml+gw+5,y+bh/2+4)});
+  const px=ml+gw*(playT/s.dur);ctx.strokeStyle='#00d4ff';ctx.lineWidth=2;ctx.setLineDash([4,4]);
+  ctx.beginPath();ctx.moveTo(px,mt);ctx.lineTo(px,h-mb);ctx.stroke();ctx.setLineDash([]);
+  ctx.fillStyle='#00d4ff';ctx.beginPath();ctx.moveTo(px-6,mt);ctx.lineTo(px+6,mt);ctx.lineTo(px,mt+8);ctx.fill();
+  for(const e of s.events){if(e.action!=='note')continue;const ex=ml+gw*(e.t/s.dur);
+    if(ex>ml&&ex<ml+gw){ctx.fillStyle='#ffffff22';ctx.fillRect(ex-1,mt,2,gh);
+      ctx.fillStyle='#888';ctx.font='9px sans-serif';ctx.textAlign='left';
+      ctx.save();ctx.translate(ex+4,mt+10);ctx.rotate(Math.PI/6);ctx.fillText(e.text.substring(0,30),0,0);ctx.restore()}}
+  document.getElementById('timeDisp').textContent=playT.toFixed(1)+' ms';
+  document.getElementById('slider').value=Math.round(1000*playT/s.dur)}
+updateEvents();draw();
+</script>
+</body>
+</html>

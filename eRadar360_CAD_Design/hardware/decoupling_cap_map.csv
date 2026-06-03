@@ -1,0 +1,56 @@
+Reference,Component,Net,Pin(s),Cap_Ref,Value,Type,Package,Qty,Placement_Notes,ESR_max,SRF_min
+U1,AWR2944 Front Radar,VCC_1V1,AVDD_RF (A3 A4 B3),C1 C2 C3,100nF,X7R,0402,3,Within 1mm of BGA pad,50mΩ,500MHz
+U1,AWR2944 Front Radar,VCC_1V1,DVDD (C5 D5 E5),C4 C5,100nF,X7R,0402,2,Adjacent to digital core,50mΩ,500MHz
+U1,AWR2944 Front Radar,VCC_1V1,DVDD (C5),C6,10µF,X5R,0603,1,Bulk near corner pad,10mΩ,—
+U1,AWR2944 Front Radar,VCC_1V8,VDDIO (H1 H2 J1),C7 C8,100nF,X7R,0402,2,Near I/O bank pins,50mΩ,500MHz
+U1,AWR2944 Front Radar,VCC_3V3,VDD_PLL (K3),C9,100nF,C0G,0402,1,Critical — low noise for PLL,30mΩ,1GHz
+U1,AWR2944 Front Radar,VCC_3V3,VDD_PLL (K3),C10,10pF,C0G,0402,1,RF filter cap,20mΩ,2GHz
+U2,AWR2944 Rear Radar,VCC_1V1,AVDD_RF (A3 A4 B3),C11 C12 C13,100nF,X7R,0402,3,Within 1mm of BGA pad,50mΩ,500MHz
+U2,AWR2944 Rear Radar,VCC_1V1,DVDD (C5 D5 E5),C14 C15,100nF,X7R,0402,2,Adjacent to digital core,50mΩ,500MHz
+U2,AWR2944 Rear Radar,VCC_1V1,DVDD (C5),C16,10µF,X5R,0603,1,Bulk near corner pad,10mΩ,—
+U2,AWR2944 Rear Radar,VCC_1V8,VDDIO (H1 H2 J1),C17 C18,100nF,X7R,0402,2,Near I/O bank pins,50mΩ,500MHz
+U2,AWR2944 Rear Radar,VCC_3V3,VDD_PLL (K3),C19,100nF,C0G,0402,1,Critical — low noise for PLL,30mΩ,1GHz
+U3,RK3588S Main CPU,VCC_0V85,VDD_CPU (multiple),C20-C25,100nF,X7R,0402,6,Distributed under BGA,50mΩ,500MHz
+U3,RK3588S Main CPU,VCC_0V85,VDD_CPU (bulk),C26 C27,10µF,X5R,0603,2,Board edge bulk caps,10mΩ,—
+U3,RK3588S Main CPU,VCC_0V85,VDD_NPU (N12-N15),C28 C29,100nF,X7R,0402,2,Near NPU power pins,50mΩ,500MHz
+U3,RK3588S Main CPU,VCC_0V85,VDD_NPU (bulk),C30,22µF,X5R,1210,1,NPU bulk bypass,5mΩ,—
+U3,RK3588S Main CPU,VCC_1V8,VDDIO_MISC,C31 C32,100nF,X7R,0402,2,Near I/O banks,50mΩ,500MHz
+U3,RK3588S Main CPU,VCC_1V8,VDD_DDR,C33 C34 C35,100nF,X7R,0402,3,DDR4 I/O power,50mΩ,500MHz
+U3,RK3588S Main CPU,VCC_3V3,VDDIO_SD,C36,100nF,X7R,0402,1,SD/eMMC interface,50mΩ,500MHz
+U3,RK3588S Main CPU,VCC_3V3,VDD_PLL,C37,100nF,C0G,0402,1,PLL — low noise required,30mΩ,1GHz
+U4,TEKTON3 V2X,VCC_3V3,VDD_CORE (A1-A3),C38 C39,100nF,X7R,0402,2,Near power ball group,50mΩ,500MHz
+U4,TEKTON3 V2X,VCC_3V3,VDD_CORE (bulk),C40,10µF,X5R,0603,1,Bulk at corner,10mΩ,—
+U4,TEKTON3 V2X,VCC_1V8,VDD_IO,C41,100nF,X7R,0402,1,I/O rail,50mΩ,500MHz
+U4,TEKTON3 V2X,VCC_3V3,VDD_RF,C42,100nF,C0G,0402,1,5.9GHz RF section — low noise,30mΩ,1GHz
+U7,NEO-M9N GPS,VCC_3V3,VCC (pin 18),C43,100nF,X7R,0402,1,Within 2mm of VCC pin,50mΩ,500MHz
+U7,NEO-M9N GPS,VCC_3V3,VCC (bulk),C44,10µF,X5R,0603,1,GPS bulk bypass,10mΩ,—
+U7,NEO-M9N GPS,VCC_3V3,V_BCKP (pin 22),C45,100nF,X7R,0402,1,RTC backup cap,50mΩ,500MHz
+U8,STM32H7B3 Co-proc,VCC_3V3,VDD (pins 11 19 28 50 75 100),C46-C51,100nF,X7R,0402,6,One per VDD pin pair,50mΩ,500MHz
+U8,STM32H7B3 Co-proc,VCC_3V3,VDD (bulk),C52,10µF,X5R,0603,1,Near pin 11 bulk,10mΩ,—
+U8,STM32H7B3 Co-proc,VCC_3V3,VDDA (pin 23),C53,1µF,C0G,0603,1,Analog supply — low noise,20mΩ,—
+U8,STM32H7B3 Co-proc,VCC_3V3,VDDA (pin 23),C54,100nF,C0G,0402,1,Analog HF bypass,30mΩ,1GHz
+U9B,MCP2551 CAN,VCC_5V,VDD (pin 3),C55,100nF,X7R,0402,1,Within 5mm of VDD,50mΩ,500MHz
+U10,TPS65219 PMIC,VCC_5V,VIN (pins 1-3),C56 C57,22µF,X5R,1210,2,Input bulk — critical,5mΩ,—
+U10,TPS65219 PMIC,VCC_5V,VIN (pins 1-3),C58,100nF,X7R,0402,1,HF input bypass,50mΩ,500MHz
+U10,TPS65219 PMIC,VCC_3V3,VOUT1 (pin 7),C59,22µF,X5R,1210,1,Output bulk 3V3,5mΩ,—
+U10,TPS65219 PMIC,VCC_1V8,VOUT2 (pin 10),C60,22µF,X5R,1210,1,Output bulk 1V8,5mΩ,—
+U10,TPS65219 PMIC,VCC_0V85,VOUT3 (pin 13),C61,22µF,X5R,1210,1,Output bulk 0V85,5mΩ,—
+U10,TPS65219 PMIC,VCC_1V1,VOUT4 (pin 16),C62,22µF,X5R,1210,1,Output bulk 1V1,5mΩ,—
+U11,DDR4 SDRAM,VCC_1V8,VDD (multiple),C63-C66,47nF,C0G,0402,4,DDR4 VDD — matched,30mΩ,1GHz
+U11,DDR4 SDRAM,VCC_1V8,VDDQ (multiple),C67-C70,47nF,C0G,0402,4,DDR4 VDDQ — matched,30mΩ,1GHz
+U11,DDR4 SDRAM,VCC_1V8,VDD (bulk),C71,10µF,X5R,0603,1,DDR4 bulk bypass,10mΩ,—
+U12,NOR Flash,VCC_1V8,VCC (pin 8),C72,100nF,X7R,0402,1,Flash power bypass,50mΩ,500MHz
+U13,TIA (×5),VCC_3V3,VS+ (pin 3),C73-C77,100nF,X7R,0402,5,One per TIA IC,50mΩ,500MHz
+U14,QCA6174A WiFi/BT,VCC_3V3,VDD_CORE,C78 C79,100nF,X7R,0402,2,Near RF section,50mΩ,500MHz
+U14,QCA6174A WiFi/BT,VCC_1V8,VDD_IO,C80,100nF,X7R,0402,1,I/O supply,50mΩ,500MHz
+U15,TPA2012D2 Audio Amp,VCC_5V,PVDD (pins 1 20),C81,10µF,X5R,0603,1,Amp power input,10mΩ,—
+U16,TPS61046 OLED Boost,VCC_3V3,VIN (pin 1),C82,10µF,X5R,0603,1,Boost input,10mΩ,—
+U16,TPS61046 OLED Boost,VCC_OLED,VOUT (pin 5),C83,4.7µF,X5R,0603,1,12V output cap,10mΩ,—
+
+PLACEMENT RULES:
+1. All PLL bypass caps (C9 C10 C19 C37 C42) MUST be C0G/NP0 dielectric — X7R noise is unacceptable
+2. DDR4 bypass caps (C63-C70) must be matched ±5% and placed symmetrically
+3. PMIC output bulk caps (C59-C62) must be within 3mm of PMIC output pin
+4. AWR2944 RF supply caps (C1-C3 C11-C13) must be via-in-pad directly under BGA
+5. RK3588S requires minimum 6× 100nF + 2× 10µF on VDD_CPU — do not reduce
+6. Ferrite beads FB1 must separate digital VCC_3V3 from analog VDDA sections

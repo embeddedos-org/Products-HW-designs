@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eRadar360 — Interactive Schematic</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f0f1a;color:#e0e0e0;display:flex;height:100vh;overflow:hidden}
+.sidebar{width:300px;background:#161625;padding:16px;overflow-y:auto;border-right:1px solid #2a2a4a;display:flex;flex-direction:column}
+.main{flex:1;display:flex;flex-direction:column}
+h1{font-size:16px;color:#00d4ff;margin-bottom:12px;letter-spacing:1px}
+h2{font-size:12px;color:#e94560;margin:12px 0 6px;text-transform:uppercase;letter-spacing:0.5px}
+.comp{padding:6px 10px;margin:2px 0;border-radius:4px;cursor:pointer;font-size:12px;transition:background 0.15s}
+.comp:hover{background:#1a1a3a}.comp.active{background:#0f3460;border-left:3px solid #00d4ff}
+.comp .ref{font-weight:bold;color:#00d4ff;margin-right:6px}.comp .desc{color:#888}
+.tabs{display:flex;background:#161625;border-bottom:1px solid #2a2a4a}
+.tab{padding:8px 18px;cursor:pointer;color:#666;font-size:12px;border-bottom:2px solid transparent;transition:all 0.15s}
+.tab.active{color:#00d4ff;border-bottom-color:#00d4ff}.tab:hover{color:#ccc}
+.canvas-wrap{flex:1;position:relative;overflow:hidden;background:#0a0a14}
+canvas{display:block}
+.detail{height:200px;background:#161625;border-top:1px solid #2a2a4a;padding:12px;overflow-y:auto;font-size:11px}
+.detail h3{color:#00d4ff;font-size:13px;margin-bottom:8px}
+.detail table{width:100%;border-collapse:collapse}
+.detail th{text-align:left;color:#e94560;font-size:10px;padding:3px 6px;border-bottom:1px solid #2a2a4a}
+.detail td{padding:3px 6px;border-bottom:1px solid #1a1a2a;font-family:monospace;font-size:11px}
+.bus-legend{margin-top:auto;padding-top:10px;border-top:1px solid #2a2a4a}
+.bus-item{font-size:11px;display:flex;align-items:center;gap:6px;padding:2px 0}
+.bus-dot{width:20px;height:3px;border-radius:1px}
+.status{position:absolute;top:8px;right:12px;font-size:10px;color:#555;pointer-events:none}
+</style>
+</head>
+<body>
+<div class="sidebar">
+  <h1>📐 eRadar360 Schematic</h1>
+  <h2>Components</h2>
+  <div id="compList"></div>
+  <div class="bus-legend">
+    <h2>Bus Legend</h2>
+    <div class="bus-item"><div class="bus-dot" style="background:#ff6b6b"></div>Power (VCC)</div>
+    <div class="bus-item"><div class="bus-dot" style="background:#4d96ff"></div>SPI Bus</div>
+    <div class="bus-item"><div class="bus-dot" style="background:#6bcb77"></div>I2C Bus</div>
+    <div class="bus-item"><div class="bus-dot" style="background:#ffd93d"></div>UART</div>
+    <div class="bus-item"><div class="bus-dot" style="background:#e94560"></div>MIPI-DSI</div>
+    <div class="bus-item"><div class="bus-dot" style="background:#9b59b6"></div>DDR4</div>
+    <div class="bus-item"><div class="bus-dot" style="background:#ff9f43"></div>CAN Bus</div>
+    <div class="bus-item"><div class="bus-dot" style="background:#00cec9"></div>RF/Antenna</div>
+    <div class="bus-item"><div class="bus-dot" style="background:#a29bfe"></div>Analog (Laser)</div>
+    <div class="bus-item"><div class="bus-dot" style="background:#636e72"></div>GND</div>
+  </div>
+</div>
+<div class="main">
+  <div class="tabs">
+    <div class="tab active" data-tab="schematic">Schematic</div>
+    <div class="tab" data-tab="layout">Board Layout</div>
+    <div class="tab" data-tab="netlist">Net List</div>
+    <div class="tab" data-tab="bom">BOM</div>
+  </div>
+  <div class="canvas-wrap"><canvas id="cv"></canvas><div class="status" id="status">Zoom: 100% | Pan: drag</div></div>
+  <div class="detail" id="detail"><h3>Select a component to view details</h3><p style="color:#666">Click any IC block on the schematic or in the sidebar.</p></div>
+</div>
+<script>
+const components=[
+  {ref:'U1',name:'AWR2944',desc:'Front Radar SoC',x:120,y:80,w:120,h:60,color:'#00cec9',
+   pins:[{n:'SPI_CLK',net:'SPI0_CLK',bus:'spi'},{n:'SPI_MOSI',net:'SPI0_MOSI',bus:'spi'},{n:'SPI_MISO',net:'SPI0_MISO',bus:'spi'},{n:'SPI_CS',net:'SPI0_CS0',bus:'spi'},{n:'AVDD',net:'VCC_1V1',bus:'pwr'},{n:'VDDIO',net:'VCC_1V8',bus:'pwr'},{n:'TX1-4',net:'FRONT_ANT',bus:'rf'},{n:'RX1-4',net:'FRONT_ANT',bus:'rf'},{n:'GND',net:'GND',bus:'gnd'}],
+   detail:'77GHz FMCW Radar Transceiver. 4TX/4RX channels. Connected to front SIW phased array (8×8 elements, 24 dBi). Communicates with RK3588S via SPI0 at 50 MHz.'},
+  {ref:'U2',name:'AWR2944',desc:'Rear Radar SoC',x:120,y:200,w:120,h:60,color:'#00cec9',
+   pins:[{n:'SPI_CLK',net:'SPI1_CLK',bus:'spi'},{n:'SPI_MOSI',net:'SPI1_MOSI',bus:'spi'},{n:'SPI_MISO',net:'SPI1_MISO',bus:'spi'},{n:'SPI_CS',net:'SPI1_CS0',bus:'spi'},{n:'AVDD',net:'VCC_1V1',bus:'pwr'},{n:'TX1-4',net:'REAR_ANT',bus:'rf'},{n:'RX1-4',net:'REAR_ANT',bus:'rf'}],
+   detail:'Rear-facing 77GHz radar. 4×4 SIW array (18 dBi, ±30° steering). SPI1 bus to RK3588S.'},
+  {ref:'U3',name:'RK3588S',desc:'Main CPU + 6T NPU',x:380,y:140,w:140,h:80,color:'#4d96ff',
+   pins:[{n:'SPI0',net:'SPI0_*',bus:'spi'},{n:'SPI1',net:'SPI1_*',bus:'spi'},{n:'I2C0',net:'I2C0_*',bus:'i2c'},{n:'UART2',net:'UART2_*',bus:'uart'},{n:'UART3',net:'UART3_*',bus:'uart'},{n:'MIPI_DSI',net:'MIPI_DSI_*',bus:'mipi'},{n:'DDR4',net:'DDR4_*',bus:'ddr'},{n:'VDD_CPU',net:'VCC_0V85',bus:'pwr'},{n:'VDDIO',net:'VCC_1V8',bus:'pwr'},{n:'GPIO',net:'GPIO_*',bus:'gpio'}],
+   detail:'Rockchip RK3588S — 4× Cortex-A76 @ 2.4GHz + 4× Cortex-A55 @ 1.8GHz. 6 TOPS NPU for AI threat classification. Mali-G610 GPU for display rendering. Hub for all subsystems.'},
+  {ref:'U4',name:'TEKTON3',desc:'V2X Transceiver',x:120,y:320,w:120,h:60,color:'#ffd93d',
+   pins:[{n:'UART_TX',net:'UART3_RX',bus:'uart'},{n:'UART_RX',net:'UART3_TX',bus:'uart'},{n:'ANT',net:'V2X_ANT',bus:'rf'},{n:'VDD',net:'VCC_3V3',bus:'pwr'}],
+   detail:'Autotalks TEKTON3 — dual-mode DSRC (802.11p) + C-V2X (PC5) transceiver. Receives Basic Safety Messages from smart infrastructure. Connected via UART3 to RK3588S. External SMA antenna (J5).'},
+  {ref:'U5',name:'5× InGaAs APD',desc:'Laser Array',x:120,y:430,w:120,h:50,color:'#a29bfe',
+   pins:[{n:'APD_OUT×5',net:'LASER_TIA_1-5',bus:'analog'},{n:'BIAS',net:'VCC_HV',bus:'pwr'}],
+   detail:'5× Hamamatsu G12183-010K InGaAs avalanche photodiodes. Covers 904nm + 1550nm laser guns. Each feeds an OPA857 transimpedance amplifier → STM32H7B3 ADC for digital processing.'},
+  {ref:'U6',name:'4" AMOLED',desc:'Display Module',x:620,y:60,w:110,h:50,color:'#e94560',
+   pins:[{n:'MIPI_DSI',net:'MIPI_DSI_*',bus:'mipi'},{n:'ELVDD',net:'VCC_OLED',bus:'pwr'},{n:'GND',net:'GND',bus:'gnd'}],
+   detail:'Samsung AMS395GE04 — 4" 480×800 AMOLED. MIPI-DSI 2-lane interface from RK3588S. Shows color-coded threat map with directional arrows and AI confidence scores. 600 nit brightness.'},
+  {ref:'U7',name:'NEO-M9N',desc:'GPS Receiver',x:620,y:160,w:110,h:50,color:'#6bcb77',
+   pins:[{n:'I2C_SDA',net:'I2C0_SDA',bus:'i2c'},{n:'I2C_SCL',net:'I2C0_SCL',bus:'i2c'},{n:'RF_IN',net:'GPS_RF',bus:'rf'},{n:'VCC',net:'VCC_3V3',bus:'pwr'},{n:'1PPS',net:'GPS_PPS',bus:'gpio'}],
+   detail:'u-blox NEO-M9N — multi-constellation GNSS (GPS/GLONASS/Galileo/BeiDou). 1.5m CEP accuracy. I2C connection to both RK3588S and STM32H7B3. Ceramic patch antenna via U.FL (J7).'},
+  {ref:'U8',name:'STM32H7B3',desc:'Sensor Fusion MCU',x:380,y:380,w:140,h:60,color:'#6bcb77',
+   pins:[{n:'I2C1',net:'I2C0_*',bus:'i2c'},{n:'UART4',net:'UART4_*',bus:'uart'},{n:'ADC_IN0-4',net:'LASER_TIA_*',bus:'analog'},{n:'VDD',net:'VCC_3V3',bus:'pwr'},{n:'JTAG',net:'JTAG_*',bus:'gpio'}],
+   detail:'STMicroelectronics STM32H7B3 — ARM Cortex-M7 @ 280MHz. Handles: laser signal processing (5× ADC channels), OBD-II protocol (via ELM327), GPS data parsing, sensor fusion. Passes processed data to RK3588S.'},
+  {ref:'U9',name:'ELM327+MCP2551',desc:'OBD-II Interface',x:620,y:350,w:110,h:50,color:'#ff9f43',
+   pins:[{n:'UART',net:'UART4_*',bus:'uart'},{n:'CAN_H/L',net:'CAN*',bus:'can'},{n:'VDD',net:'VCC_5V',bus:'pwr'}],
+   detail:'OBD-II to UART bridge. ELM327 interprets OBD protocols → UART to STM32H7B3. MCP2551 handles CAN physical layer. Reads vehicle speed, cruise state, RPM for context-aware alerting.'},
+  {ref:'U10',name:'TPS65219',desc:'PMIC',x:380,y:280,w:100,h:50,color:'#ff6b6b',
+   pins:[{n:'VIN',net:'VCC_5V',bus:'pwr'},{n:'BUCK1',net:'VCC_3V3',bus:'pwr'},{n:'BUCK2',net:'VCC_1V8',bus:'pwr'},{n:'BUCK3',net:'VCC_0V85',bus:'pwr'},{n:'BUCK4',net:'VCC_1V1',bus:'pwr'}],
+   detail:'TI TPS65219 — 4-channel buck PMIC. Generates all core rails from 5V USB-C input. Power-good outputs drive sequencing logic. I2C programmable voltage/current limits.'},
+  {ref:'U11',name:'DDR4 8Gb',desc:'Main Memory',x:620,y:240,w:110,h:50,color:'#9b59b6',
+   pins:[{n:'DQ[0:7]',net:'DDR4_DQ*',bus:'ddr'},{n:'CK±',net:'DDR4_CK*',bus:'ddr'},{n:'VDD',net:'VCC_1V8',bus:'pwr'}],
+   detail:'Samsung K4A8G165WC — 8Gbit DDR4-3200 SDRAM (1 GB). Stores radar FFT data, AI model weights, threat database, and V2X message buffer. Connected to RK3588S DDR4 controller.'},
+  {ref:'U14',name:'QCA6174A',desc:'WiFi 6 + BT 5.3',x:620,y:430,w:110,h:50,color:'#ffd93d',
+   pins:[{n:'SDIO',net:'SDIO_*',bus:'spi'},{n:'ANT',net:'WIFI_ANT',bus:'rf'},{n:'VDD',net:'VCC_3V3',bus:'pwr'}],
+   detail:'Qualcomm QCA6174A — Wi-Fi 6 (802.11ax) + Bluetooth 5.3. Used for: OTA firmware updates, cloud threat database sync, smartphone companion app (Bluetooth). PCB trace antenna.'}
+];
+const busColors={spi:'#4d96ff',i2c:'#6bcb77',uart:'#ffd93d',mipi:'#e94560',ddr:'#9b59b6',can:'#ff9f43',rf:'#00cec9',analog:'#a29bfe',pwr:'#ff6b6b',gnd:'#636e72',gpio:'#888'};
+const connections=[
+  {from:'U1',to:'U3',bus:'spi',label:'SPI0'},{from:'U2',to:'U3',bus:'spi',label:'SPI1'},
+  {from:'U3',to:'U6',bus:'mipi',label:'MIPI-DSI'},{from:'U3',to:'U11',bus:'ddr',label:'DDR4'},
+  {from:'U3',to:'U7',bus:'i2c',label:'I2C0'},{from:'U3',to:'U4',bus:'uart',label:'UART3'},
+  {from:'U3',to:'U8',bus:'i2c',label:'I2C0'},{from:'U8',to:'U5',bus:'analog',label:'ADC×5'},
+  {from:'U8',to:'U9',bus:'uart',label:'UART4'},{from:'U10',to:'U3',bus:'pwr',label:'0.85V+1.8V'},
+  {from:'U10',to:'U1',bus:'pwr',label:'1.1V'},{from:'U10',to:'U2',bus:'pwr',label:'1.1V'},
+  {from:'U3',to:'U14',bus:'spi',label:'SDIO'}
+];
+let selected=null,panX=0,panY=0,zoom=1,dragging=false,dragStart={x:0,y:0};
+const cv=document.getElementById('cv'),ctx=cv.getContext('2d');
+function resize(){cv.width=cv.parentElement.clientWidth;cv.height=cv.parentElement.clientHeight;draw()}
+window.addEventListener('resize',resize);resize();
+// Build sidebar
+const cl=document.getElementById('compList');
+components.forEach((c,i)=>{const d=document.createElement('div');d.className='comp';
+  d.innerHTML=`<span class="ref">${c.ref}</span><span class="desc">${c.name} — ${c.desc}</span>`;
+  d.onclick=()=>selectComp(i);cl.appendChild(d)});
+// Tab switching
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',function(){
+  document.querySelectorAll('.tab').forEach(t2=>t2.classList.remove('active'));this.classList.add('active');
+  const tab=this.dataset.tab;const det=document.getElementById('detail');
+  if(tab==='netlist'){det.innerHTML='<h3>Net List</h3><table><tr><th>Net</th><th>Nodes</th></tr>'+
+    ['VCC_5V: J1→U10→U9B→U15','VCC_3V3: U10→U4→U7→U8→U12→U13×5→U14→U16','VCC_1V8: U10→U1→U2→U3→U11→U14',
+     'VCC_0V85: U10→U3(CPU+NPU+GPU)','VCC_1V1: U10→U1→U2(radar core)','VCC_OLED: U16→U6',
+     'SPI0: U3↔U1(CLK/MOSI/MISO/CS)','SPI1: U3↔U2(CLK/MOSI/MISO/CS)','I2C0: U3↔U7↔U8(SDA/SCL)',
+     'UART3: U3↔U4(V2X)','UART4: U8↔U9A(OBD-II)','MIPI_DSI: U3→U6(2-lane+CLK)',
+     'DDR4: U3↔U11(DQ[0:7]+A[0:3]+CK±+CKE+CS)','CAN: U9A↔U9B↔J3(CANH/CANL)',
+     'LASER_TIA: U5A-E→U13A-E→U8(ADC0-4)','GPS_RF: ANT_GPS→J7→U7'].map(n=>`<tr><td style="color:#00d4ff">${n.split(':')[0]}</td><td>${n.split(':')[1]}</td></tr>`).join('')+'</table>'}
+  else if(tab==='bom'){det.innerHTML='<h3>Bill of Materials (Key Components)</h3><table><tr><th>Ref</th><th>Part</th><th>Mfr</th><th>Pkg</th><th>Cost</th></tr>'+
+    [['U1/U2','AWR2944','Texas Instruments','BGA-232','$45×2'],['U3','RK3588S','Rockchip','FCBGA-775','$28'],
+     ['U4','TEKTON3','Autotalks','BGA-196','$18.50'],['U5×5','G12183-010K','Hamamatsu','TO-46','$12×5'],
+     ['U6','AMS395GE04','Samsung','FPC-40','$32'],['U7','NEO-M9N','u-blox','LCC-24','$14.50'],
+     ['U8','STM32H7B3','STMicro','LQFP-176','$11.20'],['U10','TPS65219','TI','VQFN-24','$4.80'],
+     ['U11','K4A8G165WC','Samsung','FBGA-96','$5.50'],['U14','QCA6174A','Qualcomm','BGA-120','$8.50'],
+     ['—','Passives+Connectors','Various','—','~$45'],['','','','TOTAL BOM','~$330']
+    ].map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')+'</table>'}
+  else if(tab==='layout'){det.innerHTML='<h3>Board Layout</h3><p style="color:#888">PCB: 120mm × 85mm, 10-layer hybrid (Rogers 4003C + FR4)<br>See pcb_stackup.txt for full layer assignment.<br><br>Key placement zones:<br>• Top-left: Front SIW phased array + AWR2944<br>• Bottom-left: Rear SIW phased array + AWR2944<br>• Center: RK3588S + DDR4 + Flash<br>• Right: Display FPC, connectors<br>• Bottom: STM32H7B3 + laser TIAs + OBD-II<br>• Bottom-right: PMIC + power</p>'}
+  else if(selected!==null)selectComp(selected);else det.innerHTML='<h3>Select a component</h3>'}));
+function selectComp(i){selected=i;
+  document.querySelectorAll('.comp').forEach((c,j)=>c.classList.toggle('active',j===i));
+  const c=components[i],det=document.getElementById('detail');
+  det.innerHTML=`<h3>${c.ref} — ${c.name} (${c.desc})</h3><p style="color:#aaa;margin-bottom:8px">${c.detail}</p>`+
+    `<table><tr><th>Pin</th><th>Net</th><th>Bus</th></tr>`+
+    c.pins.map(p=>`<tr><td>${p.n}</td><td style="color:${busColors[p.bus]}">${p.net}</td><td>${p.bus.toUpperCase()}</td></tr>`).join('')+'</table>';
+  draw()}
+function tx(x){return(x*zoom+panX)}function ty(y){return(y*zoom+panY)}
+cv.addEventListener('mousedown',e=>{const r=cv.getBoundingClientRect();const mx=(e.clientX-r.left-panX)/zoom,my=(e.clientY-r.top-panY)/zoom;
+  let hit=false;components.forEach((c,i)=>{if(mx>=c.x&&mx<=c.x+c.w&&my>=c.y&&my<=c.y+c.h){selectComp(i);hit=true}});
+  if(!hit){dragging=true;dragStart={x:e.clientX-panX,y:e.clientY-panY}}});
+cv.addEventListener('mousemove',e=>{if(dragging){panX=e.clientX-dragStart.x;panY=e.clientY-dragStart.y;draw()}});
+cv.addEventListener('mouseup',()=>{dragging=false});
+cv.addEventListener('wheel',e=>{e.preventDefault();const r=cv.getBoundingClientRect();const mx=e.clientX-r.left,my=e.clientY-r.top;
+  const dz=e.deltaY>0?0.9:1.1;const nz=Math.max(0.3,Math.min(3,zoom*dz));
+  panX=mx-(mx-panX)*(nz/zoom);panY=my-(my-panY)*(nz/zoom);zoom=nz;
+  document.getElementById('status').textContent=`Zoom: ${Math.round(zoom*100)}% | Pan: drag`;draw()});
+function draw(){const w=cv.width,h=cv.height;ctx.clearRect(0,0,w,h);ctx.save();ctx.translate(panX,panY);ctx.scale(zoom,zoom);
+  // Draw connections
+  connections.forEach(conn=>{const f=components.find(c=>c.ref===conn.from),t=components.find(c=>c.ref===conn.to);if(!f||!t)return;
+    const fx=f.x+f.w,fy=f.y+f.h/2,tx2=t.x,ty2=t.y+t.h/2;
+    const mx2=(fx+tx2)/2;
+    ctx.beginPath();ctx.strokeStyle=busColors[conn.bus]||'#555';ctx.lineWidth=conn.bus==='pwr'?2.5:1.8;
+    ctx.setLineDash(conn.bus==='pwr'?[6,3]:[]);
+    ctx.moveTo(fx,fy);ctx.bezierCurveTo(mx2,fy,mx2,ty2,tx2,ty2);ctx.stroke();ctx.setLineDash([]);
+    ctx.fillStyle=busColors[conn.bus]||'#555';ctx.font='bold 9px sans-serif';
+    const lx=(fx+tx2)/2,ly=(fy+ty2)/2-6;ctx.fillText(conn.label,lx-15,ly)});
+  // Draw components
+  components.forEach((c,i)=>{const isSel=i===selected;
+    ctx.fillStyle=isSel?c.color+'44':c.color+'22';ctx.strokeStyle=isSel?c.color:c.color+'88';ctx.lineWidth=isSel?2.5:1.5;
+    const r=6;ctx.beginPath();ctx.roundRect(c.x,c.y,c.w,c.h,r);ctx.fill();ctx.stroke();
+    if(isSel){ctx.shadowColor=c.color;ctx.shadowBlur=15;ctx.stroke();ctx.shadowBlur=0}
+    ctx.fillStyle='#fff';ctx.font='bold 12px sans-serif';ctx.textAlign='center';
+    ctx.fillText(c.name,c.x+c.w/2,c.y+c.h/2-4);
+    ctx.fillStyle='#aaa';ctx.font='10px sans-serif';
+    ctx.fillText(c.ref+' — '+c.desc,c.x+c.w/2,c.y+c.h/2+12);ctx.textAlign='left'});
+  // Draw external connectors
+  const extConns=[{name:'J1 USB-C',x:30,y:290,to:'U10'},{name:'J3 OBD-II',x:770,y:370,to:'U9'},
+    {name:'J5 V2X Ant',x:30,y:340,to:'U4'},{name:'Front Array',x:30,y:100,to:'U1'},
+    {name:'Rear Array',x:30,y:220,to:'U2'},{name:'Laser×5',x:30,y:440,to:'U5'},
+    {name:'J7 GPS Ant',x:770,y:170,to:'U7'},{name:'SW1-3 Buttons',x:770,y:450,to:'U8'}];
+  extConns.forEach(ec=>{ctx.fillStyle='#333';ctx.strokeStyle='#555';ctx.lineWidth=1;
+    ctx.beginPath();ctx.roundRect(ec.x-5,ec.y-10,ec.x<100?80:90,20,3);ctx.fill();ctx.stroke();
+    ctx.fillStyle='#ccc';ctx.font='9px sans-serif';ctx.textAlign='center';ctx.fillText(ec.name,ec.x+(ec.x<100?35:40),ec.y+3);ctx.textAlign='left'});
+  ctx.restore()}
+draw();
+</script>
+</body>
+</html>

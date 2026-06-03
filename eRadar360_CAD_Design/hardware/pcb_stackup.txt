@@ -1,0 +1,154 @@
+================================================================================
+  eRadar360 / Aegis One — 10-Layer Hybrid PCB Stackup
+  IPC-6012 Class 2 (Automotive), 120mm × 85mm
+================================================================================
+
+MATERIAL SYSTEM
+───────────────
+  RF Layers (1-2):    Rogers RO4003C  (εr = 3.38 @ 10GHz, tanδ = 0.0027)
+  Digital Layers (3-10): Isola 370HR  (εr = 3.92 @ 1GHz, Tg ≥ 180°C)
+  Prepreg (RF):       Rogers 4450F   (εr = 3.54)
+  Prepreg (Digital):  Isola 370HR PP (εr = 3.92)
+  Surface Finish:     ENIG (3-6 µin Au / 120-240 µin Ni)
+  Solder Mask:        Taiyo PSR-4000 AUS703 (matte black)
+  Silkscreen:         White epoxy ink
+
+BOARD DIMENSIONS
+────────────────
+  Length:    120.0 mm
+  Width:     85.0 mm
+  Thickness:  1.6 mm (±10%)
+  Layers:    10
+
+================================================================================
+  LAYER STACKUP
+================================================================================
+
+Layer  Name         Type      Material        Thick(mm)  Cu(oz)  Purpose
+─────  ───────────  ────────  ──────────────  ─────────  ──────  ─────────────────────────
+  1    TOP_RF       Signal    Rogers RO4003C    0.035      1     RF: SIW antenna arrays,
+                                                                  radar SoC connections,
+                                                                  Ka/K/X-band traces
+─────  ───────────  ────────  ──────────────  ─────────  ──────  ─────────────────────────
+       PP_1-2       Prepreg   Rogers 4450F      0.100             RF prepreg (bonding)
+─────  ───────────  ────────  ──────────────  ─────────  ──────  ─────────────────────────
+  2    GND_RF       Plane     Rogers RO4003C    0.035      1     Solid RF ground plane,
+                                                                  SIW bottom wall,
+                                                                  via fence boundary
+─────  ───────────  ────────  ──────────────  ─────────  ──────  ─────────────────────────
+       PP_2-3       Prepreg   Isola 370HR PP    0.200             Transition layer
+─────  ───────────  ────────  ──────────────  ─────────  ──────  ─────────────────────────
+  3    SIG_1        Signal    Isola 370HR       0.035      1     High-speed digital:
+                                                                  DDR4, MIPI-DSI,
+                                                                  SPI to radar SoCs
+─────  ───────────  ────────  ──────────────  ─────────  ──────  ─────────────────────────
+       Core_3-4     Core      Isola 370HR       0.150             Laminate core
+─────  ───────────  ────────  ──────────────  ─────────  ──────  ─────────────────────────
+  4    GND_1        Plane     Isola 370HR       0.035      1     Digital ground plane
+─────  ───────────  ────────  ──────────────  ─────────  ──────  ─────────────────────────
+       PP_4-5       Prepreg   Isola 370HR PP    0.100             Prepreg
+─────  ───────────  ────────  ──────────────  ─────────  ──────  ─────────────────────────
+  5    PWR_1        Plane     Isola 370HR       0.035    0.5     Power: VCC_3V3, VCC_1V8,
+                                                                  VCC_0V85 split plane
+─────  ───────────  ────────  ──────────────  ─────────  ──────  ─────────────────────────
+       Core_5-6     Core      Isola 370HR       0.200             Laminate core (center)
+─────  ───────────  ────────  ──────────────  ─────────  ──────  ─────────────────────────
+  6    PWR_2        Plane     Isola 370HR       0.035    0.5     Power: VCC_1V1, VCC_5V,
+                                                                  VCC_OLED split plane
+─────  ───────────  ────────  ──────────────  ─────────  ──────  ─────────────────────────
+       PP_6-7       Prepreg   Isola 370HR PP    0.100             Prepreg
+─────  ───────────  ────────  ──────────────  ─────────  ──────  ─────────────────────────
+  7    GND_2        Plane     Isola 370HR       0.035      1     Digital ground plane
+─────  ───────────  ────────  ──────────────  ─────────  ──────  ─────────────────────────
+       Core_7-8     Core      Isola 370HR       0.150             Laminate core
+─────  ───────────  ────────  ──────────────  ─────────  ──────  ─────────────────────────
+  8    SIG_2        Signal    Isola 370HR       0.035      1     Low-speed digital:
+                                                                  I2C, UART, CAN,
+                                                                  GPIO, OBD-II
+─────  ───────────  ────────  ──────────────  ─────────  ──────  ─────────────────────────
+       PP_8-9       Prepreg   Isola 370HR PP    0.100             Prepreg
+─────  ───────────  ────────  ──────────────  ─────────  ──────  ─────────────────────────
+  9    GND_3        Plane     Isola 370HR       0.035      1     Bottom ground / thermal
+─────  ───────────  ────────  ──────────────  ─────────  ──────  ─────────────────────────
+       PP_9-10      Prepreg   Isola 370HR PP    0.100             Prepreg
+─────  ───────────  ────────  ──────────────  ─────────  ──────  ─────────────────────────
+ 10    BOT          Signal    Isola 370HR       0.035      1     Component side B:
+                                                                  PMIC, passives,
+                                                                  connectors, laser APDs
+═══════════════════════════════════════════════════════════════════════════════
+
+CONTROLLED IMPEDANCE TARGETS
+─────────────────────────────
+  Layer 1 (RF):
+    50Ω single-ended microstrip    w = 0.24mm  (Ka-band traces)
+    50Ω single-ended microstrip    w = 0.58mm  (K-band traces)
+    50Ω single-ended microstrip    w = 1.15mm  (X-band traces)
+
+  Layer 3 (SIG_1):
+    50Ω single-ended stripline     w = 0.10mm  (SPI CLK/MOSI/MISO)
+    100Ω differential stripline    w = 0.09mm, s = 0.12mm  (DDR4)
+    100Ω differential stripline    w = 0.10mm, s = 0.15mm  (MIPI-DSI)
+
+  Layer 8 (SIG_2):
+    50Ω single-ended stripline     w = 0.10mm  (UART, CAN)
+    120Ω differential stripline    w = 0.08mm, s = 0.20mm  (CAN bus)
+
+  Layer 10 (BOT):
+    50Ω single-ended microstrip    w = 0.28mm  (misc routing)
+
+  Tolerance: ±10% on all impedance targets.
+
+TRACE WIDTH vs CURRENT CAPACITY (per IPC-2221B, 20°C rise)
+──────────────────────────────────────────────────────────
+  Width (mm)    1oz Cu (A)    0.5oz Cu (A)
+  ──────────    ──────────    ────────────
+  0.10          0.3           0.2
+  0.15          0.5           0.3
+  0.20          0.7           0.4
+  0.25          0.8           0.5
+  0.50          1.4           0.9
+  1.00          2.4           1.6
+  2.00          4.0           2.7
+
+VIA DRILL CHART
+───────────────
+  Type              Drill(mm)  Pad(mm)  Anti(mm)  Span      Usage
+  ────────────────  ─────────  ───────  ────────  ────────  ──────────────────
+  Standard TH       0.25       0.50     0.65      1-10      Signal, power
+  Power TH          0.35       0.65     0.80      1-10      Power distribution
+  Micro-via          0.10       0.25     0.35      1-2       RF: AWR2944 BGA
+  Micro-via          0.10       0.25     0.35      9-10      Bottom BGA escape
+  Buried via        0.15       0.35     0.50      3-8       RK3588S/DDR4 routing
+  Via-in-pad        0.25       0.45     —         1-10      BGA fan-out (filled+capped)
+  SIW via fence     0.30       0.50     —         1-2       λ/20 spacing for waveguide
+
+DRC CONSTRAINTS
+───────────────
+  Parameter                    Min Value    Notes
+  ─────────────────────────    ─────────    ────────────────────────
+  Trace-to-trace clearance     0.10 mm      Standard digital
+  RF trace-to-trace            0.25 mm      Ka-band isolation
+  Trace-to-via                 0.10 mm
+  Via-to-via                   0.15 mm
+  SIW via pitch                0.50 mm      = λg/20 at 35 GHz
+  Pad-to-mask                  0.05 mm
+  Silkscreen line width        0.15 mm
+  Silkscreen clearance         0.10 mm
+  Board edge clearance         0.30 mm
+  Copper pour clearance        0.20 mm
+
+SPECIAL FABRICATION NOTES
+─────────────────────────
+  1. Layers 1-2 MUST use Rogers RO4003C — standard FR4 has 4 dB excess loss
+     at Ka-band (34 GHz) which halves detection range.
+  2. SIW via fence on Layer 1-2: 0.3mm drill, 0.5mm pitch, forming waveguide
+     walls for the phased-array feed network.
+  3. Via-in-pad with VIPPO (Via In Pad Plated Over) required for U1, U2 (AWR2944),
+     U3 (RK3588S), U4 (TEKTON3) BGA fan-out.
+  4. Impedance test coupons required on each panel — 50Ω, 100Ω, 120Ω.
+  5. RF section (layers 1-2) physically separated from digital section with
+     ground via stitching fence at 1mm pitch.
+  6. Thermal vias under U3 (RK3588S): 5×5 array, 0.3mm drill, 1mm pitch,
+     connected to exposed pad on bottom side.
+  7. Edge-plated castellations for shielding can attachment (RF section).
+  8. Black solder mask required for display contrast and thermal absorption.

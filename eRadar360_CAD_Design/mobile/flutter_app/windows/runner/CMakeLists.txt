@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.14)
+project(eradar360_cad LANGUAGES CXX)
+set(BINARY_NAME "eRadar360_CAD")
+add_executable(${BINARY_NAME} WIN32 "main.cpp" "flutter_window.cpp" "utils.cpp")
+target_link_libraries(${BINARY_NAME} PRIVATE flutter flutter_wrapper_app)

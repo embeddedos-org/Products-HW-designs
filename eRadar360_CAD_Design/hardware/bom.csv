@@ -1,0 +1,66 @@
+Reference,Component,Manufacturer,MPN,Package,Qty,Unit_Cost_USD,Description
+U1,77GHz Radar SoC (Front),Texas Instruments,AWR2944BFCAAEQ1,BGA-232,1,45.00,FMCW radar transceiver 4TX/4RX 77GHz automotive
+U2,77GHz Radar SoC (Rear),Texas Instruments,AWR2944BFCAAEQ1,BGA-232,1,45.00,FMCW radar transceiver 4TX/4RX 77GHz automotive
+U3,Main Processor + NPU,Rockchip,RK3588S,FCBGA-775,1,28.00,8-core ARM A76/A55 6 TOPS NPU Mali G610
+U4,V2X Transceiver,Autotalks,TEKTON3-B,BGA-196,1,18.50,DSRC 802.11p + C-V2X PC5 dual-mode chipset
+U5A,InGaAs APD Laser Sensor,Hamamatsu,G12183-010K,TO-46,1,12.00,InGaAs avalanche photodiode 900-1700nm
+U5B,InGaAs APD Laser Sensor,Hamamatsu,G12183-010K,TO-46,1,12.00,InGaAs avalanche photodiode 900-1700nm
+U5C,InGaAs APD Laser Sensor,Hamamatsu,G12183-010K,TO-46,1,12.00,InGaAs avalanche photodiode 900-1700nm
+U5D,InGaAs APD Laser Sensor,Hamamatsu,G12183-010K,TO-46,1,12.00,InGaAs avalanche photodiode 900-1700nm
+U5E,InGaAs APD Laser Sensor,Hamamatsu,G12183-010K,TO-46,1,12.00,InGaAs avalanche photodiode 900-1700nm
+U6,AMOLED Display Module,Samsung Display,AMS395GE04,FPC-40,1,32.00,4 inch 480x800 AMOLED MIPI-DSI interface
+U7,GNSS Receiver,u-blox,NEO-M9N-00B,LCC-24,1,14.50,Multi-constellation GPS/GLONASS/Galileo/BeiDou
+U8,Sensor Fusion Co-processor,STMicroelectronics,STM32H7B3LIH6Q,LQFP-176,1,11.20,ARM Cortex-M7 280MHz 2MB Flash 1MB SRAM
+U9A,OBD-II Protocol IC,Microchip,ELM327,SOIC-28,1,6.50,OBD to UART interpreter IC
+U9B,CAN Transceiver,Microchip,MCP2551-I/SN,SOIC-8,1,1.20,High-speed CAN transceiver 1Mbps
+U10,Multi-Rail PMIC,Texas Instruments,TPS65219DQCR,VQFN-24,1,4.80,4 buck + 1 LDO PMIC for processor systems
+U11,DDR4 SDRAM 8Gb,Samsung,K4A8G165WC-BCTD,FBGA-96,1,5.50,8Gbit DDR4 SDRAM 3200Mbps automotive
+U12,NOR Flash 256Mb,Macronix,MX25U25645GZ4I-08G,SOP-8,1,2.80,256Mbit Quad SPI NOR Flash 1.8V
+U13,TIA for Laser Array,Texas Instruments,OPA857IRGTT,WQFN-16,5,3.40,Transimpedance amplifier 4.5GHz for APD
+U14,Bluetooth/Wi-Fi Module,Qualcomm,QCA6174A-5,BGA-120,1,8.50,Wi-Fi 6 802.11ax + Bluetooth 5.3
+U15,Audio Amplifier,Texas Instruments,TPA2012D2RTJR,QFN-20,1,1.50,2.1W class-D stereo amplifier
+U16,OLED Boost Driver,Texas Instruments,TPS61046DRLR,SOT-563,1,1.20,Boost converter 3V-12V for OLED ELVDD
+U17,ESD Protection (USB),Nexperia,PUSB3FR4Z,DFN-10,1,0.35,USB Type-C ESD protection array
+U18,ESD Protection (CAN),Nexperia,PESD2CAN-U,SOT-23,1,0.25,CAN bus ESD protection diode
+Y1,Main Crystal 24MHz,Abracon,ABM8-24.000MHZ-D2Y-T,ABM8,1,0.45,24 MHz crystal for RK3588S
+Y2,RTC Crystal 32.768kHz,Abracon,ABS07-32.768KHZ-T,ABS07,1,0.30,32.768 kHz crystal for STM32 RTC
+Y3,Radar Reference 76.8MHz,NDK,NX3225GD-76.8M,NX3225,2,2.50,76.8 MHz TCXO for AWR2944 PLL reference
+Y4,V2X Reference 40MHz,TXC,7M-40.000MAAJ-T,HC49,1,0.80,40 MHz crystal for TEKTON3
+L1,Power Inductor 2.2µH,Coilcraft,XAL6060-222MEB,6060,1,1.10,2.2µH 8A shielded inductor (VCC_3V3 buck)
+L2,Power Inductor 1.0µH,Coilcraft,XAL5030-102MEB,5030,1,0.95,1.0µH 6A shielded inductor (VCC_1V8 buck)
+L3,Power Inductor 0.47µH,Coilcraft,XAL4030-471MEB,4030,1,0.85,0.47µH 10A shielded inductor (VCC_0V85 buck)
+L4,Power Inductor 1.5µH,Coilcraft,XAL5030-152MEB,5030,1,0.95,1.5µH 5A shielded inductor (VCC_1V1 buck)
+L5,Boost Inductor 10µH,Coilcraft,LPS4018-103MRB,4018,1,0.60,10µH inductor for OLED boost converter
+FB1,Ferrite Bead 600Ω,Murata,BLM18PG601SN1D,0603,10,0.05,600Ω@100MHz ferrite bead power filtering
+FB2,Ferrite Bead 1kΩ,Murata,BLM18SG102SN1D,0603,5,0.06,1kΩ@100MHz ferrite bead analog isolation
+R1-R10,Pull-up Resistors 4.7kΩ,Yageo,RC0402JR-074K7L,0402,10,0.01,4.7kΩ I2C pull-ups
+R11-R20,Series Resistors 33Ω,Yageo,RC0402FR-0733RL,0402,10,0.01,33Ω series termination (SPI)
+R21-R30,Misc Resistors 10kΩ,Yageo,RC0402JR-0710KL,0402,10,0.01,10kΩ general pull-ups/dividers
+R31-R35,TIA Feedback 10kΩ,Vishay,CRCW04021002FKED,0402,5,0.02,10kΩ 1% TIA gain-set resistors
+R36-R37,CAN Termination 120Ω,Yageo,RC0603FR-07120RL,0603,2,0.01,120Ω CAN bus termination
+C1-C30,Decoupling 100nF,Murata,GRM155R71C104KA88D,0402,30,0.01,100nF 16V X7R MLCC
+C31-C50,Decoupling 10µF,Murata,GRM188R61A106ME69D,0603,20,0.05,10µF 10V X5R MLCC
+C51-C60,Decoupling 1µF,Murata,GRM155R61A105ME01D,0402,10,0.02,1µF 10V X5R MLCC
+C61-C68,Bulk 22µF,Murata,GRM32ER61A226ME20L,1210,8,0.15,22µF 10V X5R bulk bypass
+C69-C72,DDR4 Decoupling 47nF,Murata,GRM1555C1H473JA01D,0402,4,0.02,47nF 50V C0G for DDR4
+C73-C76,RF Bypass 10pF,Murata,GRM1555C2A100JA01D,0402,4,0.03,10pF 100V C0G RF bypass
+C77-C78,Crystal Load 12pF,Murata,GRM1555C1H120JA01D,0402,2,0.02,12pF 50V C0G crystal load
+D1,Schottky Diode,Nexperia,PMEG3010BEA,SOD-323,1,0.20,30V 1A Schottky for reverse polarity
+D2,TVS Diode USB,Nexperia,PESD5V0U1BL,SOD-882,1,0.15,5V TVS for USB-C VBUS
+D3,TVS Diode 12V,Littelfuse,SMBJ14A,SMB,1,0.30,14V TVS for OBD-II 12V input
+D4-D8,Laser IR Filter,Hoya,CM500,Custom,5,1.50,900nm+ IR bandpass filter for APD windows
+J1,USB Type-C Receptacle,Molex,2171750001,SMD-24,1,0.80,USB Type-C 2.0 receptacle mid-mount
+J2,3.5mm Audio Jack,CUI Devices,SJ-3523-SMT-TR,SMD,1,0.60,3.5mm TRRS audio jack
+J3,OBD-II Connector,TE Connectivity,1-776087-1,TH-16,1,3.50,SAE J1962 OBD-II male connector
+J4,FPC Display Connector,Hirose,FH12A-40S-0.5SH,FPC-40,1,0.45,40-pin 0.5mm FPC for OLED display
+J5,SMA Antenna (V2X),Molex,0732511150,SMA-TH,1,1.20,SMA female for external V2X antenna
+J6,JTAG Debug Header,Samtec,FTSH-105-01-L-DV,2x5-1.27mm,1,1.50,10-pin 1.27mm Cortex debug header
+J7,GPS Antenna Connector,Hirose,U.FL-R-SMT-1,U.FL,1,0.40,U.FL coax for GPS patch antenna
+SPK1,Speaker 2W,PUI Audio,AS02008MR-R,20mm,1,1.80,20mm 8Ω 2W micro speaker
+ANT_GPS,GPS Patch Antenna,Taoglas,AP.25F.07.0054A,25x25mm,1,4.50,25mm GPS/GLONASS ceramic patch
+SW1,Tactile Button (MENU),Alps Alpine,SKRPABE010,4.2x3.2mm,1,0.15,Low-profile tact switch
+SW2,Tactile Button (MUTE),Alps Alpine,SKRPABE010,4.2x3.2mm,1,0.15,Low-profile tact switch
+SW3,Tactile Button (MARK),Alps Alpine,SKRPABE010,4.2x3.2mm,1,0.15,Low-profile tact switch
+SHIELD1,RF Shield Can,Laird,BMI-S-110-F,Custom,1,2.50,Stamped shield for RF section
+SHIELD2,RF Shield Cover,Laird,BMI-S-110-C,Custom,1,1.50,Shield cover for RF section
+HS1,Thermal Pad,Bergquist,SIL-PAD 400,20x20mm,2,0.80,Thermal interface pad for RK3588S + AWR2944

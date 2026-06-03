@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "eRadar360_CAD",
+    "slug": "eradar360_cad",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#B71C1C"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.americangroupllc.eradar360_cad"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#B71C1C"
+      },
+      "package": "com.americangroupllc.eradar360_cad"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    }
+  }
+}
