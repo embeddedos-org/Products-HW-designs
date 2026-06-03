@@ -1,0 +1,14 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,MIMX8ML8DVNLZAB,BGA,NXP,MIMX8ML8DVNLZAB,i.MX 8M Plus quad-core + NPU,28.00,28.00,Mouser
+U2,1,XC7A100T,BGA484,AMD Xilinx,XC7A100T-2FGG484I,Artix-7 FPGA servo control,95.00,95.00,Digi-Key
+U3,7,DRV8305,HTSSOP28,Texas Instruments,DRV8305NPHP,3-phase motor gate driver,4.50,31.50,Mouser
+U4,7,INA240A1,SOT23-5,Texas Instruments,INA240A1DBVR,Current sense amplifier,1.20,8.40,Mouser
+U5,7,AM26C31,SOIC16,Texas Instruments,AM26C31IDRG4,RS-422 encoder interface,0.95,6.65,Mouser
+U6,2,STM32G474RET6,LQFP64,STMicroelectronics,STM32G474RET6,Safety co-processor,5.50,11.00,Mouser
+U7,4,KSZ9031RNXIA,QFN48,Microchip,KSZ9031RNXIA,GbE PHY (EtherCAT),4.50,18.00,Mouser
+U8,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Crypto co-processor,0.95,0.95,Mouser
+U9,2,K4EBE304EB-EGCG,BGA,Samsung,K4EBE304EB-EGCG,8GB LPDDR4X,14.00,28.00,Mouser
+U10,1,LTC4015,QFN44,Analog Devices,LTC4015IUFD,Battery charger controller,12.00,12.00,Mouser
+C1,40,100nF,0402,Murata,GRM155R71C104KA88D,100nF decoupling,0.02,0.80,Mouser
+R1,20,10k,0402,Yageo,RC0402FR-0710KL,10kΩ resistor,0.01,0.20,Mouser
+TOTAL,,,,,,,240.50,,Approximate BOM cost (electronics only)

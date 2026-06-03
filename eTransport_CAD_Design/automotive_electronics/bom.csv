@@ -1,0 +1,12 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,S32K344,BGA257,NXP,S32K344AVLO,ASIL-D Cortex-M7+M4 automotive MCU,18.00,18.00,Mouser
+U2,6,TCAN1042VDRQ1,SOT23-8,Texas Instruments,TCAN1042VDRQ1,Automotive CAN FD transceiver,1.85,11.10,Mouser
+U3,4,TLIN1029DRBRQ1,SOT23-8,Texas Instruments,TLIN1029DRBRQ1,Automotive LIN transceiver,0.95,3.80,Mouser
+U4,2,TJA1100,SOIC14,NXP,TJA1100HN/1Z,100BASE-T1 automotive Ethernet PHY,4.50,9.00,Mouser
+U5,1,TPS65381A,HTSSOP32,Texas Instruments,TPS65381AQRHBRQ1,Multi-rail PMIC ASIL-D,8.50,8.50,Mouser
+U6,1,SBC-FS4500,SOIC32,NXP,FS4500BNMP,System basis chip ASIL-D,12.00,12.00,Mouser
+U7,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Crypto co-processor,0.95,0.95,Mouser
+U8,1,W25Q128JVSIQ,SOP8,Winbond,W25Q128JVSIQ,128Mb SPI Flash,1.20,1.20,Mouser
+C1,30,100nF,0402,Murata,GRM155R71C104KA88D,100nF decoupling,0.02,0.60,Mouser
+R1,15,10k,0402,Yageo,RC0402FR-0710KL,10kΩ resistor,0.01,0.15,Mouser
+TOTAL,,,,,,,65.30,,Approximate BOM cost

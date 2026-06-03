@@ -1,0 +1,15 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,GR712RC,CQFP256,Cobham Gaisler,GR712RC,LEON3FT dual-core rad-hard SPARC V8 SoC,4500.00,4500.00,Cobham
+U2,4,IS61WV102416BLL,TSOP44,ISSI,IS61WV102416BLL-10TLI,32MB SRAM rad-tolerant,85.00,340.00,Digi-Key
+U3,1,MT29F4G08ABAEAWP,TSOP48,Micron,MT29F4G08ABAEAWP,4GB NAND Flash,12.00,12.00,Mouser
+U4,4,SPWRTC-LVDS,QFP,Aeroflex,SPWRTC-LVDS,SpaceWire LVDS transceiver,320.00,1280.00,Aeroflex
+U5,2,TCAN1042VDRQ1,SOT23-8,Texas Instruments,TCAN1042VDRQ1,CAN FD transceiver,1.85,3.70,Mouser
+U6,1,LTC2977,QFN64,Analog Devices,LTC2977CUJ,8-ch power system manager,28.00,28.00,Mouser
+U7,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Crypto co-processor,0.95,0.95,Mouser
+U8,1,AD9364,BGA144,Analog Devices,AD9364BBCZ,RF Agile Transceiver for S-band,85.00,85.00,Mouser
+U9,2,INA3221,WSON10,Texas Instruments,INA3221AIRGVR,Triple-ch power monitor,3.20,6.40,Mouser
+U10,1,MAX31865,TSSOP20,Maxim,MAX31865ATP,RTD temp sensor IC,4.80,4.80,Mouser
+U11,1,Xilinx XC7A35T,BGA,AMD Xilinx,XC7A35T-1CPG236C,Artix-7 FPGA (FPGA coprocessor),35.00,35.00,Digi-Key
+C1,40,100nF,0402,Murata,GRM155R71C104KA88D,100nF rad-tolerant decoupling,0.05,2.00,Mouser
+R1,20,10k,0402,Yageo,RC0402FR-0710KL,10kΩ resistor,0.01,0.20,Mouser
+TOTAL,,,,,,,6298.05,,Approximate BOM cost (space-grade components)

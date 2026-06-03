@@ -1,0 +1,14 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,RK3588S,BGA,Rockchip,RK3588S,6-core ARM SoC + 32-TOPS NPU,85.00,85.00,Mouser
+U2,1,XC7A100T,BGA484,AMD Xilinx,XC7A100T-2FGG484I,Artix-7 FPGA real-time control,95.00,95.00,Digi-Key
+U3,7,DRV8305,HTSSOP28,Texas Instruments,DRV8305NPHP,3-phase motor gate driver,4.50,31.50,Mouser
+U4,7,INA240A1,SOT23-5,Texas Instruments,INA240A1DBVR,Current sense amplifier,1.20,8.40,Mouser
+U5,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Crypto co-processor,0.95,0.95,Mouser
+U6,2,ISO7741,SOIC16,Texas Instruments,ISO7741FQDWRQ1,Digital isolator 4kV,2.80,5.60,Mouser
+U7,1,LTC4015,QFN44,Analog Devices,LTC4015IUFD,48V battery charger controller,12.00,12.00,Mouser
+U8,4,KSZ9031RNXIA,QFN48,Microchip,KSZ9031RNXIA,GbE PHY,4.50,18.00,Mouser
+U9,2,STM32G474RET6,LQFP64,STMicroelectronics,STM32G474RET6,Safety co-processor,5.50,11.00,Mouser
+U10,1,MAX31865,TSSOP20,Maxim,MAX31865ATP,Temperature monitor,4.80,4.80,Mouser
+C1,40,100nF,0402,Murata,GRM155R71C104KA88D,100nF decoupling,0.02,0.80,Mouser
+R1,20,10k,0402,Yageo,RC0402FR-0710KL,10kΩ resistor,0.01,0.20,Mouser
+TOTAL,,,,,,,273.25,,Approximate BOM cost (electronics only)

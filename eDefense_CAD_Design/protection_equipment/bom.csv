@@ -1,0 +1,13 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,RK3588S,BGA,Rockchip,RK3588S,6-core ARM SoC + 32-TOPS NPU,85.00,85.00,Mouser
+U2,2,IMX678,CSP,Sony,IMX678,4K CMOS image sensor,45.00,90.00,Mouser
+U3,1,FS9500,LGA,Synaptics,FS9500,Optical fingerprint sensor,12.00,12.00,Digi-Key
+U4,1,nRF5340,QFN73,Nordic Semiconductor,nRF5340-QKAA-R7,BLE 5.3 connectivity,6.50,6.50,Mouser
+U5,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Crypto co-processor,0.95,0.95,Mouser
+U6,2,K4EBE304EB-EGCG,BGA,Samsung,K4EBE304EB-EGCG,8GB LPDDR5,28.00,56.00,Mouser
+U7,1,KLMAG2JENB-B041,BGA,Samsung,KLMAG2JENB-B041,64GB eMMC,18.00,18.00,Mouser
+U8,1,KSZ9031RNXIA,QFN48,Microchip,KSZ9031RNXIA,GbE PHY,4.50,4.50,Mouser
+U9,1,TPS65988,FCBGA64,Texas Instruments,TPS65988DHRSKT,USB-C PD controller,5.50,5.50,Mouser
+C1,30,100nF,0402,Murata,GRM155R71C104KA88D,100nF decoupling,0.02,0.60,Mouser
+R1,15,10k,0402,Yageo,RC0402FR-0710KL,10kΩ resistor,0.01,0.15,Mouser
+TOTAL,,,,,,,279.20,,Approximate BOM cost

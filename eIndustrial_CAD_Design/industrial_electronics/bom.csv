@@ -1,0 +1,15 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,MIMX8ML8DVNLZAB,BGA,NXP,MIMX8ML8DVNLZAB,i.MX 8M Plus quad-core + NPU,28.00,28.00,Mouser
+U2,4,K4EBE304EB-EGCG,BGA,Samsung,K4EBE304EB-EGCG,8GB LPDDR4X,14.00,56.00,Mouser
+U3,1,KLMAG2JENB-B041,BGA,Samsung,KLMAG2JENB-B041,64GB eMMC 5.1,18.00,18.00,Mouser
+U4,1,LAN9514,QFN64,Microchip,LAN9514-JZX,USB 2.0 hub + GbE,5.50,5.50,Mouser
+U5,1,KSZ9031RNXIA,QFN48,Microchip,KSZ9031RNXIA,GbE PHY,4.50,4.50,Mouser
+U6,2,ISO7741,SOIC16,Texas Instruments,ISO7741FQDWRQ1,Digital isolator,2.80,5.60,Mouser
+U7,1,MAX3485,SOT23-8,Maxim,MAX3485EESA+T,RS-485 transceiver,0.85,0.85,Mouser
+U8,1,TCAN1042VDRQ1,SOT23-8,Texas Instruments,TCAN1042VDRQ1,CAN FD transceiver,1.85,1.85,Mouser
+U9,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Crypto co-processor,0.95,0.95,Mouser
+U10,1,TPS65988,FCBGA64,Texas Instruments,TPS65988DHRSKT,USB-C PD controller,5.50,5.50,Mouser
+U11,1,LTC4015,QFN44,Analog Devices,LTC4015IUFD,Battery charger controller,12.00,12.00,Mouser
+C1,40,100nF,0402,Murata,GRM155R71C104KA88D,100nF decoupling,0.02,0.80,Mouser
+R1,20,10k,0402,Yageo,RC0402FR-0710KL,10kΩ resistor,0.01,0.20,Mouser
+TOTAL,,,,,,,139.75,,Approximate BOM cost

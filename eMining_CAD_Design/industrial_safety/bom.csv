@@ -1,0 +1,13 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,STM32L4R9ZIT6,LQFP144,STMicroelectronics,STM32L4R9ZIT6,Ultra-low-power Cortex-M4 MCU,8.50,8.50,Mouser
+U2,1,CO-AF,Module,Alphasense,CO-AF,Electrochemical CO sensor,45.00,45.00,Alphasense
+U3,1,H2S-B1,Module,Alphasense,H2S-B1,Electrochemical H2S sensor,55.00,55.00,Alphasense
+U4,1,O2-A3,Module,Alphasense,O2-A3,Electrochemical O2 sensor,38.00,38.00,Alphasense
+U5,1,LEL-CATA,Module,Alphasense,LEL-CATA,Catalytic bead LEL sensor,65.00,65.00,Alphasense
+U6,1,nRF52840,QFN73,Nordic Semiconductor,nRF52840-QIAA-R7,BLE 5.3 SoC,3.50,3.50,Mouser
+U7,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Crypto co-processor,0.95,0.95,Mouser
+U8,1,ADS1256,SSOP28,Texas Instruments,ADS1256IDBR,24-bit 8-ch ADC,12.00,12.00,Mouser
+U9,1,W25Q32JVSSIQ,SOP8,Winbond,W25Q32JVSSIQ,32Mb SPI Flash,0.65,0.65,Mouser
+C1,20,100nF,0402,Murata,GRM155R71C104KA88D,100nF decoupling,0.02,0.40,Mouser
+R1,10,10k,0402,Yageo,RC0402FR-0710KL,10kΩ resistor,0.01,0.10,Mouser
+TOTAL,,,,,,,229.10,,Approximate BOM cost

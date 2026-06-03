@@ -1,0 +1,14 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,STM32H7B3ZIT6,LQFP144,STMicroelectronics,STM32H7B3ZIT6,ARM Cortex-M7 MCU,12.50,12.50,Mouser
+U2,1,CM4,SO-DIMM,Raspberry Pi,SC0686,Compute Module 4 4GB/32GB,55.00,55.00,Digi-Key
+U3,4,MAX31865,TSSOP20,Maxim,MAX31865ATP,RTD-to-digital converter,4.80,19.20,Mouser
+U4,4,DRV8876,HSSOP20,Texas Instruments,DRV8876PWPR,H-bridge motor driver (TEC),2.80,11.20,Mouser
+U5,4,OPT101,DIP8,Texas Instruments,OPT101P,Monolithic photodiode + amp,4.50,18.00,Mouser
+U6,4,LED-FAM,SMD,Cree,XPEBWT-L1-0000-00D01,High-power LED (fluorescence excitation),3.20,12.80,Mouser
+U7,1,KSZ9031RNXIA,QFN48,Microchip,KSZ9031RNXIA,GbE PHY,4.50,4.50,Mouser
+U8,1,ESP32-S3,QFN56,Espressif,ESP32-S3-WROOM-1,Wi-Fi 6 + BLE module,3.80,3.80,Mouser
+U9,1,ADS1256,SSOP28,Texas Instruments,ADS1256IDBR,24-bit 8-ch ADC,12.00,12.00,Mouser
+U10,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Crypto co-processor,0.95,0.95,Mouser
+C1,30,100nF,0402,Murata,GRM155R71C104KA88D,100nF decoupling,0.02,0.60,Mouser
+R1,15,10k,0402,Yageo,RC0402FR-0710KL,10kΩ resistor,0.01,0.15,Mouser
+TOTAL,,,,,,,150.70,,Approximate BOM cost

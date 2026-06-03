@@ -1,0 +1,17 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,STM32H7B3ZIT6,LQFP144,STMicroelectronics,STM32H7B3ZIT6,ARM Cortex-M7 MCU,12.50,12.50,Mouser
+U2,1,ADS1298,TQFP64,Texas Instruments,ADS1298IPAGR,8-ch 24-bit ECG AFE,18.50,18.50,Mouser
+U3,1,nRF5340,QFN73,Nordic Semiconductor,nRF5340-QKAA-R7,BLE 5.3 dual-core SoC,6.50,6.50,Mouser
+U4,1,ESP32-S3,QFN56,Espressif,ESP32-S3-WROOM-1,Wi-Fi 6 + BLE module,3.80,3.80,Mouser
+U5,1,ISO7741,SOIC16,Texas Instruments,ISO7741FQDWRQ1,4-ch digital isolator 4kV,2.80,2.80,Mouser
+U6,1,AMC1301,SOIC8,Texas Instruments,AMC1301DWVR,Precision isolation amplifier,3.50,3.50,Mouser
+U7,1,MAX17205,WLP9,Maxim Integrated,MAX17205G+T,Fuel gauge IC,2.20,2.20,Mouser
+U8,1,BQ25895,QFN24,Texas Instruments,BQ25895RTWR,USB-C battery charger,2.40,2.40,Mouser
+U9,1,W25Q256JVFIQ,SOP8,Winbond,W25Q256JVFIQ,256Mb SPI Flash,2.50,2.50,Mouser
+U10,1,SSD1963,QFP128,Solomon Systech,SSD1963QL9,7" TFT LCD controller,8.00,8.00,Digi-Key
+U11,1,FT5406,QFN48,FocalTech,FT5406EE8,Capacitive touch controller,1.80,1.80,Mouser
+U12,2,OPA2333,SOT23-5,Texas Instruments,OPA2333AIDBVR,Zero-drift precision op-amp,1.20,2.40,Mouser
+U13,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Crypto co-processor,0.95,0.95,Mouser
+C1,30,100nF,0402,Murata,GRM155R71C104KA88D,100nF decoupling,0.02,0.60,Mouser
+R1,20,10k,0402,Yageo,RC0402FR-0710KL,10kΩ resistor,0.01,0.20,Mouser
+TOTAL,,,,,,,68.65,,Approximate BOM cost

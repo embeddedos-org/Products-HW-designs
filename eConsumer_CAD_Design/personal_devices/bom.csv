@@ -1,0 +1,14 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,nRF5340,QFN73,Nordic Semiconductor,nRF5340-QKAA-R7,Dual-core BLE 5.3 SoC,6.50,6.50,Mouser
+U2,1,AD8232,LFCSP20,Analog Devices,AD8232ACPZ-R7,Single-lead ECG AFE,4.50,4.50,Mouser
+U3,1,MAX86141,OLGA14,Maxim,MAX86141EFF+T,Optical PPG + SpO2 AFE,4.20,4.20,Mouser
+U4,1,ZED-F9P,LCC,u-blox,ZED-F9P,RTK GPS (optional),75.00,75.00,Mouser
+U5,1,BMI270,LGA14,Bosch Sensortec,BMI270,6-axis IMU,1.85,1.85,Mouser
+U6,1,MAX17205,WLP9,Maxim,MAX17205G+T,Fuel gauge IC,2.20,2.20,Mouser
+U7,1,BQ25895,QFN24,Texas Instruments,BQ25895RTWR,USB-C battery charger,2.40,2.40,Mouser
+U8,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Crypto co-processor,0.95,0.95,Mouser
+U9,1,W25Q32JVSSIQ,SOP8,Winbond,W25Q32JVSSIQ,32Mb SPI Flash,0.65,0.65,Mouser
+U10,1,AMOLED-1.4,FPC,BOE,AMS129,1.4-inch AMOLED display,12.00,12.00,Digi-Key
+C1,20,100nF,0402,Murata,GRM155R71C104KA88D,100nF decoupling,0.02,0.40,Mouser
+R1,10,10k,0402,Yageo,RC0402FR-0710KL,10kΩ resistor,0.01,0.10,Mouser
+TOTAL,,,,,,,110.75,,Approximate BOM cost

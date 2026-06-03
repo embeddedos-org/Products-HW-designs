@@ -1,0 +1,13 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,STM32H7B3ZIT6,LQFP144,STMicroelectronics,STM32H7B3ZIT6,ARM Cortex-M7 MCU,12.50,12.50,Mouser
+U2,1,nRF52840,QFN73,Nordic Semiconductor,nRF52840-QIAA-R7,BLE 5.3 + NFC SoC,3.50,3.50,Mouser
+U3,1,PN532,HVQFN32,NXP,PN532/C1,NFC/RFID controller,4.80,4.80,Mouser
+U4,1,KSZ9031RNXIA,QFN48,Microchip,KSZ9031RNXIA,GbE PHY,4.50,4.50,Mouser
+U5,1,MAX3485,SOT23-8,Maxim,MAX3485EESA+T,RS-485 transceiver (OSDP),0.85,0.85,Mouser
+U6,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Crypto co-processor,0.95,0.95,Mouser
+U7,1,TPS23756,HTSSOP20,Texas Instruments,TPS23756PWP,PoE+ PD controller,3.50,3.50,Mouser
+U8,1,W25Q32JVSSIQ,SOP8,Winbond,W25Q32JVSSIQ,32Mb SPI Flash,0.65,0.65,Mouser
+U9,2,ISO7741,SOIC16,Texas Instruments,ISO7741FQDWRQ1,Digital isolator,2.80,5.60,Mouser
+C1,20,100nF,0402,Murata,GRM155R71C104KA88D,100nF decoupling,0.02,0.40,Mouser
+R1,10,10k,0402,Yageo,RC0402FR-0710KL,10kΩ resistor,0.01,0.10,Mouser
+TOTAL,,,,,,,37.35,,Approximate BOM cost

@@ -1,0 +1,13 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,STM32G474RET6,LQFP64,STMicroelectronics,STM32G474RET6,ARM Cortex-M4 FOC MCU,5.50,5.50,Mouser
+U2,1,LFE5U-25F,BGA256,Lattice,LFE5U-25F-6BG256C,ECP5 FPGA EtherCAT slave,18.00,18.00,Mouser
+U3,3,IPB65R110CFD,TO263,Infineon,IPB65R110CFDATMA1,650V N-ch MOSFET,3.20,9.60,Mouser
+U4,1,DRV8305,HTSSOP28,Texas Instruments,DRV8305NPHP,3-phase gate driver,4.50,4.50,Mouser
+U5,1,INA240A1,SOT23-5,Texas Instruments,INA240A1DBVR,Current sense amplifier,1.20,1.20,Mouser
+U6,1,AM26C31,SOIC16,Texas Instruments,AM26C31IDRG4,RS-422 encoder interface,0.95,0.95,Mouser
+U7,1,KSZ9031RNXIA,QFN48,Microchip,KSZ9031RNXIA,GbE PHY (EtherCAT),4.50,4.50,Mouser
+U8,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Crypto co-processor,0.95,0.95,Mouser
+U9,1,TPS7A4901,MSOP8,Texas Instruments,TPS7A4901DGNR,28V LDO regulator,2.40,2.40,Mouser
+C1,25,100nF,0402,Murata,GRM155R71C104KA88D,100nF decoupling,0.02,0.50,Mouser
+R1,12,10k,0402,Yageo,RC0402FR-0710KL,10kΩ resistor,0.01,0.12,Mouser
+TOTAL,,,,,,,48.22,,Approximate BOM cost

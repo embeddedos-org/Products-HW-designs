@@ -1,0 +1,12 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,STM32L4R9ZIT6,LQFP144,STMicroelectronics,STM32L4R9ZIT6,Ultra-low-power Cortex-M4 MCU,8.50,8.50,Mouser
+U2,1,STM32WL55JCI6,QFN48,STMicroelectronics,STM32WL55JCI6,Sub-GHz LoRaWAN SoC,4.80,4.80,Mouser
+U3,1,BC66,LCC,Quectel,BC66NALAR01A04,NB-IoT module,8.50,8.50,Mouser
+U4,2,TDC7200,SOIC16,Texas Instruments,TDC7200YZPR,Time-to-digital converter (ultrasonic),4.50,9.00,Mouser
+U5,2,Piezo-Trans,Through-hole,Murata,MA40S4S,Ultrasonic transducer 40kHz,2.50,5.00,Mouser
+U6,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Crypto co-processor,0.95,0.95,Mouser
+U7,1,LCD-6D,Custom,Varitronix,VI-322-DP,6-digit LCD display,2.50,2.50,Digi-Key
+U8,1,W25Q32JVSSIQ,SOP8,Winbond,W25Q32JVSSIQ,32Mb SPI Flash,0.65,0.65,Mouser
+C1,20,100nF,0402,Murata,GRM155R71C104KA88D,100nF decoupling,0.02,0.40,Mouser
+R1,10,10k,0402,Yageo,RC0402FR-0710KL,10kΩ resistor,0.01,0.10,Mouser
+TOTAL,,,,,,,40.40,,Approximate BOM cost

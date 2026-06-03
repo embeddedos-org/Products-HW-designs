@@ -1,0 +1,14 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,2,STM32H7B3ZIT6,LQFP144,STMicroelectronics,STM32H7B3ZIT6,ARM Cortex-M7 MCU (dual),12.50,25.00,Mouser
+U2,2,SFM3300,SMD,Sensirion,SFM3300-AW,Mass flow sensor ±250 slm,45.00,90.00,Digi-Key
+U3,4,HSCDANN150PG2A3,SMD,Honeywell,HSCDANN150PG2A3,150 PSI pressure sensor,18.00,72.00,Mouser
+U4,1,nRF5340,QFN73,Nordic Semiconductor,nRF5340-QKAA-R7,BLE 5.3 connectivity,6.50,6.50,Mouser
+U5,2,STM32G474RET6,LQFP64,STMicroelectronics,STM32G474RET6,Safety co-processor,5.50,11.00,Mouser
+U6,2,ISO7741,SOIC16,Texas Instruments,ISO7741FQDWRQ1,Digital isolator,2.80,5.60,Mouser
+U7,1,BQ40Z80,QFN48,Texas Instruments,BQ40Z80RSMT,Battery management IC,8.50,8.50,Mouser
+U8,1,TPS65987D,FCBGA64,Texas Instruments,TPS65987DRSKT,USB-C PD controller,5.50,5.50,Mouser
+U9,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Crypto co-processor,0.95,0.95,Mouser
+U10,1,MAX31865,TSSOP20,Maxim,MAX31865ATP,Temperature sensor IC,4.80,4.80,Mouser
+C1,40,100nF,0402,Murata,GRM155R71C104KA88D,100nF decoupling,0.02,0.80,Mouser
+R1,20,10k,0402,Yageo,RC0402FR-0710KL,10kΩ resistor,0.01,0.20,Mouser
+TOTAL,,,,,,,230.85,,Approximate BOM cost

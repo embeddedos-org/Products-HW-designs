@@ -1,0 +1,17 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,RK3588S,BGA,Rockchip,RK3588S,6-core ARM SoC + 32-TOPS NPU,85.00,85.00,Mouser
+U2,2,STM32H7B3ZIT6,LQFP144,STMicroelectronics,STM32H7B3ZIT6,ARM Cortex-M7 RTOS co-processor,12.50,25.00,Mouser
+U3,4,HI-8596PQI,PLCC44,Holt Integrated Circuits,HI-8596PQI,ARINC-429 Quad Receiver,18.00,72.00,Digi-Key
+U4,4,HI-8585PQI,PLCC44,Holt Integrated Circuits,HI-8585PQI,ARINC-429 Quad Transmitter,22.00,88.00,Digi-Key
+U5,2,DDC BU-65170,QFP,Data Device Corp,BU-65170,MIL-STD-1553B Dual Redundant BC/RT/MT,185.00,370.00,Digi-Key
+U6,2,ZED-F9P,LCC,u-blox,ZED-F9P,Dual-freq RTK GPS (redundant),75.00,150.00,Mouser
+U7,2,Epson G362P,LCC,Seiko Epson,G362P,6-DOF IMU ±300deg/s ±8g,95.00,190.00,Mouser
+U8,1,Xilinx XC7A100T,BGA,AMD Xilinx,XC7A100T-2FGG484I,Artix-7 FPGA for I/O management,95.00,95.00,Digi-Key
+U9,4,KSZ9031RNXIA,QFN48,Microchip,KSZ9031RNXIA,Gigabit Ethernet PHY,4.50,18.00,Mouser
+U10,2,TCAN1042VDRQ1,SOT23-8,Texas Instruments,TCAN1042VDRQ1,CAN FD Transceiver,1.85,3.70,Mouser
+U11,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Crypto co-processor,0.95,0.95,Mouser
+U12,2,K4EBE304EB-EGCG,BGA,Samsung,K4EBE304EB-EGCG,8GB LPDDR5,28.00,56.00,Mouser
+U13,1,KLMAG2JENB-B041,BGA,Samsung,KLMAG2JENB-B041,64GB eMMC 5.1,18.00,18.00,Mouser
+J1,4,VPX-VITA46,VPX,Amphenol,VPX-VITA46-P1,VPX VITA 46 backplane connector,35.00,140.00,Digi-Key
+C1,50,100nF,0402,Murata,GRM155R71C104KA88D,100nF decoupling,0.02,1.00,Mouser
+TOTAL,,,,,,,1312.65,,Approximate BOM cost

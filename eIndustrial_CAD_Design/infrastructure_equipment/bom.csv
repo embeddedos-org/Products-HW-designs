@@ -1,0 +1,14 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,STM32L4R9ZIT6,LQFP144,STMicroelectronics,STM32L4R9ZIT6,Ultra-low-power Cortex-M4 MCU,8.50,8.50,Mouser
+U2,1,STM32WL55JCI6,QFN48,STMicroelectronics,STM32WL55JCI6,Sub-GHz + Cortex-M4/M0+ SoC,4.80,4.80,Mouser
+U3,1,ADE9153A,LFCSP40,Analog Devices,ADE9153AACPZ,Single-phase energy metering IC,5.50,5.50,Mouser
+U4,1,G3-PLC,Module,Maxim,MAX2990,OFDM PLC modem,22.00,22.00,Digi-Key
+U5,3,CT sensor,Through-hole,Yhdc,SCT-013-100,100A split-core current transformer,3.50,10.50,Amazon
+U6,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Crypto co-processor,0.95,0.95,Mouser
+U7,1,HLK-PM01,Module,Hi-Link,HLK-PM01,AC-DC 5V 600mA power module,1.80,1.80,Amazon
+U8,1,MCP1700,SOT23-3,Microchip,MCP1700T-3302E/TT,3.3V LDO regulator,0.35,0.35,Mouser
+U9,1,LCD-6D,Custom,Varitronix,VI-322-DP,6-digit LCD display,2.50,2.50,Digi-Key
+U10,1,W25Q32JVSSIQ,SOP8,Winbond,W25Q32JVSSIQ,32Mb SPI Flash,0.65,0.65,Mouser
+C1,20,100nF,0402,Murata,GRM155R71C104KA88D,100nF decoupling,0.02,0.40,Mouser
+R1,10,10k,0402,Yageo,RC0402FR-0710KL,10kΩ resistor,0.01,0.10,Mouser
+TOTAL,,,,,,,58.05,,Approximate BOM cost

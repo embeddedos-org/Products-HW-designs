@@ -1,0 +1,13 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,STM32L4R9ZIT6,LQFP144,STMicroelectronics,STM32L4R9ZIT6,Ultra-low-power Cortex-M4 MCU,8.50,8.50,Mouser
+U2,1,AD7124-8,LFCSP32,Analog Devices,AD7124-8BCPZ-RL,24-bit 8-ch sigma-delta ADC,12.00,12.00,Mouser
+U3,1,XTR116,SOT23-6,Texas Instruments,XTR116UA/2K5,4-20mA current loop transmitter,3.20,3.20,Mouser
+U4,1,HT2012,SOIC16,Smar,HT2012,HART modem IC,18.00,18.00,Digi-Key
+U5,1,MAX31865,TSSOP20,Maxim,MAX31865ATP,RTD-to-digital converter,4.80,4.80,Mouser
+U6,1,REF5025,SOT23-5,Texas Instruments,REF5025AIDBVR,2.5V precision voltage reference,2.80,2.80,Mouser
+U7,1,TPS7A4901,MSOP8,Texas Instruments,TPS7A4901DGNR,28V LDO regulator,2.40,2.40,Mouser
+U8,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Crypto co-processor,0.95,0.95,Mouser
+U9,1,W25Q32JVSSIQ,SOP8,Winbond,W25Q32JVSSIQ,32Mb SPI Flash,0.65,0.65,Mouser
+C1,20,100nF,0402,Murata,GRM155R71C104KA88D,100nF decoupling,0.02,0.40,Mouser
+R1,10,10k,0402,Yageo,RC0402FR-0710KL,10kΩ resistor,0.01,0.10,Mouser
+TOTAL,,,,,,,53.80,,Approximate BOM cost

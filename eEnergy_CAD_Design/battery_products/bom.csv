@@ -1,0 +1,14 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,STM32G474RET6,LQFP64,STMicroelectronics,STM32G474RET6,ARM Cortex-M4 BMS MCU,5.50,5.50,Mouser
+U2,2,LTC6813-1,SSOP44,Analog Devices,LTC6813-1HMS#PBF,18-cell Li-ion monitor,22.00,44.00,Mouser
+U3,4,INA3221,WSON10,Texas Instruments,INA3221AIRGVR,Triple-ch power monitor,3.20,12.80,Mouser
+U4,1,BQ40Z80,QFN48,Texas Instruments,BQ40Z80RSMT,Advanced battery fuel gauge,8.50,8.50,Mouser
+U5,1,TCAN1042VDRQ1,SOT23-8,Texas Instruments,TCAN1042VDRQ1,CAN FD transceiver,1.85,1.85,Mouser
+U6,1,MAX3485,SOT23-8,Maxim,MAX3485EESA+T,RS-485 transceiver,0.85,0.85,Mouser
+U7,1,nRF5340,QFN73,Nordic Semiconductor,nRF5340-QKAA-R7,BLE 5.3 connectivity,6.50,6.50,Mouser
+U8,18,LTC3300-1,SSOP16,Analog Devices,LTC3300-1EGN#PBF,Active cell balancer,8.50,153.00,Mouser
+U9,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Crypto
+ co-processor,0.95,0.95,Mouser
+C1,30,100nF,0402,Murata,GRM155R71C104KA88D,100nF decoupling,0.02,0.60,Mouser
+R1,15,10k,0402,Yageo,RC0402FR-0710KL,10kΩ resistor,0.01,0.15,Mouser
+TOTAL,,,,,,,234.70,,Approximate BOM cost

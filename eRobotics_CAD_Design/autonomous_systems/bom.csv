@@ -1,0 +1,14 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,RK3588S,BGA,Rockchip,RK3588S,6-core ARM SoC + 32-TOPS NPU,85.00,85.00,Mouser
+U2,1,Jetson-Orin-NX,Module,NVIDIA,900-13767-0000-000,Jetson Orin NX 16GB AI module,499.00,499.00,Digi-Key
+U3,1,Mid-360,Custom,Livox,Mid-360,Solid-state 360 LiDAR,599.00,599.00,Livox
+U4,2,ZED-F9P,LCC,u-blox,ZED-F9P,Dual-freq RTK GPS,75.00,150.00,Mouser
+U5,6,IMX678,CSP,Sony,IMX678,4K CMOS image sensor,45.00,270.00,Mouser
+U6,4,DRV8305,HTSSOP28,Texas Instruments,DRV8305NPHP,3-phase motor gate driver,4.50,18.00,Mouser
+U7,1,EC25-AF,LGA,Quectel,EC25AFFA-512-STD,4G LTE module,18.00,18.00,Mouser
+U8,1,BQ40Z80,QFN48,Texas Instruments,BQ40Z80RSMT,Battery management IC,8.50,8.50,Mouser
+U9,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Crypto co-processor,0.95,0.95,Mouser
+U10,4,INA3221,WSON10,Texas Instruments,INA3221AIRGVR,Triple-ch power monitor,3.20,12.80,Mouser
+C1,40,100nF,0402,Murata,GRM155R71C104KA88D,100nF decoupling,0.02,0.80,Mouser
+R1,20,10k,0402,Yageo,RC0402FR-0710KL,10kΩ resistor,0.01,0.20,Mouser
+TOTAL,,,,,,,1662.25,,Approximate BOM cost

@@ -1,0 +1,13 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,LS1043ARDB,BGA,NXP,LS1043ARDB,Quad Cortex-A53 rail-grade SoC,45.00,45.00,Mouser
+U2,2,STM32H7B3ZIT6,LQFP144,STMicroelectronics,STM32H7B3ZIT6,ARM Cortex-M7 safety MCU,12.50,25.00,Mouser
+U3,2,K4EBE304EB-EGCG,BGA,Samsung,K4EBE304EB-EGCG,8GB DDR4 ECC,14.00,28.00,Mouser
+U4,1,KLMAG2JENB-B041,BGA,Samsung,KLMAG2JENB-B041,64GB eMMC,18.00,18.00,Mouser
+U5,4,KSZ9031RNXIA,QFN48,Microchip,KSZ9031RNXIA,GbE PHY,4.50,18.00,Mouser
+U6,2,TCAN1042VDRQ1,SOT23-8,Texas Instruments,TCAN1042VDRQ1,CAN FD transceiver,1.85,3.70,Mouser
+U7,2,MAX3485,SOT23-8,Maxim,MAX3485EESA+T,RS-485 transceiver,0.85,1.70,Mouser
+U8,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Crypto co-processor,0.95,0.95,Mouser
+U9,2,ISO7741,SOIC16,Texas Instruments,ISO7741FQDWRQ1,Digital isolator,2.80,5.60,Mouser
+C1,40,100nF,0402,Murata,GRM155R71C104KA88D,100nF decoupling,0.02,0.80,Mouser
+R1,20,10k,0402,Yageo,RC0402FR-0710KL,10kΩ resistor,0.01,0.20,Mouser
+TOTAL,,,,,,,146.95,,Approximate BOM cost

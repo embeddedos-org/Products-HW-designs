@@ -1,0 +1,14 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,2,STM32H7B3ZIT6,LQFP144,STMicroelectronics,STM32H7B3ZIT6,ARM Cortex-M7 control MCU,12.50,25.00,Mouser
+U2,1,TMS320F28379D,LQFP176,Texas Instruments,TMS320F28379DPTPT,C2000 DSP real-time control,18.00,18.00,Mouser
+U3,6,C3M0065090D,TO247-4,Wolfspeed,C3M0065090D,900V 65mΩ SiC MOSFET,12.00,72.00,Mouser
+U4,6,IXYS IXDN609SI,SOT89-5,IXYS,IXDN609SITR,9A SiC gate driver,3.50,21.00,Mouser
+U5,4,ACS758,Through-hole,Allegro,ACS758LCB-100B-PFF-T,100A current sensor,4.80,19.20,Mouser
+U6,1,ESP32-S3,QFN56,Espressif,ESP32-S3-WROOM-1,Wi-Fi 6 + BLE module,3.80,3.80,Mouser
+U7,1,EC25-AF,LGA,Quectel,EC25AFFA-512-STD,4G LTE module,18.00,18.00,Mouser
+U8,1,KSZ9031RNXIA,QFN48,Microchip,KSZ9031RNXIA,GbE PHY (Modbus TCP),4.50,4.50,Mouser
+U9,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Crypto co-processor,0.95,0.95,Mouser
+U10,4,ISO7741,SOIC16,Texas Instruments,ISO7741FQDWRQ1,Digital isolator,2.80,11.20,Mouser
+C1,40,100nF,0402,Murata,GRM155R71C104KA88D,100nF decoupling,0.02,0.80,Mouser
+R1,20,10k,0402,Yageo,RC0402FR-0710KL,10kΩ resistor,0.01,0.20,Mouser
+TOTAL,,,,,,,194.65,,Approximate BOM cost (electronics only)

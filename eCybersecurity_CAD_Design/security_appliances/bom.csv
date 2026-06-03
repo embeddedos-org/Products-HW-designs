@@ -1,0 +1,13 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,LS1046ARDB,BGA,NXP,LS1046ARDB,Quad Cortex-A72 security SoC,65.00,65.00,Mouser
+U2,4,K4EBE304EB-EGCG,BGA,Samsung,K4EBE304EB-EGCG,8GB DDR4 ECC,14.00,56.00,Mouser
+U3,1,KLMAG2JENB-B041,BGA,Samsung,KLMAG2JENB-B041,64GB eMMC,18.00,18.00,Mouser
+U4,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Crypto co-processor,0.95,0.95,Mouser
+U5,1,DS28E38,TSOC6,Maxim,DS28E38Q+T,DeepCover secure authenticator,2.50,2.50,Mouser
+U6,4,KSZ9031RNXIA,QFN48,Microchip,KSZ9031RNXIA,GbE PHY,4.50,18.00,Mouser
+U7,1,TPS65988,FCBGA64,Texas Instruments,TPS65988DHRSKT,USB-C PD controller,5.50,5.50,Mouser
+U8,2,ISO7741,SOIC16,Texas Instruments,ISO7741FQDWRQ1,Digital isolator,2.80,5.60,Mouser
+U9,1,LTC2977,QFN64,Analog Devices,LTC2977CUJ,8-ch power system manager,28.00,28.00,Mouser
+C1,40,100nF,0402,Murata,GRM155R71C104KA88D,100nF decoupling,0.02,0.80,Mouser
+R1,20,10k,0402,Yageo,RC0402FR-0710KL,10kΩ resistor,0.01,0.20,Mouser
+TOTAL,,,,,,,200.55,,Approximate BOM cost

@@ -1,0 +1,13 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,STM32H7B3ZIT6,LQFP144,STMicroelectronics,STM32H7B3ZIT6,ARM Cortex-M7 control MCU,12.50,12.50,Mouser
+U2,1,TMS320F28379D,LQFP176,Texas Instruments,TMS320F28379DPTPT,C2000 DSP real-time control,18.00,18.00,Mouser
+U3,8,C3M0065090D,TO247-4,Wolfspeed,C3M0065090D,900V 65mΩ SiC MOSFET,12.00,96.00,Mouser
+U4,8,IXDN609SI,SOT89-5,IXYS,IXDN609SITR,9A SiC gate driver,3.50,28.00,Mouser
+U5,2,ACS758,Through-hole,Allegro,ACS758LCB-100B-PFF-T,100A current sensor,4.80,9.60,Mouser
+U6,4,ISO7741,SOIC16,Texas Instruments,ISO7741FQDWRQ1,Digital isolator 4kV,2.80,11.20,Mouser
+U7,1,TCAN1042VDRQ1,SOT23-8,Texas Instruments,TCAN1042VDRQ1,CAN FD transceiver,1.85,1.85,Mouser
+U8,1,MAX3485,SOT23-8,Maxim,MAX3485EESA+T,RS-485 transceiver,0.85,0.85,Mouser
+U9,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Crypto co-processor,0.95,0.95,Mouser
+C1,40,100nF,0402,Murata,GRM155R71C104KA88D,100nF decoupling,0.02,0.80,Mouser
+R1,20,10k,0402,Yageo,RC0402FR-0710KL,10kΩ resistor,0.01,0.20,Mouser
+TOTAL,,,,,,,179.95,,Approximate BOM cost (electronics only)

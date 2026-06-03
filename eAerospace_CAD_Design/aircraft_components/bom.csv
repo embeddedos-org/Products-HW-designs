@@ -1,0 +1,17 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,STM32H7B3ZIT6,LQFP144,STMicroelectronics,STM32H7B3ZIT6,ARM Cortex-M7 280MHz MCU,12.50,12.50,Mouser
+U2,2,TCAN1042VDRQ1,SOT-23-8,Texas Instruments,TCAN1042VDRQ1,Automotive CAN FD Transceiver,1.85,3.70,Mouser
+U3,1,HI-8596PQI,PLCC44,Holt Integrated Circuits,HI-8596PQI,ARINC-429 Receiver,18.00,18.00,Digi-Key
+U4,1,HI-8585PQI,PLCC44,Holt Integrated Circuits,HI-8585PQI,ARINC-429 Transmitter,22.00,22.00,Digi-Key
+U5,4,AD8221ARMZ,MSOP8,Analog Devices,AD8221ARMZ,Instrumentation Amplifier for strain,3.20,12.80,Mouser
+U6,2,ADXL375BCCZ,LGA14,Analog Devices,ADXL375BCCZ,High-g 3-axis MEMS accelerometer,5.50,11.00,Mouser
+U7,4,MAX31865ATP,TSSOP20,Maxim Integrated,MAX31865ATP,RTD-to-Digital Converter,4.80,19.20,Mouser
+U8,1,W25Q128JVSIQ,SOP8,Winbond,W25Q128JVSIQ,128Mb SPI NOR Flash,1.20,1.20,Mouser
+U9,1,TPS7A4901DGNR,MSOP8,Texas Instruments,TPS7A4901DGNR,28V LDO Regulator,2.40,2.40,Mouser
+U10,1,LM5164DDAR,SOIC8,Texas Instruments,LM5164DDAR,100V DC-DC Buck Controller,3.10,3.10,Mouser
+U11,1,ATECC608B-MAHDA-T,UDFN8,Microchip,ATECC608B-MAHDA-T,Crypto Co-processor,0.95,0.95,Mouser
+J1,1,MIL-38999-III,Circular,Amphenol,MS3470L18-32S,MIL-DTL-38999 28-pin connector,45.00,45.00,Digi-Key
+J2,2,D-Sub9,D-Sub,TE Connectivity,5747844-4,ARINC-429 D-Sub connector,3.50,7.00,Mouser
+C1,20,100nF,0402,Murata,GRM155R71C104KA88D,100nF 16V X7R decoupling cap,0.02,0.40,Mouser
+R1,10,10k,0402,Yageo,RC0402FR-0710KL,10kΩ 1% resistor,0.01,0.10,Mouser
+TOTAL,,,,,,,159.35,,Approximate BOM cost
