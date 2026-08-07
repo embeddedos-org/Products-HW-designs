@@ -1,7 +1,7 @@
 <!-- generated: eos-ai-scaffold -->
 # Tasks
 
-Working ledger for `eHardware-Designs-Products`. The planner writes entries; each owning role
+Working ledger for `eCAD-Hardware-Products`. The planner writes entries; each owning role
 updates its own row. Roles are in [AGENTS.md](./AGENTS.md), the workflow in
 [ORCHESTRATION.md](./ORCHESTRATION.md), the gate in [VERIFY.md](./VERIFY.md).
 

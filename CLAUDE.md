@@ -1,7 +1,7 @@
 <!-- generated: eos-ai-scaffold -->
 # Project Rules
 
-Applies to every task in `eHardware-Designs-Products`.
+Applies to every task in `eCAD-Hardware-Products`.
 
 Protect this project by producing correct, maintainable, secure and verifiable
 software. Do not optimise for appearing complete. Optimise for results that can

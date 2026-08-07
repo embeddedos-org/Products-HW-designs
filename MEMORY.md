@@ -1,7 +1,7 @@
 <!-- generated: eos-ai-scaffold -->
 # Memory
 
-Durable context for `eHardware-Designs-Products` — decisions and constraints that outlive one
+Durable context for `eCAD-Hardware-Products` — decisions and constraints that outlive one
 session and are not recoverable from the code or the git history.
 
 Write here when a future reader would otherwise repeat an argument that was
