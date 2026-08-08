@@ -1,0 +1,18 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,Jetson Orin Nano 8GB,SO-DIMM 260,NVIDIA,900-13767-0030-000,SLAM inference and mapping compute,299.00,299.00,Arrow
+U2-U3,2,AR0234,iBGA,onsemi,AR0234CSSC00SUKA0-CRBR,Synchronised stereo camera pair,28.50,57.00,Mouser
+U4,1,RPLIDAR S3,Module,Slamtec,RPLIDAR-S3,360-degree laser scanner,349.00,349.00,Slamtec
+U5,1,ADIS16470,Module,Analog Devices,ADIS16470AMLZ,Industrial IMU for visual-inertial odometry,245.00,245.00,Mouser
+U6,1,iCE40UP5K,QFN48,Lattice,ICE40UP5K-SG48ITR,Stereo frame sync and IMU time-stamping,6.20,6.20,Mouser
+U7,1,4GB LPDDR4X,FBGA200,Micron,MT53E1G32D2FW-046,Map and keyframe memory,19.50,19.50,Mouser
+U8,1,64GB eMMC,FBGA153,Micron,MTFC64GAKAENA-4M,Map persistence storage,18.00,18.00,Mouser
+U9,1,KSZ9031,QFN48,Microchip,KSZ9031RNXIA,Gigabit Ethernet,4.50,4.50,Mouser
+U10-U11,2,USB3343,QFN24,Microchip,USB3343-CP-TR,USB 3.0 transceiver,2.40,4.80,Mouser
+U12-U16,5,LT8640,QFN18,Analog Devices,LT8640IUDC#PBF,Point-of-load regulator,6.40,32.00,Mouser
+U17-U19,3,TPS7A4701,VQFN20,Texas Instruments,TPS7A4701RGWT,Low-noise sensor supply,3.10,9.30,Mouser
+J1,1,USB-C,SMT,Amphenol,12401610E4-2A,"USB Type-C receptacle, 24-pin, IP67",1.40,1.40,Mouser
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+C1-C130,130,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,2.60,Mouser
+C131-C162,32,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,2.88,Mouser
+R1-R78,78,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.78,Mouser
+TOTAL,,,,,,,1075.96,,Approximate BOM cost

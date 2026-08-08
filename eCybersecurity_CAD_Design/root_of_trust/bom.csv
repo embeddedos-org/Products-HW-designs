@@ -1,0 +1,14 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,MAX32520,TQFN,Analog Devices,MAX32520-KIT,SRAM PUF root of trust processor,11.90,11.90,Mouser
+U2,1,SE050,HX2QFN20,NXP,SE050C2HQ1/Z01SDZ,"Certified secure element, EAL6+",3.40,3.40,Mouser
+U3,1,MPF300T,FCBGA484,Microchip,MPF300T-1FCG484I,DPA-resistant crypto accelerator fabric,265.00,265.00,Digi-Key
+U4,1,SLB9670,TSSOP28,Infineon,SLB9670VQ2.0,TPM 2.0 attestation anchor,4.30,4.30,Mouser
+U5-U6,2,1Mbit FRAM,SOIC8,Infineon,FM24V10-G,PUF helper data storage,4.70,9.40,Mouser
+U7-U9,3,TPS7A4701,VQFN20,Texas Instruments,TPS7A4701RGWT,"Low-noise supply, side-channel hardened",3.10,9.30,Mouser
+U10-U11,2,INA228,VSSOP10,Texas Instruments,INA228AIDGSR,Power analysis attack detection,3.50,7.00,Mouser
+U12-U13,2,TMP117,WSON6,Texas Instruments,TMP117AIDRVR,Thermal fault-injection detection,4.20,8.40,Mouser
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+C1-C80,80,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,1.60,Mouser
+C81-C100,20,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,1.80,Mouser
+R1-R45,45,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.45,Mouser
+TOTAL,,,,,,,346.55,,Approximate BOM cost

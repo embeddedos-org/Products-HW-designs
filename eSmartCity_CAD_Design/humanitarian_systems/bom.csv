@@ -1,0 +1,21 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,AM6254,FCBGA,Texas Instruments,AM6254ATCGGAALW,Field kit application processor,24.50,24.50,Mouser
+U2,1,Swarm M138,Module,Swarm,M138,Satellite data backhaul,89.00,89.00,Swarm
+U3,1,Iridium 9603N,Module,Iridium,9603N,Satellite emergency messaging,210.00,210.00,Ground Control
+U4-U5,2,ESP32-C6,Module,Espressif,ESP32-C6-WROOM-1-N8,Wi-Fi 6 local network,3.20,6.40,Mouser
+U6,1,SX1262,QFN24,Semtech,SX1262IMLTRT,LoRa mesh for remote sensors,5.40,5.40,Mouser
+U7-U10,4,MAX31865,TQFN20,Analog Devices,MAX31865ATP+,Cold chain RTD monitoring,6.10,24.40,Mouser
+U11-U18,8,TMP117,WSON6,Texas Instruments,TMP117AIDRVR,Cold chain temperature sensing,4.20,33.60,Mouser
+U19-U20,2,2GB DDR4,FBGA96,Micron,MT40A1G16KNR-075,System memory,9.40,18.80,Mouser
+U21-U22,2,64GB eMMC,FBGA153,Micron,MTFC64GAKAENA-4M,Offline registration database,18.00,36.00,Mouser
+U23,1,SE050,HX2QFN20,NXP,SE050C2HQ1/Z01SDZ,Beneficiary data encryption key store,3.40,3.40,Mouser
+U24-U25,2,BQ25798,VQFN29,Texas Instruments,BQ25798RQMR,Solar MPPT charge controller,4.80,9.60,Mouser
+U26,1,5in 800x480 IPS,Module,Riverdi,RVT50HQSNWC00-B,Field operator display,42.00,42.00,Mouser
+BT1-BT12,12,3500mAh 18650,18650,Samsung SDI,INR18650-35E,3.6V 3500mAh Li-ion cylindrical cell,4.60,55.20,Digi-Key
+PV1-PV8,8,5W PV panel,Custom,EmbeddedOS,EOS-PV-5W-MONO,"5W monocrystalline PV panel, IP65 laminate",12.50,100.00,Custom
+ANT1,1,868MHz whip,SMA,Linx,ANT-868-CW-HWR-SMA,"868MHz half-wave whip antenna, 2dBi",7.40,7.40,Mouser
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+C1-C150,150,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,3.00,Mouser
+C151-C186,36,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,3.24,Mouser
+R1-R88,88,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.88,Mouser
+TOTAL,,,,,,,696.82,,Approximate BOM cost

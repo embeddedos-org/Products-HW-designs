@@ -1,0 +1,19 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,STM32H743,LQFP144,STMicroelectronics,STM32H743ZIT6,Swarm coordination processor,11.80,11.80,Mouser
+U2,1,nRF5340,aQFN94,Nordic Semiconductor,NRF5340-QKAA-R7,BLE and UWB ranging co-processor,6.50,6.50,Mouser
+U3,1,SX1262,QFN24,Semtech,SX1262IMLTRT,Sub-GHz mesh transceiver,5.40,5.40,Mouser
+U4,1,ICM-42688-P,LGA14,TDK InvenSense,ICM-42688-P,Attitude and motion sensing,4.80,4.80,Mouser
+U5,1,MAX-M10S,LCC-18,u-blox,MAX-M10S-00B,GNSS where available,14.50,14.50,Mouser
+U6,1,MS5611,QFN8,TE Connectivity,MS561101BA03-50,Barometric altitude,12.80,12.80,Mouser
+U7,1,16MB QSPI,SOIC8,Winbond,W25Q128JVSIQ,Firmware and map fragment storage,1.35,1.35,Mouser
+U8,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Mesh message authentication,0.95,0.95,Mouser
+U9-U11,3,TPS62840,WSON8,Texas Instruments,TPS62840DGRR,Low-Iq point-of-load regulator,0.65,1.95,Mouser
+U12,1,BQ25504,VQFN16,Texas Instruments,BQ25504RGTR,Energy-harvesting charge management,2.80,2.80,Mouser
+BT1,1,2000mAh LiPo,Pouch,EmbeddedOS,EOS-BAT-LIPO-2000,3.7V 2000mAh LiPo cell with protection,8.40,8.40,Custom
+ANT1-ANT2,2,2.4GHz chip,0805,Johanson,2450AT18B100E,UWB and BLE antenna,0.68,1.36,Mouser
+ANT3,1,868MHz whip,SMA,Linx,ANT-868-CW-HWR-SMA,Sub-GHz mesh antenna,7.40,7.40,Mouser
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+C1-C70,70,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,1.40,Mouser
+C71-C86,16,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,1.44,Mouser
+R1-R45,45,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.45,Mouser
+TOTAL,,,,,,,107.30,,Approximate BOM cost

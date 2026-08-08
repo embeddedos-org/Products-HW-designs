@@ -1,0 +1,18 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,i.MX 8M Plus,FCBGA,NXP,MIMX8ML8DVNLZAB,Vision application processor with NPU,62.00,62.00,Mouser
+U2-U5,4,AR0234,iBGA,onsemi,AR0234CSSC00SUKA0-CRBR,Global-shutter image sensor,28.50,114.00,Mouser
+U6,1,iCE40UP5K,QFN48,Lattice,ICE40UP5K-SG48ITR,Hardware frame sync and strobe timing,6.20,6.20,Mouser
+U7-U8,2,4GB LPDDR4X,FBGA200,Micron,MT53E1G32D2FW-046,Frame buffer,19.50,39.00,Mouser
+U9,1,64GB eMMC,FBGA153,Micron,MTFC64GAKAENA-4M,Application and model storage,18.00,18.00,Mouser
+U10,1,KSZ9031,QFN48,Microchip,KSZ9031RNXIA,GigE Vision output,4.50,4.50,Mouser
+U11-U12,2,USB3343,QFN24,Microchip,USB3343-CP-TR,USB 3.0 transceiver,2.40,4.80,Mouser
+U13,1,DRV8353RS,VQFN40,Texas Instruments,DRV8353RSRTAR,IR strobe current driver,5.70,5.70,Mouser
+U14-U18,5,LT8640,QFN18,Analog Devices,LT8640IUDC#PBF,Point-of-load regulator,6.40,32.00,Mouser
+U19-U22,4,TPS7A4701,VQFN20,Texas Instruments,TPS7A4701RGWT,Low-noise sensor analogue supply,3.10,12.40,Mouser
+J1,1,RJ45 magjack,THT,Pulse Electronics,JXD0-0001NL,Gigabit RJ45 jack with integrated magnetics,3.20,3.20,Mouser
+J2,1,USB-C,SMT,Amphenol,12401610E4-2A,"USB Type-C receptacle, 24-pin, IP67",1.40,1.40,Mouser
+PCB1,1,12-layer FR4,Custom,EmbeddedOS,EOS-PCB-12L-C3,"12-layer FR-4 PCB, ENIG, IPC Class 3",48.00,48.00,Custom
+C1-C150,150,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,3.00,Mouser
+C151-C190,40,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,3.60,Mouser
+R1-R85,85,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.85,Mouser
+TOTAL,,,,,,,358.65,,Approximate BOM cost

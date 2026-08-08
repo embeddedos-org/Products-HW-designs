@@ -1,0 +1,16 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,STM32U575,LQFP144,STMicroelectronics,STM32U575ZIT6Q,Tamper monitoring supervisor,9.10,9.10,Mouser
+U2,1,AD7124-8,LFCSP32,Analog Devices,AD7124-8BCPZ,Mesh resistance and capacitance measurement,9.70,9.70,Mouser
+U3-U4,2,TMP117,WSON6,Texas Instruments,TMP117AIDRVR,Temperature excursion detection,4.20,8.40,Mouser
+U5-U6,2,INA228,VSSOP10,Texas Instruments,INA228AIDGSR,Supply glitch detection,3.50,7.00,Mouser
+U7,1,VL53L1X,OLGA12,STMicroelectronics,VL53L1CXV0FY/1,Enclosure opening and light ingress detection,5.30,5.30,Mouser
+U8,1,1Mbit FRAM,SOIC8,Infineon,FM24V10-G,Tamper event log,4.70,4.70,Mouser
+U9,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Event log signing key,0.95,0.95,Mouser
+U10-U11,2,TPS62840,WSON8,Texas Instruments,TPS62840DGRR,60nA quiescent tamper-domain regulator,0.65,1.30,Mouser
+U12-U13,2,OPA2188,SOIC8,Texas Instruments,OPA2188AIDR,Mesh sense amplification,3.40,6.80,Mouser
+BT1,1,225mAh coin,Coin 20mm,Panasonic,CR2032,3V 225mAh lithium coin cell,0.42,0.42,Mouser
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+C1-C45,45,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,0.90,Mouser
+C46-C55,10,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,0.90,Mouser
+R1-R32,32,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.32,Mouser
+TOTAL,,,,,,,79.79,,Approximate BOM cost

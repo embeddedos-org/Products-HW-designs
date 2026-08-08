@@ -1,0 +1,19 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,STM32H743,LQFP144,STMicroelectronics,STM32H743ZIT6,Instrumentation controller,11.80,11.80,Mouser
+U2-U9,8,ADS8688,TSSOP38,Texas Instruments,ADS8688IDBTR,8-channel 16-bit analogue acquisition,14.80,118.40,Mouser
+U10-U13,4,AD7124-8,LFCSP32,Analog Devices,AD7124-8BCPZ,24-bit thermocouple acquisition,9.70,38.80,Mouser
+U14-U17,4,MAX31865,TQFN20,Analog Devices,MAX31865ATP+,RTD reference junction conditioning,6.10,24.40,Mouser
+U18-U25,8,INA849,SOIC8,Texas Instruments,INA849IDR,IEPE accelerometer conditioning,6.80,54.40,Mouser
+U26-U33,8,OPA2188,SOIC8,Texas Instruments,OPA2188AIDR,Zero-drift input buffer,3.40,27.20,Mouser
+U34-U35,2,MAX14830,TQFN48,Analog Devices,MAX14830ETM+,Quad UART for instrument bridge,8.70,17.40,Mouser
+U36,1,KSZ9031,QFN48,Microchip,KSZ9031RNXIA,Gigabit Ethernet for LXI,4.50,4.50,Mouser
+U37-U38,2,ADM2587E,SOIC20W,Analog Devices,ADM2587EBRWZ,Isolated RS-485 Modbus,9.40,18.80,Mouser
+U39,1,64GB eMMC,FBGA153,Micron,MTFC64GAKAENA-4M,Campaign data logging,18.00,18.00,Mouser
+U40,1,DS3231,SOIC16,Analog Devices,DS3231SN#,Time-stamp reference clock,7.20,7.20,Mouser
+U41-U44,4,TPS54360B,SO-8 PowerPAD,Texas Instruments,TPS54360BDDAR,Primary buck regulator,2.90,11.60,Mouser
+U45-U48,4,TPS7A4701,VQFN20,Texas Instruments,TPS7A4701RGWT,Low-noise analogue supply,3.10,12.40,Mouser
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+C1-C170,170,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,3.40,Mouser
+C171-C208,38,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,3.42,Mouser
+R1-R95,95,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.95,Mouser
+TOTAL,,,,,,,396.67,,Approximate BOM cost

@@ -1,0 +1,17 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,XCZU3EG,FBGA784,AMD Xilinx,XCZU3EG-1SFVC784E,NPU fabric MPSoC,385.00,385.00,Digi-Key
+U2-U5,4,4GB LPDDR4X,FBGA200,Micron,MT53E1G32D2FW-046,Weight and activation memory,19.50,78.00,Mouser
+U6,1,64GB eMMC,FBGA153,Micron,MTFC64GAKAENA-4M,Bitstream and model storage,18.00,18.00,Mouser
+U7-U8,2,16MB QSPI,SOIC8,Winbond,W25Q128JVSIQ,Boot bitstream storage,1.35,2.70,Mouser
+U9,1,KSZ9031,QFN48,Microchip,KSZ9031RNXIA,Gigabit Ethernet host interface,4.50,4.50,Mouser
+U10,1,HMC7044,LFCSP,Analog Devices,HMC7044LP10BE,Fabric clock generation,78.00,78.00,Mouser
+U11-U18,8,LT8640,QFN18,Analog Devices,LT8640IUDC#PBF,Point-of-load regulator,6.40,51.20,Mouser
+U19-U24,6,INA228,VSSOP10,Texas Instruments,INA228AIDGSR,Per-rail power telemetry,3.50,21.00,Mouser
+U25-U28,4,TMP117,WSON6,Texas Instruments,TMP117AIDRVR,Fabric thermal monitoring,4.20,16.80,Mouser
+PCB1,1,12-layer FR4,Custom,EmbeddedOS,EOS-PCB-12L-C3,"12-layer FR-4 PCB, ENIG, IPC Class 3",48.00,48.00,Custom
+HS1,1,Heatsink,40mm,Wakefield-Vette,657-40AB,Extruded aluminium heatsink for forced convection,4.80,4.80,Mouser
+C1-C260,260,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,5.20,Mouser
+C261-C294,34,47uF,1210,Murata,GRM32ER61E476ME15L,47uF X5R bulk capacitor 25V,0.42,14.28,Mouser
+R1-R130,130,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,1.30,Mouser
+L1-L8,8,4.7uH,5.3x5.3mm,Coilcraft,XAL5030-472MEB,4.7uH 6.4A shielded power inductor,0.72,5.76,Coilcraft
+TOTAL,,,,,,,734.54,,Approximate BOM cost

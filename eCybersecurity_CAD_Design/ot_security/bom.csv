@@ -1,0 +1,18 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,AM6254,FCBGA,Texas Instruments,AM6254ATCGGAALW,Protocol inspection processor,24.50,24.50,Mouser
+U2-U3,2,2GB DDR4,FBGA96,Micron,MT40A1G16KNR-075,Flow and asset database memory,9.40,18.80,Mouser
+U4,1,64GB eMMC,FBGA153,Micron,MTFC64GAKAENA-4M,Capture and baseline storage,18.00,18.00,Mouser
+U5-U8,4,DP83867,HTQFP64,Texas Instruments,DP83867IRPAPR,Gigabit Ethernet PHY,6.80,27.20,Mouser
+U9,1,KSZ8863,LQFP48,Microchip,KSZ8863MLLI,Tap and bridge switch fabric,7.40,7.40,Mouser
+U10-U11,2,ADM2587E,SOIC20W,Analog Devices,ADM2587EBRWZ,Isolated RS-485 for Modbus RTU,9.40,18.80,Mouser
+U12,1,ADM3053,SOIC20W,Analog Devices,ADM3053BRWZ,Isolated CAN interface,11.20,11.20,Mouser
+U13,1,SLB9670,TSSOP28,Infineon,SLB9670VQ2.0,TPM 2.0 secure boot,4.30,4.30,Mouser
+U14-U17,4,TPS54360B,SO-8 PowerPAD,Texas Instruments,TPS54360BDDAR,Wide-input buck regulator,2.90,11.60,Mouser
+J1-J4,4,RJ45 magjack,THT,Pulse Electronics,JXD0-0001NL,Gigabit RJ45 jack with integrated magnetics,3.20,12.80,Mouser
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+ENC1,1,DIN enclosure,DIN 35,Phoenix Contact,2200907,"DIN-rail modular housing, 6TE",18.50,18.50,Mouser
+C1-C140,140,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,2.80,Mouser
+C141-C160,20,47uF,1210,Murata,GRM32ER61E476ME15L,47uF X5R bulk capacitor 25V,0.42,8.40,Mouser
+R1-R85,85,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.85,Mouser
+D1-D10,10,33V TVS,SMB,Littelfuse,SMBJ33CA,"600W bidirectional TVS diode, 33V standoff",0.28,2.80,Mouser
+TOTAL,,,,,,,211.95,,Approximate BOM cost

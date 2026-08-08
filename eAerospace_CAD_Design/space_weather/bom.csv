@@ -1,0 +1,18 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,GR712RC,CQFP240,Frontgrade Gaisler,GR712RC,Rad-hard instrument controller,12500.00,12500.00,Frontgrade
+U2-U5,4,AD7124-8,LFCSP32,Analog Devices,AD7124-8BCPZ,24-bit low-noise ADC for detector and dosimetry,9.70,38.80,Mouser
+U6-U7,2,ADS131M08,TQFP32,Texas Instruments,ADS131M08IPBSR,Simultaneous-sampling ADC for fluxgate triad,11.60,23.20,Mouser
+U8-U10,3,MMC5983MA,LGA16,MEMSIC,MMC5983MA,Reference magnetometer for boom cross-check,2.90,8.70,Mouser
+U11-U12,2,ZED-F9P,LGA-54,u-blox,ZED-F9P-04B,Dual-frequency GNSS for TEC occultation,75.00,150.00,Mouser
+U13-U20,8,INA849,SOIC8,Texas Instruments,INA849IDR,Detector charge-sensitive preamplifier,6.80,54.40,Mouser
+U21-U28,8,OPA2188,SOIC8,Texas Instruments,OPA2188AIDR,Zero-drift shaping amplifier,3.40,27.20,Mouser
+U29-U30,2,UT54LVDS032,CFP16,Frontgrade,UT54LVDS032-UCC,SpaceWire LVDS interface,620.00,1240.00,Frontgrade
+U31-U34,4,256kbit MRAM,SOIC8,Everspin,MR25H256ACDF,MRAM science data buffer,6.20,24.80,Mouser
+U35-U37,3,ISL71001,CFP,Renesas,ISL71001SEHVF,Rad-hard point-of-load regulator,1850.00,5550.00,Renesas
+U38-U40,3,TPS7H1101A,CFP-20,Texas Instruments,TPS7H1101A-SP,Rad-hard low-noise detector bias supply,980.00,2940.00,Texas Instruments
+U41,1,BU-65170,QFP,Data Device Corp,BU-65170I2-300,MIL-STD-1553B terminal,185.00,185.00,Digi-Key
+PCB1,1,12-layer FR4,Custom,EmbeddedOS,EOS-PCB-12L-C3,"12-layer FR-4 PCB, ENIG, IPC Class 3",48.00,48.00,Custom
+C1-C160,160,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,3.20,Mouser
+C161-C182,22,47uF,1210,Murata,GRM32ER61E476ME15L,47uF X5R bulk capacitor 25V,0.42,9.24,Mouser
+R1-R95,95,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.95,Mouser
+TOTAL,,,,,,,22803.49,,Approximate BOM cost

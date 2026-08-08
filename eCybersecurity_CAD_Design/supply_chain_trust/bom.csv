@@ -1,0 +1,18 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,AM6254,FCBGA,Texas Instruments,AM6254ATCGGAALW,Verification station processor,24.50,24.50,Mouser
+U2-U3,2,MLX90640,TO-39,Melexis,MLX90640ESF-BAB,Thermal signature imaging array,48.00,96.00,Mouser
+U4-U5,2,AR0234,iBGA,onsemi,AR0234CSSC00SUKA0-CRBR,Optical die marking inspection,28.50,57.00,Mouser
+U6,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Station identity and record signing,0.95,0.95,Mouser
+U7,1,SE050,HX2QFN20,NXP,SE050C2HQ1/Z01SDZ,Provenance record signing key,3.40,3.40,Mouser
+U8-U9,2,ADS8688,TSSOP38,Texas Instruments,ADS8688IDBTR,Device-under-test electrical characterisation,14.80,29.60,Mouser
+U10-U11,2,2GB DDR4,FBGA96,Micron,MT40A1G16KNR-075,Signature database working memory,9.40,18.80,Mouser
+U12-U13,2,64GB eMMC,FBGA153,Micron,MTFC64GAKAENA-4M,Reference signature and record storage,18.00,36.00,Mouser
+U14,1,DP83867,HTQFP64,Texas Instruments,DP83867IRPAPR,Gigabit Ethernet,6.80,6.80,Mouser
+U15,1,5in 800x480 IPS,Module,Riverdi,RVT50HQSNWC00-B,Operator console,42.00,42.00,Mouser
+U16-U20,5,TPS54360B,SO-8 PowerPAD,Texas Instruments,TPS54360BDDAR,Primary and DUT supply regulation,2.90,14.50,Mouser
+U21-U24,4,INA228,VSSOP10,Texas Instruments,INA228AIDGSR,DUT current signature measurement,3.50,14.00,Mouser
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+C1-C160,160,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,3.20,Mouser
+C161-C196,36,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,3.24,Mouser
+R1-R95,95,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.95,Mouser
+TOTAL,,,,,,,374.94,,Approximate BOM cost

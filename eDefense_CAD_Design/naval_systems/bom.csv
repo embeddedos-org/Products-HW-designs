@@ -1,0 +1,19 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,XCZU3EG,FBGA784,AMD Xilinx,XCZU3EG-1SFVC784E,Combat management processing MPSoC,385.00,385.00,Digi-Key
+U2-U5,4,4GB LPDDR4X,FBGA200,Micron,MT53E1G32D2FW-046,Track database memory,19.50,78.00,Mouser
+U6-U7,2,64GB eMMC,FBGA153,Micron,MTFC64GAKAENA-4M,Mission data and configuration storage,18.00,36.00,Mouser
+U8-U11,4,DP83867,HTQFP64,Texas Instruments,DP83867IRPAPR,"Gigabit Ethernet PHY, redundant pairs",6.80,27.20,Mouser
+U12-U13,2,DP83640,LQFP48,Texas Instruments,DP83640TVV/NOPB,IEEE 1588 PTP timing PHY,12.40,24.80,Mouser
+U14,1,ADIS16505-2,Module,Analog Devices,ADIS16505-2BMLZ,Ship motion reference unit,385.00,385.00,Mouser
+U15,1,SLB9670,TSSOP28,Infineon,SLB9670VQ2.0,TPM 2.0 for secure boot,4.30,4.30,Mouser
+U16-U21,6,LM5164,SO-8 PowerPAD,Texas Instruments,LM5164DDAR,28V shipboard buck regulator,3.70,22.20,Mouser
+U22-U27,6,INA228,VSSOP10,Texas Instruments,INA228AIDGSR,Rail telemetry,3.50,21.00,Mouser
+J1-J4,4,VPX VITA 46,VPX,Amphenol,VPX-P1-046,"VPX VITA 46 backplane connector, 7-row",35.00,140.00,Digi-Key
+J5-J8,4,SFP+ cage,Press-fit,TE Connectivity,2007196-1,10GbE combat network,8.40,33.60,Mouser
+PCB1,1,12-layer FR4,Custom,EmbeddedOS,EOS-PCB-12L-C3,"12-layer FR-4 PCB, ENIG, IPC Class 3",48.00,48.00,Custom
+HS1-HS2,2,Heatsink,40mm,Wakefield-Vette,657-40AB,Conduction-cooled thermal interface,4.80,9.60,Mouser
+C1-C220,220,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,4.40,Mouser
+C221-C250,30,47uF,1210,Murata,GRM32ER61E476ME15L,47uF X5R bulk capacitor 25V,0.42,12.60,Mouser
+R1-R120,120,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,1.20,Mouser
+FL1-FL4,4,2.2mH CMC,THT,Wurth,744232222,MIL-STD-461 power line filter,1.60,6.40,Mouser
+TOTAL,,,,,,,1239.30,,Approximate BOM cost

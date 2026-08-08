@@ -1,0 +1,20 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,AM6254,FCBGA,Texas Instruments,AM6254ATCGGAALW,Communications bridging processor,24.50,24.50,Mouser
+U2,1,RM520N-GL,M.2,Quectel,RM520N-GL,5G NR mission-critical modem,189.00,189.00,Quectel
+U3,1,ADRV9002,BGA196,Analog Devices,ADRV9002BBCZ,TETRA and P25 legacy transceiver,385.00,385.00,Mouser
+U4,1,ZED-F9P,LGA-54,u-blox,ZED-F9P-04B,GNSS position reference,75.00,75.00,Mouser
+U5,1,ICM-42688-P,LGA14,TDK InvenSense,ICM-42688-P,Indoor dead-reckoning IMU,4.80,4.80,Mouser
+U6-U7,2,2GB DDR4,FBGA96,Micron,MT40A1G16KNR-075,System memory,9.40,18.80,Mouser
+U8,1,64GB eMMC,FBGA153,Micron,MTFC64GAKAENA-4M,Call recording and configuration,18.00,18.00,Mouser
+U9,1,SE050,HX2QFN20,NXP,SE050C2HQ1/Z01SDZ,Secure element for radio identity,3.40,3.40,Mouser
+U10-U11,2,DP83867,HTQFP64,Texas Instruments,DP83867IRPAPR,Gigabit Ethernet backhaul,6.80,13.60,Mouser
+U12,1,BQ25798,VQFN29,Texas Instruments,BQ25798RQMR,Battery charger for isolated operation,4.80,4.80,Mouser
+U13-U16,4,TPS54360B,SO-8 PowerPAD,Texas Instruments,TPS54360BDDAR,Primary buck regulator,2.90,11.60,Mouser
+BT1-BT8,8,3500mAh 18650,18650,Samsung SDI,INR18650-35E,72-hour resilience battery pack,4.60,36.80,Digi-Key
+ANT1-ANT2,2,LTE FPC,Flex,Taoglas,FXUB63.07.0150C,Wideband 600MHz-6GHz flexible PCB antenna,6.90,13.80,Mouser
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+ENC1,1,IP67 aluminium,Custom,EmbeddedOS,EOS-ENCL-IP67-AL,Die-cast aluminium IP67 enclosure with gasket,34.00,34.00,Custom
+C1-C150,150,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,3.00,Mouser
+C151-C184,34,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,3.06,Mouser
+R1-R88,88,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.88,Mouser
+TOTAL,,,,,,,864.04,,Approximate BOM cost

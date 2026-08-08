@@ -1,0 +1,15 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,Neuromorphic ASIC,FCBGA,EmbeddedOS,EOS-NEURO-256K,Spiking neural network processor,620.00,620.00,Custom
+U2,1,i.MX RT1064,BGA196,NXP,MIMXRT1064DVL6A,Host bridge and event routing MCU,13.60,13.60,Mouser
+U3,1,iCE40UP5K,QFN48,Lattice,ICE40UP5K-SG48ITR,AER event bus arbitration,6.20,6.20,Mouser
+U4,1,2GB DDR4,FBGA96,Micron,MT40A1G16KNR-075,Synaptic weight storage,9.40,9.40,Mouser
+U5-U6,2,16MB QSPI,SOIC8,Winbond,W25Q128JVSIQ,Network topology and configuration,1.35,2.70,Mouser
+U7,1,KSZ9031,QFN48,Microchip,KSZ9031RNXIA,Gigabit host interface,4.50,4.50,Mouser
+U8,1,USB3343,QFN24,Microchip,USB3343-CP-TR,USB 3.0 transceiver,2.40,2.40,Mouser
+U9-U14,6,TPS62840,WSON8,Texas Instruments,TPS62840DGRR,Low-Iq point-of-load regulator,0.65,3.90,Mouser
+U15-U18,4,INA228,VSSOP10,Texas Instruments,INA228AIDGSR,Per-domain energy measurement,3.50,14.00,Mouser
+PCB1,1,12-layer FR4,Custom,EmbeddedOS,EOS-PCB-12L-C3,"12-layer FR-4 PCB, ENIG, IPC Class 3",48.00,48.00,Custom
+C1-C140,140,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,2.80,Mouser
+C141-C170,30,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,2.70,Mouser
+R1-R80,80,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.80,Mouser
+TOTAL,,,,,,,731.00,,Approximate BOM cost

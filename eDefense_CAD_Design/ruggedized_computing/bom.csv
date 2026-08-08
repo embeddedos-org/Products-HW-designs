@@ -1,0 +1,20 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,i.MX 8M Plus,FCBGA,NXP,MIMX8ML8DVNLZAB,Mission computer application processor,62.00,62.00,Mouser
+U2-U3,2,4GB LPDDR4X,FBGA200,Micron,MT53E1G32D2FW-046,System memory,19.50,39.00,Mouser
+U4-U5,2,64GB eMMC,FBGA153,Micron,MTFC64GAKAENA-4M,Encrypted mission storage,18.00,36.00,Mouser
+U6-U9,4,DP83867,HTQFP64,Texas Instruments,DP83867IRPAPR,Gigabit Ethernet PHY,6.80,27.20,Mouser
+U10-U13,4,USB3343,QFN24,Microchip,USB3343-CP-TR,USB 3.0 transceiver,2.40,9.60,Mouser
+U14-U15,2,TCAN4550,VQFN20,Texas Instruments,TCAN4550RGYR,CAN FD controller and transceiver,3.60,7.20,Mouser
+U16-U19,4,MAX3485,SOIC8,Analog Devices,MAX3485EESA+T,RS-422 interface,0.85,3.40,Mouser
+U20,1,SLB9670,TSSOP28,Infineon,SLB9670VQ2.0,TPM 2.0 secure boot and disk key,4.30,4.30,Mouser
+U21-U26,6,TPS54360B,SO-8 PowerPAD,Texas Instruments,TPS54360BDDAR,MIL-STD-1275E tolerant buck,2.90,17.40,Mouser
+U27-U30,4,10F supercap,Radial,Eaton,HV1030-2R7106-R,50ms power hold-up,3.90,15.60,Mouser
+U31-U34,4,INA228,VSSOP10,Texas Instruments,INA228AIDGSR,Rail telemetry,3.50,14.00,Mouser
+J1-J4,4,D38999 Series III,Circular,Amphenol,D38999/26WD35SN,"MIL-DTL-38999 circular connector, 37-way",92.00,368.00,Digi-Key
+PCB1,1,12-layer FR4,Custom,EmbeddedOS,EOS-PCB-12L-C3,"12-layer FR-4 PCB, ENIG, IPC Class 3",48.00,48.00,Custom
+HS1,1,Heatsink,40mm,Wakefield-Vette,657-40AB,Copper conduction block to chassis,4.80,4.80,Mouser
+C1-C180,180,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,3.60,Mouser
+C181-C206,26,47uF,1210,Murata,GRM32ER61E476ME15L,47uF X5R bulk capacitor 25V,0.42,10.92,Mouser
+R1-R100,100,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,1.00,Mouser
+D1-D12,12,33V TVS,SMB,Littelfuse,SMBJ33CA,"600W bidirectional TVS diode, 33V standoff",0.28,3.36,Mouser
+TOTAL,,,,,,,675.38,,Approximate BOM cost

@@ -1,0 +1,20 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,AM6254,FCBGA,Texas Instruments,AM6254ATCGGAALW,Incident command processor,24.50,24.50,Mouser
+U2,1,RM520N-GL,M.2,Quectel,RM520N-GL,5G backhaul modem,189.00,189.00,Quectel
+U3,1,Iridium 9603N,Module,Iridium,9603N,Satellite backhaul fallback,210.00,210.00,Ground Control
+U4-U5,2,ESP32-C6,Module,Espressif,ESP32-C6-WROOM-1-N8,Wi-Fi 6 access point radio,3.20,6.40,Mouser
+U6-U7,2,SX1262,QFN24,Semtech,SX1262IMLTRT,Sub-GHz responder mesh,5.40,10.80,Mouser
+U8-U9,2,nRF5340,aQFN94,Nordic Semiconductor,NRF5340-QKAA-R7,UWB indoor responder positioning,6.50,13.00,Mouser
+U10,1,ZED-F9P,LGA-54,u-blox,ZED-F9P-04B,GNSS reference,75.00,75.00,Mouser
+U11-U12,2,2GB DDR4,FBGA96,Micron,MT40A1G16KNR-075,System memory,9.40,18.80,Mouser
+U13-U14,2,64GB eMMC,FBGA153,Micron,MTFC64GAKAENA-4M,Incident log and map storage,18.00,36.00,Mouser
+U15,1,KSZ8863,LQFP48,Microchip,KSZ8863MLLI,Local switch fabric,7.40,7.40,Mouser
+U16,1,5in 800x480 IPS,Module,Riverdi,RVT50HQSNWC00-B,Command console display,42.00,42.00,Mouser
+U17,1,BQ25798,VQFN29,Texas Instruments,BQ25798RQMR,Hot-swap battery charger,4.80,4.80,Mouser
+BT1-BT12,12,3500mAh 18650,18650,Samsung SDI,INR18650-35E,18-hour endurance pack,4.60,55.20,Digi-Key
+ANT1-ANT3,3,LTE FPC,Flex,Taoglas,FXUB63.07.0150C,Wideband 600MHz-6GHz flexible PCB antenna,6.90,20.70,Mouser
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+C1-C170,170,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,3.40,Mouser
+C171-C210,40,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,3.60,Mouser
+R1-R98,98,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.98,Mouser
+TOTAL,,,,,,,745.58,,Approximate BOM cost

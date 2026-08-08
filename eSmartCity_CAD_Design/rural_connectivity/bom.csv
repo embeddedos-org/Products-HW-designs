@@ -1,0 +1,22 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,XCZU3EG,FBGA784,AMD Xilinx,XCZU3EG-1SFVC784E,5G NR baseband processor,385.00,385.00,Digi-Key
+U2-U3,2,ADRV9002,BGA196,Analog Devices,ADRV9002BBCZ,NR radio transceiver,385.00,770.00,Mouser
+U4,1,RM520N-GL,M.2,Quectel,RM520N-GL,Backup cellular backhaul,189.00,189.00,Quectel
+U5-U6,2,LMX2594,VQFN40,Texas Instruments,LMX2594RHAT,RF LO synthesiser,58.00,116.00,Mouser
+U7,1,HMC7044,LFCSP,Analog Devices,HMC7044LP10BE,Clock distribution,78.00,78.00,Mouser
+U8,1,ZED-F9T,LGA-54,u-blox,ZED-F9T-00B,GNSS timing for NR synchronisation,89.00,89.00,Mouser
+U9,1,10MHz OCXO,9x7mm,SiTime,SIT5711AI-FD-33E0-10.000000,Holdover timing reference,78.00,78.00,Mouser
+U10-U13,4,4GB LPDDR4X,FBGA200,Micron,MT53E1G32D2FW-046,Baseband and user plane memory,19.50,78.00,Mouser
+U14,1,64GB eMMC,FBGA153,Micron,MTFC64GAKAENA-4M,Configuration and logging,18.00,18.00,Mouser
+U15-U16,2,DP83867,HTQFP64,Texas Instruments,DP83867IRPAPR,Gigabit Ethernet,6.80,13.60,Mouser
+U17-U20,4,BQ25798,VQFN29,Texas Instruments,BQ25798RQMR,Solar MPPT charge controller,4.80,19.20,Mouser
+U21-U28,8,LT8640,QFN18,Analog Devices,LT8640IUDC#PBF,Point-of-load regulator,6.40,51.20,Mouser
+BT1-BT40,40,3500mAh 18650,18650,Samsung SDI,INR18650-35E,48-hour autonomy battery bank,4.60,184.00,Digi-Key
+PV1-PV40,40,5W PV panel,Custom,EmbeddedOS,EOS-PV-5W-MONO,200W solar array,12.50,500.00,Custom
+J1-J2,2,SFP+ cage,Press-fit,TE Connectivity,2007196-1,"SFP+ cage and connector assembly, 10Gbps",8.40,16.80,Mouser
+J3-J8,6,SMA edge,Edge mount,Amphenol,132289,"SMA edge-launch RF connector, DC-18GHz",6.80,40.80,Mouser
+PCB1,1,RF hybrid,Custom,EmbeddedOS,EOS-PCB-RF-RO4350,"Rogers RO4350B / FR-4 hybrid RF PCB, 8-layer",96.00,96.00,Custom
+C1-C240,240,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,4.80,Mouser
+C241-C280,40,47uF,1210,Murata,GRM32ER61E476ME15L,47uF X5R bulk capacitor 25V,0.42,16.80,Mouser
+R1-R130,130,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,1.30,Mouser
+TOTAL,,,,,,,2745.50,,Approximate BOM cost

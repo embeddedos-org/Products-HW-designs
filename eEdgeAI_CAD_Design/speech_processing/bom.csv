@@ -1,0 +1,15 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,STM32U575,LQFP144,STMicroelectronics,STM32U575ZIT6Q,Beamforming and keyword spotting processor,9.10,9.10,Mouser
+U2,1,ADS131M08,TQFP32,Texas Instruments,ADS131M08IPBSR,8-channel simultaneous microphone acquisition,11.60,11.60,Mouser
+U3-U6,4,OPA2188,SOIC8,Texas Instruments,OPA2188AIDR,Microphone preamplifier,3.40,13.60,Mouser
+U7,1,nRF5340,aQFN94,Nordic Semiconductor,NRF5340-QKAA-R7,BLE 5.4 and companion connectivity,6.50,6.50,Mouser
+U8,1,16MB QSPI,SOIC8,Winbond,W25Q128JVSIQ,Model and firmware storage,1.35,1.35,Mouser
+U9-U11,3,TPS62840,WSON8,Texas Instruments,TPS62840DGRR,Low-Iq point-of-load regulator,0.65,1.95,Mouser
+U12-U13,2,TPS7A4701,VQFN20,Texas Instruments,TPS7A4701RGWT,Low-noise analogue supply for microphones,3.10,6.20,Mouser
+U14,1,OPTIGA Trust M,USON10,Infineon,SLS32AIA010MK,Model signature verification,2.10,2.10,Mouser
+ANT1,1,2.4GHz chip,0805,Johanson,2450AT18B100E,2.4GHz ceramic chip antenna,0.68,0.68,Mouser
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+C1-C80,80,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,1.60,Mouser
+C81-C100,20,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,1.80,Mouser
+R1-R48,48,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.48,Mouser
+TOTAL,,,,,,,80.96,,Approximate BOM cost

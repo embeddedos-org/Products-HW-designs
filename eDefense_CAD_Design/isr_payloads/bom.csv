@@ -1,0 +1,17 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,Jetson Orin NX 16GB,SO-DIMM 260,NVIDIA,900-13767-0000-000,On-board detection and video encode,699.00,699.00,Arrow
+U2-U3,2,AR0234,iBGA,onsemi,AR0234CSSC00SUKA0-CRBR,Global-shutter electro-optical sensor,28.50,57.00,Mouser
+U4,1,Lepton 3.5,Socket,Teledyne FLIR,500-0771-01,LWIR thermal imaging core,219.00,219.00,Digi-Key
+U5,1,XC7A35T,FBGA484,AMD Xilinx,XC7A35T-2FGG484I,Sensor synchronisation and gimbal control,42.00,42.00,Digi-Key
+U6,1,ADIS16505-2,Module,Analog Devices,ADIS16505-2BMLZ,Gimbal stabilisation IMU,385.00,385.00,Mouser
+U7-U8,2,DRV8353RS,VQFN40,Texas Instruments,DRV8353RSRTAR,Gimbal BLDC axis driver,5.70,11.40,Mouser
+U9,1,ZED-F9P,LGA-54,u-blox,ZED-F9P-04B,Geolocation reference for metadata,75.00,75.00,Mouser
+U10-U11,2,4GB LPDDR4X,FBGA200,Micron,MT53E1G32D2FW-046,Frame buffer,19.50,39.00,Mouser
+U12,1,64GB eMMC,FBGA153,Micron,MTFC64GAKAENA-4M,On-board video recording,18.00,18.00,Mouser
+U13-U14,2,KSZ9031,QFN48,Microchip,KSZ9031RNXIA,Gigabit Ethernet video output,4.50,9.00,Mouser
+U15-U20,6,LT8640,QFN18,Analog Devices,LT8640IUDC#PBF,Point-of-load regulator,6.40,38.40,Mouser
+PCB1,1,12-layer FR4,Custom,EmbeddedOS,EOS-PCB-12L-C3,"12-layer FR-4 PCB, ENIG, IPC Class 3",48.00,48.00,Custom
+C1-C160,160,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,3.20,Mouser
+C161-C200,40,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,3.60,Mouser
+R1-R95,95,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.95,Mouser
+TOTAL,,,,,,,1648.55,,Approximate BOM cost

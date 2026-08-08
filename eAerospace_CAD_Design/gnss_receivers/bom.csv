@@ -1,0 +1,21 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,ZED-F9P,LGA-54,u-blox,ZED-F9P-04B,Dual-band RTK GNSS engine,75.00,75.00,Mouser
+U2,1,LFE5UM5G-45F,caBGA381,Lattice,LFE5UM5G-45F-8BG381I,"IF spectral monitor, jamming and spoofing detection",38.00,38.00,Mouser
+U3,1,STM32H743,LQFP144,STMicroelectronics,STM32H743ZIT6,Sensor fusion and protocol processor,11.80,11.80,Mouser
+U4,1,ADIS16470,Module,Analog Devices,ADIS16470AMLZ,Industrial IMU for tightly coupled aiding,245.00,245.00,Mouser
+U5,1,AD9265,LFCSP64,Analog Devices,AD9265BCPZ-125,IF digitiser for interference analysis,68.00,68.00,Mouser
+U6,1,26MHz TCXO,2016,TXC,7L26070003,Low-phase-noise reference oscillator,1.80,1.80,Mouser
+U7,1,16MB QSPI,SOIC8,Winbond,W25Q128JVSIQ,Firmware and almanac storage,1.35,1.35,Mouser
+U8,1,1Mbit FRAM,SOIC8,Infineon,FM24V10-G,FRAM for hot-start ephemeris,4.70,4.70,Mouser
+U9,1,USB3343,QFN24,Microchip,USB3343-CP-TR,USB 2.0 high-speed PHY,2.40,2.40,Mouser
+U10,1,TCAN1042,SOIC8,Texas Instruments,TCAN1042VDRQ1,CAN FD transceiver,1.85,1.85,Mouser
+U11,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,OSNMA key storage and authentication,0.95,0.95,Mouser
+U12-U15,4,TPS62840,WSON8,Texas Instruments,TPS62840DGRR,Low-Iq point-of-load regulator,0.65,2.60,Mouser
+U16-U17,2,TPS7A4701,VQFN20,Texas Instruments,TPS7A4701RGWT,Low-noise LDO for RF front end,3.10,6.20,Mouser
+ANT1,1,GNSS patch,Patch 25mm,Taoglas,AA.171.301111,"Dual-band GNSS active patch antenna, 28dB LNA",18.50,18.50,Mouser
+J1,1,SMA edge,Edge mount,Amphenol,132289,External antenna port,6.80,6.80,Mouser
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+C1-C80,80,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,1.60,Mouser
+C81-C96,16,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,1.44,Mouser
+R1-R45,45,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.45,Mouser
+TOTAL,,,,,,,512.44,,Approximate BOM cost

@@ -1,0 +1,16 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,GR740,CQFP625,Frontgrade Gaisler,GR740,Rad-hard quad-core LEON4FT processor,28000.00,28000.00,Frontgrade
+U2,1,RTAX2000S,CQFP352,Microchip,RTAX2000S-CQ352,"Antifuse FPGA, TMR voting fabric",18500.00,18500.00,Microchip
+U3,1,RT4G150,CCGA1657,Microchip,RTG4-150-CG1657,Rad-tolerant flash FPGA with scrubbing,22000.00,22000.00,Microchip
+U4-U7,4,2GB DDR4,FBGA96,Micron,MT40A1G16KNR-075,DDR4 with Reed-Solomon EDAC,9.40,37.60,Mouser
+U8-U13,6,256kbit MRAM,SOIC8,Everspin,MR25H256ACDF,"MRAM, inherently upset-immune state store",6.20,37.20,Mouser
+U14-U21,8,ISL71001,CFP,Renesas,ISL71001SEHVF,Rad-hard buck with latch-up current limiting,1850.00,14800.00,Renesas
+U22-U27,6,TPS7H1101A,CFP-20,Texas Instruments,TPS7H1101A-SP,Rad-hard LDO for core and analogue rails,980.00,5880.00,Texas Instruments
+U28-U33,6,UT54LVDS032,CFP16,Frontgrade,UT54LVDS032-UCC,Rad-hard LVDS for SpaceWire fabric,620.00,3720.00,Frontgrade
+U34-U45,12,INA228,VSSOP10,Texas Instruments,INA228AIDGSR,Per-rail latch-up detection telemetry,3.50,42.00,Mouser
+PCB1,1,12-layer FR4,Custom,EmbeddedOS,EOS-PCB-12L-C3,16-layer polyimide Class 3/A PCB with spot shielding,48.00,48.00,Custom
+C1-C300,300,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,6.00,Mouser
+C301-C340,40,47uF,1210,Murata,GRM32ER61E476ME15L,47uF X5R bulk capacitor 25V,0.42,16.80,Mouser
+R1-R150,150,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,1.50,Mouser
+L1-L12,12,4.7uH,5.3x5.3mm,Coilcraft,XAL5030-472MEB,4.7uH 6.4A shielded power inductor,0.72,8.64,Coilcraft
+TOTAL,,,,,,,93097.74,,Approximate BOM cost

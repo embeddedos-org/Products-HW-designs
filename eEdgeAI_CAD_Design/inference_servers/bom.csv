@@ -1,0 +1,21 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1-U4,4,Jetson Orin NX 16GB,SO-DIMM 260,NVIDIA,900-13767-0000-000,Inference accelerator module,699.00,2796.00,Arrow
+U5,1,AM6254,FCBGA,Texas Instruments,AM6254ATCGGAALW,Management and load-balancing processor,24.50,24.50,Mouser
+U6-U7,2,KSZ8863,LQFP48,Microchip,KSZ8863MLLI,Internal Ethernet switching to modules,7.40,14.80,Mouser
+U8-U11,4,DP83867,HTQFP64,Texas Instruments,DP83867IRPAPR,Gigabit Ethernet PHY per module,6.80,27.20,Mouser
+U12-U13,2,2GB DDR4,FBGA96,Micron,MT40A1G16KNR-075,Management processor memory,9.40,18.80,Mouser
+U14-U15,2,64GB eMMC,FBGA153,Micron,MTFC64GAKAENA-4M,Model repository staging,18.00,36.00,Mouser
+U16,1,SLB9670,TSSOP28,Infineon,SLB9670VQ2.0,TPM 2.0 platform attestation,4.30,4.30,Mouser
+U17-U20,4,LM5170-Q1,VQFN40,Texas Instruments,LM5170QRVFRQ1,48V to 12V intermediate bus converter,7.60,30.40,Mouser
+U21-U32,12,LT8640,QFN18,Analog Devices,LT8640IUDC#PBF,Point-of-load regulator,6.40,76.80,Mouser
+U33-U42,10,INA228,VSSOP10,Texas Instruments,INA228AIDGSR,Per-module power telemetry,3.50,35.00,Mouser
+U43-U50,8,TMP117,WSON6,Texas Instruments,TMP117AIDRVR,Thermal management sensing,4.20,33.60,Mouser
+J1-J2,2,SFP+ cage,Press-fit,TE Connectivity,2007196-1,10GbE ingress,8.40,16.80,Mouser
+J3,1,RJ45 magjack,THT,Pulse Electronics,JXD0-0001NL,Out-of-band management,3.20,3.20,Mouser
+PCB1,1,12-layer FR4,Custom,EmbeddedOS,EOS-PCB-12L-C3,"12-layer FR-4 PCB, ENIG, IPC Class 3",48.00,48.00,Custom
+HS1-HS4,4,Heatsink,40mm,Wakefield-Vette,657-40AB,Extruded aluminium heatsink for forced convection,4.80,19.20,Mouser
+C1-C340,340,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,6.80,Mouser
+C341-C388,48,47uF,1210,Murata,GRM32ER61E476ME15L,47uF X5R bulk capacitor 25V,0.42,20.16,Mouser
+R1-R180,180,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,1.80,Mouser
+L1-L16,16,4.7uH,5.3x5.3mm,Coilcraft,XAL5030-472MEB,4.7uH 6.4A shielded power inductor,0.72,11.52,Coilcraft
+TOTAL,,,,,,,3224.88,,Approximate BOM cost

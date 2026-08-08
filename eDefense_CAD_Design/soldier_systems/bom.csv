@@ -1,0 +1,21 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,i.MX 8M Plus,FCBGA,NXP,MIMX8ML8DVNLZAB,Soldier computer application processor,62.00,62.00,Mouser
+U2,1,nRF5340,aQFN94,Nordic Semiconductor,NRF5340-QKAA-R7,BLE 5.4 personal area network,6.50,6.50,Mouser
+U3,1,SX1262,QFN24,Semtech,SX1262IMLTRT,Sub-GHz tactical mesh radio,5.40,5.40,Mouser
+U4,1,MAX-M10S,LCC-18,u-blox,MAX-M10S-00B,Low-power GNSS receiver,14.50,14.50,Mouser
+U5,1,BMI270,LGA14,Bosch Sensortec,BMI270,Pedestrian dead-reckoning IMU,3.10,3.10,Mouser
+U6,1,MMC5983MA,LGA16,MEMSIC,MMC5983MA,Heading reference,2.90,2.90,Mouser
+U7,1,4GB LPDDR4X,FBGA200,Micron,MT53E1G32D2FW-046,System memory,19.50,19.50,Mouser
+U8,1,16GB eMMC,FBGA153,Micron,MTFC16GAPALBH-IT,Map and application storage,8.60,8.60,Mouser
+U9,1,SE050,HX2QFN20,NXP,SE050C2HQ1/Z01SDZ,Secure element for radio keys,3.40,3.40,Mouser
+U10,1,BQ25798,VQFN29,Texas Instruments,BQ25798RQMR,Battery charger with solar MPPT,4.80,4.80,Mouser
+U11,1,BQ40Z80,VQFN32,Texas Instruments,BQ40Z80RSMR,Battery gas gauge,8.50,8.50,Mouser
+U12-U17,6,TPS62840,WSON8,Texas Instruments,TPS62840DGRR,Low-Iq point-of-load regulator,0.65,3.90,Mouser
+BT1-BT4,4,2000mAh LiPo,Pouch,EmbeddedOS,EOS-BAT-LIPO-2000,Mission battery pack,8.40,33.60,Custom
+ANT1,1,868MHz whip,SMA,Linx,ANT-868-CW-HWR-SMA,"868MHz half-wave whip antenna, 2dBi",7.40,7.40,Mouser
+ANT2,1,2.4GHz chip,0805,Johanson,2450AT18B100E,2.4GHz ceramic chip antenna,0.68,0.68,Mouser
+PCB1,1,6-layer rigid-flex,Custom,EmbeddedOS,EOS-PCB-RGDFLX-6L,"6-layer rigid-flex PCB, polyimide, IPC Class 3",62.00,62.00,Custom
+C1-C120,120,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,2.40,Mouser
+C121-C146,26,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,2.34,Mouser
+R1-R70,70,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.70,Mouser
+TOTAL,,,,,,,252.22,,Approximate BOM cost

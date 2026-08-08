@@ -1,0 +1,18 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,XCZU3EG,FBGA784,AMD Xilinx,XCZU3EG-1SFVC784E,Pulse sequencing and feedback MPSoC,385.00,385.00,Digi-Key
+U2-U9,8,AD9265,LFCSP64,Analog Devices,AD9265BCPZ-125,Dispersive readout digitiser,68.00,544.00,Mouser
+U10-U25,16,DAC8560,VSSOP8,Texas Instruments,DAC8560IBDGKR,Arbitrary waveform output stage,8.30,132.80,Mouser
+U26-U27,2,HMC7044,LFCSP,Analog Devices,HMC7044LP10BE,Phase-coherent clock distribution,78.00,156.00,Mouser
+U28-U31,4,LMX2594,VQFN40,Texas Instruments,LMX2594RHAT,Microwave LO synthesiser,58.00,232.00,Mouser
+U32,1,10MHz OCXO,9x7mm,SiTime,SIT5711AI-FD-33E0-10.000000,Master frequency reference,78.00,78.00,Mouser
+U33-U36,4,4GB LPDDR4X,FBGA200,Micron,MT53E1G32D2FW-046,Waveform and trace memory,19.50,78.00,Mouser
+U37-U48,12,TPS7A4701,VQFN20,Texas Instruments,TPS7A4701RGWT,Ultra-low-noise analogue supply,3.10,37.20,Mouser
+U49-U56,8,LT8640,QFN18,Analog Devices,LT8640IUDC#PBF,Point-of-load regulator,6.40,51.20,Mouser
+U57-U64,8,TMP117,WSON6,Texas Instruments,TMP117AIDRVR,Thermal drift compensation,4.20,33.60,Mouser
+J1-J24,24,SMA edge,Edge mount,Amphenol,132289,Control and readout RF ports,6.80,163.20,Mouser
+J25-J26,2,SFP+ cage,Press-fit,TE Connectivity,2007196-1,Host data interface,8.40,16.80,Mouser
+PCB1,1,RF hybrid,Custom,EmbeddedOS,EOS-PCB-RF-RO4350,"Rogers RO4350B / FR-4 hybrid RF PCB, 8-layer",96.00,96.00,Custom
+C1-C380,380,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,7.60,Mouser
+C381-C460,80,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,7.20,Mouser
+R1-R190,190,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,1.90,Mouser
+TOTAL,,,,,,,2020.50,,Approximate BOM cost

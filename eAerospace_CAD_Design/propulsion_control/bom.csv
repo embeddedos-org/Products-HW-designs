@@ -1,0 +1,21 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1-U2,2,STM32H743,LQFP144,STMicroelectronics,STM32H743ZIT6,Dual-redundant propulsion controller,11.80,23.60,Mouser
+U3-U4,2,ADS131M08,TQFP32,Texas Instruments,ADS131M08IPBSR,24-bit simultaneous-sampling ADC for pressure,11.60,23.20,Mouser
+U5-U8,4,MAX31865,TQFN20,Analog Devices,MAX31865ATP+,RTD and thermocouple conditioning,6.10,24.40,Mouser
+U9-U11,3,DRV8353RS,VQFN40,Texas Instruments,DRV8353RSRTAR,Proportional valve solenoid driver,5.70,17.10,Mouser
+U12-U17,6,INA849,SOIC8,Texas Instruments,INA849IDR,Valve current sense instrumentation amplifier,6.80,40.80,Mouser
+U18-U21,4,DAC8560,VSSOP8,Texas Instruments,DAC8560IBDGKR,Valve current setpoint DAC,8.30,33.20,Mouser
+U22,1,BU-65170,QFP,Data Device Corp,BU-65170I2-300,MIL-STD-1553B terminal,185.00,185.00,Digi-Key
+U23-U24,2,TCAN1042,SOIC8,Texas Instruments,TCAN1042VDRQ1,CAN FD transceiver,1.85,3.70,Mouser
+U25,1,ADM2587E,SOIC20W,Analog Devices,ADM2587EBRWZ,Isolated RS-485 interface,9.40,9.40,Mouser
+U26-U29,4,ISO7741,SOIC16W,Texas Instruments,ISO7741DWR,Ignition interlock isolation barrier,3.90,15.60,Mouser
+U30-U31,2,256kbit MRAM,SOIC8,Everspin,MR25H256ACDF,MRAM for burn log and fault state,6.20,12.40,Mouser
+U32-U35,4,TPS54360B,SO-8 PowerPAD,Texas Instruments,TPS54360BDDAR,Primary buck regulator,2.90,11.60,Mouser
+U36-U38,3,TPS7A4701,VQFN20,Texas Instruments,TPS7A4701RGWT,Low-noise LDO for analogue reference,3.10,9.30,Mouser
+J1-J3,3,D38999 Series III,Circular,Amphenol,D38999/26WD35SN,Engine harness interface,92.00,276.00,Digi-Key
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+C1-C140,140,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,2.80,Mouser
+C141-C160,20,47uF,1210,Murata,GRM32ER61E476ME15L,47uF X5R bulk capacitor 25V,0.42,8.40,Mouser
+R1-R80,80,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.80,Mouser
+RS1-RS6,6,1mOhm,3921,Vishay,WSLP3921L1000FEA,Valve current-sense shunt,1.85,11.10,Mouser
+TOTAL,,,,,,,732.40,,Approximate BOM cost

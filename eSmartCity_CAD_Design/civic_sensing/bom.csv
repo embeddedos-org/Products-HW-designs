@@ -1,0 +1,22 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,STM32U575,LQFP144,STMicroelectronics,STM32U575ZIT6Q,Sensing node controller,9.10,9.10,Mouser
+U2,1,SPS30,Module,Sensirion,SPS30,Particulate matter sensor,32.00,32.00,Mouser
+U3,1,SCD41,LGA,Sensirion,SCD41-D-R2,NDIR CO2 sensor,28.50,28.50,Mouser
+U4-U5,2,BME680,LGA8,Bosch Sensortec,BME680,"VOC, temperature, humidity and pressure",8.40,16.80,Mouser
+U6,1,SFA30,Module,Sensirion,SFA30-D-T,Formaldehyde reference channel,41.00,41.00,Mouser
+U7,1,ADS131M08,TQFP32,Texas Instruments,ADS131M08IPBSR,Microphone acquisition for noise measurement,11.60,11.60,Mouser
+U8,1,IWR6843AOP,FCBGA,Texas Instruments,IWR6843AOPAQGABLQ1,Pedestrian flow radar counting,48.00,48.00,Mouser
+U9,1,SX1262,QFN24,Semtech,SX1262IMLTRT,LoRaWAN transceiver,5.40,5.40,Mouser
+U10,1,BG95-M3,LCC-LGA,Quectel,BG95-M3,NB-IoT fallback,14.80,14.80,Quectel
+U11,1,BQ25504,VQFN16,Texas Instruments,BQ25504RGTR,Solar MPPT charge controller,2.80,2.80,Mouser
+U12-U15,4,TPS62840,WSON8,Texas Instruments,TPS62840DGRR,Low-Iq point-of-load regulator,0.65,2.60,Mouser
+U16,1,1Mbit FRAM,SOIC8,Infineon,FM24V10-G,Measurement buffer and calibration store,4.70,4.70,Mouser
+BT1-BT4,4,3500mAh 18650,18650,Samsung SDI,INR18650-35E,3.6V 3500mAh Li-ion cylindrical cell,4.60,18.40,Digi-Key
+PV1-PV2,2,5W PV panel,Custom,EmbeddedOS,EOS-PV-5W-MONO,"5W monocrystalline PV panel, IP65 laminate",12.50,25.00,Custom
+ANT1,1,868MHz whip,SMA,Linx,ANT-868-CW-HWR-SMA,"868MHz half-wave whip antenna, 2dBi",7.40,7.40,Mouser
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+ENC1,1,IP67 aluminium,Custom,EmbeddedOS,EOS-ENCL-IP67-AL,Die-cast aluminium IP67 enclosure with gasket,34.00,34.00,Custom
+C1-C95,95,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,1.90,Mouser
+C96-C119,24,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,2.16,Mouser
+R1-R58,58,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.58,Mouser
+TOTAL,,,,,,,330.74,,Approximate BOM cost

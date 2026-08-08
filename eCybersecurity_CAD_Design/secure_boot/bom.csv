@@ -1,0 +1,14 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,STM32U575,LQFP144,STMicroelectronics,STM32U575ZIT6Q,Cortex-M33 TrustZone boot processor,9.10,9.10,Mouser
+U2,1,SLB9670,TSSOP28,Infineon,SLB9670VQ2.0,TPM 2.0 measurement store,4.30,4.30,Mouser
+U3,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Signing key store and monotonic counter,0.95,0.95,Mouser
+U4-U5,2,16MB QSPI,SOIC8,Winbond,W25Q128JVSIQ,A/B firmware image slots,1.35,2.70,Mouser
+U6,1,1Mbit FRAM,SOIC8,Infineon,FM24V10-G,Boot state and rollback counter,4.70,4.70,Mouser
+U7-U9,3,TPS62840,WSON8,Texas Instruments,TPS62840DGRR,Point-of-load regulator,0.65,1.95,Mouser
+U10,1,INA228,VSSOP10,Texas Instruments,INA228AIDGSR,Supply glitch detection,3.50,3.50,Mouser
+U11,1,TMP117,WSON6,Texas Instruments,TMP117AIDRVR,Fault-injection temperature monitoring,4.20,4.20,Mouser
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+C1-C60,60,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,1.20,Mouser
+C61-C74,14,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,1.26,Mouser
+R1-R38,38,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.38,Mouser
+TOTAL,,,,,,,58.24,,Approximate BOM cost

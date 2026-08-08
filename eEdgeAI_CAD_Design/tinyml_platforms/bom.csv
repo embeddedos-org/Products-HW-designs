@@ -1,0 +1,15 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,STM32U575RI,LQFP64,STMicroelectronics,STM32U575RIT6,"TinyML inference microcontroller, 64-pin",8.40,8.40,Mouser
+U2,1,nRF52840,aQFN73,Nordic Semiconductor,NRF52840-QIAA-R,BLE 5.4 model update and reporting,4.90,4.90,Mouser
+U3,1,BMI270,LGA14,Bosch Sensortec,BMI270,Low-power IMU for gesture and anomaly models,3.10,3.10,Mouser
+U4,1,BME280,LGA8,Bosch Sensortec,BME280,Environmental sensing,4.60,4.60,Mouser
+U5,1,4MB QSPI,SOIC8,Winbond,W25Q32JVSSIQ,Model and firmware storage,0.45,0.45,Mouser
+U6-U7,2,TPS62840,WSON8,Texas Instruments,TPS62840DGRR,60nA quiescent point-of-load regulator,0.65,1.30,Mouser
+U8,1,OPTIGA Trust M,USON10,Infineon,SLS32AIA010MK,Signed model verification,2.10,2.10,Mouser
+BT1,1,225mAh coin,Coin 20mm,Panasonic,CR2032,3V 225mAh lithium coin cell,0.42,0.42,Mouser
+ANT1,1,2.4GHz chip,0805,Johanson,2450AT18B100E,2.4GHz ceramic chip antenna,0.68,0.68,Mouser
+PCB1,1,6-layer FR4,Custom,EmbeddedOS,EOS-PCB-6L-STD,"6-layer FR-4 PCB, ENIG, IPC Class 2",11.00,11.00,Custom
+C1-C32,32,100nF,0201,Murata,GRM033R61A104KE84D,100nF X5R decoupling capacitor 10V,0.02,0.64,Mouser
+C33-C44,12,1uF,0402,Murata,GRM155R61A105KE15D,1uF X5R filter capacitor 10V,0.03,0.36,Mouser
+R1-R20,20,10k,0201,Yageo,RC0201FR-0710KL,10k 1% thin-film resistor,0.01,0.20,Mouser
+TOTAL,,,,,,,38.15,,Approximate BOM cost

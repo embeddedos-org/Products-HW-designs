@@ -1,0 +1,19 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1-U4,4,ADRV9002,BGA196,Analog Devices,ADRV9002BBCZ,Coherent wideband receive channel,385.00,1540.00,Mouser
+U5,1,XCZU3EG,FBGA784,AMD Xilinx,XCZU3EG-1SFVC784E,"Survey, classification and DF processing",385.00,385.00,Digi-Key
+U6-U7,2,HMC7044,LFCSP,Analog Devices,HMC7044LP10BE,Phase-coherent clock distribution,78.00,156.00,Mouser
+U8-U11,4,LMX2594,VQFN40,Texas Instruments,LMX2594RHAT,Per-channel LO synthesiser,58.00,232.00,Mouser
+U12,1,10MHz OCXO,9x7mm,SiTime,SIT5711AI-FD-33E0-10.000000,TDOA timing reference,78.00,78.00,Mouser
+U13,1,ZED-F9T,LGA-54,u-blox,ZED-F9T-00B,GNSS discipline for TDOA,89.00,89.00,Mouser
+U14-U17,4,AD9265,LFCSP64,Analog Devices,AD9265BCPZ-125,Wideband IF digitiser,68.00,272.00,Mouser
+U18-U21,4,4GB LPDDR4X,FBGA200,Micron,MT53E1G32D2FW-046,IQ capture buffer,19.50,78.00,Mouser
+U22-U23,2,64GB eMMC,FBGA153,Micron,MTFC64GAKAENA-4M,Recording and firmware storage,18.00,36.00,Mouser
+U24-U33,10,LT8640,QFN18,Analog Devices,LT8640IUDC#PBF,Point-of-load regulator,6.40,64.00,Mouser
+U34-U41,8,TPS7A4701,VQFN20,Texas Instruments,TPS7A4701RGWT,Low-noise RF supply,3.10,24.80,Mouser
+J1-J8,8,SMA edge,Edge mount,Amphenol,132289,Coherent antenna array input,6.80,54.40,Mouser
+J9-J10,2,SFP+ cage,Press-fit,TE Connectivity,2007196-1,10GbE node interconnect,8.40,16.80,Mouser
+PCB1,1,RF hybrid,Custom,EmbeddedOS,EOS-PCB-RF-RO4350,"Rogers RO4350B / FR-4 hybrid RF PCB, 8-layer",96.00,96.00,Custom
+C1-C340,340,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,6.80,Mouser
+C341-C410,70,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,6.30,Mouser
+R1-R170,170,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,1.70,Mouser
+TOTAL,,,,,,,3136.80,,Approximate BOM cost

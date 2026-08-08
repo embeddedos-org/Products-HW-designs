@@ -1,0 +1,17 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,MAX32520,TQFN,Analog Devices,MAX32520-KIT,PUF root of trust with tamper zeroise,11.90,11.90,Mouser
+U2,1,STM32U575,LQFP144,STMicroelectronics,STM32U575ZIT6Q,Tamper monitoring supervisor,9.10,9.10,Mouser
+U3-U4,2,SE050,HX2QFN20,NXP,SE050C2HQ1/Z01SDZ,Secure element for protected key storage,3.40,6.80,Mouser
+U5,1,SLB9670,TSSOP28,Infineon,SLB9670VQ2.0,TPM 2.0 platform attestation,4.30,4.30,Mouser
+U6-U7,2,AD7124-8,LFCSP32,Analog Devices,AD7124-8BCPZ,Mesh resistance and capacitance measurement,9.70,19.40,Mouser
+U8-U11,4,TMP117,WSON6,Texas Instruments,TMP117AIDRVR,Temperature attack detection,4.20,16.80,Mouser
+U12-U15,4,INA228,VSSOP10,Texas Instruments,INA228AIDGSR,Supply glitch and voltage attack detection,3.50,14.00,Mouser
+U16-U17,2,1Mbit FRAM,SOIC8,Infineon,FM24V10-G,Write-once tamper evidence log,4.70,9.40,Mouser
+U18-U20,3,TPS62840,WSON8,Texas Instruments,TPS62840DGRR,60nA quiescent tamper-domain regulator,0.65,1.95,Mouser
+U21-U24,4,OPA2188,SOIC8,Texas Instruments,OPA2188AIDR,Mesh sense amplification,3.40,13.60,Mouser
+BT1-BT2,2,225mAh coin,Coin 20mm,Panasonic,CR2032,Tamper monitoring backup cell,0.42,0.84,Mouser
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,10-layer PCB with active tamper mesh layers,24.00,24.00,Custom
+C1-C70,70,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,1.40,Mouser
+C71-C86,16,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,1.44,Mouser
+R1-R50,50,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.50,Mouser
+TOTAL,,,,,,,135.43,,Approximate BOM cost

@@ -1,0 +1,18 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,AM6254,FCBGA,Texas Instruments,AM6254ATCGGAALW,Terminal application processor,24.50,24.50,Mouser
+U2-U3,2,SE050,HX2QFN20,NXP,SE050C2HQ1/Z01SDZ,Biometric template matching secure element,3.40,6.80,Mouser
+U4,1,SLB9670,TSSOP28,Infineon,SLB9670VQ2.0,TPM 2.0 platform attestation,4.30,4.30,Mouser
+U5-U6,2,AR0234,iBGA,onsemi,AR0234CSSC00SUKA0-CRBR,Facial capture and document imaging,28.50,57.00,Mouser
+U7,1,OV5640,CSP,OmniVision,OV5640,Document UV and IR inspection camera,8.40,8.40,Arrow
+U8-U9,2,2GB DDR4,FBGA96,Micron,MT40A1G16KNR-075,System memory,9.40,18.80,Mouser
+U10,1,64GB eMMC,FBGA153,Micron,MTFC64GAKAENA-4M,Application storage,18.00,18.00,Mouser
+U11,1,5in 800x480 IPS,Module,Riverdi,RVT50HQSNWC00-B,Citizen interaction display,42.00,42.00,Mouser
+U12-U13,2,DP83867,HTQFP64,Texas Instruments,DP83867IRPAPR,Gigabit Ethernet,6.80,13.60,Mouser
+U14-U15,2,USB3343,QFN24,Microchip,USB3343-CP-TR,Peripheral and printer interface,2.40,4.80,Mouser
+U16-U20,5,LT8640,QFN18,Analog Devices,LT8640IUDC#PBF,Point-of-load regulator,6.40,32.00,Mouser
+J1-J2,2,RJ45 magjack,THT,Pulse Electronics,JXD0-0001NL,Gigabit RJ45 jack with integrated magnetics,3.20,6.40,Mouser
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+C1-C150,150,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,3.00,Mouser
+C151-C184,34,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,3.06,Mouser
+R1-R88,88,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.88,Mouser
+TOTAL,,,,,,,267.54,,Approximate BOM cost

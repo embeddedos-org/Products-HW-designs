@@ -1,0 +1,17 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,XC7Z020,FBGA484,AMD Xilinx,XC7Z020-2CLG484I,Scan control and feedback processor,118.00,118.00,Digi-Key
+U2-U7,6,ADHV4702-1,LFCSP16,Analog Devices,ADHV4702-1BCPZ,220V precision piezo drive amplifier,21.50,129.00,Mouser
+U8-U11,4,AD7124-8,LFCSP32,Analog Devices,AD7124-8BCPZ,24-bit deflection and position acquisition,9.70,38.80,Mouser
+U12-U13,2,ADS131M08,TQFP32,Texas Instruments,ADS131M08IPBSR,Quadrant photodiode simultaneous acquisition,11.60,23.20,Mouser
+U14-U19,6,DAC8560,VSSOP8,Texas Instruments,DAC8560IBDGKR,Piezo setpoint generation,8.30,49.80,Mouser
+U20-U27,8,OPA2188,SOIC8,Texas Instruments,OPA2188AIDR,Zero-drift preamplifier stage,3.40,27.20,Mouser
+U28-U31,4,INA849,SOIC8,Texas Instruments,INA849IDR,Low-noise instrumentation amplifier,6.80,27.20,Mouser
+U32-U37,6,TMP117,WSON6,Texas Instruments,TMP117AIDRVR,Thermal drift compensation,4.20,25.20,Mouser
+U38-U45,8,TPS7A4701,VQFN20,Texas Instruments,TPS7A4701RGWT,Ultra-low-noise analogue supply,3.10,24.80,Mouser
+U46-U49,4,LT8640,QFN18,Analog Devices,LT8640IUDC#PBF,Point-of-load regulator,6.40,25.60,Mouser
+U50,1,KSZ9031,QFN48,Microchip,KSZ9031RNXIA,Gigabit data interface,4.50,4.50,Mouser
+PCB1,1,12-layer FR4,Custom,EmbeddedOS,EOS-PCB-12L-C3,"12-layer FR-4 PCB, ENIG, IPC Class 3",48.00,48.00,Custom
+C1-C190,190,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,3.80,Mouser
+C191-C234,44,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,3.96,Mouser
+R1-R110,110,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,1.10,Mouser
+TOTAL,,,,,,,550.16,,Approximate BOM cost

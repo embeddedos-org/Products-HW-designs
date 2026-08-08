@@ -1,0 +1,20 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,AM6254,FCBGA,Texas Instruments,AM6254ATCGGAALW,Vehicle architecture processor,24.50,24.50,Mouser
+U2,1,XC7A35T,FBGA484,AMD Xilinx,XC7A35T-2FGG484I,Discrete I/O and legacy bus bridging,42.00,42.00,Digi-Key
+U3-U4,2,2GB DDR4,FBGA96,Micron,MT40A1G16KNR-075,System memory,9.40,18.80,Mouser
+U5,1,16GB eMMC,FBGA153,Micron,MTFC16GAPALBH-IT,Application storage,8.60,8.60,Mouser
+U6-U7,2,KSZ8863,LQFP48,Microchip,KSZ8863MLLI,"Managed Ethernet switch, GVA backbone",7.40,14.80,Mouser
+U8-U11,4,DP83867,HTQFP64,Texas Instruments,DP83867IRPAPR,Gigabit Ethernet PHY,6.80,27.20,Mouser
+U12-U19,8,TCAN4550,VQFN20,Texas Instruments,TCAN4550RGYR,CAN FD controller and transceiver,3.60,28.80,Mouser
+U20-U23,4,MAX3485,SOIC8,Analog Devices,MAX3485EESA+T,RS-422 interface,0.85,3.40,Mouser
+U24-U25,2,IIM-42652,LGA14,TDK InvenSense,IIM-42652,High-shock hull motion IMU,6.90,13.80,Mouser
+U26-U37,12,ISO7741,SOIC16W,Texas Instruments,ISO7741DWR,Discrete I/O isolation,3.90,46.80,Mouser
+U38-U43,6,TPS54360B,SO-8 PowerPAD,Texas Instruments,TPS54360BDDAR,MIL-STD-1275E tolerant buck,2.90,17.40,Mouser
+U44,1,SLB9670,TSSOP28,Infineon,SLB9670VQ2.0,TPM 2.0 secure boot,4.30,4.30,Mouser
+J1-J6,6,D38999 Series III,Circular,Amphenol,D38999/26WD35SN,"MIL-DTL-38999 circular connector, 37-way",92.00,552.00,Digi-Key
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+C1-C190,190,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,3.80,Mouser
+C191-C218,28,47uF,1210,Murata,GRM32ER61E476ME15L,47uF X5R bulk capacitor 25V,0.42,11.76,Mouser
+R1-R110,110,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,1.10,Mouser
+D1-D20,20,33V TVS,SMB,Littelfuse,SMBJ33CA,Transient suppression for MIL-STD-1275E,0.28,5.60,Mouser
+TOTAL,,,,,,,848.66,,Approximate BOM cost

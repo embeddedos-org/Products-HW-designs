@@ -1,0 +1,20 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,STM32U575,LQFP144,STMicroelectronics,STM32U575ZIT6Q,Ultra-low-power secure controller,9.10,9.10,Mouser
+U2,1,IWR6843AOP,FCBGA,Texas Instruments,IWR6843AOPAQGABLQ1,60GHz mmWave presence and motion sensing,48.00,48.00,Mouser
+U3,1,ADS131M08,TQFP32,Texas Instruments,ADS131M08IPBSR,Seismic geophone acquisition,11.60,11.60,Mouser
+U4-U5,2,MMC5983MA,LGA16,MEMSIC,MMC5983MA,Magnetic vehicle detection,2.90,5.80,Mouser
+U6,1,SX1262,QFN24,Semtech,SX1262IMLTRT,LoRa mesh transceiver,5.40,5.40,Mouser
+U7,1,Swarm M138,Module,Swarm,M138,Satellite backhaul modem,89.00,89.00,Swarm
+U8,1,MAX-M10S,LCC-18,u-blox,MAX-M10S-00B,GNSS position and time,14.50,14.50,Mouser
+U9,1,BQ25504,VQFN16,Texas Instruments,BQ25504RGTR,Solar energy-harvesting charger with MPPT,2.80,2.80,Mouser
+U10-U12,3,TPS62840,WSON8,Texas Instruments,TPS62840DGRR,60nA quiescent point-of-load regulator,0.65,1.95,Mouser
+U13,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Message authentication key store,0.95,0.95,Mouser
+U14,1,1Mbit FRAM,SOIC8,Infineon,FM24V10-G,FRAM event log,4.70,4.70,Mouser
+BT1-BT2,2,3.6Ah LiSOCl2,A-size,Saft,LS17500,Lithium primary energy buffer,9.80,19.60,Mouser
+PV1,1,5W PV panel,Custom,EmbeddedOS,EOS-PV-5W-MONO,"5W monocrystalline PV panel, IP65 laminate",12.50,12.50,Custom
+ANT1,1,868MHz whip,SMA,Linx,ANT-868-CW-HWR-SMA,"868MHz half-wave whip antenna, 2dBi",7.40,7.40,Mouser
+PCB1,1,6-layer FR4,Custom,EmbeddedOS,EOS-PCB-6L-STD,"6-layer FR-4 PCB, ENIG, IPC Class 2",11.00,11.00,Custom
+C1-C60,60,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,1.20,Mouser
+C61-C74,14,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,1.26,Mouser
+R1-R40,40,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.40,Mouser
+TOTAL,,,,,,,247.16,,Approximate BOM cost

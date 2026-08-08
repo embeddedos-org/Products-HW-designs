@@ -1,0 +1,10 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,SLB9670,TSSOP28,Infineon,SLB9670VQ2.0,TPM 2.0 device,4.30,4.30,Mouser
+U2,1,STSAFE-A110,UFDFPN8,STMicroelectronics,STSAFE-A110,Supply chain authentication element,1.40,1.40,Mouser
+U3,1,TPS62840,WSON8,Texas Instruments,TPS62840DGRR,1.8V core regulator,0.65,0.65,Mouser
+PCB1,1,4-layer FR4,Custom,EmbeddedOS,EOS-PCB-4L-STD,"4-layer FR-4 PCB, ENIG, IPC Class 2",6.50,6.50,Custom
+C1-C8,8,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,0.16,Mouser
+C9-C12,4,1uF,0402,Murata,GRM155R61A105KE15D,1uF X5R filter capacitor 10V,0.03,0.12,Mouser
+R1-R6,6,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.06,Mouser
+D1,1,ESD array,DFN6,Nexperia,PESD5V0X4UAB,Interface ESD protection,0.22,0.22,Mouser
+TOTAL,,,,,,,13.41,,Approximate BOM cost

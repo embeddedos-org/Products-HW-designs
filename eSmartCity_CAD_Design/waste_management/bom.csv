@@ -1,0 +1,15 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,STM32L071,LQFP48,STMicroelectronics,STM32L071CBT6,Ultra-low-power sensor controller,2.60,2.60,Mouser
+U2-U3,2,VL53L1X,OLGA12,STMicroelectronics,VL53L1CXV0FY/1,Time-of-flight fill level sensing,5.30,10.60,Mouser
+U4,1,SX1262,QFN24,Semtech,SX1262IMLTRT,LoRaWAN transceiver,5.40,5.40,Mouser
+U5,1,BMA456,LGA12,Bosch Sensortec,BMA456,Tilt and overturn detection,1.20,1.20,Mouser
+U6,1,TMP117,WSON6,Texas Instruments,TMP117AIDRVR,Fire detection temperature sensing,4.20,4.20,Mouser
+U7,1,TPS62840,WSON8,Texas Instruments,TPS62840DGRR,60nA quiescent regulator,0.65,0.65,Mouser
+U8,1,1Mbit FRAM,SOIC8,Infineon,FM24V10-G,Event and fill history log,4.70,4.70,Mouser
+BT1,1,3.6Ah LiSOCl2,A-size,Saft,LS17500,3.6V 3.6Ah lithium thionyl chloride primary cell,9.80,9.80,Mouser
+ANT1,1,868MHz whip,SMA,Linx,ANT-868-CW-HWR-SMA,"868MHz half-wave whip antenna, 2dBi",7.40,7.40,Mouser
+PCB1,1,4-layer FR4,Custom,EmbeddedOS,EOS-PCB-4L-STD,"4-layer FR-4 PCB, ENIG, IPC Class 2",6.50,6.50,Custom
+C1-C30,30,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,0.60,Mouser
+C31-C38,8,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,0.72,Mouser
+R1-R20,20,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.20,Mouser
+TOTAL,,,,,,,54.57,,Approximate BOM cost

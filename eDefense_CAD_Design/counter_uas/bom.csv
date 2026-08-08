@@ -1,0 +1,20 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1-U2,2,ADRV9002,BGA196,Analog Devices,ADRV9002BBCZ,RF protocol detection and direction finding,385.00,770.00,Mouser
+U3-U4,2,IWR6843AOP,FCBGA,Texas Instruments,IWR6843AOPAQGABLQ1,60GHz mmWave UAS tracking radar,48.00,96.00,Mouser
+U5,1,Jetson Orin Nano 8GB,SO-DIMM 260,NVIDIA,900-13767-0030-000,Classification inference engine,299.00,299.00,Arrow
+U6-U7,2,ESP32-C6,Module,Espressif,ESP32-C6-WROOM-1-N8,Remote ID Bluetooth and Wi-Fi NAN decoding,3.20,6.40,Mouser
+U8-U9,2,LMX2594,VQFN40,Texas Instruments,LMX2594RHAT,Receiver LO synthesiser,58.00,116.00,Mouser
+U10,1,HMC7044,LFCSP,Analog Devices,HMC7044LP10BE,Coherent clock distribution,78.00,78.00,Mouser
+U11,1,ZED-F9T,LGA-54,u-blox,ZED-F9T-00B,Timing and position reference,89.00,89.00,Mouser
+U12-U13,2,4GB LPDDR4X,FBGA200,Micron,MT53E1G32D2FW-046,Signal and track buffer,19.50,39.00,Mouser
+U14,1,64GB eMMC,FBGA153,Micron,MTFC64GAKAENA-4M,Event recording,18.00,18.00,Mouser
+U15-U16,2,DP83867,HTQFP64,Texas Instruments,DP83867IRPAPR,Gigabit Ethernet backhaul,6.80,13.60,Mouser
+U17-U22,6,TPS54360B,SO-8 PowerPAD,Texas Instruments,TPS54360BDDAR,Primary buck regulator,2.90,17.40,Mouser
+J1-J6,6,SMA edge,Edge mount,Amphenol,132289,"SMA edge-launch RF connector, DC-18GHz",6.80,40.80,Mouser
+ANT1-ANT4,4,LTE FPC,Flex,Taoglas,FXUB63.07.0150C,Direction-finding array element,6.90,27.60,Mouser
+PCB1,1,RF hybrid,Custom,EmbeddedOS,EOS-PCB-RF-RO4350,"Rogers RO4350B / FR-4 hybrid RF PCB, 8-layer",96.00,96.00,Custom
+ENC1,1,IP67 aluminium,Custom,EmbeddedOS,EOS-ENCL-IP67-AL,Die-cast aluminium IP67 enclosure with gasket,34.00,34.00,Custom
+C1-C200,200,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,4.00,Mouser
+C201-C245,45,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,4.05,Mouser
+R1-R110,110,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,1.10,Mouser
+TOTAL,,,,,,,1749.95,,Approximate BOM cost

@@ -1,0 +1,17 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,XCZU3EG,FBGA784,AMD Xilinx,XCZU3EG-1SFVC784E,Beamforming and classification MPSoC,385.00,385.00,Digi-Key
+U2-U9,8,ADS131M08,TQFP32,Texas Instruments,ADS131M08IPBSR,24-bit simultaneous hydrophone acquisition,11.60,92.80,Mouser
+U10-U11,2,AD9265,LFCSP64,Analog Devices,AD9265BCPZ-125,High-rate digitiser for active returns,68.00,136.00,Mouser
+U12-U27,16,INA849,SOIC8,Texas Instruments,INA849IDR,Hydrophone preamplifier,6.80,108.80,Mouser
+U28-U43,16,OPA2188,SOIC8,Texas Instruments,OPA2188AIDR,Anti-alias filter stage,3.40,54.40,Mouser
+U44-U45,2,4GB LPDDR4X,FBGA200,Micron,MT53E1G32D2FW-046,Beam and spectrogram buffer,19.50,39.00,Mouser
+U46,1,HMC7044,LFCSP,Analog Devices,HMC7044LP10BE,Sample clock distribution,78.00,78.00,Mouser
+U47-U50,4,UCC21750,SOIC16W,Texas Instruments,UCC21750QDWRQ1,Projector transmit gate driver,4.90,19.60,Mouser
+U51-U56,6,LT8640,QFN18,Analog Devices,LT8640IUDC#PBF,Point-of-load regulator,6.40,38.40,Mouser
+U57-U62,6,TPS7A4701,VQFN20,Texas Instruments,TPS7A4701RGWT,Low-noise analogue supply,3.10,18.60,Mouser
+J1-J4,4,VPX VITA 46,VPX,Amphenol,VPX-P1-046,"VPX VITA 46 backplane connector, 7-row",35.00,140.00,Digi-Key
+PCB1,1,12-layer FR4,Custom,EmbeddedOS,EOS-PCB-12L-C3,"12-layer FR-4 PCB, ENIG, IPC Class 3",48.00,48.00,Custom
+C1-C280,280,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,5.60,Mouser
+C281-C312,32,47uF,1210,Murata,GRM32ER61E476ME15L,47uF X5R bulk capacitor 25V,0.42,13.44,Mouser
+R1-R160,160,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,1.60,Mouser
+TOTAL,,,,,,,1179.24,,Approximate BOM cost

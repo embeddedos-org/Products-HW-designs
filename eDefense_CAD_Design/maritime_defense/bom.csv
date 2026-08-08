@@ -1,0 +1,21 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,AM6254,FCBGA,Texas Instruments,AM6254ATCGGAALW,Surveillance fusion processor,24.50,24.50,Mouser
+U2-U3,2,IWR6843AOP,FCBGA,Texas Instruments,IWR6843AOPAQGABLQ1,60GHz mmWave surface search radar,48.00,96.00,Mouser
+U4,1,ADRV9002,BGA196,Analog Devices,ADRV9002BBCZ,AIS dual-channel receiver,385.00,385.00,Mouser
+U5-U6,2,AR0234,iBGA,onsemi,AR0234CSSC00SUKA0-CRBR,Global-shutter visible camera,28.50,57.00,Mouser
+U7,1,Lepton 3.5,Socket,Teledyne FLIR,500-0771-01,LWIR thermal imaging module,219.00,219.00,Digi-Key
+U8-U9,2,2GB DDR4,FBGA96,Micron,MT40A1G16KNR-075,System memory,9.40,18.80,Mouser
+U10,1,64GB eMMC,FBGA153,Micron,MTFC64GAKAENA-4M,Track recording storage,18.00,18.00,Mouser
+U11,1,ZED-F9P,LGA-54,u-blox,ZED-F9P-04B,GNSS position and timing reference,75.00,75.00,Mouser
+U12,1,EC25-E,LCC,Quectel,EC25-E,LTE backup backhaul,22.50,22.50,Quectel
+U13-U14,2,DP83867,HTQFP64,Texas Instruments,DP83867IRPAPR,Gigabit Ethernet PHY,6.80,13.60,Mouser
+U15-U18,4,TPS54360B,SO-8 PowerPAD,Texas Instruments,TPS54360BDDAR,Primary buck regulator,2.90,11.60,Mouser
+J1-J2,2,SFP+ cage,Press-fit,TE Connectivity,2007196-1,Fibre backhaul,8.40,16.80,Mouser
+J3-J6,4,SMA edge,Edge mount,Amphenol,132289,"SMA edge-launch RF connector, DC-18GHz",6.80,27.20,Mouser
+ANT1-ANT2,2,LTE FPC,Flex,Taoglas,FXUB63.07.0150C,Wideband 600MHz-6GHz flexible PCB antenna,6.90,13.80,Mouser
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+ENC1,1,IP67 aluminium,Custom,EmbeddedOS,EOS-ENCL-IP67-AL,Die-cast aluminium IP67 enclosure with gasket,34.00,34.00,Custom
+C1-C150,150,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,3.00,Mouser
+C151-C186,36,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,3.24,Mouser
+R1-R85,85,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.85,Mouser
+TOTAL,,,,,,,1063.89,,Approximate BOM cost

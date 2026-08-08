@@ -1,0 +1,17 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,GR712RC,CQFP240,Frontgrade Gaisler,GR712RC,Rad-hard dual-core LEON3FT platform processor,12500.00,12500.00,Frontgrade
+U2,1,RT4G150,CCGA1657,Microchip,RTG4-150-CG1657,"Rad-tolerant FPGA, SpaceWire router and payload interface",22000.00,22000.00,Microchip
+U3-U4,2,2GB DDR4,FBGA96,Micron,MT40A1G16KNR-075,DDR4 with Reed-Solomon EDAC,9.40,18.80,Mouser
+U5-U8,4,256kbit MRAM,SOIC8,Everspin,MR25H256ACDF,MRAM for attitude state and boot configuration,6.20,24.80,Mouser
+U9-U12,4,UT54LVDS032,CFP16,Frontgrade,UT54LVDS032-UCC,Rad-hard LVDS receiver for SpaceWire,620.00,2480.00,Frontgrade
+U13-U14,2,BU-65170,QFP,Data Device Corp,BU-65170I2-300,MIL-STD-1553B dual-redundant terminal,185.00,370.00,Digi-Key
+U15-U18,4,ISL71001,CFP,Renesas,ISL71001SEHVF,Rad-hard point-of-load buck regulator,1850.00,7400.00,Renesas
+U19-U22,4,TPS7H1101A,CFP-20,Texas Instruments,TPS7H1101A-SP,Rad-hard LDO for analogue and reference rails,980.00,3920.00,Texas Instruments
+U23-U24,2,ADIS16505-2,Module,Analog Devices,ADIS16505-2BMLZ,Inertial reference for coarse attitude determination,385.00,770.00,Mouser
+U25-U32,8,INA228,VSSOP10,Texas Instruments,INA228AIDGSR,Per-rail current and voltage telemetry,3.50,28.00,Mouser
+PCB1,1,12-layer FR4,Custom,EmbeddedOS,EOS-PCB-12L-C3,16-layer polyimide Class 3/A PCB (space addendum),48.00,48.00,Custom
+C1-C240,240,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,4.80,Mouser
+C241-C270,30,47uF,1210,Murata,GRM32ER61E476ME15L,47uF X5R bulk capacitor 25V,0.42,12.60,Mouser
+R1-R120,120,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,1.20,Mouser
+L1-L8,8,4.7uH,5.3x5.3mm,Coilcraft,XAL5030-472MEB,4.7uH 6.4A shielded power inductor,0.72,5.76,Coilcraft
+TOTAL,,,,,,,49583.96,,Approximate BOM cost

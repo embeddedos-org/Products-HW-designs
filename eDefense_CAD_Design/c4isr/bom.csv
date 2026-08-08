@@ -1,0 +1,18 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,XCZU3EG,FBGA784,AMD Xilinx,XCZU3EG-1SFVC784E,Tactical data link processor,385.00,385.00,Digi-Key
+U2,1,Jetson Orin NX 16GB,SO-DIMM 260,NVIDIA,900-13767-0000-000,AI track fusion accelerator,699.00,699.00,Arrow
+U3-U4,2,STM32U575,LQFP144,STMicroelectronics,STM32U575ZIT6Q,"Cross-domain guard processor, separate enclave",9.10,18.20,Mouser
+U5-U8,4,4GB LPDDR4X,FBGA200,Micron,MT53E1G32D2FW-046,Track and message memory,19.50,78.00,Mouser
+U9-U10,2,64GB eMMC,FBGA153,Micron,MTFC64GAKAENA-4M,Mission data storage,18.00,36.00,Mouser
+U11-U12,2,SE050,HX2QFN20,NXP,SE050C2HQ1/Z01SDZ,Secure element for Suite B key storage,3.40,6.80,Mouser
+U13,1,MAX32520,TQFN,Analog Devices,MAX32520-KIT,PUF root of trust with tamper zeroise,11.90,11.90,Mouser
+U14-U21,8,DP83867,HTQFP64,Texas Instruments,DP83867IRPAPR,Gigabit Ethernet PHY,6.80,54.40,Mouser
+U22-U23,2,MAX14830,TQFN48,Analog Devices,MAX14830ETM+,Quad UART for serial data links,8.70,17.40,Mouser
+U24-U31,8,LT8640,QFN18,Analog Devices,LT8640IUDC#PBF,Point-of-load regulator,6.40,51.20,Mouser
+J1-J4,4,SFP+ cage,Press-fit,TE Connectivity,2007196-1,10GbE tactical network,8.40,33.60,Mouser
+J5-J8,4,D38999 Series III,Circular,Amphenol,D38999/26WD35SN,"MIL-DTL-38999 circular connector, 37-way",92.00,368.00,Digi-Key
+PCB1,1,12-layer FR4,Custom,EmbeddedOS,EOS-PCB-12L-C3,"12-layer FR-4 PCB, ENIG, IPC Class 3",48.00,48.00,Custom
+C1-C300,300,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,6.00,Mouser
+C301-C336,36,47uF,1210,Murata,GRM32ER61E476ME15L,47uF X5R bulk capacitor 25V,0.42,15.12,Mouser
+R1-R150,150,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,1.50,Mouser
+TOTAL,,,,,,,1830.12,,Approximate BOM cost

@@ -1,0 +1,17 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,AM6254,FCBGA,Texas Instruments,AM6254ATCGGAALW,Acquisition and hashing processor,24.50,24.50,Mouser
+U2,1,XC7A35T,FBGA484,AMD Xilinx,XC7A35T-2FGG484I,Hardware write-block enforcement fabric,42.00,42.00,Digi-Key
+U3-U6,4,2GB DDR4,FBGA96,Micron,MT40A1G16KNR-075,Acquisition buffer memory,9.40,37.60,Mouser
+U7-U8,2,64GB eMMC,FBGA153,Micron,MTFC64GAKAENA-4M,Case metadata and log storage,18.00,36.00,Mouser
+U9-U12,4,USB3343,QFN24,Microchip,USB3343-CP-TR,USB 3.0 acquisition port transceiver,2.40,9.60,Mouser
+U13,1,SLB9670,TSSOP28,Infineon,SLB9670VQ2.0,TPM 2.0 log signing anchor,4.30,4.30,Mouser
+U14,1,SE050,HX2QFN20,NXP,SE050C2HQ1/Z01SDZ,Operator identity and log signing,3.40,3.40,Mouser
+U15-U16,2,DP83867,HTQFP64,Texas Instruments,DP83867IRPAPR,Gigabit Ethernet for network acquisition,6.80,13.60,Mouser
+U17,1,5in 800x480 IPS,Module,Riverdi,RVT50HQSNWC00-B,Operator console display,42.00,42.00,Mouser
+U18-U23,6,LT8640,QFN18,Analog Devices,LT8640IUDC#PBF,Point-of-load regulator,6.40,38.40,Mouser
+J1-J4,4,USB-C,SMT,Amphenol,12401610E4-2A,"USB Type-C receptacle, 24-pin, IP67",1.40,5.60,Mouser
+PCB1,1,12-layer FR4,Custom,EmbeddedOS,EOS-PCB-12L-C3,"12-layer FR-4 PCB, ENIG, IPC Class 3",48.00,48.00,Custom
+C1-C190,190,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,3.80,Mouser
+C191-C216,26,47uF,1210,Murata,GRM32ER61E476ME15L,47uF X5R bulk capacitor 25V,0.42,10.92,Mouser
+R1-R105,105,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,1.05,Mouser
+TOTAL,,,,,,,320.77,,Approximate BOM cost

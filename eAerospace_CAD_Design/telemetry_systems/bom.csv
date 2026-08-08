@@ -1,0 +1,21 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,XC7A100T,FBGA484,AMD Xilinx,XC7A100T-2FGG484I,PCM encoder and framing FPGA,95.00,95.00,Digi-Key
+U2,1,STM32H743,LQFP144,STMicroelectronics,STM32H743ZIT6,Configuration and housekeeping processor,11.80,11.80,Mouser
+U3-U18,16,ADS8688,TSSOP38,Texas Instruments,ADS8688IDBTR,8-channel 16-bit analogue acquisition,14.80,236.80,Mouser
+U19,1,ADRV9002,BGA196,Analog Devices,ADRV9002BBCZ,S-band telemetry transmitter,385.00,385.00,Mouser
+U20,1,LMX2594,VQFN40,Texas Instruments,LMX2594RHAT,Transmitter LO synthesiser,58.00,58.00,Mouser
+U21,1,BU-65170,QFP,Data Device Corp,BU-65170I2-300,MIL-STD-1553B bus monitor,185.00,185.00,Digi-Key
+U22-U23,2,HI-3593,PLCC44,Holt Integrated Circuits,HI-3593PQI,ARINC-429 bus monitor,24.50,49.00,Digi-Key
+U24-U25,2,TCAN1042,SOIC8,Texas Instruments,TCAN1042VDRQ1,CAN FD bus monitor,1.85,3.70,Mouser
+U26,1,2GB DDR4,FBGA96,Micron,MT40A1G16KNR-075,Frame buffer and replay memory,9.40,9.40,Mouser
+U27-U28,2,16MB QSPI,SOIC8,Winbond,W25Q128JVSIQ,FPGA bitstream and configuration,1.35,2.70,Mouser
+U29,1,26MHz TCXO,2016,TXC,7L26070003,IRIG-B disciplined reference oscillator,1.80,1.80,Mouser
+U30-U33,4,TPS54360B,SO-8 PowerPAD,Texas Instruments,TPS54360BDDAR,Primary buck regulator,2.90,11.60,Mouser
+U34-U37,4,TPS7A4701,VQFN20,Texas Instruments,TPS7A4701RGWT,Low-noise analogue supply,3.10,12.40,Mouser
+J1-J4,4,D38999 Series III,Circular,Amphenol,D38999/26WD35SN,Instrumentation harness interface,92.00,368.00,Digi-Key
+J5-J6,2,SMA edge,Edge mount,Amphenol,132289,S-band antenna port,6.80,13.60,Mouser
+PCB1,1,12-layer FR4,Custom,EmbeddedOS,EOS-PCB-12L-C3,"12-layer FR-4 PCB, ENIG, IPC Class 3",48.00,48.00,Custom
+C1-C260,260,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,5.20,Mouser
+C261-C320,60,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,5.40,Mouser
+R1-R140,140,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,1.40,Mouser
+TOTAL,,,,,,,1503.80,,Approximate BOM cost

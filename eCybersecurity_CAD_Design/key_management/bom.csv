@@ -1,0 +1,16 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,AM6254,FCBGA,Texas Instruments,AM6254ATCGGAALW,Key management application processor,24.50,24.50,Mouser
+U2-U3,2,SE050,HX2QFN20,NXP,SE050C2HQ1/Z01SDZ,"Master key secure element, redundant",3.40,6.80,Mouser
+U4,1,SLB9670,TSSOP28,Infineon,SLB9670VQ2.0,TPM 2.0 platform attestation,4.30,4.30,Mouser
+U5-U8,4,2GB DDR4,FBGA96,Micron,MT40A1G16KNR-075,Key object cache,9.40,37.60,Mouser
+U9-U10,2,64GB eMMC,FBGA153,Micron,MTFC64GAKAENA-4M,Encrypted key database,18.00,36.00,Mouser
+U11-U12,2,256kbit MRAM,SOIC8,Everspin,MR25H256ACDF,Audit log chain anchor,6.20,12.40,Mouser
+U13-U16,4,DP83867,HTQFP64,Texas Instruments,DP83867IRPAPR,Gigabit Ethernet PHY,6.80,27.20,Mouser
+U17-U22,6,LT8640,QFN18,Analog Devices,LT8640IUDC#PBF,Point-of-load regulator,6.40,38.40,Mouser
+U23-U26,4,INA228,VSSOP10,Texas Instruments,INA228AIDGSR,Rail telemetry,3.50,14.00,Mouser
+J1-J4,4,RJ45 magjack,THT,Pulse Electronics,JXD0-0001NL,Gigabit RJ45 jack with integrated magnetics,3.20,12.80,Mouser
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+C1-C160,160,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,3.20,Mouser
+C161-C182,22,47uF,1210,Murata,GRM32ER61E476ME15L,47uF X5R bulk capacitor 25V,0.42,9.24,Mouser
+R1-R95,95,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.95,Mouser
+TOTAL,,,,,,,251.39,,Approximate BOM cost

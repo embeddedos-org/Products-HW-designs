@@ -1,0 +1,18 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,XC7Z020,FBGA484,AMD Xilinx,XC7Z020-2CLG484I,Photonics control and feedback processor,118.00,118.00,Digi-Key
+LD1-LD4,4,1550nm DFB,Butterfly-14,EmbeddedOS,EOS-DFB-1550-40,1550nm DFB laser source,385.00,1540.00,Custom
+U2-U3,2,iC-HG,QFN40,iC-Haus,IC-HG6,Laser diode current driver,28.50,57.00,iC-Haus
+U4-U7,4,MAX1978,TQFN48,Analog Devices,MAX1978ETM+,TEC controller for laser and die stabilisation,14.60,58.40,Mouser
+MOD1-MOD2,2,LiNbO3 modulator,Butterfly,EmbeddedOS,EOS-EOM-LN-10G,Lithium niobate electro-optic modulator,1450.00,2900.00,Custom
+PD1-PD8,8,InGaAs APD,TO-46,Excelitas,C30659-1550-3A,InGaAs avalanche photodiode detector,185.00,1480.00,Excelitas
+U8-U15,8,OPA858,WSON8,Texas Instruments,OPA858IDSGR,High-speed transimpedance amplifier,6.40,51.20,Mouser
+U16-U19,4,AD7124-8,LFCSP32,Analog Devices,AD7124-8BCPZ,Precision thermistor and photocurrent measurement,9.70,38.80,Mouser
+U20-U27,8,DAC8560,VSSOP8,Texas Instruments,DAC8560IBDGKR,Laser bias and modulator setpoint,8.30,66.40,Mouser
+U28-U29,2,KSZ9031,QFN48,Microchip,KSZ9031RNXIA,Gigabit data interface,4.50,9.00,Mouser
+U30-U37,8,TPS7A4701,VQFN20,Texas Instruments,TPS7A4701RGWT,Ultra-low-noise laser supply,3.10,24.80,Mouser
+U38-U43,6,LT8640,QFN18,Analog Devices,LT8640IUDC#PBF,Point-of-load regulator,6.40,38.40,Mouser
+PCB1,1,RF hybrid,Custom,EmbeddedOS,EOS-PCB-RF-RO4350,"Rogers RO4350B / FR-4 hybrid RF PCB, 8-layer",96.00,96.00,Custom
+C1-C220,220,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,4.40,Mouser
+C221-C270,50,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,4.50,Mouser
+R1-R120,120,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,1.20,Mouser
+TOTAL,,,,,,,6488.10,,Approximate BOM cost

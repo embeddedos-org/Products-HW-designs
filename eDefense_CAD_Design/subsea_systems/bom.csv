@@ -1,0 +1,19 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1-U2,2,STM32H743,LQFP144,STMicroelectronics,STM32H743ZIT6,Dual-redundant subsea controller,11.80,23.60,Mouser
+U3-U6,4,AD7124-8,LFCSP32,Analog Devices,AD7124-8BCPZ,24-bit sensor conditioning ADC,9.70,38.80,Mouser
+U7-U10,4,MAX31865,TQFN20,Analog Devices,MAX31865ATP+,RTD temperature conditioning,6.10,24.40,Mouser
+U11-U12,2,DP83TD510E,TSSOP24,Texas Instruments,DP83TD510EPWR,10BASE-T1L single-pair Ethernet PHY,5.20,10.40,Mouser
+U13-U14,2,ADM2587E,SOIC20W,Analog Devices,ADM2587EBRWZ,Isolated RS-485 for acoustic modem,9.40,18.80,Mouser
+U15-U16,2,256kbit MRAM,SOIC8,Everspin,MR25H256ACDF,MRAM event and state log,6.20,12.40,Mouser
+U17-U20,4,ISO7741,SOIC16W,Texas Instruments,ISO7741DWR,Isolation barrier for valve commands,3.90,15.60,Mouser
+U21-U24,4,LM5164,SO-8 PowerPAD,Texas Instruments,LM5164DDAR,Isolated step-down from 375VDC bus,3.70,14.80,Mouser
+U25-U30,6,INA228,VSSOP10,Texas Instruments,INA228AIDGSR,Rail and actuator telemetry,3.50,21.00,Mouser
+U31-U33,3,TPS7A4701,VQFN20,Texas Instruments,TPS7A4701RGWT,Low-noise analogue supply,3.10,9.30,Mouser
+U34-U39,6,OPA2188,SOIC8,Texas Instruments,OPA2188AIDR,Zero-drift sensor amplification,3.40,20.40,Mouser
+J1-J2,2,D38999 Series III,Circular,Amphenol,D38999/26WD35SN,Subsea penetrator interface,92.00,184.00,Digi-Key
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+C1-C110,110,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,2.20,Mouser
+C111-C140,30,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,2.70,Mouser
+R1-R70,70,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.70,Mouser
+D1-D8,8,33V TVS,SMB,Littelfuse,SMBJ33CA,"600W bidirectional TVS diode, 33V standoff",0.28,2.24,Mouser
+TOTAL,,,,,,,425.34,,Approximate BOM cost

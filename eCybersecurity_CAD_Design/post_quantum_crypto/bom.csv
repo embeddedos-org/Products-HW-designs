@@ -1,0 +1,15 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,MPF300T,FCBGA484,Microchip,MPF300T-1FCG484I,Lattice arithmetic accelerator fabric,265.00,265.00,Digi-Key
+U2,1,MAX32520,TQFN,Analog Devices,MAX32520-KIT,Key custodian and side-channel hardened control,11.90,11.90,Mouser
+U3-U4,2,2GB DDR4,FBGA96,Micron,MT40A1G16KNR-075,Large PQC key object working memory,9.40,18.80,Mouser
+U5-U6,2,16MB QSPI,SOIC8,Winbond,W25Q128JVSIQ,Bitstream storage,1.35,2.70,Mouser
+U7-U8,2,KSZ9031,QFN48,Microchip,KSZ9031RNXIA,Gigabit host interface,4.50,9.00,Mouser
+U9,1,HMC7044,LFCSP,Analog Devices,HMC7044LP10BE,Fabric clock generation,78.00,78.00,Mouser
+U10-U15,6,LT8640,QFN18,Analog Devices,LT8640IUDC#PBF,Point-of-load regulator,6.40,38.40,Mouser
+U16-U19,4,TPS7A4701,VQFN20,Texas Instruments,TPS7A4701RGWT,"Low-noise supply, DPA hardened",3.10,12.40,Mouser
+U20-U23,4,INA228,VSSOP10,Texas Instruments,INA228AIDGSR,Power analysis detection,3.50,14.00,Mouser
+PCB1,1,12-layer FR4,Custom,EmbeddedOS,EOS-PCB-12L-C3,"12-layer FR-4 PCB, ENIG, IPC Class 3",48.00,48.00,Custom
+C1-C180,180,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,3.60,Mouser
+C181-C204,24,47uF,1210,Murata,GRM32ER61E476ME15L,47uF X5R bulk capacitor 25V,0.42,10.08,Mouser
+R1-R100,100,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,1.00,Mouser
+TOTAL,,,,,,,512.88,,Approximate BOM cost

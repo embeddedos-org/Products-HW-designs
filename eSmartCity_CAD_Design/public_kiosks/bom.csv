@@ -1,0 +1,19 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,i.MX 8M Plus,FCBGA,NXP,MIMX8ML8DVNLZAB,Kiosk application processor,62.00,62.00,Mouser
+U2-U3,2,ESP32-C6,Module,Espressif,ESP32-C6-WROOM-1-N8,Wi-Fi 6 public hotspot radio,3.20,6.40,Mouser
+U4,1,RM520N-GL,M.2,Quectel,RM520N-GL,5G backhaul modem,189.00,189.00,Quectel
+U5-U6,2,4GB LPDDR4X,FBGA200,Micron,MT53E1G32D2FW-046,System memory,19.50,39.00,Mouser
+U7,1,64GB eMMC,FBGA153,Micron,MTFC64GAKAENA-4M,Content and application storage,18.00,18.00,Mouser
+U8,1,SE050,HX2QFN20,NXP,SE050C2HQ1/Z01SDZ,Secure element for content signing,3.40,3.40,Mouser
+U9-U10,2,DP83867,HTQFP64,Texas Instruments,DP83867IRPAPR,Gigabit Ethernet,6.80,13.60,Mouser
+U11,1,AR0234,iBGA,onsemi,AR0234CSSC00SUKA0-CRBR,Presence detection and vandalism recording,28.50,28.50,Mouser
+U12-U13,2,BME280,LGA8,Bosch Sensortec,BME280,Enclosure thermal management sensing,4.60,9.20,Mouser
+U14-U19,6,TPS54360B,SO-8 PowerPAD,Texas Instruments,TPS54360BDDAR,Primary buck regulator,2.90,17.40,Mouser
+U20-U23,4,INA228,VSSOP10,Texas Instruments,INA228AIDGSR,Rail and heater telemetry,3.50,14.00,Mouser
+J1-J2,2,RJ45 magjack,THT,Pulse Electronics,JXD0-0001NL,Gigabit RJ45 jack with integrated magnetics,3.20,6.40,Mouser
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+ENC1,1,IP67 aluminium,Custom,EmbeddedOS,EOS-ENCL-IP67-AL,Die-cast aluminium IP67 enclosure with gasket,34.00,34.00,Custom
+C1-C160,160,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,3.20,Mouser
+C161-C184,24,47uF,1210,Murata,GRM32ER61E476ME15L,47uF X5R bulk capacitor 25V,0.42,10.08,Mouser
+R1-R92,92,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.92,Mouser
+TOTAL,,,,,,,479.10,,Approximate BOM cost

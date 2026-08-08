@@ -1,0 +1,19 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,AM6254,FCBGA,Texas Instruments,AM6254ATCGGAALW,Fusion processor with safety island,24.50,24.50,Mouser
+U2-U3,2,IWR6843AOP,FCBGA,Texas Instruments,IWR6843AOPAQGABLQ1,60GHz radar input processing,48.00,96.00,Mouser
+U4-U7,4,AR0234,iBGA,onsemi,AR0234CSSC00SUKA0-CRBR,Global-shutter camera input,28.50,114.00,Mouser
+U8-U9,2,IIM-42652,LGA14,TDK InvenSense,IIM-42652,High-shock automotive IMU,6.90,13.80,Mouser
+U10-U11,2,2GB DDR4,FBGA96,Micron,MT40A1G16KNR-075,Fusion state and buffer memory,9.40,18.80,Mouser
+U12,1,16GB eMMC,FBGA153,Micron,MTFC16GAPALBH-IT,Application storage,8.60,8.60,Mouser
+U13-U16,4,DP83TD510E,TSSOP24,Texas Instruments,DP83TD510EPWR,1000BASE-T1 automotive Ethernet PHY,5.20,20.80,Mouser
+U17-U20,4,TCAN4550,VQFN20,Texas Instruments,TCAN4550RGYR,CAN FD controller and transceiver,3.60,14.40,Mouser
+U21,1,DP83640,LQFP48,Texas Instruments,DP83640TVV/NOPB,PTP hardware time alignment,12.40,12.40,Mouser
+U22,1,ZED-F9P,LGA-54,u-blox,ZED-F9P-04B,GNSS reference for global frame,75.00,75.00,Mouser
+U23-U27,5,LM5164,SO-8 PowerPAD,Texas Instruments,LM5164DDAR,Automotive-rated buck regulator,3.70,18.50,Mouser
+U28-U31,4,INA228,VSSOP10,Texas Instruments,INA228AIDGSR,Rail telemetry for safety monitoring,3.50,14.00,Mouser
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+C1-C170,170,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,3.40,Mouser
+C171-C212,42,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,3.78,Mouser
+R1-R100,100,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,1.00,Mouser
+D1-D12,12,33V TVS,SMB,Littelfuse,SMBJ33CA,"600W bidirectional TVS diode, 33V standoff",0.28,3.36,Mouser
+TOTAL,,,,,,,466.34,,Approximate BOM cost

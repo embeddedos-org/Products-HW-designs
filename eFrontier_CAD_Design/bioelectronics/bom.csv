@@ -1,0 +1,17 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1-U32,32,ADS1299,TQFP64,Texas Instruments,ADS1299IPAGR,8-channel 24-bit biopotential front end,42.00,1344.00,Mouser
+U33,1,STM32H743,LQFP144,STMicroelectronics,STM32H743ZIT6,Acquisition and stimulation controller,11.80,11.80,Mouser
+U34,1,XC7A35T,FBGA484,AMD Xilinx,XC7A35T-2FGG484I,Channel multiplexing and artefact blanking,42.00,42.00,Digi-Key
+U35-U42,8,DAC8560,VSSOP8,Texas Instruments,DAC8560IBDGKR,Stimulation current setpoint,8.30,66.40,Mouser
+U43-U50,8,INA849,SOIC8,Texas Instruments,INA849IDR,Stimulation current monitoring,6.80,54.40,Mouser
+U51-U56,6,ISO7741,SOIC16W,Texas Instruments,ISO7741DWR,Patient isolation barrier,3.90,23.40,Mouser
+U57,1,ADM2587E,SOIC20W,Analog Devices,ADM2587EBRWZ,Isolated data interface,9.40,9.40,Mouser
+U58,1,2GB DDR4,FBGA96,Micron,MT40A1G16KNR-075,Recording buffer,9.40,9.40,Mouser
+U59,1,KSZ9031,QFN48,Microchip,KSZ9031RNXIA,Gigabit data output,4.50,4.50,Mouser
+U60-U67,8,TPS7A4701,VQFN20,Texas Instruments,TPS7A4701RGWT,Ultra-low-noise analogue supply,3.10,24.80,Mouser
+U68-U71,4,LT8640,QFN18,Analog Devices,LT8640IUDC#PBF,Point-of-load regulator,6.40,25.60,Mouser
+PCB1,1,12-layer FR4,Custom,EmbeddedOS,EOS-PCB-12L-C3,"12-layer FR-4 PCB, ENIG, IPC Class 3",48.00,48.00,Custom
+C1-C320,320,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,6.40,Mouser
+C321-C390,70,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,6.30,Mouser
+R1-R180,180,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,1.80,Mouser
+TOTAL,,,,,,,1678.20,,Approximate BOM cost

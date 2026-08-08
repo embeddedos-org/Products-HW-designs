@@ -1,0 +1,18 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,GR712RC,CQFP240,Frontgrade Gaisler,GR712RC,Rad-hard robotics control processor,12500.00,12500.00,Frontgrade
+U2,1,RT4G150,CCGA1657,Microchip,RTG4-150-CG1657,Rad-tolerant motor commutation fabric,22000.00,22000.00,Microchip
+U3-U9,7,DRV8353RS,VQFN40,Texas Instruments,DRV8353RSRTAR,Joint BLDC gate driver,5.70,39.90,Mouser
+HD1-HD7,7,Harmonic drive,Custom,EmbeddedOS,EOS-HD-25-100,Zero-backlash joint gear reducer,480.00,3360.00,Custom
+U10-U13,4,AD7124-8,LFCSP32,Analog Devices,AD7124-8BCPZ,Force/torque sensor acquisition,9.70,38.80,Mouser
+U14-U21,8,INA849,SOIC8,Texas Instruments,INA849IDR,Strain gauge bridge amplification,6.80,54.40,Mouser
+U22,1,ADIS16505-2,Module,Analog Devices,ADIS16505-2BMLZ,Base motion reference,385.00,385.00,Mouser
+U23-U24,2,UT54LVDS032,CFP16,Frontgrade,UT54LVDS032-UCC,SpaceWire interface,620.00,1240.00,Frontgrade
+U25-U26,2,256kbit MRAM,SOIC8,Everspin,MR25H256ACDF,MRAM trajectory and fault log,6.20,12.40,Mouser
+U27-U30,4,ISL71001,CFP,Renesas,ISL71001SEHVF,Rad-hard point-of-load regulator,1850.00,7400.00,Renesas
+U31-U33,3,TPS7H1101A,CFP-20,Texas Instruments,TPS7H1101A-SP,Rad-hard analogue supply,980.00,2940.00,Texas Instruments
+U34-U41,8,INA228,VSSOP10,Texas Instruments,INA228AIDGSR,Joint current telemetry,3.50,28.00,Mouser
+PCB1,1,12-layer FR4,Custom,EmbeddedOS,EOS-PCB-12L-C3,"12-layer FR-4 PCB, ENIG, IPC Class 3",48.00,48.00,Custom
+C1-C200,200,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,4.00,Mouser
+C201-C228,28,47uF,1210,Murata,GRM32ER61E476ME15L,47uF X5R bulk capacitor 25V,0.42,11.76,Mouser
+R1-R115,115,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,1.15,Mouser
+TOTAL,,,,,,,50063.41,,Approximate BOM cost

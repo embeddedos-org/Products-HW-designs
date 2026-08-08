@@ -1,0 +1,21 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1-U6,6,STM32H743,LQFP144,STMicroelectronics,STM32H743ZIT6,"Cortex-M7 flight control lane processor (3 lanes, lockstep pairs)",11.80,70.80,Mouser
+U7,1,XC7A100T,FBGA484,AMD Xilinx,XC7A100T-2FGG484I,FPGA I/O manager and cross-lane voter,95.00,95.00,Digi-Key
+U8-U10,3,ADIS16505-2,Module,Analog Devices,ADIS16505-2BMLZ,"Tactical-grade IMU, one per lane",385.00,1155.00,Mouser
+U11-U12,2,HI-8596,PLCC44,Holt Integrated Circuits,HI-8596PQI,ARINC-429 quad receiver,18.00,36.00,Digi-Key
+U13-U14,2,HI-8585,PLCC44,Holt Integrated Circuits,HI-8585PQI,ARINC-429 quad transmitter,22.00,44.00,Digi-Key
+U15-U16,2,BU-65170,QFP,Data Device Corp,BU-65170I2-300,MIL-STD-1553B dual-redundant terminal,185.00,370.00,Digi-Key
+U17-U20,4,TCAN1042,SOIC8,Texas Instruments,TCAN1042VDRQ1,CAN FD transceiver,1.85,7.40,Mouser
+U21-U22,2,DP83TD510E,TSSOP24,Texas Instruments,DP83TD510EPWR,10BASE-T1L single-pair Ethernet PHY,5.20,10.40,Mouser
+U23-U25,3,256kbit MRAM,SOIC8,Everspin,MR25H256ACDF,"MRAM for control law state, one per lane",6.20,18.60,Mouser
+U26,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Secure boot key store,0.95,0.95,Mouser
+U27-U30,4,LM5164,SO-8 PowerPAD,Texas Instruments,LM5164DDAR,"28V primary buck, dual-bus redundant",3.70,14.80,Mouser
+U31-U34,4,INA228,VSSOP10,Texas Instruments,INA228AIDGSR,Per-rail power telemetry,3.50,14.00,Mouser
+J1-J4,4,VPX VITA 46,VPX,Amphenol,VPX-P1-046,"VPX VITA 46 backplane connector, 7-row",35.00,140.00,Digi-Key
+PCB1,1,12-layer FR4,Custom,EmbeddedOS,EOS-PCB-12L-C3,12-layer Class 3 conformal-coated PCB,48.00,48.00,Custom
+C1-C180,180,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,3.60,Mouser
+C181-C220,40,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,3.60,Mouser
+R1-R90,90,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.90,Mouser
+L1-L4,4,4.7uH,5.3x5.3mm,Coilcraft,XAL5030-472MEB,4.7uH 6.4A shielded power inductor,0.72,2.88,Coilcraft
+D1-D8,8,33V TVS,SMB,Littelfuse,SMBJ33CA,"600W bidirectional TVS diode, 33V standoff",0.28,2.24,Mouser
+TOTAL,,,,,,,2038.17,,Approximate BOM cost

@@ -1,0 +1,11 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,SE050,HX2QFN20,NXP,SE050C2HQ1/Z01SDZ,"Primary secure element, EAL6+",3.40,3.40,Mouser
+U2,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Alternate cost-optimised element,0.95,0.95,Mouser
+U3,1,STSAFE-A110,UFDFPN8,STMicroelectronics,STSAFE-A110,Alternate authentication element,1.40,1.40,Mouser
+U4,1,TPS62840,WSON8,Texas Instruments,TPS62840DGRR,Local regulator,0.65,0.65,Mouser
+PCB1,1,6-layer FR4,Custom,EmbeddedOS,EOS-PCB-6L-STD,"6-layer FR-4 PCB, ENIG, IPC Class 2",11.00,11.00,Custom
+C1-C10,10,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,0.20,Mouser
+C11-C14,4,1uF,0402,Murata,GRM155R61A105KE15D,1uF X5R filter capacitor 10V,0.03,0.12,Mouser
+R1-R8,8,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.08,Mouser
+D1,1,ESD array,DFN6,Nexperia,PESD5V0X4UAB,"4-line ESD protection array, IEC 61000-4-2 L4",0.22,0.22,Mouser
+TOTAL,,,,,,,18.02,,Approximate BOM cost

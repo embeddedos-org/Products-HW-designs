@@ -1,0 +1,22 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,AM6254,FCBGA,Texas Instruments,AM6254ATCGGAALW,Quad Cortex-A53 airfield controller,24.50,24.50,Mouser
+U2-U3,2,STM32G474,LQFP64,STMicroelectronics,STM32G474RET6,Power-line carrier modem controller,5.50,11.00,Mouser
+U4-U5,2,IWR6843AOP,FCBGA,Texas Instruments,IWR6843AOPAQGABLQ1,60GHz mmWave docking guidance sensor,48.00,96.00,Mouser
+U6-U7,2,2GB DDR4,FBGA96,Micron,MT40A1G16KNR-075,System memory,9.40,18.80,Mouser
+U8,1,16GB eMMC,FBGA153,Micron,MTFC16GAPALBH-IT,Application and configuration storage,8.60,8.60,Mouser
+U9-U10,2,DP83867,HTQFP64,Texas Instruments,DP83867IRPAPR,"Gigabit Ethernet PHY, ring topology",6.80,13.60,Mouser
+U11,1,KSZ8863,LQFP48,Microchip,KSZ8863MLLI,Managed Ethernet switch,7.40,7.40,Mouser
+U12-U15,4,ADM2587E,SOIC20W,Analog Devices,ADM2587EBRWZ,Isolated RS-485 field interface,9.40,37.60,Mouser
+U16-U17,2,ADM3053,SOIC20W,Analog Devices,ADM3053BRWZ,Isolated CAN FD interface,11.20,22.40,Mouser
+U18-U25,8,ISO7741,SOIC16W,Texas Instruments,ISO7741DWR,Dry-contact input isolation,3.90,31.20,Mouser
+U26-U29,4,INA228,VSSOP10,Texas Instruments,INA228AIDGSR,Series circuit current monitoring,3.50,14.00,Mouser
+U30-U33,4,TPS54360B,SO-8 PowerPAD,Texas Instruments,TPS54360BDDAR,Primary buck regulator,2.90,11.60,Mouser
+U34,1,SLB9670,TSSOP28,Infineon,SLB9670VQ2.0,TPM 2.0 for secure configuration,4.30,4.30,Mouser
+J1-J6,6,M12 8-pin,M12 A-code,Phoenix Contact,1441011,Field sensor connector,14.60,87.60,Mouser
+J7-J8,2,RJ45 magjack,THT,Pulse Electronics,JXD0-0001NL,Gigabit RJ45 jack with integrated magnetics,3.20,6.40,Mouser
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+C1-C130,130,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,2.60,Mouser
+C131-C148,18,47uF,1210,Murata,GRM32ER61E476ME15L,47uF X5R bulk capacitor 25V,0.42,7.56,Mouser
+R1-R75,75,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.75,Mouser
+FL1-FL2,2,2.2mH CMC,THT,Wurth,744232222,Mains common-mode filter,1.60,3.20,Mouser
+TOTAL,,,,,,,433.11,,Approximate BOM cost

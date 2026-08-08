@@ -1,0 +1,17 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,AM6254,FCBGA,Texas Instruments,AM6254ATCGGAALW,Policy enforcement processor,24.50,24.50,Mouser
+U2,1,SE050,HX2QFN20,NXP,SE050C2HQ1/Z01SDZ,Gateway identity secure element,3.40,3.40,Mouser
+U3,1,SLB9670,TSSOP28,Infineon,SLB9670VQ2.0,TPM 2.0 platform attestation,4.30,4.30,Mouser
+U4-U7,4,2GB DDR4,FBGA96,Micron,MT40A1G16KNR-075,Flow table and session memory,9.40,37.60,Mouser
+U8,1,64GB eMMC,FBGA153,Micron,MTFC64GAKAENA-4M,Policy and log storage,18.00,18.00,Mouser
+U9-U12,4,DP83867,HTQFP64,Texas Instruments,DP83867IRPAPR,Gigabit Ethernet PHY,6.80,27.20,Mouser
+U13,1,KSZ8863,LQFP48,Microchip,KSZ8863MLLI,Managed switch fabric,7.40,7.40,Mouser
+U14,1,256kbit MRAM,SOIC8,Everspin,MR25H256ACDF,Log chain anchor,6.20,6.20,Mouser
+U15-U20,6,LT8640,QFN18,Analog Devices,LT8640IUDC#PBF,Point-of-load regulator,6.40,38.40,Mouser
+J1-J2,2,SFP+ cage,Press-fit,TE Connectivity,2007196-1,"SFP+ cage and connector assembly, 10Gbps",8.40,16.80,Mouser
+J3-J6,4,RJ45 magjack,THT,Pulse Electronics,JXD0-0001NL,Gigabit RJ45 jack with integrated magnetics,3.20,12.80,Mouser
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+C1-C170,170,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,3.40,Mouser
+C171-C194,24,47uF,1210,Murata,GRM32ER61E476ME15L,47uF X5R bulk capacitor 25V,0.42,10.08,Mouser
+R1-R100,100,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,1.00,Mouser
+TOTAL,,,,,,,235.08,,Approximate BOM cost

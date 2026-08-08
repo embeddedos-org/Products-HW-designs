@@ -1,0 +1,19 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,Jetson Orin NX 16GB,SO-DIMM 260,NVIDIA,900-13767-0000-000,Primary inference compute module,699.00,699.00,Arrow
+U2,1,Hailo-8,M.2 2242,Hailo,HAILO-8-M2-B,Parallel vision inference accelerator,199.00,199.00,Arrow
+U3,1,8GB LPDDR5,FBGA,Samsung,K3KL8L80CM-MGCT,Carrier-side sample and buffer memory,28.00,28.00,Mouser
+U4-U5,2,64GB eMMC,FBGA153,Micron,MTFC64GAKAENA-4M,Encrypted model and application storage,18.00,36.00,Mouser
+U6,1,DP83867,HTQFP64,Texas Instruments,DP83867IRPAPR,2.5GbE Ethernet PHY,6.80,6.80,Mouser
+U7,1,ESP32-C6,Module,Espressif,ESP32-C6-WROOM-1-N8,Wi-Fi 6 and BLE 5.3 connectivity,3.20,3.20,Mouser
+U8,1,OPTIGA Trust M,USON10,Infineon,SLS32AIA010MK,Secure element for model integrity,2.10,2.10,Mouser
+U9-U14,6,LT8640,QFN18,Analog Devices,LT8640IUDC#PBF,Point-of-load regulator,6.40,38.40,Mouser
+U15-U18,4,INA228,VSSOP10,Texas Instruments,INA228AIDGSR,Per-rail power telemetry,3.50,14.00,Mouser
+U19-U22,4,TMP117,WSON6,Texas Instruments,TMP117AIDRVR,Thermal throttling feedback,4.20,16.80,Mouser
+J1-J2,2,USB-C,SMT,Amphenol,12401610E4-2A,"USB Type-C receptacle, 24-pin, IP67",1.40,2.80,Mouser
+J3,1,RJ45 magjack,THT,Pulse Electronics,JXD0-0001NL,Gigabit RJ45 jack with integrated magnetics,3.20,3.20,Mouser
+PCB1,1,12-layer FR4,Custom,EmbeddedOS,EOS-PCB-12L-C3,"12-layer FR-4 PCB, ENIG, IPC Class 3",48.00,48.00,Custom
+HS1,1,Heatsink,40mm,Wakefield-Vette,657-40AB,Extruded aluminium heatsink for forced convection,4.80,4.80,Mouser
+C1-C160,160,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,3.20,Mouser
+C161-C184,24,47uF,1210,Murata,GRM32ER61E476ME15L,47uF X5R bulk capacitor 25V,0.42,10.08,Mouser
+R1-R90,90,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.90,Mouser
+TOTAL,,,,,,,1116.28,,Approximate BOM cost

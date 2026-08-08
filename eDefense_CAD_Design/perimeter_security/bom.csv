@@ -1,0 +1,21 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,STM32H743,LQFP144,STMicroelectronics,STM32H743ZIT6,Zone classification processor,11.80,11.80,Mouser
+U2-U5,4,ADS131M08,TQFP32,Texas Instruments,ADS131M08IPBSR,Distributed acoustic sensing acquisition,11.60,46.40,Mouser
+U6-U7,2,IWR6843AOP,FCBGA,Texas Instruments,IWR6843AOPAQGABLQ1,60GHz zone radar,48.00,96.00,Mouser
+U8-U15,8,INA849,SOIC8,Texas Instruments,INA849IDR,Fibre interferometer preamplifier,6.80,54.40,Mouser
+U16,1,BME280,LGA8,Bosch Sensortec,BME280,Local weather input for nuisance rejection,4.60,4.60,Mouser
+U17,1,KSZ8863,LQFP48,Microchip,KSZ8863MLLI,Managed Ethernet switch,7.40,7.40,Mouser
+U18-U19,2,DP83867,HTQFP64,Texas Instruments,DP83867IRPAPR,Gigabit Ethernet PHY,6.80,13.60,Mouser
+U20-U21,2,ADM2587E,SOIC20W,Analog Devices,ADM2587EBRWZ,Isolated RS-485 Modbus,9.40,18.80,Mouser
+U22-U27,6,ISO7741,SOIC16W,Texas Instruments,ISO7741DWR,Dry contact isolation,3.90,23.40,Mouser
+U28,1,16GB eMMC,FBGA153,Micron,MTFC16GAPALBH-IT,Event and waveform recording,8.60,8.60,Mouser
+U29-U32,4,TPS54360B,SO-8 PowerPAD,Texas Instruments,TPS54360BDDAR,Primary buck regulator,2.90,11.60,Mouser
+J1-J4,4,M12 8-pin,M12 A-code,Phoenix Contact,1441011,"M12 8-pin A-coded panel connector, IP67",14.60,58.40,Mouser
+J5-J6,2,RJ45 magjack,THT,Pulse Electronics,JXD0-0001NL,Gigabit RJ45 jack with integrated magnetics,3.20,6.40,Mouser
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+ENC1,1,IP67 aluminium,Custom,EmbeddedOS,EOS-ENCL-IP67-AL,Die-cast aluminium IP67 enclosure with gasket,34.00,34.00,Custom
+C1-C140,140,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,2.80,Mouser
+C141-C172,32,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,2.88,Mouser
+R1-R80,80,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.80,Mouser
+D1-D12,12,33V TVS,SMB,Littelfuse,SMBJ33CA,Lightning surge protection on field ports,0.28,3.36,Mouser
+TOTAL,,,,,,,429.24,,Approximate BOM cost

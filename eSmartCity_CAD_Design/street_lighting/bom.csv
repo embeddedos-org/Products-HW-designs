@@ -1,0 +1,19 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,STM32G474,LQFP64,STMicroelectronics,STM32G474RET6,Luminaire controller,5.50,5.50,Mouser
+U2,1,SX1262,QFN24,Semtech,SX1262IMLTRT,LoRaWAN transceiver,5.40,5.40,Mouser
+U3-U4,2,INA228,VSSOP10,Texas Instruments,INA228AIDGSR,Revenue-grade energy metering,3.50,7.00,Mouser
+U5,1,VL53L1X,OLGA12,STMicroelectronics,VL53L1CXV0FY/1,Motion and presence detection,5.30,5.30,Mouser
+U6,1,BME280,LGA8,Bosch Sensortec,BME280,Ambient light and environment sensing,4.60,4.60,Mouser
+U7-U8,2,ISO7741,SOIC16W,Texas Instruments,ISO7741DWR,Mains isolation barrier,3.90,7.80,Mouser
+U9,1,MAX3485,SOIC8,Analog Devices,MAX3485EESA+T,DALI-2 interface,0.85,0.85,Mouser
+U10-U11,2,MP2315,TSOT23-8,Monolithic Power,MP2315GJ-Z,Auxiliary buck regulator,0.75,1.50,Mouser
+U12,1,1Mbit FRAM,SOIC8,Infineon,FM24V10-G,Energy accumulator and fault log,4.70,4.70,Mouser
+U13,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Message authentication,0.95,0.95,Mouser
+ANT1,1,868MHz whip,SMA,Linx,ANT-868-CW-HWR-SMA,"868MHz half-wave whip antenna, 2dBi",7.40,7.40,Mouser
+PCB1,1,6-layer FR4,Custom,EmbeddedOS,EOS-PCB-6L-STD,"6-layer FR-4 PCB, ENIG, IPC Class 2",11.00,11.00,Custom
+C1-C55,55,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,1.10,Mouser
+C56-C69,14,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,1.26,Mouser
+R1-R36,36,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.36,Mouser
+D1-D4,4,33V TVS,SMB,Littelfuse,SMBJ33CA,Mains surge protection,0.28,1.12,Mouser
+FL1,1,2.2mH CMC,THT,Wurth,744232222,2.2mH common-mode choke for EMC filtering,1.60,1.60,Mouser
+TOTAL,,,,,,,67.44,,Approximate BOM cost

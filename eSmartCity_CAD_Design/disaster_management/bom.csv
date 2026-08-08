@@ -1,0 +1,22 @@
+Reference,Quantity,Value,Footprint,Manufacturer,MPN,Description,Unit Cost USD,Extended Cost USD,Source
+U1,1,STM32U575,LQFP144,STMicroelectronics,STM32U575ZIT6Q,Early-warning controller,9.10,9.10,Mouser
+U2,1,ADS131M08,TQFP32,Texas Instruments,ADS131M08IPBSR,Seismic accelerometer acquisition,11.60,11.60,Mouser
+U3-U4,2,IIM-42652,LGA14,TDK InvenSense,IIM-42652,3-axis seismic sensing,6.90,13.80,Mouser
+U5-U6,2,MS5611,QFN8,TE Connectivity,MS561101BA03-50,Barometric and water level sensing,12.80,25.60,Mouser
+U7,1,BME280,LGA8,Bosch Sensortec,BME280,Meteorological sensing,4.60,4.60,Mouser
+U8,1,SX1262,QFN24,Semtech,SX1262IMLTRT,LoRa alert path,5.40,5.40,Mouser
+U9,1,BG95-M3,LCC-LGA,Quectel,BG95-M3,Cellular alert path,14.80,14.80,Quectel
+U10,1,Swarm M138,Module,Swarm,M138,Satellite alert path,89.00,89.00,Swarm
+U11,1,MAX-M10S,LCC-18,u-blox,MAX-M10S-00B,GNSS time and position,14.50,14.50,Mouser
+U12,1,BQ25504,VQFN16,Texas Instruments,BQ25504RGTR,Solar MPPT charge controller,2.80,2.80,Mouser
+U13-U15,3,TPS62840,WSON8,Texas Instruments,TPS62840DGRR,Low-Iq point-of-load regulator,0.65,1.95,Mouser
+U16,1,1Mbit FRAM,SOIC8,Infineon,FM24V10-G,Event log,4.70,4.70,Mouser
+U17,1,ATECC608B,UDFN8,Microchip,ATECC608B-MAHDA-T,Alert message signing,0.95,0.95,Mouser
+BT1-BT4,4,3.6Ah LiSOCl2,A-size,Saft,LS17500,3.6V 3.6Ah lithium thionyl chloride primary cell,9.80,39.20,Mouser
+PV1-PV2,2,5W PV panel,Custom,EmbeddedOS,EOS-PV-5W-MONO,"5W monocrystalline PV panel, IP65 laminate",12.50,25.00,Custom
+ANT1,1,868MHz whip,SMA,Linx,ANT-868-CW-HWR-SMA,"868MHz half-wave whip antenna, 2dBi",7.40,7.40,Mouser
+PCB1,1,8-layer FR4,Custom,EmbeddedOS,EOS-PCB-8L-C3,"8-layer FR-4 PCB, ENIG, IPC Class 3",24.00,24.00,Custom
+C1-C90,90,100nF,0402,Murata,GRM155R71C104KA88D,100nF X7R decoupling capacitor 16V,0.02,1.80,Mouser
+C91-C112,22,10uF,0805,Murata,GRM21BR61A106KE19L,10uF X5R bulk capacitor 10V,0.09,1.98,Mouser
+R1-R55,55,10k,0402,Yageo,RC0402FR-0710KL,10k 1% thin-film resistor,0.01,0.55,Mouser
+TOTAL,,,,,,,298.73,,Approximate BOM cost
