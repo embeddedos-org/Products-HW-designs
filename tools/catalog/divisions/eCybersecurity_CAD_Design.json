@@ -1,0 +1,2485 @@
+{
+  "_comment": [
+    "Cyber, trust and key management product catalog.",
+    "ePAM has its own division and is untouched. The hand-authored",
+    "security_appliances and physical_security directories are left as written."
+  ],
+  "division": "eCybersecurity_CAD_Design",
+  "products": [
+    {
+      "slug": "secure_boot",
+      "taxonomy": "eSecureBoot",
+      "title": "Secure Boot Subsystems",
+      "part": "eSB-200",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Measured boot and firmware verification",
+        "standard": "NIST SP 800-193",
+        "ics": "STM32U575, SLB9670, ATECC608B"
+      },
+      "overview": "Secure boot subsystem enforcing a verified boot chain from immutable ROM through bootloader to application, with measurements extended into a TPM at each stage. Rollback protection uses a monotonic counter in secure storage, so a signed-but-old image with a known vulnerability cannot be replayed onto the device.",
+      "specs": [
+        [
+          "Root of trust",
+          "Immutable boot ROM with OTP-fused public key hash"
+        ],
+        [
+          "Signature scheme",
+          "ECDSA P-384 with SHA-384 image digest"
+        ],
+        [
+          "Measurement",
+          "PCR extension into TPM 2.0 at each boot stage"
+        ],
+        [
+          "Rollback protection",
+          "Monotonic counter in OTP, 64 update slots"
+        ],
+        [
+          "Boot time",
+          "180ms from reset to verified application entry"
+        ],
+        [
+          "Recovery",
+          "A/B image slots with automatic fallback on failed attestation"
+        ],
+        [
+          "Key revocation",
+          "Field-revocable signing keys, 4 generations"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "8"
+        ],
+        [
+          "Dimensions",
+          "60mm x 45mm"
+        ],
+        [
+          "IPC Class",
+          "Class 2"
+        ],
+        [
+          "Finish",
+          "ENIG"
+        ],
+        [
+          "Security",
+          "TPM SPI bus routed on inner layers only"
+        ]
+      ],
+      "compliance": [
+        [
+          "NIST SP 800-193",
+          "Platform firmware resiliency guidelines"
+        ],
+        [
+          "TCG PC Client Platform",
+          "TPM 2.0 measured boot profile"
+        ],
+        [
+          "IEC 62443-4-2",
+          "Component security requirements"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "stm32u575",
+          "qty": 1,
+          "description": "Cortex-M33 TrustZone boot processor"
+        },
+        {
+          "ref": "U2",
+          "part": "optiga_slb9670",
+          "qty": 1,
+          "description": "TPM 2.0 measurement store"
+        },
+        {
+          "ref": "U3",
+          "part": "atecc608b",
+          "qty": 1,
+          "description": "Signing key store and monotonic counter"
+        },
+        {
+          "ref": "U4",
+          "part": "w25q128",
+          "qty": 2,
+          "description": "A/B firmware image slots"
+        },
+        {
+          "ref": "U5",
+          "part": "fm24v10",
+          "qty": 1,
+          "description": "Boot state and rollback counter"
+        },
+        {
+          "ref": "U6",
+          "part": "tps62840",
+          "qty": 3,
+          "description": "Point-of-load regulator"
+        },
+        {
+          "ref": "U7",
+          "part": "ina228",
+          "qty": 1,
+          "description": "Supply glitch detection"
+        },
+        {
+          "ref": "U8",
+          "part": "tmp117",
+          "qty": 1,
+          "description": "Fault-injection temperature monitoring"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_8l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 60
+        },
+        {
+          "ref": "C2",
+          "part": "cap_10u_0805",
+          "qty": 14
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 38
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eSB-200 Secure Boot Subsystem",
+        "bus_v": 5,
+        "efficiency": 0.9,
+        "loads": [
+          [
+            "STM32U575 boot processor",
+            0.14
+          ],
+          [
+            "TPM 2.0 during measurement",
+            0.06
+          ],
+          [
+            "ATECC608B signing",
+            0.014
+          ],
+          [
+            "QSPI flash x2 read",
+            0.05
+          ],
+          [
+            "FRAM state",
+            0.008
+          ],
+          [
+            "Glitch and thermal monitoring",
+            0.012
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "root_of_trust",
+      "taxonomy": "eRootOfTrust",
+      "title": "Hardware Root of Trust",
+      "part": "eROT-400",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Silicon root of trust and identity",
+        "standard": "NIST SP 800-193 / DICE",
+        "ics": "MAX32520, SE050, PolarFire"
+      },
+      "overview": "Hardware root of trust providing device identity, key derivation and platform attestation from an SRAM physically unclonable function. No private key is ever stored: the identity is reconstructed from silicon variation at each boot and erased on power-down, so extracting flash yields nothing usable.",
+      "specs": [
+        [
+          "Identity source",
+          "SRAM PUF, 256-bit unique device secret"
+        ],
+        [
+          "Key storage",
+          "None persistent; keys derived per boot and zeroised"
+        ],
+        [
+          "Attestation",
+          "DICE layered attestation with per-layer CDI"
+        ],
+        [
+          "Cryptography",
+          "ECDSA P-256/P-384, AES-256-GCM, SHA-2/SHA-3"
+        ],
+        [
+          "Entropy",
+          "NIST SP 800-90B compliant TRNG, 1.2 Mbit/s"
+        ],
+        [
+          "Side-channel",
+          "DPA-resistant AES with masking and shuffling"
+        ],
+        [
+          "Certification target",
+          "FIPS 140-3 Level 3"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "10"
+        ],
+        [
+          "Dimensions",
+          "85mm x 65mm"
+        ],
+        [
+          "IPC Class",
+          "Class 3"
+        ],
+        [
+          "Finish",
+          "ENIG, potted"
+        ],
+        [
+          "Security",
+          "Secret routing confined to inner layers under ground pour"
+        ]
+      ],
+      "compliance": [
+        [
+          "FIPS 140-3 Level 3",
+          "Cryptographic module security"
+        ],
+        [
+          "TCG DICE",
+          "Device identifier composition engine"
+        ],
+        [
+          "NIST SP 800-90B",
+          "Entropy source validation"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "max32520",
+          "qty": 1,
+          "description": "SRAM PUF root of trust processor"
+        },
+        {
+          "ref": "U2",
+          "part": "se050",
+          "qty": 1,
+          "description": "Certified secure element, EAL6+"
+        },
+        {
+          "ref": "U3",
+          "part": "polarfire_mpf300",
+          "qty": 1,
+          "description": "DPA-resistant crypto accelerator fabric"
+        },
+        {
+          "ref": "U4",
+          "part": "optiga_slb9670",
+          "qty": 1,
+          "description": "TPM 2.0 attestation anchor"
+        },
+        {
+          "ref": "U5",
+          "part": "fm24v10",
+          "qty": 2,
+          "description": "PUF helper data storage"
+        },
+        {
+          "ref": "U6",
+          "part": "tps7a4701",
+          "qty": 3,
+          "description": "Low-noise supply, side-channel hardened"
+        },
+        {
+          "ref": "U7",
+          "part": "ina228",
+          "qty": 2,
+          "description": "Power analysis attack detection"
+        },
+        {
+          "ref": "U8",
+          "part": "tmp117",
+          "qty": 2,
+          "description": "Thermal fault-injection detection"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_8l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 80
+        },
+        {
+          "ref": "C2",
+          "part": "cap_10u_0805",
+          "qty": 20
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 45
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eROT-400 Hardware Root of Trust",
+        "bus_v": 5,
+        "efficiency": 0.88,
+        "loads": [
+          [
+            "MAX32520 PUF processor",
+            0.22
+          ],
+          [
+            "SE050 secure element",
+            0.045
+          ],
+          [
+            "PolarFire crypto fabric",
+            1.35
+          ],
+          [
+            "TPM 2.0",
+            0.06
+          ],
+          [
+            "FRAM helper data",
+            0.016
+          ],
+          [
+            "Attack detection monitoring",
+            0.05
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "hardware_security_modules",
+      "taxonomy": "eHSM",
+      "title": "Hardware Security Modules",
+      "part": "eHSM-9000",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Network-attached key management HSM",
+        "standard": "FIPS 140-3 Level 4 / PCI HSM",
+        "ics": "XCZU3EG, MAX32520, SE050"
+      },
+      "overview": "Network-attached hardware security module performing key generation, storage and cryptographic operations inside a tamper-responsive boundary. Sustains 12000 ECDSA P-256 signatures per second with keys that provably never leave the enclosure in plaintext form.",
+      "specs": [
+        [
+          "Performance",
+          "12000 ECDSA P-256 sign/s, 45000 AES-256-GCM ops/s"
+        ],
+        [
+          "Key storage",
+          "8192 key slots, wrapped under a master key held in PUF"
+        ],
+        [
+          "Algorithms",
+          "RSA-4096, ECDSA/ECDH P-521, AES-256, SHA-3, HMAC"
+        ],
+        [
+          "Tamper response",
+          "Active mesh, zeroise in <50ms on breach"
+        ],
+        [
+          "Authentication",
+          "M-of-N quorum with smartcard operators"
+        ],
+        [
+          "Interfaces",
+          "Dual 10GbE, PKCS#11, KMIP 2.1, REST"
+        ],
+        [
+          "Certification target",
+          "FIPS 140-3 Level 4, PCI HSM v4"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "16"
+        ],
+        [
+          "Dimensions",
+          "300mm x 200mm (1U)"
+        ],
+        [
+          "IPC Class",
+          "Class 3"
+        ],
+        [
+          "Finish",
+          "ENIG, potted in opaque tamper-evident epoxy"
+        ],
+        [
+          "Security",
+          "6-layer active tamper mesh enclosing the crypto boundary"
+        ]
+      ],
+      "compliance": [
+        [
+          "FIPS 140-3 Level 4",
+          "Cryptographic module physical security"
+        ],
+        [
+          "PCI HSM v4",
+          "Payment card industry HSM requirements"
+        ],
+        [
+          "Common Criteria EAL4+",
+          "Security evaluation target"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "zynq_ultrascale",
+          "qty": 1,
+          "description": "Crypto acceleration and protocol MPSoC"
+        },
+        {
+          "ref": "U2",
+          "part": "max32520",
+          "qty": 2,
+          "description": "PUF master key custodian, redundant"
+        },
+        {
+          "ref": "U3",
+          "part": "se050",
+          "qty": 4,
+          "description": "Certified key storage element"
+        },
+        {
+          "ref": "U4",
+          "part": "optiga_slb9670",
+          "qty": 1,
+          "description": "TPM 2.0 platform attestation"
+        },
+        {
+          "ref": "U5",
+          "part": "lpddr4_4gb",
+          "qty": 2,
+          "description": "Session and key cache memory"
+        },
+        {
+          "ref": "U6",
+          "part": "emmc_64gb",
+          "qty": 2,
+          "description": "Wrapped key database storage"
+        },
+        {
+          "ref": "U7",
+          "part": "ad7124",
+          "qty": 2,
+          "description": "Tamper mesh integrity measurement"
+        },
+        {
+          "ref": "U8",
+          "part": "ina228",
+          "qty": 6,
+          "description": "Power analysis and glitch detection"
+        },
+        {
+          "ref": "U9",
+          "part": "tmp117",
+          "qty": 6,
+          "description": "Thermal attack detection"
+        },
+        {
+          "ref": "U10",
+          "part": "dp83867",
+          "qty": 2,
+          "description": "Gigabit management Ethernet"
+        },
+        {
+          "ref": "U11",
+          "part": "lt8640",
+          "qty": 8,
+          "description": "Point-of-load regulator"
+        },
+        {
+          "ref": "U12",
+          "part": "tps7a4701",
+          "qty": 6,
+          "description": "Low-noise crypto supply"
+        },
+        {
+          "ref": "BT1",
+          "part": "batt_coin_cr2032",
+          "qty": 2,
+          "description": "Tamper monitoring backup cell"
+        },
+        {
+          "ref": "J1",
+          "part": "sfp_cage",
+          "qty": 2,
+          "description": "10GbE service interface"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_12l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 280
+        },
+        {
+          "ref": "C2",
+          "part": "cap_47u_1210",
+          "qty": 34
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 150
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eHSM-9000 Network HSM",
+        "bus_v": 12,
+        "efficiency": 0.9,
+        "loads": [
+          [
+            "Zynq UltraScale+ crypto engine",
+            16.0
+          ],
+          [
+            "MAX32520 key custodian x2",
+            0.44
+          ],
+          [
+            "SE050 key storage x4",
+            0.18
+          ],
+          [
+            "LPDDR4 x2",
+            2.2
+          ],
+          [
+            "eMMC x2",
+            0.6
+          ],
+          [
+            "Tamper monitoring and detection",
+            0.55
+          ],
+          [
+            "10GbE SFP+ and management PHY",
+            2.9
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "tpm_modules",
+      "taxonomy": "eTPM",
+      "title": "TPM Modules",
+      "part": "eTPM-20",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Discrete TPM 2.0 pluggable modules",
+        "standard": "TCG TPM 2.0 / TCG PC Client",
+        "ics": "SLB9670, STM32U575"
+      },
+      "overview": "Discrete TPM 2.0 module in the standard pin-header form factors, providing measured boot, sealed storage and remote attestation for platforms whose SoC lacks a firmware TPM. Supplied in SPI and LPC variants so it drops into existing mainboard headers without redesign.",
+      "specs": [
+        [
+          "Specification",
+          "TCG TPM 2.0 Family 2.0 Level 00 Revision 1.59"
+        ],
+        [
+          "Interfaces",
+          "SPI (14-pin) and LPC (20-pin) variants"
+        ],
+        [
+          "PCR banks",
+          "SHA-1 and SHA-256, 24 PCRs each"
+        ],
+        [
+          "Key hierarchy",
+          "Endorsement, storage and platform hierarchies"
+        ],
+        [
+          "NV storage",
+          "8KB user non-volatile, 100k write endurance"
+        ],
+        [
+          "Algorithms",
+          "RSA-2048, ECC P-256, AES-128, SHA-256, HMAC"
+        ],
+        [
+          "Certification",
+          "TCG certified, Common Criteria EAL4+ chip"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "4"
+        ],
+        [
+          "Dimensions",
+          "32mm x 22mm"
+        ],
+        [
+          "IPC Class",
+          "Class 2"
+        ],
+        [
+          "Finish",
+          "ENIG"
+        ],
+        [
+          "Connector",
+          "2.54mm pin header, SPI 14-pin or LPC 20-pin"
+        ]
+      ],
+      "compliance": [
+        [
+          "TCG TPM 2.0 Library",
+          "Trusted platform module specification"
+        ],
+        [
+          "TCG PC Client Platform",
+          "Platform TPM profile"
+        ],
+        [
+          "Common Criteria EAL4+",
+          "Chip-level security evaluation"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "optiga_slb9670",
+          "qty": 1,
+          "description": "TPM 2.0 device"
+        },
+        {
+          "ref": "U2",
+          "part": "sti_stsafe",
+          "qty": 1,
+          "description": "Supply chain authentication element"
+        },
+        {
+          "ref": "U3",
+          "part": "tps62840",
+          "qty": 1,
+          "description": "1.8V core regulator"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_4l_std",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 8
+        },
+        {
+          "ref": "C2",
+          "part": "cap_1u_0402",
+          "qty": 4
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 6
+        },
+        {
+          "ref": "D1",
+          "part": "esd_usb",
+          "qty": 1,
+          "description": "Interface ESD protection"
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eTPM-20 Discrete TPM Module",
+        "bus_v": 3.3,
+        "efficiency": 0.9,
+        "loads": [
+          [
+            "SLB9670 TPM 2.0 active",
+            0.055
+          ],
+          [
+            "STSAFE authentication",
+            0.008
+          ],
+          [
+            "Regulator quiescent",
+            0.002
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "key_management",
+      "taxonomy": "eKeyManagement",
+      "title": "Key Management Appliances",
+      "part": "eKMS-3000",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Enterprise key lifecycle management",
+        "standard": "KMIP 2.1 / NIST SP 800-57",
+        "ics": "AM6254, SE050, SLB9670"
+      },
+      "overview": "Key management appliance handling generation, distribution, rotation and destruction across an enterprise fleet, speaking KMIP to storage arrays and PKCS#11 to applications. Key state is replicated across a quorum so no single appliance loss destroys material, which is the failure mode that makes teams avoid rotation.",
+      "specs": [
+        [
+          "Processor",
+          "TI AM6254 quad Cortex-A53"
+        ],
+        [
+          "Key capacity",
+          "1 million managed key objects"
+        ],
+        [
+          "Protocols",
+          "KMIP 2.1, PKCS#11, REST, Vault-compatible API"
+        ],
+        [
+          "Replication",
+          "Raft quorum across 3-7 appliances"
+        ],
+        [
+          "Key hierarchy",
+          "Master key in secure element, DEK/KEK envelope"
+        ],
+        [
+          "Audit",
+          "Append-only signed log, tamper-evident chain"
+        ],
+        [
+          "Rotation",
+          "Policy-driven automatic rotation with grace windows"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "10"
+        ],
+        [
+          "Dimensions",
+          "250mm x 180mm (1U)"
+        ],
+        [
+          "IPC Class",
+          "Class 2"
+        ],
+        [
+          "Finish",
+          "ENIG"
+        ],
+        [
+          "Security",
+          "Chassis intrusion switch wired to zeroise logic"
+        ]
+      ],
+      "compliance": [
+        [
+          "OASIS KMIP 2.1",
+          "Key management interoperability protocol"
+        ],
+        [
+          "NIST SP 800-57",
+          "Key management recommendations"
+        ],
+        [
+          "FIPS 140-3 Level 2",
+          "Cryptographic module security"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "am625",
+          "qty": 1,
+          "description": "Key management application processor"
+        },
+        {
+          "ref": "U2",
+          "part": "se050",
+          "qty": 2,
+          "description": "Master key secure element, redundant"
+        },
+        {
+          "ref": "U3",
+          "part": "optiga_slb9670",
+          "qty": 1,
+          "description": "TPM 2.0 platform attestation"
+        },
+        {
+          "ref": "U4",
+          "part": "ddr4_2gb",
+          "qty": 4,
+          "description": "Key object cache"
+        },
+        {
+          "ref": "U5",
+          "part": "emmc_64gb",
+          "qty": 2,
+          "description": "Encrypted key database"
+        },
+        {
+          "ref": "U6",
+          "part": "mr25h256",
+          "qty": 2,
+          "description": "Audit log chain anchor"
+        },
+        {
+          "ref": "U7",
+          "part": "dp83867",
+          "qty": 4,
+          "description": "Gigabit Ethernet PHY"
+        },
+        {
+          "ref": "U8",
+          "part": "lt8640",
+          "qty": 6,
+          "description": "Point-of-load regulator"
+        },
+        {
+          "ref": "U9",
+          "part": "ina228",
+          "qty": 4,
+          "description": "Rail telemetry"
+        },
+        {
+          "ref": "J1",
+          "part": "rj45_mag",
+          "qty": 4
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_8l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 160
+        },
+        {
+          "ref": "C2",
+          "part": "cap_47u_1210",
+          "qty": 22
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 95
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eKMS-3000 Key Management Appliance",
+        "bus_v": 12,
+        "efficiency": 0.89,
+        "loads": [
+          [
+            "AM6254 processor",
+            4.2
+          ],
+          [
+            "SE050 secure element x2",
+            0.09
+          ],
+          [
+            "DDR4 x4",
+            3.2
+          ],
+          [
+            "eMMC x2",
+            0.6
+          ],
+          [
+            "Gigabit Ethernet PHY x4",
+            1.8
+          ],
+          [
+            "TPM and MRAM",
+            0.12
+          ],
+          [
+            "Housekeeping",
+            0.45
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "post_quantum_crypto",
+      "taxonomy": "ePostQuantum",
+      "title": "Post-Quantum Cryptography Accelerators",
+      "part": "ePQC-500",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Lattice-based PQC hardware acceleration",
+        "standard": "FIPS 203/204/205",
+        "ics": "PolarFire MPF300, MAX32520"
+      },
+      "overview": "Post-quantum cryptography accelerator implementing ML-KEM and ML-DSA in FPGA fabric, sized for the large key and signature objects those schemes require. Supports hybrid classical-plus-PQC handshakes so deployment does not depend on the peer having migrated first.",
+      "specs": [
+        [
+          "Algorithms",
+          "ML-KEM-768/1024 (FIPS 203), ML-DSA-65/87 (FIPS 204)"
+        ],
+        [
+          "Hash-based signatures",
+          "SLH-DSA (FIPS 205) for firmware signing"
+        ],
+        [
+          "Performance",
+          "18000 ML-KEM-768 encapsulations/s"
+        ],
+        [
+          "Hybrid mode",
+          "X25519 + ML-KEM concurrent key agreement"
+        ],
+        [
+          "Key sizes",
+          "Handles 1568-byte ML-KEM and 4627-byte ML-DSA objects"
+        ],
+        [
+          "Side-channel",
+          "Constant-time lattice arithmetic, masked NTT"
+        ],
+        [
+          "Host interface",
+          "PCIe Gen2 x4 or 10GbE"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "12"
+        ],
+        [
+          "Dimensions",
+          "140mm x 100mm"
+        ],
+        [
+          "IPC Class",
+          "Class 2"
+        ],
+        [
+          "Finish",
+          "ENIG"
+        ],
+        [
+          "Stackup",
+          "Length-matched DDR4 and back-drilled PCIe"
+        ]
+      ],
+      "compliance": [
+        [
+          "FIPS 203",
+          "Module-lattice key encapsulation mechanism"
+        ],
+        [
+          "FIPS 204",
+          "Module-lattice digital signature algorithm"
+        ],
+        [
+          "NIST SP 800-227",
+          "Key encapsulation mechanism recommendations"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "polarfire_mpf300",
+          "qty": 1,
+          "description": "Lattice arithmetic accelerator fabric"
+        },
+        {
+          "ref": "U2",
+          "part": "max32520",
+          "qty": 1,
+          "description": "Key custodian and side-channel hardened control"
+        },
+        {
+          "ref": "U3",
+          "part": "ddr4_2gb",
+          "qty": 2,
+          "description": "Large PQC key object working memory"
+        },
+        {
+          "ref": "U4",
+          "part": "w25q128",
+          "qty": 2,
+          "description": "Bitstream storage"
+        },
+        {
+          "ref": "U5",
+          "part": "ksz9031",
+          "qty": 2,
+          "description": "Gigabit host interface"
+        },
+        {
+          "ref": "U6",
+          "part": "hmc7044",
+          "qty": 1,
+          "description": "Fabric clock generation"
+        },
+        {
+          "ref": "U7",
+          "part": "lt8640",
+          "qty": 6,
+          "description": "Point-of-load regulator"
+        },
+        {
+          "ref": "U8",
+          "part": "tps7a4701",
+          "qty": 4,
+          "description": "Low-noise supply, DPA hardened"
+        },
+        {
+          "ref": "U9",
+          "part": "ina228",
+          "qty": 4,
+          "description": "Power analysis detection"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_12l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 180
+        },
+        {
+          "ref": "C2",
+          "part": "cap_47u_1210",
+          "qty": 24
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 100
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "ePQC-500 Post-Quantum Accelerator",
+        "bus_v": 12,
+        "efficiency": 0.9,
+        "loads": [
+          [
+            "PolarFire lattice fabric",
+            6.8
+          ],
+          [
+            "MAX32520 key custodian",
+            0.22
+          ],
+          [
+            "DDR4 x2",
+            1.6
+          ],
+          [
+            "Gigabit Ethernet PHY x2",
+            0.9
+          ],
+          [
+            "Clock generation",
+            1.1
+          ],
+          [
+            "Side-channel monitoring",
+            0.3
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "zero_trust_gateways",
+      "taxonomy": "eZeroTrust",
+      "title": "Zero Trust Gateways",
+      "part": "eZTG-1000",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Identity-aware network enforcement",
+        "standard": "NIST SP 800-207 / IEC 62443",
+        "ics": "AM6254, SE050, DP83867"
+      },
+      "overview": "Zero trust network gateway enforcing per-session identity, device posture and policy before any traffic reaches a protected segment. Device posture is attested cryptographically rather than asserted, so a compromised endpoint cannot simply claim to be healthy.",
+      "specs": [
+        [
+          "Processor",
+          "TI AM6254 quad Cortex-A53 with crypto offload"
+        ],
+        [
+          "Throughput",
+          "4 Gbps inspected, 8 Gbps mTLS terminated"
+        ],
+        [
+          "Policy",
+          "Per-session identity, device posture and context evaluation"
+        ],
+        [
+          "Attestation",
+          "Remote attestation of endpoint TPM quotes"
+        ],
+        [
+          "Micro-segmentation",
+          "4096 enforced segments with default-deny"
+        ],
+        [
+          "Protocols",
+          "mTLS 1.3, WireGuard, IPsec, SPIFFE/SPIRE identity"
+        ],
+        [
+          "Logging",
+          "Per-flow decision log to signed append-only store"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "10"
+        ],
+        [
+          "Dimensions",
+          "220mm x 160mm"
+        ],
+        [
+          "IPC Class",
+          "Class 2"
+        ],
+        [
+          "Finish",
+          "ENIG"
+        ],
+        [
+          "Stackup",
+          "Impedance-controlled 100 ohm differential Ethernet"
+        ]
+      ],
+      "compliance": [
+        [
+          "NIST SP 800-207",
+          "Zero trust architecture"
+        ],
+        [
+          "IEC 62443-3-3",
+          "System security requirements"
+        ],
+        [
+          "FIPS 140-3 Level 2",
+          "Cryptographic module security"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "am625",
+          "qty": 1,
+          "description": "Policy enforcement processor"
+        },
+        {
+          "ref": "U2",
+          "part": "se050",
+          "qty": 1,
+          "description": "Gateway identity secure element"
+        },
+        {
+          "ref": "U3",
+          "part": "optiga_slb9670",
+          "qty": 1,
+          "description": "TPM 2.0 platform attestation"
+        },
+        {
+          "ref": "U4",
+          "part": "ddr4_2gb",
+          "qty": 4,
+          "description": "Flow table and session memory"
+        },
+        {
+          "ref": "U5",
+          "part": "emmc_64gb",
+          "qty": 1,
+          "description": "Policy and log storage"
+        },
+        {
+          "ref": "U6",
+          "part": "dp83867",
+          "qty": 4,
+          "description": "Gigabit Ethernet PHY"
+        },
+        {
+          "ref": "U7",
+          "part": "ksz8863",
+          "qty": 1,
+          "description": "Managed switch fabric"
+        },
+        {
+          "ref": "U8",
+          "part": "mr25h256",
+          "qty": 1,
+          "description": "Log chain anchor"
+        },
+        {
+          "ref": "U9",
+          "part": "lt8640",
+          "qty": 6,
+          "description": "Point-of-load regulator"
+        },
+        {
+          "ref": "J1",
+          "part": "sfp_cage",
+          "qty": 2
+        },
+        {
+          "ref": "J2",
+          "part": "rj45_mag",
+          "qty": 4
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_8l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 170
+        },
+        {
+          "ref": "C2",
+          "part": "cap_47u_1210",
+          "qty": 24
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 100
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eZTG-1000 Zero Trust Gateway",
+        "bus_v": 12,
+        "efficiency": 0.89,
+        "loads": [
+          [
+            "AM6254 enforcement processor",
+            4.2
+          ],
+          [
+            "DDR4 x4",
+            3.2
+          ],
+          [
+            "eMMC storage",
+            0.3
+          ],
+          [
+            "Gigabit Ethernet PHY x4",
+            1.8
+          ],
+          [
+            "Managed switch",
+            1.2
+          ],
+          [
+            "SFP+ modules x2",
+            2.0
+          ],
+          [
+            "Security elements and housekeeping",
+            0.5
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "ot_security",
+      "taxonomy": "eOTSecurity",
+      "title": "OT Security Appliances",
+      "part": "eOTS-800",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Industrial protocol inspection and segmentation",
+        "standard": "IEC 62443-3-3",
+        "ics": "AM6254, DP83867, ADM2587"
+      },
+      "overview": "Operational technology security appliance performing passive protocol inspection and enforced segmentation for industrial networks. Deep packet inspection covers Modbus, DNP3, IEC 61850 and PROFINET, and the default deployment is passive tap so introducing it cannot itself halt a process line.",
+      "specs": [
+        [
+          "Processor",
+          "TI AM6254 quad Cortex-A53"
+        ],
+        [
+          "Protocols",
+          "Modbus TCP/RTU, DNP3, IEC 61850 MMS/GOOSE, PROFINET, EtherNet/IP"
+        ],
+        [
+          "Deployment",
+          "Passive tap, inline bridge, or enforced segmentation"
+        ],
+        [
+          "Asset discovery",
+          "Passive fingerprinting of 6000 device profiles"
+        ],
+        [
+          "Anomaly detection",
+          "Baseline process behaviour, deviation alerting"
+        ],
+        [
+          "Throughput",
+          "2 Gbps inspected at line rate"
+        ],
+        [
+          "Environment",
+          "DIN rail, -40degC to +70degC, IEC 61850-3 target"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "10"
+        ],
+        [
+          "Dimensions",
+          "160mm x 110mm"
+        ],
+        [
+          "IPC Class",
+          "Class 3"
+        ],
+        [
+          "Finish",
+          "ENIG, conformal coated"
+        ],
+        [
+          "Isolation",
+          "Isolated serial field ports for surge survivability"
+        ]
+      ],
+      "compliance": [
+        [
+          "IEC 62443-3-3",
+          "System security requirements and security levels"
+        ],
+        [
+          "IEC 61850-3",
+          "Substation communication network robustness"
+        ],
+        [
+          "EN 61000-6-2",
+          "Industrial immunity"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "am625",
+          "qty": 1,
+          "description": "Protocol inspection processor"
+        },
+        {
+          "ref": "U2",
+          "part": "ddr4_2gb",
+          "qty": 2,
+          "description": "Flow and asset database memory"
+        },
+        {
+          "ref": "U3",
+          "part": "emmc_64gb",
+          "qty": 1,
+          "description": "Capture and baseline storage"
+        },
+        {
+          "ref": "U4",
+          "part": "dp83867",
+          "qty": 4,
+          "description": "Gigabit Ethernet PHY"
+        },
+        {
+          "ref": "U5",
+          "part": "ksz8863",
+          "qty": 1,
+          "description": "Tap and bridge switch fabric"
+        },
+        {
+          "ref": "U6",
+          "part": "adm2587",
+          "qty": 2,
+          "description": "Isolated RS-485 for Modbus RTU"
+        },
+        {
+          "ref": "U7",
+          "part": "adm3053",
+          "qty": 1,
+          "description": "Isolated CAN interface"
+        },
+        {
+          "ref": "U8",
+          "part": "optiga_slb9670",
+          "qty": 1,
+          "description": "TPM 2.0 secure boot"
+        },
+        {
+          "ref": "U9",
+          "part": "tps54360",
+          "qty": 4,
+          "description": "Wide-input buck regulator"
+        },
+        {
+          "ref": "J1",
+          "part": "rj45_mag",
+          "qty": 4
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_8l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "ENC1",
+          "part": "encl_din_rail",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 140
+        },
+        {
+          "ref": "C2",
+          "part": "cap_47u_1210",
+          "qty": 20
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 85
+        },
+        {
+          "ref": "D1",
+          "part": "tvs_smbj",
+          "qty": 10
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eOTS-800 OT Security Appliance",
+        "bus_v": 24,
+        "efficiency": 0.88,
+        "loads": [
+          [
+            "AM6254 inspection processor",
+            4.2
+          ],
+          [
+            "DDR4 x2",
+            1.6
+          ],
+          [
+            "eMMC storage",
+            0.3
+          ],
+          [
+            "Gigabit Ethernet PHY x4",
+            1.8
+          ],
+          [
+            "Switch fabric",
+            1.2
+          ],
+          [
+            "Isolated serial interfaces",
+            1.05
+          ],
+          [
+            "Housekeeping",
+            0.4
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "tamper_detection",
+      "taxonomy": "eTamperDetect",
+      "title": "Tamper Detection Subsystems",
+      "part": "eTD-300",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Enclosure and board-level tamper sensing",
+        "standard": "FIPS 140-3 Level 3",
+        "ics": "STM32U575, AD7124, FM24V10"
+      },
+      "overview": "Board-level tamper detection subsystem monitoring enclosure switches, light ingress, temperature excursion and supply glitching, with an event log that survives power loss. Distinct from the anti-tamper response subsystem: this detects and records, leaving the response policy to the protected system.",
+      "specs": [
+        [
+          "Sensors",
+          "Enclosure switch, ambient light, temperature, supply glitch, mesh"
+        ],
+        [
+          "Mesh monitoring",
+          "Resistance and capacitance, 0.1% deviation threshold"
+        ],
+        [
+          "Temperature window",
+          "Configurable, default -20degC to +85degC"
+        ],
+        [
+          "Response time",
+          "<5ms from event to logged and signalled"
+        ],
+        [
+          "Event log",
+          "FRAM, 4096 timestamped events, survives power loss"
+        ],
+        [
+          "Backup power",
+          "Coin cell, 10-year monitoring life"
+        ],
+        [
+          "Output",
+          "Open-drain alarm, I2C status, zeroise strobe"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "8"
+        ],
+        [
+          "Dimensions",
+          "75mm x 55mm"
+        ],
+        [
+          "IPC Class",
+          "Class 3"
+        ],
+        [
+          "Finish",
+          "ENIG"
+        ],
+        [
+          "Security",
+          "Mesh sense traces on layers 2 and 7"
+        ]
+      ],
+      "compliance": [
+        [
+          "FIPS 140-3 Level 3",
+          "Cryptographic module physical security"
+        ],
+        [
+          "IEC 62443-4-2",
+          "Component security requirements"
+        ],
+        [
+          "EN 50131 Grade 3",
+          "Alarm system tamper requirements"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "stm32u575",
+          "qty": 1,
+          "description": "Tamper monitoring supervisor"
+        },
+        {
+          "ref": "U2",
+          "part": "ad7124",
+          "qty": 1,
+          "description": "Mesh resistance and capacitance measurement"
+        },
+        {
+          "ref": "U3",
+          "part": "tmp117",
+          "qty": 2,
+          "description": "Temperature excursion detection"
+        },
+        {
+          "ref": "U4",
+          "part": "ina228",
+          "qty": 2,
+          "description": "Supply glitch detection"
+        },
+        {
+          "ref": "U5",
+          "part": "vl53l1x",
+          "qty": 1,
+          "description": "Enclosure opening and light ingress detection"
+        },
+        {
+          "ref": "U6",
+          "part": "fm24v10",
+          "qty": 1,
+          "description": "Tamper event log"
+        },
+        {
+          "ref": "U7",
+          "part": "atecc608b",
+          "qty": 1,
+          "description": "Event log signing key"
+        },
+        {
+          "ref": "U8",
+          "part": "tps62840",
+          "qty": 2,
+          "description": "60nA quiescent tamper-domain regulator"
+        },
+        {
+          "ref": "U9",
+          "part": "opa2188",
+          "qty": 2,
+          "description": "Mesh sense amplification"
+        },
+        {
+          "ref": "BT1",
+          "part": "batt_coin_cr2032",
+          "qty": 1
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_8l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 45
+        },
+        {
+          "ref": "C2",
+          "part": "cap_10u_0805",
+          "qty": 10
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 32
+        }
+      ],
+      "power": {
+        "kind": "duty",
+        "label": "eTD-300 Tamper Detection Subsystem",
+        "battery_mah": 225,
+        "battery_desc": "CR2032 backup cell",
+        "modes": [
+          [
+            "Armed monitoring on backup cell",
+            3.8e-06,
+            0.94
+          ],
+          [
+            "Mesh integrity sweep",
+            0.00185,
+            0.055
+          ],
+          [
+            "Event capture and log write",
+            0.014,
+            0.005
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "secure_elements",
+      "taxonomy": "eSecureElement",
+      "title": "Secure Element Modules",
+      "part": "eSE-100",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Pluggable authentication secure elements",
+        "standard": "Common Criteria EAL6+",
+        "ics": "SE050, ATECC608B, STSAFE-A110"
+      },
+      "overview": "Pluggable secure element carrier providing device authentication, secure key storage and attestation for products that cannot justify a full HSM. Three device options are pin-compatible on one carrier so a design can move up or down the cost and assurance curve without a board respin.",
+      "specs": [
+        [
+          "Device options",
+          "SE050 (EAL6+), ATECC608B, STSAFE-A110, pin-compatible"
+        ],
+        [
+          "Key storage",
+          "Up to 48 key slots depending on device fitted"
+        ],
+        [
+          "Algorithms",
+          "ECDSA/ECDH P-256, AES-128/256, SHA-256, HMAC"
+        ],
+        [
+          "Authentication",
+          "Mutual authentication with certificate chain validation"
+        ],
+        [
+          "Interface",
+          "I2C with shielded connection, up to 1MHz"
+        ],
+        [
+          "Provisioning",
+          "Factory-injected certificates or field provisioning"
+        ],
+        [
+          "Lifetime",
+          "25-year data retention, 400k write endurance"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "6"
+        ],
+        [
+          "Dimensions",
+          "30mm x 22mm"
+        ],
+        [
+          "IPC Class",
+          "Class 2"
+        ],
+        [
+          "Finish",
+          "ENIG"
+        ],
+        [
+          "Security",
+          "I2C shielded by guard traces tied to ground"
+        ]
+      ],
+      "compliance": [
+        [
+          "Common Criteria EAL6+",
+          "Secure element evaluation assurance"
+        ],
+        [
+          "FIPS 140-3 Level 3",
+          "Cryptographic module security"
+        ],
+        [
+          "IEC 62443-4-2",
+          "Component security requirements"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "se050",
+          "qty": 1,
+          "description": "Primary secure element, EAL6+"
+        },
+        {
+          "ref": "U2",
+          "part": "atecc608b",
+          "qty": 1,
+          "description": "Alternate cost-optimised element"
+        },
+        {
+          "ref": "U3",
+          "part": "sti_stsafe",
+          "qty": 1,
+          "description": "Alternate authentication element"
+        },
+        {
+          "ref": "U4",
+          "part": "tps62840",
+          "qty": 1,
+          "description": "Local regulator"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_6l_std",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 10
+        },
+        {
+          "ref": "C2",
+          "part": "cap_1u_0402",
+          "qty": 4
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 8
+        },
+        {
+          "ref": "D1",
+          "part": "esd_usb",
+          "qty": 1
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eSE-100 Secure Element Carrier",
+        "bus_v": 3.3,
+        "efficiency": 0.9,
+        "loads": [
+          [
+            "SE050 active crypto operation",
+            0.045
+          ],
+          [
+            "ATECC608B active",
+            0.014
+          ],
+          [
+            "STSAFE-A110 active",
+            0.008
+          ],
+          [
+            "Regulator quiescent",
+            0.001
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "attestation_appliances",
+      "taxonomy": "eAttestation",
+      "title": "Remote Attestation Appliances",
+      "part": "eATT-600",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Fleet attestation verification service",
+        "standard": "IETF RATS RFC 9334",
+        "ics": "AM6254, SLB9670, SE050"
+      },
+      "overview": "Attestation verifier appraising evidence from a device fleet against reference values and issuing signed attestation results. Implements the IETF RATS role split, so relying parties consume a short-lived result rather than parsing raw TPM quotes themselves.",
+      "specs": [
+        [
+          "Processor",
+          "TI AM6254 quad Cortex-A53"
+        ],
+        [
+          "Architecture",
+          "IETF RATS verifier role per RFC 9334"
+        ],
+        [
+          "Evidence formats",
+          "TPM 2.0 quotes, DICE certificates, ARM PSA tokens"
+        ],
+        [
+          "Throughput",
+          "6000 attestation appraisals per second"
+        ],
+        [
+          "Reference values",
+          "500k golden measurements, signed CoRIM import"
+        ],
+        [
+          "Result format",
+          "EAT (RFC 9711) signed attestation results"
+        ],
+        [
+          "Freshness",
+          "Nonce and epoch-based, configurable validity window"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "10"
+        ],
+        [
+          "Dimensions",
+          "220mm x 160mm (1U)"
+        ],
+        [
+          "IPC Class",
+          "Class 2"
+        ],
+        [
+          "Finish",
+          "ENIG"
+        ],
+        [
+          "Security",
+          "Signing key confined to secure element, never in DRAM"
+        ]
+      ],
+      "compliance": [
+        [
+          "IETF RFC 9334",
+          "Remote attestation procedures architecture"
+        ],
+        [
+          "IETF RFC 9711",
+          "Entity attestation token"
+        ],
+        [
+          "FIPS 140-3 Level 2",
+          "Cryptographic module security"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "am625",
+          "qty": 1,
+          "description": "Attestation appraisal processor"
+        },
+        {
+          "ref": "U2",
+          "part": "se050",
+          "qty": 2,
+          "description": "Attestation result signing key store"
+        },
+        {
+          "ref": "U3",
+          "part": "optiga_slb9670",
+          "qty": 1,
+          "description": "TPM 2.0 verifier self-attestation"
+        },
+        {
+          "ref": "U4",
+          "part": "ddr4_2gb",
+          "qty": 4,
+          "description": "Reference value database memory"
+        },
+        {
+          "ref": "U5",
+          "part": "emmc_64gb",
+          "qty": 2,
+          "description": "Reference value and appraisal log storage"
+        },
+        {
+          "ref": "U6",
+          "part": "mr25h256",
+          "qty": 1,
+          "description": "Epoch counter and log anchor"
+        },
+        {
+          "ref": "U7",
+          "part": "dp83867",
+          "qty": 2,
+          "description": "Gigabit Ethernet PHY"
+        },
+        {
+          "ref": "U8",
+          "part": "lt8640",
+          "qty": 6,
+          "description": "Point-of-load regulator"
+        },
+        {
+          "ref": "U9",
+          "part": "ina228",
+          "qty": 3,
+          "description": "Rail telemetry"
+        },
+        {
+          "ref": "J1",
+          "part": "rj45_mag",
+          "qty": 2
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_8l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 150
+        },
+        {
+          "ref": "C2",
+          "part": "cap_47u_1210",
+          "qty": 20
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 90
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eATT-600 Attestation Verifier",
+        "bus_v": 12,
+        "efficiency": 0.89,
+        "loads": [
+          [
+            "AM6254 appraisal processor",
+            4.2
+          ],
+          [
+            "SE050 signing element x2",
+            0.09
+          ],
+          [
+            "DDR4 x4",
+            3.2
+          ],
+          [
+            "eMMC x2",
+            0.6
+          ],
+          [
+            "Gigabit Ethernet PHY x2",
+            0.9
+          ],
+          [
+            "TPM and housekeeping",
+            0.4
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "forensic_appliances",
+      "taxonomy": "eForensics",
+      "title": "Digital Forensic Appliances",
+      "part": "eFOR-900",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Write-blocked acquisition and imaging",
+        "standard": "NIST SP 800-86 / ISO 27037",
+        "ics": "AM6254, USB3343, SLB9670"
+      },
+      "overview": "Forensic acquisition appliance imaging storage media through a hardware write blocker, computing hashes inline so integrity is established during capture rather than afterwards. The write block is enforced in hardware on the bus, not by driver configuration, which is what makes the resulting image defensible.",
+      "specs": [
+        [
+          "Processor",
+          "TI AM6254 quad Cortex-A53"
+        ],
+        [
+          "Write blocking",
+          "Hardware-enforced on SATA, NVMe, USB and SAS"
+        ],
+        [
+          "Acquisition rate",
+          "480 MB/s sustained to E01 or raw image"
+        ],
+        [
+          "Hashing",
+          "Concurrent MD5, SHA-1 and SHA-256 during capture"
+        ],
+        [
+          "Chain of custody",
+          "Signed acquisition log with operator identity"
+        ],
+        [
+          "Formats",
+          "Raw dd, EWF/E01, AFF4"
+        ],
+        [
+          "Verification",
+          "Post-acquisition re-read and hash comparison"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "12"
+        ],
+        [
+          "Dimensions",
+          "240mm x 180mm"
+        ],
+        [
+          "IPC Class",
+          "Class 2"
+        ],
+        [
+          "Finish",
+          "ENIG"
+        ],
+        [
+          "Security",
+          "Write-block logic in fabric, no firmware bypass path"
+        ]
+      ],
+      "compliance": [
+        [
+          "NIST SP 800-86",
+          "Integrating forensic techniques into incident response"
+        ],
+        [
+          "ISO/IEC 27037",
+          "Identification, collection and preservation of evidence"
+        ],
+        [
+          "NIST CFTT",
+          "Hardware write blocker tool requirements"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "am625",
+          "qty": 1,
+          "description": "Acquisition and hashing processor"
+        },
+        {
+          "ref": "U2",
+          "part": "artix7_35t",
+          "qty": 1,
+          "description": "Hardware write-block enforcement fabric"
+        },
+        {
+          "ref": "U3",
+          "part": "ddr4_2gb",
+          "qty": 4,
+          "description": "Acquisition buffer memory"
+        },
+        {
+          "ref": "U4",
+          "part": "emmc_64gb",
+          "qty": 2,
+          "description": "Case metadata and log storage"
+        },
+        {
+          "ref": "U5",
+          "part": "usb3343",
+          "qty": 4,
+          "description": "USB 3.0 acquisition port transceiver"
+        },
+        {
+          "ref": "U6",
+          "part": "optiga_slb9670",
+          "qty": 1,
+          "description": "TPM 2.0 log signing anchor"
+        },
+        {
+          "ref": "U7",
+          "part": "se050",
+          "qty": 1,
+          "description": "Operator identity and log signing"
+        },
+        {
+          "ref": "U8",
+          "part": "dp83867",
+          "qty": 2,
+          "description": "Gigabit Ethernet for network acquisition"
+        },
+        {
+          "ref": "U9",
+          "part": "lcd_ips_5in",
+          "qty": 1,
+          "description": "Operator console display"
+        },
+        {
+          "ref": "U10",
+          "part": "lt8640",
+          "qty": 6,
+          "description": "Point-of-load regulator"
+        },
+        {
+          "ref": "J1",
+          "part": "usbc_recept",
+          "qty": 4
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_12l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 190
+        },
+        {
+          "ref": "C2",
+          "part": "cap_47u_1210",
+          "qty": 26
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 105
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eFOR-900 Forensic Acquisition Appliance",
+        "bus_v": 12,
+        "efficiency": 0.89,
+        "loads": [
+          [
+            "AM6254 acquisition processor",
+            4.2
+          ],
+          [
+            "Artix-7 write-block fabric",
+            0.95
+          ],
+          [
+            "DDR4 x4",
+            3.2
+          ],
+          [
+            "eMMC x2",
+            0.6
+          ],
+          [
+            "USB 3.0 transceiver x4",
+            1.6
+          ],
+          [
+            "Gigabit Ethernet PHY x2",
+            0.9
+          ],
+          [
+            "Operator display",
+            1.8
+          ],
+          [
+            "Target media power",
+            6.0
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "supply_chain_trust",
+      "taxonomy": "eSupplyChainTrust",
+      "title": "Supply Chain Trust Systems",
+      "part": "eSCT-700",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Component provenance and counterfeit detection",
+        "standard": "SAE AS6081 / NIST SP 800-161",
+        "ics": "AM6254, MLX90640, ATECC608B"
+      },
+      "overview": "Supply chain trust station verifying component provenance at goods-in, combining cryptographic authentication of parts that support it with X-ray and thermal signature comparison for those that do not. Counterfeit detection matters most for the legacy parts that carry no secure element at all.",
+      "specs": [
+        [
+          "Processor",
+          "TI AM6254 quad Cortex-A53"
+        ],
+        [
+          "Cryptographic check",
+          "Challenge-response for parts with a secure element"
+        ],
+        [
+          "Thermal signature",
+          "MLX90640 thermal profile comparison under load"
+        ],
+        [
+          "Optical inspection",
+          "Die marking and package surface comparison"
+        ],
+        [
+          "Provenance record",
+          "Signed SBOM/HBOM entry per verified lot"
+        ],
+        [
+          "Throughput",
+          "240 components per hour for full verification"
+        ],
+        [
+          "Database",
+          "Reference signatures for 40000 part numbers"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "10"
+        ],
+        [
+          "Dimensions",
+          "200mm x 160mm"
+        ],
+        [
+          "IPC Class",
+          "Class 2"
+        ],
+        [
+          "Finish",
+          "ENIG"
+        ],
+        [
+          "Stackup",
+          "Isolated device-under-test power domain"
+        ]
+      ],
+      "compliance": [
+        [
+          "SAE AS6081",
+          "Counterfeit electronic parts avoidance"
+        ],
+        [
+          "NIST SP 800-161",
+          "Cybersecurity supply chain risk management"
+        ],
+        [
+          "IEC 62443-4-1",
+          "Secure product development lifecycle"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "am625",
+          "qty": 1,
+          "description": "Verification station processor"
+        },
+        {
+          "ref": "U2",
+          "part": "mlx90640",
+          "qty": 2,
+          "description": "Thermal signature imaging array"
+        },
+        {
+          "ref": "U3",
+          "part": "ar0234",
+          "qty": 2,
+          "description": "Optical die marking inspection"
+        },
+        {
+          "ref": "U4",
+          "part": "atecc608b",
+          "qty": 1,
+          "description": "Station identity and record signing"
+        },
+        {
+          "ref": "U5",
+          "part": "se050",
+          "qty": 1,
+          "description": "Provenance record signing key"
+        },
+        {
+          "ref": "U6",
+          "part": "ads8688",
+          "qty": 2,
+          "description": "Device-under-test electrical characterisation"
+        },
+        {
+          "ref": "U7",
+          "part": "ddr4_2gb",
+          "qty": 2,
+          "description": "Signature database working memory"
+        },
+        {
+          "ref": "U8",
+          "part": "emmc_64gb",
+          "qty": 2,
+          "description": "Reference signature and record storage"
+        },
+        {
+          "ref": "U9",
+          "part": "dp83867",
+          "qty": 1,
+          "description": "Gigabit Ethernet"
+        },
+        {
+          "ref": "U10",
+          "part": "lcd_ips_5in",
+          "qty": 1,
+          "description": "Operator console"
+        },
+        {
+          "ref": "U11",
+          "part": "tps54360",
+          "qty": 5,
+          "description": "Primary and DUT supply regulation"
+        },
+        {
+          "ref": "U12",
+          "part": "ina228",
+          "qty": 4,
+          "description": "DUT current signature measurement"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_8l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 160
+        },
+        {
+          "ref": "C2",
+          "part": "cap_10u_0805",
+          "qty": 36
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 95
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eSCT-700 Supply Chain Verification Station",
+        "bus_v": 24,
+        "efficiency": 0.88,
+        "loads": [
+          [
+            "AM6254 station processor",
+            4.2
+          ],
+          [
+            "MLX90640 thermal array x2",
+            0.36
+          ],
+          [
+            "Optical inspection camera x2",
+            1.6
+          ],
+          [
+            "ADS8688 characterisation x2",
+            0.66
+          ],
+          [
+            "DDR4 x2",
+            1.6
+          ],
+          [
+            "Operator display",
+            1.8
+          ],
+          [
+            "DUT test power budget",
+            5.0
+          ]
+        ]
+      }
+    }
+  ]
+}

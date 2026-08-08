@@ -1,0 +1,1524 @@
+{
+  "_comment": [
+    "Frontier / research. New division; division-level documents generated here.",
+    "These are research-stage designs. Several depend on components that are not",
+    "commercially available as catalogue parts and are modelled as EmbeddedOS",
+    "custom items -- their cost figures are the least certain in the library."
+  ],
+  "division": "eFrontier_CAD_Design",
+  "division_docs": {
+    "title": "eFrontier CAD Design",
+    "blurb": "EmbeddedOS frontier research hardware — quantum control, photonics, nanotechnology, neuromorphic compute, bioelectronics, space robotics and swarm systems.",
+    "market": "Frontier hardware rarely sells on volume; it sells on being the only platform that closes a research loop. EmbeddedOS targets the control and instrumentation layer, where a general-purpose embedded stack replaces the bespoke FPGA firmware most laboratories otherwise maintain themselves.",
+    "segments": [
+      [
+        "Quantum control electronics",
+        "$4.2B",
+        "1.5%"
+      ],
+      [
+        "Integrated photonics instrumentation",
+        "$8B",
+        "0.8%"
+      ],
+      [
+        "Neuromorphic compute",
+        "$3B",
+        "1.2%"
+      ],
+      [
+        "Space robotics",
+        "$6B",
+        "0.9%"
+      ]
+    ],
+    "revenue": [
+      "Instrument licensing to research institutions and national laboratories",
+      "eOS real-time control stack licensing for quantum and photonic platforms",
+      "Co-development contracts with academic and government programmes",
+      "Long-term support agreements tied to multi-year research grants"
+    ],
+    "certifications": [
+      [
+        "Quantum control electronics",
+        "CE / EN 61010-1",
+        "Notified body",
+        "9 months"
+      ],
+      [
+        "Photonics instrumentation",
+        "IEC 60825-1 laser safety",
+        "Notified body",
+        "12 months"
+      ],
+      [
+        "Bioelectronics research platform",
+        "ISO 10993 biocompatibility",
+        "Notified body",
+        "18 months"
+      ],
+      [
+        "Space robotics controller",
+        "ECSS-Q-ST-60C",
+        "ESA",
+        "24 months"
+      ]
+    ],
+    "standards": [
+      [
+        "IEC 60825-1",
+        "Safety of laser products, applies to all photonic designs"
+      ],
+      [
+        "EN 61010-1",
+        "Safety requirements for laboratory measurement equipment"
+      ],
+      [
+        "ISO 10993",
+        "Biological evaluation of medical and bioelectronic devices"
+      ],
+      [
+        "ECSS-Q-ST-60C",
+        "Space product assurance for EEE components"
+      ]
+    ]
+  },
+  "products": [
+    {
+      "slug": "quantum_control",
+      "taxonomy": "eQuantum",
+      "title": "Quantum Control Electronics",
+      "part": "eQC-1000",
+      "revision": "v1.0",
+      "status": "Research",
+      "readme": {
+        "category": "Qubit control and readout electronics",
+        "standard": "EN 61010-1",
+        "sim": "Power budget and thermal load",
+        "eos": "eOS real-time control"
+      },
+      "overview": "Room-temperature qubit control and readout electronics generating shaped microwave pulses and digitising dispersive readout for superconducting and trapped-ion platforms. Phase coherence across channels is the binding constraint, so every output shares one clock tree rather than being synchronised in software.",
+      "specs": [
+        [
+          "Control channels",
+          "16 arbitrary waveform outputs, 1 GSPS, 16-bit"
+        ],
+        [
+          "Readout channels",
+          "8 digitiser inputs, 500 MSPS, 16-bit"
+        ],
+        [
+          "Phase coherence",
+          "<5 ps RMS skew across all channels"
+        ],
+        [
+          "Pulse shaping",
+          "DRAG and derivative-corrected envelopes in fabric"
+        ],
+        [
+          "Latency",
+          "<200 ns feedback from readout to conditional pulse"
+        ],
+        [
+          "Frequency range",
+          "DC-8 GHz with external upconversion"
+        ],
+        [
+          "Cryostat interface",
+          "Thermally anchored coax, 4K stage compatible"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "16"
+        ],
+        [
+          "Dimensions",
+          "280mm x 200mm"
+        ],
+        [
+          "IPC Class",
+          "Class 3"
+        ],
+        [
+          "Finish",
+          "ENIG with RF shielding cans"
+        ],
+        [
+          "Stackup",
+          "Rogers RO4350B RF layers, phase-matched channel routing"
+        ]
+      ],
+      "compliance": [
+        [
+          "EN 61010-1",
+          "Laboratory measurement equipment safety"
+        ],
+        [
+          "EN 55032 Class A",
+          "Emissions for commercial environments"
+        ],
+        [
+          "EN 61326-1",
+          "EMC for measurement and control equipment"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "zynq_ultrascale",
+          "qty": 1,
+          "description": "Pulse sequencing and feedback MPSoC"
+        },
+        {
+          "ref": "U2",
+          "part": "ad9265",
+          "qty": 8,
+          "description": "Dispersive readout digitiser"
+        },
+        {
+          "ref": "U3",
+          "part": "dac8560",
+          "qty": 16,
+          "description": "Arbitrary waveform output stage"
+        },
+        {
+          "ref": "U4",
+          "part": "hmc7044",
+          "qty": 2,
+          "description": "Phase-coherent clock distribution"
+        },
+        {
+          "ref": "U5",
+          "part": "lmx2594",
+          "qty": 4,
+          "description": "Microwave LO synthesiser"
+        },
+        {
+          "ref": "U6",
+          "part": "ocxo_10mhz",
+          "qty": 1,
+          "description": "Master frequency reference"
+        },
+        {
+          "ref": "U7",
+          "part": "lpddr4_4gb",
+          "qty": 4,
+          "description": "Waveform and trace memory"
+        },
+        {
+          "ref": "U8",
+          "part": "tps7a4701",
+          "qty": 12,
+          "description": "Ultra-low-noise analogue supply"
+        },
+        {
+          "ref": "U9",
+          "part": "lt8640",
+          "qty": 8,
+          "description": "Point-of-load regulator"
+        },
+        {
+          "ref": "U10",
+          "part": "tmp117",
+          "qty": 8,
+          "description": "Thermal drift compensation"
+        },
+        {
+          "ref": "J1",
+          "part": "sma_edge",
+          "qty": 24,
+          "description": "Control and readout RF ports"
+        },
+        {
+          "ref": "J2",
+          "part": "sfp_cage",
+          "qty": 2,
+          "description": "Host data interface"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_rf_rogers",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 380
+        },
+        {
+          "ref": "C2",
+          "part": "cap_10u_0805",
+          "qty": 80
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 190
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eQC-1000 Quantum Control System",
+        "bus_v": 12,
+        "efficiency": 0.88,
+        "loads": [
+          [
+            "Zynq UltraScale+ sequencer",
+            18.0
+          ],
+          [
+            "AD9265 readout digitiser x8",
+            9.6
+          ],
+          [
+            "Arbitrary waveform output x16",
+            4.8
+          ],
+          [
+            "HMC7044 clock tree x2",
+            2.2
+          ],
+          [
+            "LMX2594 synthesiser x4",
+            2.8
+          ],
+          [
+            "10MHz OCXO reference",
+            1.8
+          ],
+          [
+            "LPDDR4 x4",
+            4.4
+          ],
+          [
+            "Low-noise analogue supplies",
+            3.6
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "photonics",
+      "taxonomy": "ePhotonics",
+      "title": "Integrated Photonics Platforms",
+      "part": "ePHO-800",
+      "revision": "v1.0",
+      "status": "Research",
+      "readme": {
+        "category": "Photonic integrated circuit control and readout",
+        "standard": "IEC 60825-1",
+        "sim": "Power and thermal budget",
+        "eos": "eOS photonics control"
+      },
+      "overview": "Control and readout platform for photonic integrated circuits, driving lasers and electro-optic modulators while stabilising die temperature to millikelvin precision. Thermal stability dominates: a photonic resonator drifts roughly 10 GHz per kelvin, so the TEC loop is the real instrument.",
+      "specs": [
+        [
+          "Laser sources",
+          "4x 1550nm DFB, 40mW, individually TEC-stabilised"
+        ],
+        [
+          "Temperature stability",
+          "+/-0.002degC at the photonic die"
+        ],
+        [
+          "Modulation",
+          "10 GHz lithium niobate electro-optic modulator drive"
+        ],
+        [
+          "Detection",
+          "8-channel InGaAs APD with 5.5GHz transimpedance"
+        ],
+        [
+          "Wavelength control",
+          "Closed-loop to +/-1 pm via cavity feedback"
+        ],
+        [
+          "Optical power",
+          "Monitored per channel, interlocked to IEC 60825-1 Class 1"
+        ],
+        [
+          "Interfaces",
+          "10GbE data, USB control, external clock input"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "14"
+        ],
+        [
+          "Dimensions",
+          "220mm x 180mm"
+        ],
+        [
+          "IPC Class",
+          "Class 3"
+        ],
+        [
+          "Finish",
+          "ENIG"
+        ],
+        [
+          "Thermal",
+          "Isolated TEC island with guarded sense routing"
+        ]
+      ],
+      "compliance": [
+        [
+          "IEC 60825-1",
+          "Laser product safety classification and interlocks"
+        ],
+        [
+          "EN 61010-1",
+          "Laboratory equipment safety"
+        ],
+        [
+          "EN 61326-1",
+          "EMC for measurement and control equipment"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "zynq7020",
+          "qty": 1,
+          "description": "Photonics control and feedback processor"
+        },
+        {
+          "ref": "LD1",
+          "part": "dfb_laser_1550",
+          "qty": 4,
+          "description": "1550nm DFB laser source"
+        },
+        {
+          "ref": "U2",
+          "part": "ldd_ichg",
+          "qty": 2,
+          "description": "Laser diode current driver"
+        },
+        {
+          "ref": "U3",
+          "part": "max1978",
+          "qty": 4,
+          "description": "TEC controller for laser and die stabilisation"
+        },
+        {
+          "ref": "MOD1",
+          "part": "eo_modulator",
+          "qty": 2,
+          "description": "Lithium niobate electro-optic modulator"
+        },
+        {
+          "ref": "PD1",
+          "part": "apd_c30659",
+          "qty": 8,
+          "description": "InGaAs avalanche photodiode detector"
+        },
+        {
+          "ref": "U4",
+          "part": "opa858",
+          "qty": 8,
+          "description": "High-speed transimpedance amplifier"
+        },
+        {
+          "ref": "U5",
+          "part": "ad7124",
+          "qty": 4,
+          "description": "Precision thermistor and photocurrent measurement"
+        },
+        {
+          "ref": "U6",
+          "part": "dac8560",
+          "qty": 8,
+          "description": "Laser bias and modulator setpoint"
+        },
+        {
+          "ref": "U7",
+          "part": "ksz9031",
+          "qty": 2,
+          "description": "Gigabit data interface"
+        },
+        {
+          "ref": "U8",
+          "part": "tps7a4701",
+          "qty": 8,
+          "description": "Ultra-low-noise laser supply"
+        },
+        {
+          "ref": "U9",
+          "part": "lt8640",
+          "qty": 6,
+          "description": "Point-of-load regulator"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_rf_rogers",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 220
+        },
+        {
+          "ref": "C2",
+          "part": "cap_10u_0805",
+          "qty": 50
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 120
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "ePHO-800 Photonics Control Platform",
+        "bus_v": 12,
+        "efficiency": 0.88,
+        "loads": [
+          [
+            "Zynq-7020 control processor",
+            4.5
+          ],
+          [
+            "DFB laser drive x4",
+            6.4
+          ],
+          [
+            "TEC controller x4 (steady state)",
+            12.0
+          ],
+          [
+            "Electro-optic modulator drive x2",
+            3.2
+          ],
+          [
+            "APD bias and TIA x8",
+            2.4
+          ],
+          [
+            "Precision measurement chain",
+            0.72
+          ],
+          [
+            "Ethernet and housekeeping",
+            1.35
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "nanotechnology",
+      "taxonomy": "eNanotech",
+      "title": "Nanotechnology Instrumentation",
+      "part": "eNANO-600",
+      "revision": "v1.0",
+      "status": "Research",
+      "readme": {
+        "category": "Scanning probe and nanopositioning control",
+        "standard": "EN 61010-1",
+        "sim": "Power budget",
+        "eos": "eOS motion control"
+      },
+      "overview": "Scanning probe microscope controller driving piezo nanopositioners and closing the feedback loop on tip deflection at 200 kHz. Sub-nanometre positioning is limited by drive amplifier noise, so the high-voltage stage carries the tightest noise budget in the design.",
+      "specs": [
+        [
+          "Positioning",
+          "3-axis piezo, 100um range, 0.2 nm resolution"
+        ],
+        [
+          "Drive amplifier",
+          "220V high-voltage, <8 uV/rtHz output noise"
+        ],
+        [
+          "Feedback rate",
+          "200 kHz tip deflection control loop"
+        ],
+        [
+          "Detection",
+          "Optical lever with quadrant photodiode, 24-bit acquisition"
+        ],
+        [
+          "Scan modes",
+          "Contact, tapping, non-contact and force spectroscopy"
+        ],
+        [
+          "Drift",
+          "<0.05 nm/min thermal drift after settling"
+        ],
+        [
+          "Environment",
+          "Vibration-isolated, optional vacuum compatibility"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "12"
+        ],
+        [
+          "Dimensions",
+          "200mm x 160mm"
+        ],
+        [
+          "IPC Class",
+          "Class 3"
+        ],
+        [
+          "Finish",
+          "ENIG"
+        ],
+        [
+          "Stackup",
+          "Guarded high-voltage section, 4mm creepage to logic"
+        ]
+      ],
+      "compliance": [
+        [
+          "EN 61010-1",
+          "Laboratory equipment safety, high-voltage sections"
+        ],
+        [
+          "EN 61326-1",
+          "EMC for measurement and control equipment"
+        ],
+        [
+          "EN 55032 Class A",
+          "Emissions"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "zynq7020",
+          "qty": 1,
+          "description": "Scan control and feedback processor"
+        },
+        {
+          "ref": "U2",
+          "part": "piezo_driver",
+          "qty": 6,
+          "description": "220V precision piezo drive amplifier"
+        },
+        {
+          "ref": "U3",
+          "part": "ad7124",
+          "qty": 4,
+          "description": "24-bit deflection and position acquisition"
+        },
+        {
+          "ref": "U4",
+          "part": "ads131m08",
+          "qty": 2,
+          "description": "Quadrant photodiode simultaneous acquisition"
+        },
+        {
+          "ref": "U5",
+          "part": "dac8560",
+          "qty": 6,
+          "description": "Piezo setpoint generation"
+        },
+        {
+          "ref": "U6",
+          "part": "opa2188",
+          "qty": 8,
+          "description": "Zero-drift preamplifier stage"
+        },
+        {
+          "ref": "U7",
+          "part": "ina849",
+          "qty": 4,
+          "description": "Low-noise instrumentation amplifier"
+        },
+        {
+          "ref": "U8",
+          "part": "tmp117",
+          "qty": 6,
+          "description": "Thermal drift compensation"
+        },
+        {
+          "ref": "U9",
+          "part": "tps7a4701",
+          "qty": 8,
+          "description": "Ultra-low-noise analogue supply"
+        },
+        {
+          "ref": "U10",
+          "part": "lt8640",
+          "qty": 4,
+          "description": "Point-of-load regulator"
+        },
+        {
+          "ref": "U11",
+          "part": "ksz9031",
+          "qty": 1,
+          "description": "Gigabit data interface"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_12l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 190
+        },
+        {
+          "ref": "C2",
+          "part": "cap_10u_0805",
+          "qty": 44
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 110
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eNANO-600 Scanning Probe Controller",
+        "bus_v": 24,
+        "efficiency": 0.86,
+        "loads": [
+          [
+            "Zynq-7020 scan processor",
+            4.5
+          ],
+          [
+            "Piezo drive amplifier x6",
+            7.2
+          ],
+          [
+            "24-bit acquisition chain",
+            0.98
+          ],
+          [
+            "Preamplifier and instrumentation stage",
+            1.16
+          ],
+          [
+            "Low-noise analogue supplies",
+            2.4
+          ],
+          [
+            "Ethernet and housekeeping",
+            0.85
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "neuromorphic",
+      "taxonomy": "eNeuromorphic",
+      "title": "Neuromorphic Computing Platforms",
+      "part": "eNEU-400",
+      "revision": "v1.0",
+      "status": "Research",
+      "readme": {
+        "category": "Spiking neural network compute",
+        "standard": "CE / FCC Part 15B",
+        "sim": "Power budget",
+        "eos": "eOS spiking runtime"
+      },
+      "overview": "Spiking neural network platform pairing a neuromorphic ASIC with an event-based vision sensor interface, targeting always-on perception at milliwatt power. The efficiency argument only holds for genuinely sparse, event-driven workloads; dense frame-based inference remains better served by a conventional NPU.",
+      "specs": [
+        [
+          "Neuromorphic core",
+          "256k spiking neurons, 64M synapses"
+        ],
+        [
+          "Event throughput",
+          "180M synaptic operations per second"
+        ],
+        [
+          "Energy per synaptic op",
+          "~24 pJ at nominal supply"
+        ],
+        [
+          "Learning",
+          "On-chip STDP and three-factor local learning rules"
+        ],
+        [
+          "Sensor interface",
+          "Event-based vision sensor input, AER protocol"
+        ],
+        [
+          "Host interface",
+          "1GbE and USB 3.0"
+        ],
+        [
+          "Power envelope",
+          "1.8W typical for always-on perception"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "12"
+        ],
+        [
+          "Dimensions",
+          "120mm x 100mm"
+        ],
+        [
+          "IPC Class",
+          "Class 2"
+        ],
+        [
+          "Finish",
+          "ENIG"
+        ],
+        [
+          "Stackup",
+          "Length-matched AER event bus routing"
+        ]
+      ],
+      "compliance": [
+        [
+          "FCC Part 15 Subpart B",
+          "Unintentional radiator emissions"
+        ],
+        [
+          "EN 55032 Class B",
+          "Emissions"
+        ],
+        [
+          "IEC 62368-1",
+          "Equipment safety"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "loihi_class_npu",
+          "qty": 1,
+          "description": "Spiking neural network processor"
+        },
+        {
+          "ref": "U2",
+          "part": "imxrt1064",
+          "qty": 1,
+          "description": "Host bridge and event routing MCU"
+        },
+        {
+          "ref": "U3",
+          "part": "ice40up5k",
+          "qty": 1,
+          "description": "AER event bus arbitration"
+        },
+        {
+          "ref": "U4",
+          "part": "ddr4_2gb",
+          "qty": 1,
+          "description": "Synaptic weight storage"
+        },
+        {
+          "ref": "U5",
+          "part": "w25q128",
+          "qty": 2,
+          "description": "Network topology and configuration"
+        },
+        {
+          "ref": "U6",
+          "part": "ksz9031",
+          "qty": 1,
+          "description": "Gigabit host interface"
+        },
+        {
+          "ref": "U7",
+          "part": "usb3343",
+          "qty": 1,
+          "description": "USB 3.0 transceiver"
+        },
+        {
+          "ref": "U8",
+          "part": "tps62840",
+          "qty": 6,
+          "description": "Low-Iq point-of-load regulator"
+        },
+        {
+          "ref": "U9",
+          "part": "ina228",
+          "qty": 4,
+          "description": "Per-domain energy measurement"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_12l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 140
+        },
+        {
+          "ref": "C2",
+          "part": "cap_10u_0805",
+          "qty": 30
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 80
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eNEU-400 Neuromorphic Platform",
+        "bus_v": 5,
+        "efficiency": 0.9,
+        "loads": [
+          [
+            "Neuromorphic ASIC (always-on perception)",
+            0.42
+          ],
+          [
+            "i.MX RT1064 host bridge",
+            0.35
+          ],
+          [
+            "iCE40 AER arbitration",
+            0.18
+          ],
+          [
+            "DDR4 weight storage",
+            0.8
+          ],
+          [
+            "Gigabit Ethernet PHY",
+            0.45
+          ],
+          [
+            "USB 3.0 transceiver",
+            0.4
+          ],
+          [
+            "Energy measurement",
+            0.05
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "bioelectronics",
+      "taxonomy": "eBioelectronics",
+      "title": "Bioelectronics Research Platforms",
+      "part": "eBIO-500",
+      "revision": "v1.0",
+      "status": "Research",
+      "readme": {
+        "category": "Neural interface and electrophysiology",
+        "standard": "ISO 10993 / IEC 60601-1",
+        "sim": "Duty-cycled power",
+        "eos": "eOS biosignal stack"
+      },
+      "overview": "Multi-channel electrophysiology platform for neural interface research, recording 256 channels at 30 kSPS while delivering charge-balanced stimulation on any channel. Stimulation artefact recovery is the design driver, since a recording amplifier that saturates for 10 ms loses exactly the response the experiment is measuring.",
+      "specs": [
+        [
+          "Recording channels",
+          "256, 30 kSPS per channel, 16-bit"
+        ],
+        [
+          "Input noise",
+          "2.1 uVrms, 1 Hz to 10 kHz"
+        ],
+        [
+          "Stimulation",
+          "Charge-balanced biphasic, +/-5 mA, 8 independent channels"
+        ],
+        [
+          "Artefact recovery",
+          "<400 us to within 1% of baseline"
+        ],
+        [
+          "Impedance measurement",
+          "Per-channel, 1 kHz, 10 kOhm to 10 MOhm"
+        ],
+        [
+          "Isolation",
+          "5 kVrms patient isolation barrier"
+        ],
+        [
+          "Biocompatibility",
+          "ISO 10993 assessed materials in the wetted path"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "12"
+        ],
+        [
+          "Dimensions",
+          "160mm x 120mm"
+        ],
+        [
+          "IPC Class",
+          "Class 3"
+        ],
+        [
+          "Finish",
+          "ENIG"
+        ],
+        [
+          "Isolation",
+          "8mm creepage across the patient isolation barrier"
+        ]
+      ],
+      "compliance": [
+        [
+          "ISO 10993",
+          "Biological evaluation of the wetted signal path"
+        ],
+        [
+          "IEC 60601-1",
+          "Medical electrical equipment general safety"
+        ],
+        [
+          "IEC 60601-1-2",
+          "EMC for medical electrical equipment"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "ads1299",
+          "qty": 32,
+          "description": "8-channel 24-bit biopotential front end"
+        },
+        {
+          "ref": "U2",
+          "part": "stm32h743",
+          "qty": 1,
+          "description": "Acquisition and stimulation controller"
+        },
+        {
+          "ref": "U3",
+          "part": "artix7_35t",
+          "qty": 1,
+          "description": "Channel multiplexing and artefact blanking"
+        },
+        {
+          "ref": "U4",
+          "part": "dac8560",
+          "qty": 8,
+          "description": "Stimulation current setpoint"
+        },
+        {
+          "ref": "U5",
+          "part": "ina849",
+          "qty": 8,
+          "description": "Stimulation current monitoring"
+        },
+        {
+          "ref": "U6",
+          "part": "iso7741",
+          "qty": 6,
+          "description": "Patient isolation barrier"
+        },
+        {
+          "ref": "U7",
+          "part": "adm2587",
+          "qty": 1,
+          "description": "Isolated data interface"
+        },
+        {
+          "ref": "U8",
+          "part": "ddr4_2gb",
+          "qty": 1,
+          "description": "Recording buffer"
+        },
+        {
+          "ref": "U9",
+          "part": "ksz9031",
+          "qty": 1,
+          "description": "Gigabit data output"
+        },
+        {
+          "ref": "U10",
+          "part": "tps7a4701",
+          "qty": 8,
+          "description": "Ultra-low-noise analogue supply"
+        },
+        {
+          "ref": "U11",
+          "part": "lt8640",
+          "qty": 4,
+          "description": "Point-of-load regulator"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_12l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 320
+        },
+        {
+          "ref": "C2",
+          "part": "cap_10u_0805",
+          "qty": 70
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 180
+        }
+      ],
+      "power": {
+        "kind": "duty",
+        "label": "eBIO-500 Electrophysiology Platform",
+        "battery_mah": 6000,
+        "battery_desc": "isolated 6Ah medical battery",
+        "modes": [
+          [
+            "Idle with amplifiers biased",
+            0.18,
+            0.3
+          ],
+          [
+            "256-channel continuous recording",
+            0.64,
+            0.62
+          ],
+          [
+            "Recording with stimulation active",
+            0.98,
+            0.07
+          ],
+          [
+            "Impedance sweep",
+            0.42,
+            0.01
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "space_robotics",
+      "taxonomy": "eSpaceRobotics",
+      "title": "Space Robotics Controllers",
+      "part": "eSRB-900",
+      "revision": "v1.0",
+      "status": "Research",
+      "readme": {
+        "category": "Orbital manipulator and rover control",
+        "standard": "ECSS-Q-ST-60C / ECSS-E-ST-50-12C",
+        "sim": "Power budget",
+        "eos": "eOS SpaceOS motion"
+      },
+      "overview": "Radiation-tolerant robotics controller for orbital manipulators and planetary rovers, closing joint control loops on harmonic-drive actuators with force feedback. Round-trip light time makes teleoperation impractical beyond cislunar distance, so contact detection and safing are handled entirely on board.",
+      "specs": [
+        [
+          "Processor",
+          "GR712RC rad-hard dual-core LEON3FT"
+        ],
+        [
+          "Joint control",
+          "7 axes, 1 kHz position and torque loops"
+        ],
+        [
+          "Actuators",
+          "Harmonic drive, 100:1, zero backlash"
+        ],
+        [
+          "Force feedback",
+          "6-axis force/torque sensing at the end effector"
+        ],
+        [
+          "Autonomy",
+          "On-board contact detection and autonomous safing"
+        ],
+        [
+          "Radiation",
+          "50 krad(Si) total ionising dose target"
+        ],
+        [
+          "Thermal",
+          "-120degC to +120degC survival, heater-managed operation"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "14"
+        ],
+        [
+          "Dimensions",
+          "180mm x 140mm"
+        ],
+        [
+          "IPC Class",
+          "Class 3/A per IPC-6012DS"
+        ],
+        [
+          "Finish",
+          "Electroplated nickel-gold, staked and conformal coated"
+        ],
+        [
+          "Outgassing",
+          "ASTM E595, TML < 1.0%, CVCM < 0.1%"
+        ]
+      ],
+      "compliance": [
+        [
+          "ECSS-Q-ST-60C",
+          "Space product assurance, EEE components"
+        ],
+        [
+          "ECSS-E-ST-50-12C",
+          "SpaceWire interface"
+        ],
+        [
+          "ECSS-E-ST-33-01C",
+          "Space mechanisms"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "gr712rc",
+          "qty": 1,
+          "description": "Rad-hard robotics control processor"
+        },
+        {
+          "ref": "U2",
+          "part": "rtg4_150",
+          "qty": 1,
+          "description": "Rad-tolerant motor commutation fabric"
+        },
+        {
+          "ref": "U3",
+          "part": "drv8353",
+          "qty": 7,
+          "description": "Joint BLDC gate driver"
+        },
+        {
+          "ref": "HD1",
+          "part": "harmonic_drive",
+          "qty": 7,
+          "description": "Zero-backlash joint gear reducer"
+        },
+        {
+          "ref": "U4",
+          "part": "ad7124",
+          "qty": 4,
+          "description": "Force/torque sensor acquisition"
+        },
+        {
+          "ref": "U5",
+          "part": "ina849",
+          "qty": 8,
+          "description": "Strain gauge bridge amplification"
+        },
+        {
+          "ref": "U6",
+          "part": "adis16505",
+          "qty": 1,
+          "description": "Base motion reference"
+        },
+        {
+          "ref": "U7",
+          "part": "ut54lvds032",
+          "qty": 2,
+          "description": "SpaceWire interface"
+        },
+        {
+          "ref": "U8",
+          "part": "mr25h256",
+          "qty": 2,
+          "description": "MRAM trajectory and fault log"
+        },
+        {
+          "ref": "U9",
+          "part": "isl71001",
+          "qty": 4,
+          "description": "Rad-hard point-of-load regulator"
+        },
+        {
+          "ref": "U10",
+          "part": "tps7h1101",
+          "qty": 3,
+          "description": "Rad-hard analogue supply"
+        },
+        {
+          "ref": "U11",
+          "part": "ina228",
+          "qty": 8,
+          "description": "Joint current telemetry"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_12l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 200
+        },
+        {
+          "ref": "C2",
+          "part": "cap_47u_1210",
+          "qty": 28
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 115
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eSRB-900 Space Robotics Controller",
+        "bus_v": 28,
+        "efficiency": 0.83,
+        "loads": [
+          [
+            "GR712RC control processor",
+            3.2
+          ],
+          [
+            "RTG4 commutation fabric",
+            4.5
+          ],
+          [
+            "Joint gate driver quiescent x7",
+            2.1
+          ],
+          [
+            "Joint motor drive (7 axes, 40% duty)",
+            42.0
+          ],
+          [
+            "Force/torque acquisition",
+            0.98
+          ],
+          [
+            "SpaceWire and MRAM",
+            0.36
+          ],
+          [
+            "Thermal heaters and housekeeping",
+            3.5
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "swarm_systems",
+      "taxonomy": "eSwarm",
+      "title": "Swarm Systems",
+      "part": "eSWM-200",
+      "revision": "v1.0",
+      "status": "Research",
+      "readme": {
+        "category": "Decentralised multi-agent coordination",
+        "standard": "ETSI EN 300 328 / CE",
+        "sim": "Duty-cycled power",
+        "eos": "eOS swarm runtime"
+      },
+      "overview": "Swarm coordination node for decentralised multi-agent systems, providing relative ranging, mesh consensus and collision avoidance without any central controller or infrastructure. Ultra-wideband ranging gives relative position where GNSS is unavailable, which is the case indoors and in most of the environments swarms are proposed for.",
+      "specs": [
+        [
+          "Processor",
+          "STM32H743 Cortex-M7 at 480MHz"
+        ],
+        [
+          "Relative ranging",
+          "UWB two-way ranging, +/-10 cm at 60 m"
+        ],
+        [
+          "Mesh",
+          "Sub-GHz mesh, 200 nodes per network, self-healing"
+        ],
+        [
+          "Consensus",
+          "Byzantine-tolerant to one third faulty nodes"
+        ],
+        [
+          "Update rate",
+          "50 Hz neighbour state exchange"
+        ],
+        [
+          "Collision avoidance",
+          "Decentralised reciprocal velocity obstacles"
+        ],
+        [
+          "Mass",
+          "42 g including antenna and battery"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "8"
+        ],
+        [
+          "Dimensions",
+          "58mm x 46mm"
+        ],
+        [
+          "IPC Class",
+          "Class 2"
+        ],
+        [
+          "Finish",
+          "ENIG"
+        ],
+        [
+          "Constraint",
+          "Mass-optimised; keep-out under UWB antenna feed"
+        ]
+      ],
+      "compliance": [
+        [
+          "ETSI EN 300 328",
+          "2.4GHz wideband transmission systems"
+        ],
+        [
+          "ETSI EN 302 065",
+          "Ultra-wideband short-range devices"
+        ],
+        [
+          "FCC Part 15 Subpart F",
+          "Ultra-wideband operation"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "stm32h743",
+          "qty": 1,
+          "description": "Swarm coordination processor"
+        },
+        {
+          "ref": "U2",
+          "part": "nrf5340",
+          "qty": 1,
+          "description": "BLE and UWB ranging co-processor"
+        },
+        {
+          "ref": "U3",
+          "part": "sx1262",
+          "qty": 1,
+          "description": "Sub-GHz mesh transceiver"
+        },
+        {
+          "ref": "U4",
+          "part": "icm42688",
+          "qty": 1,
+          "description": "Attitude and motion sensing"
+        },
+        {
+          "ref": "U5",
+          "part": "max_m10s",
+          "qty": 1,
+          "description": "GNSS where available"
+        },
+        {
+          "ref": "U6",
+          "part": "ms5611",
+          "qty": 1,
+          "description": "Barometric altitude"
+        },
+        {
+          "ref": "U7",
+          "part": "w25q128",
+          "qty": 1,
+          "description": "Firmware and map fragment storage"
+        },
+        {
+          "ref": "U8",
+          "part": "atecc608b",
+          "qty": 1,
+          "description": "Mesh message authentication"
+        },
+        {
+          "ref": "U9",
+          "part": "tps62840",
+          "qty": 3,
+          "description": "Low-Iq point-of-load regulator"
+        },
+        {
+          "ref": "U10",
+          "part": "bq25504",
+          "qty": 1,
+          "description": "Energy-harvesting charge management"
+        },
+        {
+          "ref": "BT1",
+          "part": "batt_lipo_2000",
+          "qty": 1
+        },
+        {
+          "ref": "ANT1",
+          "part": "ant_24ghz_chip",
+          "qty": 2,
+          "description": "UWB and BLE antenna"
+        },
+        {
+          "ref": "ANT2",
+          "part": "ant_lora_helix",
+          "qty": 1,
+          "description": "Sub-GHz mesh antenna"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_8l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 70
+        },
+        {
+          "ref": "C2",
+          "part": "cap_10u_0805",
+          "qty": 16
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 45
+        }
+      ],
+      "power": {
+        "kind": "duty",
+        "label": "eSWM-200 Swarm Coordination Node",
+        "battery_mah": 2000,
+        "battery_desc": "2000mAh LiPo",
+        "modes": [
+          [
+            "Mesh listen and neighbour tracking",
+            0.042,
+            0.68
+          ],
+          [
+            "UWB ranging exchange",
+            0.135,
+            0.22
+          ],
+          [
+            "Consensus round with mesh transmit",
+            0.21,
+            0.09
+          ],
+          [
+            "Map fragment sync",
+            0.18,
+            0.01
+          ]
+        ]
+      }
+    }
+  ]
+}

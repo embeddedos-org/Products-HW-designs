@@ -1,0 +1,47 @@
+# Tooling required to generate and validate eCAD product data.
+#
+# Install:
+#     python3 -m pip install --user -r tools/requirements.txt
+#
+# On a PEP 668 "externally managed" distribution (Ubuntu 24.04+, Debian 12+)
+# add --break-system-packages, or create a virtualenv first.
+
+# Parses the generated .kicad_pcb files without needing KiCad installed.
+# validate_products.py uses it to confirm the copper layer count matches the
+# datasheet and that Edge.Cuts carries real outline geometry.
+kiutils>=1.4.8
+
+# Reads the generated DXF board outlines. Confirms the file is a valid DXF and
+# carries geometry, rather than merely looking like one.
+ezdxf>=1.1
+
+# Required by four hand-authored eosHealth simulations. Without it those
+# scripts are reported as skipped rather than passing.
+numpy>=1.26
+
+# --- Not installable from PyPI -------------------------------------------
+#
+# OpenSCAD renders the generated enclosure models to solids, which is how
+# validate_products.py --render proves a .scad file is buildable rather than
+# merely syntactically plausible.
+#
+# Preferred:
+#     sudo apt install openscad
+#
+# Without root, the AppImage can be extracted and used in place:
+#     curl -sSLO https://files.openscad.org/OpenSCAD-2021.01-x86_64.AppImage
+#     chmod +x OpenSCAD-2021.01-x86_64.AppImage
+#     ./OpenSCAD-2021.01-x86_64.AppImage --appimage-extract
+#     mkdir -p ~/.local/share ~/.local/bin
+#     cp -r squashfs-root ~/.local/share/openscad-appimage
+#     printf '#!/bin/sh\nexec "$HOME/.local/share/openscad-appimage/AppRun" "$@"\n' \
+#         > ~/.local/bin/openscad
+#     chmod +x ~/.local/bin/openscad
+#
+# validate_products.py looks for openscad on PATH and then at
+# ~/.local/bin/openscad. If neither exists, enclosure rendering is reported as
+# a skip with the reason, never as a pass.
+#
+# KiCad itself is NOT required. kiutils parses the board files in pure Python.
+# Installing KiCad would additionally allow kicad-cli DRC and Gerber export,
+# which this repository does not yet run.

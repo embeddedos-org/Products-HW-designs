@@ -1,0 +1,3356 @@
+{
+  "_comment": [
+    "Aerospace & space product catalog.",
+    "",
+    "Taxonomy names already served by an existing product directory are not",
+    "duplicated here: eAvionics -> avionics, eSpace -> space_systems,",
+    "eUAV / eUAS / eDrone -> uav_drone_systems. Those four directories were",
+    "hand-authored before this catalog existed and are left untouched."
+  ],
+  "division": "eAerospace_CAD_Design",
+  "products": [
+    {
+      "slug": "flight_control",
+      "taxonomy": "eFlightControl",
+      "title": "Flight Control Systems",
+      "part": "eFCS-2000",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Fly-by-wire actuation and control law execution",
+        "standard": "DO-178C / DO-254 Level A",
+        "ics": "STM32H743, XC7A100T, ADIS16505"
+      },
+      "overview": "Triplex-redundant fly-by-wire flight control computer executing control laws for primary and secondary surfaces. Three dissimilar lanes vote on every actuator command, with a fourth monitor lane arbitrating disagreement. Each lane runs an independently compiled eOS RTOS image so a coding fault cannot propagate across the redundancy set.",
+      "family": [
+        [
+          "eFCS-2000",
+          "Primary flight control computer",
+          "3U VPX"
+        ],
+        [
+          "eFCS-2000M",
+          "Monitor and arbitration lane",
+          "3U VPX"
+        ],
+        [
+          "eACE-400",
+          "Actuator control electronics",
+          "ARINC 600"
+        ]
+      ],
+      "specs": [
+        [
+          "Architecture",
+          "Triplex dissimilar lanes + independent monitor"
+        ],
+        [
+          "Lane processor",
+          "STM32H743 Cortex-M7 at 480MHz, lockstep pair"
+        ],
+        [
+          "I/O management",
+          "AMD Xilinx Artix-7 XC7A100T"
+        ],
+        [
+          "Inertial reference",
+          "ADIS16505-2 tactical IMU, 0.4deg/hr bias stability"
+        ],
+        [
+          "Control loop rate",
+          "400Hz outer loop, 2kHz actuator inner loop"
+        ],
+        [
+          "Interfaces",
+          "ARINC-429 x8, MIL-STD-1553B x2, CAN FD x4, 10BASE-T1L x2"
+        ],
+        [
+          "Power",
+          "28VDC per MIL-STD-704F, dual-bus with hold-up"
+        ],
+        [
+          "Environment",
+          "DO-160G Cat. D, -55degC to +85degC"
+        ],
+        [
+          "Design assurance",
+          "DO-178C Level A software, DO-254 Level A hardware"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "12"
+        ],
+        [
+          "Dimensions",
+          "233mm x 160mm (3U VPX)"
+        ],
+        [
+          "Stackup",
+          "Sig/Gnd/Sig/Pwr symmetric, 50 ohm single-ended"
+        ],
+        [
+          "IPC Class",
+          "Class 3 / DO-254 Level A"
+        ],
+        [
+          "Finish",
+          "ENIG, conformal coated per IPC-CC-830"
+        ],
+        [
+          "Connector",
+          "VPX VITA 46"
+        ]
+      ],
+      "compliance": [
+        [
+          "DO-254 Level A",
+          "Airborne electronic hardware design assurance"
+        ],
+        [
+          "DO-178C Level A",
+          "Control law and RTOS software"
+        ],
+        [
+          "DO-160G",
+          "Environmental qualification"
+        ],
+        [
+          "MIL-STD-704F",
+          "Aircraft electrical power characteristics"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "stm32h743",
+          "qty": 6,
+          "description": "Cortex-M7 flight control lane processor (3 lanes, lockstep pairs)"
+        },
+        {
+          "ref": "U2",
+          "part": "artix7_100t",
+          "qty": 1,
+          "description": "FPGA I/O manager and cross-lane voter"
+        },
+        {
+          "ref": "U3",
+          "part": "adis16505",
+          "qty": 3,
+          "description": "Tactical-grade IMU, one per lane"
+        },
+        {
+          "ref": "U4",
+          "part": "hi8596",
+          "qty": 2,
+          "description": "ARINC-429 quad receiver"
+        },
+        {
+          "ref": "U5",
+          "part": "hi8585",
+          "qty": 2,
+          "description": "ARINC-429 quad transmitter"
+        },
+        {
+          "ref": "U6",
+          "part": "bu65170",
+          "qty": 2,
+          "description": "MIL-STD-1553B dual-redundant terminal"
+        },
+        {
+          "ref": "U7",
+          "part": "tcan1042",
+          "qty": 4,
+          "description": "CAN FD transceiver"
+        },
+        {
+          "ref": "U8",
+          "part": "dp83td510",
+          "qty": 2,
+          "description": "10BASE-T1L single-pair Ethernet PHY"
+        },
+        {
+          "ref": "U9",
+          "part": "mr25h256",
+          "qty": 3,
+          "description": "MRAM for control law state, one per lane"
+        },
+        {
+          "ref": "U10",
+          "part": "atecc608b",
+          "qty": 1,
+          "description": "Secure boot key store"
+        },
+        {
+          "ref": "U11",
+          "part": "lm5164",
+          "qty": 4,
+          "description": "28V primary buck, dual-bus redundant"
+        },
+        {
+          "ref": "U12",
+          "part": "ina228",
+          "qty": 4,
+          "description": "Per-rail power telemetry"
+        },
+        {
+          "ref": "J1",
+          "part": "vpx_vita46",
+          "qty": 4
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_12l_c3",
+          "qty": 1,
+          "description": "12-layer Class 3 conformal-coated PCB"
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 180
+        },
+        {
+          "ref": "C2",
+          "part": "cap_10u_0805",
+          "qty": 40
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 90
+        },
+        {
+          "ref": "L1",
+          "part": "ind_4u7",
+          "qty": 4
+        },
+        {
+          "ref": "D1",
+          "part": "tvs_smbj",
+          "qty": 8
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eFCS-2000 Flight Control Computer",
+        "bus_v": 28,
+        "efficiency": 0.85,
+        "loads": [
+          [
+            "STM32H743 lane processors x6",
+            3.6
+          ],
+          [
+            "Artix-7 XC7A100T I/O manager",
+            1.8
+          ],
+          [
+            "ADIS16505 IMU x3",
+            0.63
+          ],
+          [
+            "ARINC-429 Rx x2 / Tx x2",
+            0.22
+          ],
+          [
+            "MIL-STD-1553B terminal x2",
+            0.7
+          ],
+          [
+            "CAN FD transceiver x4",
+            0.14
+          ],
+          [
+            "10BASE-T1L PHY x2",
+            0.18
+          ],
+          [
+            "MRAM x3",
+            0.09
+          ],
+          [
+            "Telemetry and housekeeping",
+            0.25
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "satellite_platforms",
+      "taxonomy": "eSatellite",
+      "title": "Satellite Platform Avionics",
+      "part": "eSAT-8000",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "GEO/LEO satellite bus avionics",
+        "standard": "ECSS-Q-ST-60C / ECSS-E-ST-50-12C",
+        "ics": "GR712RC, RTG4, ISL71001"
+      },
+      "overview": "Radiation-hardened satellite platform computer for LEO and GEO buses, handling attitude determination and control, telemetry and telecommand, power management, and payload data routing. Built on a dual-core LEON3FT processor with an EDAC-protected memory subsystem and SpaceWire fabric to the payload.",
+      "family": [
+        [
+          "eSAT-8000",
+          "Platform on-board computer",
+          "Eurocard 6U"
+        ],
+        [
+          "eSAT-PCU",
+          "Power conditioning and distribution unit",
+          "Eurocard 6U"
+        ],
+        [
+          "eSAT-RIU",
+          "Remote interface unit",
+          "Eurocard 3U"
+        ]
+      ],
+      "specs": [
+        [
+          "Processor",
+          "GR712RC dual-core LEON3FT SPARC V8, 100MHz"
+        ],
+        [
+          "Reconfigurable logic",
+          "Microchip RTG4 RT4G150 rad-tolerant flash FPGA"
+        ],
+        [
+          "Memory",
+          "2GB DDR4 with Reed-Solomon EDAC, 256kbit MRAM for critical state"
+        ],
+        [
+          "Payload fabric",
+          "SpaceWire x8 at 200Mbps per ECSS-E-ST-50-12C"
+        ],
+        [
+          "Platform bus",
+          "MIL-STD-1553B dual redundant, CAN FD x2"
+        ],
+        [
+          "Total ionising dose",
+          "100 krad(Si) target"
+        ],
+        [
+          "Single-event latch-up",
+          "Immune to 60 MeV-cm2/mg"
+        ],
+        [
+          "Power",
+          "28V unregulated bus, 100W platform allocation"
+        ],
+        [
+          "Design life",
+          "15 years GEO / 7 years LEO"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "16"
+        ],
+        [
+          "Dimensions",
+          "233mm x 220mm (6U Eurocard)"
+        ],
+        [
+          "Stackup",
+          "Buried-via symmetric, polyimide substrate"
+        ],
+        [
+          "IPC Class",
+          "Class 3/A per IPC-6012DS space addendum"
+        ],
+        [
+          "Finish",
+          "Electroplated nickel-gold, staked and conformal coated"
+        ],
+        [
+          "Outgassing",
+          "ASTM E595, TML < 1.0%, CVCM < 0.1%"
+        ]
+      ],
+      "compliance": [
+        [
+          "ECSS-Q-ST-60C",
+          "Space product assurance, EEE components"
+        ],
+        [
+          "ECSS-E-ST-50-12C",
+          "SpaceWire links, nodes, routers and networks"
+        ],
+        [
+          "ECSS-E-ST-10-03C",
+          "Space engineering testing"
+        ],
+        [
+          "MIL-STD-883",
+          "Microcircuit test methods and screening"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "gr712rc",
+          "qty": 1,
+          "description": "Rad-hard dual-core LEON3FT platform processor"
+        },
+        {
+          "ref": "U2",
+          "part": "rtg4_150",
+          "qty": 1,
+          "description": "Rad-tolerant FPGA, SpaceWire router and payload interface"
+        },
+        {
+          "ref": "U3",
+          "part": "ddr4_2gb",
+          "qty": 2,
+          "description": "DDR4 with Reed-Solomon EDAC"
+        },
+        {
+          "ref": "U4",
+          "part": "mr25h256",
+          "qty": 4,
+          "description": "MRAM for attitude state and boot configuration"
+        },
+        {
+          "ref": "U5",
+          "part": "ut54lvds032",
+          "qty": 4,
+          "description": "Rad-hard LVDS receiver for SpaceWire"
+        },
+        {
+          "ref": "U6",
+          "part": "bu65170",
+          "qty": 2,
+          "description": "MIL-STD-1553B dual-redundant terminal"
+        },
+        {
+          "ref": "U7",
+          "part": "isl71001",
+          "qty": 4,
+          "description": "Rad-hard point-of-load buck regulator"
+        },
+        {
+          "ref": "U8",
+          "part": "tps7h1101",
+          "qty": 4,
+          "description": "Rad-hard LDO for analogue and reference rails"
+        },
+        {
+          "ref": "U9",
+          "part": "adis16505",
+          "qty": 2,
+          "description": "Inertial reference for coarse attitude determination"
+        },
+        {
+          "ref": "U10",
+          "part": "ina228",
+          "qty": 8,
+          "description": "Per-rail current and voltage telemetry"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_12l_c3",
+          "qty": 1,
+          "description": "16-layer polyimide Class 3/A PCB (space addendum)"
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 240
+        },
+        {
+          "ref": "C2",
+          "part": "cap_47u_1210",
+          "qty": 30
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 120
+        },
+        {
+          "ref": "L1",
+          "part": "ind_4u7",
+          "qty": 8
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eSAT-8000 Satellite Platform Computer",
+        "bus_v": 28,
+        "efficiency": 0.82,
+        "loads": [
+          [
+            "GR712RC LEON3FT processor",
+            3.2
+          ],
+          [
+            "RTG4 FPGA (SpaceWire router)",
+            4.5
+          ],
+          [
+            "DDR4 with EDAC x2",
+            1.6
+          ],
+          [
+            "SpaceWire LVDS x8",
+            0.96
+          ],
+          [
+            "MIL-STD-1553B terminal x2",
+            0.7
+          ],
+          [
+            "ADIS16505 IMU x2",
+            0.42
+          ],
+          [
+            "MRAM x4",
+            0.12
+          ],
+          [
+            "Telemetry and housekeeping",
+            0.4
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "cubesat_systems",
+      "taxonomy": "eCubeSat",
+      "title": "CubeSat Systems",
+      "part": "eCUBE-3U",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "1U-12U CubeSat OBC, EPS and ADCS",
+        "standard": "CubeSat Design Specification Rev 14",
+        "ics": "STM32H743, iCE40UP5K, ICM-42688-P"
+      },
+      "overview": "PC/104-compatible CubeSat avionics stack providing on-board computing, electrical power conditioning, and attitude determination for 1U through 12U missions. COTS-based rather than rad-hard, with watchdog-driven latch-up recovery and triple-redundant boot images sized for LEO missions of up to three years.",
+      "family": [
+        [
+          "eCUBE-3U-OBC",
+          "On-board computer",
+          "PC/104 90x96mm"
+        ],
+        [
+          "eCUBE-EPS",
+          "Electrical power system with MPPT",
+          "PC/104 90x96mm"
+        ],
+        [
+          "eCUBE-ADCS",
+          "Attitude determination and control",
+          "PC/104 90x96mm"
+        ]
+      ],
+      "specs": [
+        [
+          "Processor",
+          "STM32H743 Cortex-M7 at 480MHz"
+        ],
+        [
+          "Supervisor",
+          "iCE40UP5K FPGA watchdog and latch-up monitor"
+        ],
+        [
+          "Memory",
+          "16MB QSPI NOR triple-redundant boot, 1Mbit FRAM state"
+        ],
+        [
+          "Attitude sensing",
+          "ICM-42688-P IMU + MMC5983MA magnetometer"
+        ],
+        [
+          "Power generation",
+          "Deployable PV, MPPT charge, 2x 18650 Li-ion"
+        ],
+        [
+          "Bus",
+          "PC/104 stack-through, I2C + CAN FD"
+        ],
+        [
+          "Downlink",
+          "UHF 437MHz, 9.6-19.2kbps GMSK"
+        ],
+        [
+          "Mass",
+          "310g per board including harness"
+        ],
+        [
+          "Mission life",
+          "3 years LEO at 550km"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "8"
+        ],
+        [
+          "Dimensions",
+          "90mm x 96mm (PC/104 form factor)"
+        ],
+        [
+          "Stackup",
+          "Symmetric with dedicated analogue ground pour"
+        ],
+        [
+          "IPC Class",
+          "Class 3"
+        ],
+        [
+          "Finish",
+          "ENIG, staked components, conformal coated"
+        ],
+        [
+          "Connector",
+          "PC/104 104-pin stack-through header"
+        ]
+      ],
+      "compliance": [
+        [
+          "CubeSat Design Specification Rev 14",
+          "Mechanical and deployment interface"
+        ],
+        [
+          "NASA-STD-6016",
+          "Materials and outgassing"
+        ],
+        [
+          "ECSS-E-ST-10-03C",
+          "Vibration and thermal vacuum testing"
+        ],
+        [
+          "ITU-R Radio Regulations",
+          "UHF amateur/commercial downlink licensing"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "stm32h743",
+          "qty": 1,
+          "description": "Cortex-M7 on-board computer"
+        },
+        {
+          "ref": "U2",
+          "part": "ice40up5k",
+          "qty": 1,
+          "description": "FPGA watchdog and latch-up supervisor"
+        },
+        {
+          "ref": "U3",
+          "part": "w25q128",
+          "qty": 3,
+          "description": "Triple-redundant boot image storage"
+        },
+        {
+          "ref": "U4",
+          "part": "fm24v10",
+          "qty": 1,
+          "description": "FRAM for mission state and counters"
+        },
+        {
+          "ref": "U5",
+          "part": "icm42688",
+          "qty": 2,
+          "description": "6-axis IMU for rate sensing"
+        },
+        {
+          "ref": "U6",
+          "part": "mmc5983",
+          "qty": 2,
+          "description": "Magnetometer for attitude determination"
+        },
+        {
+          "ref": "U7",
+          "part": "max_m10s",
+          "qty": 1,
+          "description": "GNSS receiver for orbit determination"
+        },
+        {
+          "ref": "U8",
+          "part": "bq25798",
+          "qty": 2,
+          "description": "MPPT solar charge controller"
+        },
+        {
+          "ref": "U9",
+          "part": "bq40z80",
+          "qty": 1,
+          "description": "Battery gas gauge and protection"
+        },
+        {
+          "ref": "U10",
+          "part": "tcan1042",
+          "qty": 2,
+          "description": "CAN FD bus transceiver"
+        },
+        {
+          "ref": "U11",
+          "part": "sx1262",
+          "qty": 1,
+          "description": "UHF downlink transceiver"
+        },
+        {
+          "ref": "U12",
+          "part": "tps62840",
+          "qty": 4,
+          "description": "Low-Iq point-of-load regulator"
+        },
+        {
+          "ref": "U13",
+          "part": "ina3221",
+          "qty": 3,
+          "description": "Solar string and rail current monitoring"
+        },
+        {
+          "ref": "BT1",
+          "part": "batt_18650",
+          "qty": 2,
+          "description": "Li-ion energy storage cell"
+        },
+        {
+          "ref": "PV1",
+          "part": "solar_5w",
+          "qty": 4,
+          "description": "Body-mounted PV panel"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_8l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 90
+        },
+        {
+          "ref": "C2",
+          "part": "cap_10u_0805",
+          "qty": 24
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 60
+        }
+      ],
+      "power": {
+        "kind": "duty",
+        "label": "eCUBE-3U CubeSat Avionics",
+        "battery_mah": 7000,
+        "battery_desc": "2x 18650 at 3500mAh",
+        "modes": [
+          [
+            "Eclipse idle (OBC + FRAM only)",
+            0.045,
+            0.35
+          ],
+          [
+            "Sunlit nominal (ADCS active)",
+            0.18,
+            0.52
+          ],
+          [
+            "Payload acquisition",
+            0.42,
+            0.08
+          ],
+          [
+            "UHF downlink burst",
+            1.25,
+            0.05
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "ground_station",
+      "taxonomy": "eGroundStation",
+      "title": "Satellite Ground Station",
+      "part": "eGS-1200",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "SDR ground segment, tracking and baseband",
+        "standard": "CCSDS 131.0-B / ITU-R SA.1810",
+        "ics": "ADRV9002, XCZU3EG, ZED-F9T"
+      },
+      "overview": "Software-defined satellite ground station modem covering VHF through S-band, with CCSDS-compliant framing, Doppler-corrected tracking, and antenna rotator control. A Zynq UltraScale+ MPSoC runs the demodulation chain in fabric while the application processor handles pass scheduling and TLE propagation.",
+      "family": [
+        [
+          "eGS-1200",
+          "SDR baseband modem",
+          "1U rackmount"
+        ],
+        [
+          "eGS-RCU",
+          "Antenna rotator control unit",
+          "DIN rail"
+        ],
+        [
+          "eGS-LNA",
+          "Low-noise front end",
+          "Mast-mounted IP67"
+        ]
+      ],
+      "specs": [
+        [
+          "RF transceiver",
+          "ADRV9002 dual-channel, 30MHz-6GHz"
+        ],
+        [
+          "Baseband",
+          "Zynq UltraScale+ XCZU3EG, quad Cortex-A53 + FPGA"
+        ],
+        [
+          "Frequency coverage",
+          "VHF 144MHz, UHF 437MHz, S-band 2.2-2.4GHz"
+        ],
+        [
+          "Modulation",
+          "BPSK, QPSK, OQPSK, GMSK, 8PSK"
+        ],
+        [
+          "Coding",
+          "CCSDS convolutional, Reed-Solomon, turbo, LDPC"
+        ],
+        [
+          "Timing reference",
+          "ZED-F9T GNSS-disciplined OCXO, 5ns to UTC"
+        ],
+        [
+          "Doppler tracking",
+          "+/-60kHz closed-loop correction"
+        ],
+        [
+          "Data interface",
+          "10GbE SFP+, 1GbE management"
+        ],
+        [
+          "Rotator control",
+          "Az/El via RS-485, 0.1 degree resolution"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "14"
+        ],
+        [
+          "Dimensions",
+          "220mm x 180mm"
+        ],
+        [
+          "Stackup",
+          "Rogers RO4350B RF layers over FR-4 core"
+        ],
+        [
+          "IPC Class",
+          "Class 2"
+        ],
+        [
+          "Finish",
+          "ENIG with RF shielding cans"
+        ],
+        [
+          "Impedance",
+          "50 ohm single-ended, 100 ohm differential"
+        ]
+      ],
+      "compliance": [
+        [
+          "CCSDS 131.0-B-4",
+          "TM synchronisation and channel coding"
+        ],
+        [
+          "ITU-R SA.1810",
+          "Earth station spurious emission limits"
+        ],
+        [
+          "EN 301 489-1",
+          "EMC for radio equipment"
+        ],
+        [
+          "IEC 62368-1",
+          "Audio/video and IT equipment safety"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "adrv9002",
+          "qty": 1,
+          "description": "Dual-channel wideband RF transceiver"
+        },
+        {
+          "ref": "U2",
+          "part": "zynq_ultrascale",
+          "qty": 1,
+          "description": "MPSoC baseband demodulator and processor"
+        },
+        {
+          "ref": "U3",
+          "part": "lmx2594",
+          "qty": 2,
+          "description": "Wideband LO synthesiser"
+        },
+        {
+          "ref": "U4",
+          "part": "hmc7044",
+          "qty": 1,
+          "description": "JESD204B clock distribution and jitter cleaning"
+        },
+        {
+          "ref": "U5",
+          "part": "ocxo_10mhz",
+          "qty": 1,
+          "description": "GNSS-disciplined OCXO reference"
+        },
+        {
+          "ref": "U6",
+          "part": "zed_f9t",
+          "qty": 1,
+          "description": "Timing GNSS receiver"
+        },
+        {
+          "ref": "U7",
+          "part": "lpddr4_4gb",
+          "qty": 2,
+          "description": "Baseband sample buffer"
+        },
+        {
+          "ref": "U8",
+          "part": "emmc_64gb",
+          "qty": 1,
+          "description": "Pass recording and firmware storage"
+        },
+        {
+          "ref": "U9",
+          "part": "ksz9031",
+          "qty": 2,
+          "description": "Gigabit Ethernet PHY"
+        },
+        {
+          "ref": "U10",
+          "part": "max3485",
+          "qty": 2,
+          "description": "RS-485 rotator control interface"
+        },
+        {
+          "ref": "U11",
+          "part": "lt8640",
+          "qty": 6,
+          "description": "Point-of-load regulator"
+        },
+        {
+          "ref": "J1",
+          "part": "sfp_cage",
+          "qty": 2,
+          "description": "10GbE SFP+ data output"
+        },
+        {
+          "ref": "J2",
+          "part": "sma_edge",
+          "qty": 4,
+          "description": "RF input/output"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_rf_rogers",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 200
+        },
+        {
+          "ref": "C2",
+          "part": "cap_10u_0805",
+          "qty": 48
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 100
+        },
+        {
+          "ref": "L1",
+          "part": "ind_4u7",
+          "qty": 6
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eGS-1200 SDR Ground Station Modem",
+        "bus_v": 12,
+        "efficiency": 0.88,
+        "loads": [
+          [
+            "ADRV9002 RF transceiver",
+            3.4
+          ],
+          [
+            "Zynq UltraScale+ XCZU3EG",
+            11.5
+          ],
+          [
+            "LMX2594 synthesiser x2",
+            1.4
+          ],
+          [
+            "HMC7044 clock distribution",
+            1.1
+          ],
+          [
+            "10MHz OCXO",
+            1.8
+          ],
+          [
+            "ZED-F9T timing GNSS",
+            0.28
+          ],
+          [
+            "LPDDR4 x2",
+            2.2
+          ],
+          [
+            "Gigabit Ethernet PHY x2",
+            0.9
+          ],
+          [
+            "SFP+ modules x2",
+            2.0
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "launch_systems",
+      "taxonomy": "eLaunch",
+      "title": "Launch Vehicle Avionics",
+      "part": "eLV-500",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Launch vehicle flight computer and FTS",
+        "standard": "RCC 319-19 / AFSPCMAN 91-710",
+        "ics": "GR712RC, XC7A100T, ADIS16505"
+      },
+      "overview": "Launch vehicle flight computer handling guidance, navigation and control from lift-off through payload separation, with an independent autonomous flight termination system on a physically separate board and power domain. Sized for small-lift vehicles with ascent phases under twelve minutes.",
+      "family": [
+        [
+          "eLV-500",
+          "Guidance, navigation and control computer",
+          "Ring-mounted 6U"
+        ],
+        [
+          "eLV-AFTS",
+          "Autonomous flight termination unit",
+          "Independent 3U"
+        ],
+        [
+          "eLV-SEQ",
+          "Stage sequencing and pyro control",
+          "3U"
+        ]
+      ],
+      "specs": [
+        [
+          "GNC processor",
+          "GR712RC dual-core LEON3FT, radiation tolerant"
+        ],
+        [
+          "Sequencing logic",
+          "AMD Xilinx Artix-7 XC7A100T"
+        ],
+        [
+          "Navigation",
+          "ADIS16505 IMU triad + ZED-F9P GNSS, tightly coupled"
+        ],
+        [
+          "Update rate",
+          "200Hz navigation, 50Hz guidance"
+        ],
+        [
+          "Termination",
+          "Independent AFTS with dissimilar processor and battery"
+        ],
+        [
+          "Pyro channels",
+          "16 initiator channels, dual-arm interlocked"
+        ],
+        [
+          "Telemetry",
+          "S-band 2.2GHz, 2Mbps PCM downlink"
+        ],
+        [
+          "Vibration",
+          "Qualified to 14.1 Grms random per NASA-STD-7001"
+        ],
+        [
+          "Power",
+          "28VDC from vehicle battery, hot-redundant"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "12"
+        ],
+        [
+          "Dimensions",
+          "233mm x 220mm (6U)"
+        ],
+        [
+          "Stackup",
+          "Symmetric with isolated pyro return plane"
+        ],
+        [
+          "IPC Class",
+          "Class 3"
+        ],
+        [
+          "Finish",
+          "ENIG, staked and bonded for vibration"
+        ],
+        [
+          "Connector",
+          "MIL-DTL-38999 Series III"
+        ]
+      ],
+      "compliance": [
+        [
+          "RCC 319-19",
+          "Flight termination systems commonality standard"
+        ],
+        [
+          "AFSPCMAN 91-710",
+          "Range safety user requirements"
+        ],
+        [
+          "NASA-STD-7001",
+          "Payload vibroacoustic test criteria"
+        ],
+        [
+          "MIL-STD-1576",
+          "Electroexplosive subsystem safety"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "gr712rc",
+          "qty": 1,
+          "description": "Rad-tolerant GNC flight processor"
+        },
+        {
+          "ref": "U2",
+          "part": "artix7_100t",
+          "qty": 1,
+          "description": "Sequencing and pyro interlock logic"
+        },
+        {
+          "ref": "U3",
+          "part": "stm32h743",
+          "qty": 2,
+          "description": "Dissimilar AFTS processor pair"
+        },
+        {
+          "ref": "U4",
+          "part": "adis16505",
+          "qty": 3,
+          "description": "Navigation IMU triad"
+        },
+        {
+          "ref": "U5",
+          "part": "zed_f9p",
+          "qty": 2,
+          "description": "Dual-band GNSS receiver, redundant"
+        },
+        {
+          "ref": "U6",
+          "part": "mr25h256",
+          "qty": 2,
+          "description": "MRAM for trajectory and event log"
+        },
+        {
+          "ref": "U7",
+          "part": "adrv9002",
+          "qty": 1,
+          "description": "S-band telemetry downlink transceiver"
+        },
+        {
+          "ref": "U8",
+          "part": "iso7741",
+          "qty": 8,
+          "description": "Pyro channel command isolation"
+        },
+        {
+          "ref": "U9",
+          "part": "lm5164",
+          "qty": 6,
+          "description": "28V buck regulator, hot-redundant"
+        },
+        {
+          "ref": "U10",
+          "part": "ina228",
+          "qty": 6,
+          "description": "Rail and pyro bus telemetry"
+        },
+        {
+          "ref": "J1",
+          "part": "d38999_25",
+          "qty": 4,
+          "description": "Vehicle harness interface"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_12l_c3",
+          "qty": 2,
+          "description": "GNC and AFTS boards, independently fabricated"
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 200
+        },
+        {
+          "ref": "C2",
+          "part": "cap_47u_1210",
+          "qty": 24
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 110
+        },
+        {
+          "ref": "D1",
+          "part": "tvs_smbj",
+          "qty": 16
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eLV-500 Launch Vehicle Avionics",
+        "bus_v": 28,
+        "efficiency": 0.85,
+        "loads": [
+          [
+            "GR712RC GNC processor",
+            3.2
+          ],
+          [
+            "Artix-7 sequencing FPGA",
+            1.8
+          ],
+          [
+            "AFTS processor pair",
+            1.2
+          ],
+          [
+            "ADIS16505 IMU triad",
+            0.63
+          ],
+          [
+            "ZED-F9P GNSS x2",
+            0.27
+          ],
+          [
+            "S-band telemetry transmitter",
+            12.0
+          ],
+          [
+            "Pyro isolation drivers",
+            0.8
+          ],
+          [
+            "Telemetry and housekeeping",
+            0.45
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "propulsion_control",
+      "taxonomy": "ePropulsion",
+      "title": "Propulsion Control Systems",
+      "part": "ePCU-700",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Engine and thruster control electronics",
+        "standard": "DO-254 Level B / ECSS-E-ST-35C",
+        "ics": "STM32H743, ADS131M08, DRV8353"
+      },
+      "overview": "Propulsion control unit for liquid bipropellant engines and electric thrusters, closing loops on chamber pressure, valve position, and mixture ratio. Handles throttle authority, ignition sequencing, and thermal margin protection, with hardware interlocks that inhibit ignition independently of software state.",
+      "family": [
+        [
+          "ePCU-700",
+          "Liquid engine controller",
+          "Conduction-cooled 3U"
+        ],
+        [
+          "ePCU-EP",
+          "Electric propulsion PPU controller",
+          "3U"
+        ],
+        [
+          "ePCU-RCS",
+          "Reaction control thruster driver",
+          "Compact 120x100mm"
+        ]
+      ],
+      "specs": [
+        [
+          "Controller",
+          "STM32H743 Cortex-M7, dual redundant"
+        ],
+        [
+          "Sensing",
+          "ADS131M08 24-bit simultaneous ADC, 8 channels"
+        ],
+        [
+          "Pressure inputs",
+          "8x 4-20mA, 0.05% FS accuracy"
+        ],
+        [
+          "Thermocouples",
+          "12x Type-K via MAX31865 conditioning"
+        ],
+        [
+          "Valve drive",
+          "6x proportional solenoid, 0-5A PWM current control"
+        ],
+        [
+          "Ignition",
+          "Dual-arm hardware interlock, software cannot bypass"
+        ],
+        [
+          "Loop rate",
+          "1kHz pressure control, 10kHz valve current"
+        ],
+        [
+          "Interfaces",
+          "MIL-STD-1553B, CAN FD x2, RS-485"
+        ],
+        [
+          "Environment",
+          "-40degC to +85degC, 20 Grms random"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "10"
+        ],
+        [
+          "Dimensions",
+          "160mm x 100mm (3U Eurocard)"
+        ],
+        [
+          "Stackup",
+          "Isolated analogue island, 2oz power planes"
+        ],
+        [
+          "IPC Class",
+          "Class 3"
+        ],
+        [
+          "Finish",
+          "ENIG, conformal coated"
+        ],
+        [
+          "Cooling",
+          "Conduction-cooled to wedge locks"
+        ]
+      ],
+      "compliance": [
+        [
+          "DO-254 Level B",
+          "Airborne electronic hardware design assurance"
+        ],
+        [
+          "ECSS-E-ST-35C",
+          "Space engineering propulsion"
+        ],
+        [
+          "IEC 61508 SIL 2",
+          "Functional safety of the ignition interlock"
+        ],
+        [
+          "MIL-STD-461G",
+          "Conducted and radiated emissions"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "stm32h743",
+          "qty": 2,
+          "description": "Dual-redundant propulsion controller"
+        },
+        {
+          "ref": "U2",
+          "part": "ads131m08",
+          "qty": 2,
+          "description": "24-bit simultaneous-sampling ADC for pressure"
+        },
+        {
+          "ref": "U3",
+          "part": "max31865",
+          "qty": 4,
+          "description": "RTD and thermocouple conditioning"
+        },
+        {
+          "ref": "U4",
+          "part": "drv8353",
+          "qty": 3,
+          "description": "Proportional valve solenoid driver"
+        },
+        {
+          "ref": "U5",
+          "part": "ina849",
+          "qty": 6,
+          "description": "Valve current sense instrumentation amplifier"
+        },
+        {
+          "ref": "U6",
+          "part": "dac8560",
+          "qty": 4,
+          "description": "Valve current setpoint DAC"
+        },
+        {
+          "ref": "U7",
+          "part": "bu65170",
+          "qty": 1,
+          "description": "MIL-STD-1553B terminal"
+        },
+        {
+          "ref": "U8",
+          "part": "tcan1042",
+          "qty": 2,
+          "description": "CAN FD transceiver"
+        },
+        {
+          "ref": "U9",
+          "part": "adm2587",
+          "qty": 1,
+          "description": "Isolated RS-485 interface"
+        },
+        {
+          "ref": "U10",
+          "part": "iso7741",
+          "qty": 4,
+          "description": "Ignition interlock isolation barrier"
+        },
+        {
+          "ref": "U11",
+          "part": "mr25h256",
+          "qty": 2,
+          "description": "MRAM for burn log and fault state"
+        },
+        {
+          "ref": "U12",
+          "part": "tps54360",
+          "qty": 4,
+          "description": "Primary buck regulator"
+        },
+        {
+          "ref": "U13",
+          "part": "tps7a4701",
+          "qty": 3,
+          "description": "Low-noise LDO for analogue reference"
+        },
+        {
+          "ref": "J1",
+          "part": "d38999_25",
+          "qty": 3,
+          "description": "Engine harness interface"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_8l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 140
+        },
+        {
+          "ref": "C2",
+          "part": "cap_47u_1210",
+          "qty": 20
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 80
+        },
+        {
+          "ref": "RS1",
+          "part": "res_shunt_1m",
+          "qty": 6,
+          "description": "Valve current-sense shunt"
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "ePCU-700 Propulsion Control Unit",
+        "bus_v": 28,
+        "efficiency": 0.87,
+        "loads": [
+          [
+            "STM32H743 controller x2",
+            1.2
+          ],
+          [
+            "ADS131M08 ADC x2",
+            0.62
+          ],
+          [
+            "RTD conditioning x4",
+            0.24
+          ],
+          [
+            "Valve driver quiescent x3",
+            0.9
+          ],
+          [
+            "Valve solenoid drive (6 x 5A peak, 30% duty)",
+            25.2
+          ],
+          [
+            "MIL-STD-1553B terminal",
+            0.35
+          ],
+          [
+            "Isolated RS-485 and CAN",
+            0.55
+          ],
+          [
+            "Analogue reference and housekeeping",
+            0.6
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "air_traffic_management",
+      "taxonomy": "eAirTraffic",
+      "title": "Air Traffic Management Systems",
+      "part": "eATM-3000",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "ADS-B, multilateration and surveillance fusion",
+        "standard": "ED-129B / DO-260C",
+        "ics": "ADRV9002, XCZU3EG, ZED-F9T"
+      },
+      "overview": "Ground surveillance receiver combining 1090MHz ADS-B extended squitter, Mode-S multilateration, and UAT reception into a single fused track feed. Time-of-arrival stamping is disciplined to UTC by a GNSS-locked OCXO, giving the sub-10ns timing that wide-area multilateration requires.",
+      "family": [
+        [
+          "eATM-3000",
+          "Surveillance receiver and fusion node",
+          "1U rackmount"
+        ],
+        [
+          "eATM-RSU",
+          "Remote sensor unit",
+          "Pole-mounted IP67"
+        ],
+        [
+          "eATM-TWR",
+          "Tower display interface",
+          "19-inch console"
+        ]
+      ],
+      "specs": [
+        [
+          "Receiver",
+          "ADRV9002, 1090MHz ES and 978MHz UAT"
+        ],
+        [
+          "Processing",
+          "Zynq UltraScale+ XCZU3EG, pulse decode in fabric"
+        ],
+        [
+          "Sensitivity",
+          "-96 dBm MTL at 90% reply ratio"
+        ],
+        [
+          "Timing",
+          "GNSS-disciplined OCXO, <10ns TOA stamping"
+        ],
+        [
+          "Capacity",
+          "2000 simultaneous tracks, 500 msg/s sustained"
+        ],
+        [
+          "Range",
+          "400km line of sight for ADS-B ES"
+        ],
+        [
+          "Output",
+          "ASTERIX Cat-021/Cat-023 over TCP, 10GbE"
+        ],
+        [
+          "Redundancy",
+          "Dual power feed, hot-standby pairing"
+        ],
+        [
+          "Availability",
+          "99.99% design target"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "12"
+        ],
+        [
+          "Dimensions",
+          "260mm x 180mm"
+        ],
+        [
+          "Stackup",
+          "Rogers RO4350B RF layer over FR-4"
+        ],
+        [
+          "IPC Class",
+          "Class 2"
+        ],
+        [
+          "Finish",
+          "ENIG with shielding cans over RF sections"
+        ],
+        [
+          "Impedance",
+          "50 ohm RF, 100 ohm differential"
+        ]
+      ],
+      "compliance": [
+        [
+          "ED-129B",
+          "Technical specification for ADS-B ground stations"
+        ],
+        [
+          "DO-260C",
+          "1090MHz extended squitter ADS-B MOPS"
+        ],
+        [
+          "EUROCAE ED-142",
+          "Wide-area multilateration performance"
+        ],
+        [
+          "EN 301 489-1",
+          "EMC for radio equipment"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "adrv9002",
+          "qty": 2,
+          "description": "1090MHz ES and 978MHz UAT receiver"
+        },
+        {
+          "ref": "U2",
+          "part": "zynq_ultrascale",
+          "qty": 1,
+          "description": "Pulse decode and track fusion MPSoC"
+        },
+        {
+          "ref": "U3",
+          "part": "lmx2594",
+          "qty": 2,
+          "description": "Receiver LO synthesiser"
+        },
+        {
+          "ref": "U4",
+          "part": "hmc7044",
+          "qty": 1,
+          "description": "Clock distribution and jitter cleaning"
+        },
+        {
+          "ref": "U5",
+          "part": "ocxo_10mhz",
+          "qty": 1,
+          "description": "GNSS-disciplined timing reference"
+        },
+        {
+          "ref": "U6",
+          "part": "zed_f9t",
+          "qty": 2,
+          "description": "Timing GNSS receiver, redundant"
+        },
+        {
+          "ref": "U7",
+          "part": "ad9265",
+          "qty": 2,
+          "description": "16-bit IF digitiser for multilateration TOA"
+        },
+        {
+          "ref": "U8",
+          "part": "lpddr4_4gb",
+          "qty": 2,
+          "description": "Track database and sample buffer"
+        },
+        {
+          "ref": "U9",
+          "part": "emmc_64gb",
+          "qty": 1,
+          "description": "Recording and firmware storage"
+        },
+        {
+          "ref": "U10",
+          "part": "ksz9031",
+          "qty": 2,
+          "description": "Gigabit Ethernet PHY"
+        },
+        {
+          "ref": "U11",
+          "part": "lt8640",
+          "qty": 6,
+          "description": "Point-of-load regulator"
+        },
+        {
+          "ref": "J1",
+          "part": "sfp_cage",
+          "qty": 2,
+          "description": "10GbE ASTERIX output"
+        },
+        {
+          "ref": "J2",
+          "part": "sma_edge",
+          "qty": 4,
+          "description": "Antenna RF input"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_rf_rogers",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 220
+        },
+        {
+          "ref": "C2",
+          "part": "cap_10u_0805",
+          "qty": 50
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 110
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eATM-3000 ATM Surveillance Receiver",
+        "bus_v": 12,
+        "efficiency": 0.88,
+        "loads": [
+          [
+            "ADRV9002 receiver x2",
+            6.8
+          ],
+          [
+            "Zynq UltraScale+ XCZU3EG",
+            12.5
+          ],
+          [
+            "AD9265 IF digitiser x2",
+            2.4
+          ],
+          [
+            "LMX2594 synthesiser x2",
+            1.4
+          ],
+          [
+            "HMC7044 clock tree",
+            1.1
+          ],
+          [
+            "10MHz OCXO",
+            1.8
+          ],
+          [
+            "ZED-F9T timing GNSS x2",
+            0.56
+          ],
+          [
+            "LPDDR4 x2",
+            2.2
+          ],
+          [
+            "Ethernet PHY and SFP+",
+            2.9
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "airport_systems",
+      "taxonomy": "eAirport",
+      "title": "Airport Ground Systems",
+      "part": "eAPT-900",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "AGL control, stand guidance, apron sensing",
+        "standard": "ICAO Annex 14 / FAA AC 150/5345",
+        "ics": "AM6254, DP83867, IWR6843"
+      },
+      "overview": "Airport ground infrastructure controller for airfield ground lighting, docking guidance, and apron surveillance. Individual lamp control and monitoring runs over a power-line carrier on the existing series circuit, avoiding the trenching that a parallel data network would require on a live airfield.",
+      "family": [
+        [
+          "eAPT-900",
+          "Airfield lighting control and monitoring",
+          "DIN rail"
+        ],
+        [
+          "eAPT-VDGS",
+          "Visual docking guidance system",
+          "Gate-mounted IP66"
+        ],
+        [
+          "eAPT-APR",
+          "Apron surveillance sensor",
+          "Mast IP67"
+        ]
+      ],
+      "specs": [
+        [
+          "Controller",
+          "TI AM6254 quad Cortex-A53 industrial SoC"
+        ],
+        [
+          "Lamp control",
+          "Power-line carrier over 6.6A series circuit, 2048 fixtures"
+        ],
+        [
+          "Lamp monitoring",
+          "Individual lamp fault detection within 2 seconds"
+        ],
+        [
+          "Docking sensor",
+          "IWR6843AOP 60GHz mmWave, +/-5cm azimuth accuracy"
+        ],
+        [
+          "Aircraft typing",
+          "Automatic recognition of 42 airframe profiles"
+        ],
+        [
+          "Interfaces",
+          "Dual GbE ring, RS-485 x4, CAN FD x2, 32 dry contacts"
+        ],
+        [
+          "Redundancy",
+          "Dual controller with 50ms failover"
+        ],
+        [
+          "Environment",
+          "-40degC to +70degC, IP66 field units"
+        ],
+        [
+          "Availability",
+          "99.99% with hot standby"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "8"
+        ],
+        [
+          "Dimensions",
+          "180mm x 130mm"
+        ],
+        [
+          "Stackup",
+          "Isolated mains section with 8mm creepage"
+        ],
+        [
+          "IPC Class",
+          "Class 2"
+        ],
+        [
+          "Finish",
+          "ENIG, conformal coated"
+        ],
+        [
+          "Isolation",
+          "4kV reinforced between mains and logic"
+        ]
+      ],
+      "compliance": [
+        [
+          "ICAO Annex 14 Vol I",
+          "Aerodrome design and operations"
+        ],
+        [
+          "FAA AC 150/5345-53",
+          "Airport lighting equipment certification"
+        ],
+        [
+          "IEC 61822",
+          "Constant current regulators for aeronautical lighting"
+        ],
+        [
+          "EN 61000-6-2",
+          "Industrial immunity"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "am625",
+          "qty": 1,
+          "description": "Quad Cortex-A53 airfield controller"
+        },
+        {
+          "ref": "U2",
+          "part": "stm32g474",
+          "qty": 2,
+          "description": "Power-line carrier modem controller"
+        },
+        {
+          "ref": "U3",
+          "part": "iwr6843",
+          "qty": 2,
+          "description": "60GHz mmWave docking guidance sensor"
+        },
+        {
+          "ref": "U4",
+          "part": "ddr4_2gb",
+          "qty": 2,
+          "description": "System memory"
+        },
+        {
+          "ref": "U5",
+          "part": "emmc_16gb",
+          "qty": 1,
+          "description": "Application and configuration storage"
+        },
+        {
+          "ref": "U6",
+          "part": "dp83867",
+          "qty": 2,
+          "description": "Gigabit Ethernet PHY, ring topology"
+        },
+        {
+          "ref": "U7",
+          "part": "ksz8863",
+          "qty": 1,
+          "description": "Managed Ethernet switch"
+        },
+        {
+          "ref": "U8",
+          "part": "adm2587",
+          "qty": 4,
+          "description": "Isolated RS-485 field interface"
+        },
+        {
+          "ref": "U9",
+          "part": "adm3053",
+          "qty": 2,
+          "description": "Isolated CAN FD interface"
+        },
+        {
+          "ref": "U10",
+          "part": "iso7741",
+          "qty": 8,
+          "description": "Dry-contact input isolation"
+        },
+        {
+          "ref": "U11",
+          "part": "ina228",
+          "qty": 4,
+          "description": "Series circuit current monitoring"
+        },
+        {
+          "ref": "U12",
+          "part": "tps54360",
+          "qty": 4,
+          "description": "Primary buck regulator"
+        },
+        {
+          "ref": "U13",
+          "part": "optiga_slb9670",
+          "qty": 1,
+          "description": "TPM 2.0 for secure configuration"
+        },
+        {
+          "ref": "J1",
+          "part": "m12_8pin",
+          "qty": 6,
+          "description": "Field sensor connector"
+        },
+        {
+          "ref": "J2",
+          "part": "rj45_mag",
+          "qty": 2
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_8l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 130
+        },
+        {
+          "ref": "C2",
+          "part": "cap_47u_1210",
+          "qty": 18
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 75
+        },
+        {
+          "ref": "FL1",
+          "part": "cmc_line",
+          "qty": 2,
+          "description": "Mains common-mode filter"
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eAPT-900 Airfield Systems Controller",
+        "bus_v": 24,
+        "efficiency": 0.86,
+        "loads": [
+          [
+            "AM6254 application processor",
+            4.2
+          ],
+          [
+            "STM32G474 PLC modem x2",
+            0.7
+          ],
+          [
+            "IWR6843 mmWave sensor x2",
+            4.0
+          ],
+          [
+            "DDR4 x2",
+            1.6
+          ],
+          [
+            "Gigabit PHY x2 + switch",
+            1.6
+          ],
+          [
+            "Isolated RS-485 x4",
+            1.4
+          ],
+          [
+            "Isolated CAN x2",
+            0.8
+          ],
+          [
+            "Digital isolation and I/O",
+            0.6
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "telemetry_systems",
+      "taxonomy": "eTelemetry",
+      "title": "Telemetry Systems",
+      "part": "eTLM-600",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "PCM/IRIG telemetry encoding and downlink",
+        "standard": "IRIG 106-22 / CCSDS 131.0-B",
+        "ics": "XC7A100T, ADRV9002, ADS8688"
+      },
+      "overview": "Airborne and range telemetry encoder that samples analogue and digital instrumentation into an IRIG 106 PCM stream, applies CCSDS framing and forward error correction, then transmits on S-band. Handles 256 analogue channels with per-channel programmable sample rates and IRIG-B time correlation.",
+      "family": [
+        [
+          "eTLM-600",
+          "PCM encoder and S-band transmitter",
+          "Conduction-cooled 3U"
+        ],
+        [
+          "eTLM-DAU",
+          "Remote data acquisition unit",
+          "Compact 100x80mm"
+        ],
+        [
+          "eTLM-GRX",
+          "Ground telemetry receiver",
+          "1U rackmount"
+        ]
+      ],
+      "specs": [
+        [
+          "Encoder",
+          "AMD Xilinx Artix-7 XC7A100T, IRIG 106 Chapter 4 PCM"
+        ],
+        [
+          "Analogue inputs",
+          "256 channels, 16-bit, up to 10kSPS per channel"
+        ],
+        [
+          "Digital inputs",
+          "128 discrete, 32 differential serial"
+        ],
+        [
+          "Bus monitoring",
+          "MIL-STD-1553B, ARINC-429, CAN FD"
+        ],
+        [
+          "Aggregate rate",
+          "20Mbps PCM output"
+        ],
+        [
+          "Coding",
+          "CCSDS Reed-Solomon (255,223), rate-1/2 convolutional"
+        ],
+        [
+          "Transmitter",
+          "S-band 2.2-2.4GHz, 10W, SOQPSK-TG"
+        ],
+        [
+          "Time correlation",
+          "IRIG-B AM and DCLS, 1us to UTC"
+        ],
+        [
+          "Environment",
+          "DO-160G Cat. D, 20 Grms random"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "12"
+        ],
+        [
+          "Dimensions",
+          "160mm x 100mm (3U Eurocard)"
+        ],
+        [
+          "Stackup",
+          "Segregated analogue acquisition island"
+        ],
+        [
+          "IPC Class",
+          "Class 3"
+        ],
+        [
+          "Finish",
+          "ENIG, conformal coated"
+        ],
+        [
+          "Connector",
+          "MIL-DTL-38999 Series III"
+        ]
+      ],
+      "compliance": [
+        [
+          "IRIG 106-22",
+          "Telemetry standards, Range Commanders Council"
+        ],
+        [
+          "CCSDS 131.0-B-4",
+          "TM synchronisation and channel coding"
+        ],
+        [
+          "DO-160G",
+          "Environmental qualification"
+        ],
+        [
+          "MIL-STD-461G",
+          "Conducted and radiated emissions"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "artix7_100t",
+          "qty": 1,
+          "description": "PCM encoder and framing FPGA"
+        },
+        {
+          "ref": "U2",
+          "part": "stm32h743",
+          "qty": 1,
+          "description": "Configuration and housekeeping processor"
+        },
+        {
+          "ref": "U3",
+          "part": "ads8688",
+          "qty": 16,
+          "description": "8-channel 16-bit analogue acquisition"
+        },
+        {
+          "ref": "U4",
+          "part": "adrv9002",
+          "qty": 1,
+          "description": "S-band telemetry transmitter"
+        },
+        {
+          "ref": "U5",
+          "part": "lmx2594",
+          "qty": 1,
+          "description": "Transmitter LO synthesiser"
+        },
+        {
+          "ref": "U6",
+          "part": "bu65170",
+          "qty": 1,
+          "description": "MIL-STD-1553B bus monitor"
+        },
+        {
+          "ref": "U7",
+          "part": "hi3593",
+          "qty": 2,
+          "description": "ARINC-429 bus monitor"
+        },
+        {
+          "ref": "U8",
+          "part": "tcan1042",
+          "qty": 2,
+          "description": "CAN FD bus monitor"
+        },
+        {
+          "ref": "U9",
+          "part": "ddr4_2gb",
+          "qty": 1,
+          "description": "Frame buffer and replay memory"
+        },
+        {
+          "ref": "U10",
+          "part": "w25q128",
+          "qty": 2,
+          "description": "FPGA bitstream and configuration"
+        },
+        {
+          "ref": "U11",
+          "part": "tcxo_26mhz",
+          "qty": 1,
+          "description": "IRIG-B disciplined reference oscillator"
+        },
+        {
+          "ref": "U12",
+          "part": "tps54360",
+          "qty": 4,
+          "description": "Primary buck regulator"
+        },
+        {
+          "ref": "U13",
+          "part": "tps7a4701",
+          "qty": 4,
+          "description": "Low-noise analogue supply"
+        },
+        {
+          "ref": "J1",
+          "part": "d38999_25",
+          "qty": 4,
+          "description": "Instrumentation harness interface"
+        },
+        {
+          "ref": "J2",
+          "part": "sma_edge",
+          "qty": 2,
+          "description": "S-band antenna port"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_12l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 260
+        },
+        {
+          "ref": "C2",
+          "part": "cap_10u_0805",
+          "qty": 60
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 140
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eTLM-600 Telemetry Encoder",
+        "bus_v": 28,
+        "efficiency": 0.85,
+        "loads": [
+          [
+            "Artix-7 PCM encoder FPGA",
+            2.1
+          ],
+          [
+            "STM32H743 housekeeping",
+            0.6
+          ],
+          [
+            "ADS8688 acquisition x16",
+            5.28
+          ],
+          [
+            "S-band transmitter (10W RF)",
+            26.0
+          ],
+          [
+            "LMX2594 synthesiser",
+            0.7
+          ],
+          [
+            "1553B / ARINC-429 monitors",
+            0.85
+          ],
+          [
+            "DDR4 frame buffer",
+            0.8
+          ],
+          [
+            "Analogue reference and housekeeping",
+            0.9
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "gnss_receivers",
+      "taxonomy": "eGNSS",
+      "title": "GNSS Receiver Systems",
+      "part": "eGNSS-400",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Multi-band GNSS, RTK, anti-spoof",
+        "standard": "DO-229F / ETSI EN 303 413",
+        "ics": "ZED-F9P, ECP5, ADIS16470"
+      },
+      "overview": "Multi-constellation multi-band GNSS receiver with RTK and PPP correction support, tightly coupled inertial aiding, and interference detection. An ECP5 FPGA monitors the raw IF spectrum for jamming and spoofing signatures, so an attack is reported rather than silently degrading the position solution.",
+      "family": [
+        [
+          "eGNSS-400",
+          "RTK receiver with inertial aiding",
+          "70x50mm module"
+        ],
+        [
+          "eGNSS-400T",
+          "Timing receiver variant",
+          "70x50mm module"
+        ],
+        [
+          "eGNSS-ANT",
+          "Multi-band active antenna",
+          "Puck IP67"
+        ]
+      ],
+      "specs": [
+        [
+          "Constellations",
+          "GPS L1/L2/L5, Galileo E1/E5, GLONASS, BeiDou, QZSS"
+        ],
+        [
+          "Position accuracy",
+          "1cm + 1ppm horizontal with RTK fix"
+        ],
+        [
+          "Convergence",
+          "<10s RTK, <30min PPP"
+        ],
+        [
+          "Update rate",
+          "20Hz position, 200Hz inertial-aided"
+        ],
+        [
+          "Inertial aiding",
+          "ADIS16470 industrial IMU, tightly coupled"
+        ],
+        [
+          "Interference monitor",
+          "ECP5 FPGA spectral analysis, jamming and spoofing flags"
+        ],
+        [
+          "Interfaces",
+          "UART x2, USB 2.0, CAN FD, 1PPS, event capture"
+        ],
+        [
+          "Anti-spoofing",
+          "Signal authentication via Galileo OSNMA"
+        ],
+        [
+          "Power",
+          "5V input, 1.1W typical with RTK active"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "8"
+        ],
+        [
+          "Dimensions",
+          "100mm x 80mm"
+        ],
+        [
+          "Stackup",
+          "Continuous RF ground under antenna feed"
+        ],
+        [
+          "IPC Class",
+          "Class 3"
+        ],
+        [
+          "Finish",
+          "ENIG with RF shield can"
+        ],
+        [
+          "Impedance",
+          "50 ohm RF trace to antenna port"
+        ]
+      ],
+      "compliance": [
+        [
+          "DO-229F",
+          "GPS/SBAS airborne equipment MOPS"
+        ],
+        [
+          "ETSI EN 303 413",
+          "GNSS receiver radio equipment"
+        ],
+        [
+          "DO-160G",
+          "Environmental qualification"
+        ],
+        [
+          "EN 301 489-19",
+          "EMC for GNSS receivers"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "zed_f9p",
+          "qty": 1,
+          "description": "Dual-band RTK GNSS engine"
+        },
+        {
+          "ref": "U2",
+          "part": "ecp5_um5g",
+          "qty": 1,
+          "description": "IF spectral monitor, jamming and spoofing detection"
+        },
+        {
+          "ref": "U3",
+          "part": "stm32h743",
+          "qty": 1,
+          "description": "Sensor fusion and protocol processor"
+        },
+        {
+          "ref": "U4",
+          "part": "adis16470",
+          "qty": 1,
+          "description": "Industrial IMU for tightly coupled aiding"
+        },
+        {
+          "ref": "U5",
+          "part": "ad9265",
+          "qty": 1,
+          "description": "IF digitiser for interference analysis"
+        },
+        {
+          "ref": "U6",
+          "part": "tcxo_26mhz",
+          "qty": 1,
+          "description": "Low-phase-noise reference oscillator"
+        },
+        {
+          "ref": "U7",
+          "part": "w25q128",
+          "qty": 1,
+          "description": "Firmware and almanac storage"
+        },
+        {
+          "ref": "U8",
+          "part": "fm24v10",
+          "qty": 1,
+          "description": "FRAM for hot-start ephemeris"
+        },
+        {
+          "ref": "U9",
+          "part": "usb3343",
+          "qty": 1,
+          "description": "USB 2.0 high-speed PHY"
+        },
+        {
+          "ref": "U10",
+          "part": "tcan1042",
+          "qty": 1,
+          "description": "CAN FD transceiver"
+        },
+        {
+          "ref": "U11",
+          "part": "atecc608b",
+          "qty": 1,
+          "description": "OSNMA key storage and authentication"
+        },
+        {
+          "ref": "U12",
+          "part": "tps62840",
+          "qty": 4,
+          "description": "Low-Iq point-of-load regulator"
+        },
+        {
+          "ref": "U13",
+          "part": "tps7a4701",
+          "qty": 2,
+          "description": "Low-noise LDO for RF front end"
+        },
+        {
+          "ref": "ANT1",
+          "part": "ant_gnss_patch",
+          "qty": 1
+        },
+        {
+          "ref": "J1",
+          "part": "sma_edge",
+          "qty": 1,
+          "description": "External antenna port"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_8l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 80
+        },
+        {
+          "ref": "C2",
+          "part": "cap_10u_0805",
+          "qty": 16
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 45
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eGNSS-400 RTK Receiver",
+        "bus_v": 5,
+        "efficiency": 0.9,
+        "loads": [
+          [
+            "ZED-F9P GNSS engine (RTK active)",
+            0.135
+          ],
+          [
+            "ECP5 interference monitor",
+            0.42
+          ],
+          [
+            "STM32H743 fusion processor",
+            0.6
+          ],
+          [
+            "ADIS16470 IMU",
+            0.21
+          ],
+          [
+            "AD9265 IF digitiser",
+            1.2
+          ],
+          [
+            "Active antenna LNA bias",
+            0.09
+          ],
+          [
+            "USB PHY and CAN transceiver",
+            0.14
+          ],
+          [
+            "Reference oscillator",
+            0.03
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "navigation_systems",
+      "taxonomy": "eNavigation",
+      "title": "Inertial Navigation Systems",
+      "part": "eINS-900",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "GNSS-denied inertial navigation",
+        "standard": "DO-334 / STANAG 4572",
+        "ics": "ADIS16505, XC7A35T, STM32H743"
+      },
+      "overview": "Tactical-grade inertial navigation system providing a continuous position solution through GNSS outage, blending a triad of tactical IMUs with barometric, magnetic, and optional odometry aiding in an error-state Kalman filter. Drift is specified at under 1.5 nautical miles per hour of free inertial operation.",
+      "family": [
+        [
+          "eINS-900",
+          "Tactical inertial navigation system",
+          "120x100x60mm"
+        ],
+        [
+          "eINS-900L",
+          "Reduced-size variant for UAV",
+          "80x70x40mm"
+        ],
+        [
+          "eINS-AHRS",
+          "Attitude and heading reference only",
+          "60x50x25mm"
+        ]
+      ],
+      "specs": [
+        [
+          "Inertial sensors",
+          "3x ADIS16505-2, 0.4deg/hr in-run bias stability"
+        ],
+        [
+          "Free inertial drift",
+          "<1.5 nmi/hr CEP, 50% probability"
+        ],
+        [
+          "Attitude accuracy",
+          "0.05deg roll/pitch, 0.1deg heading (GNSS-aided)"
+        ],
+        [
+          "Filter",
+          "24-state error-state extended Kalman filter"
+        ],
+        [
+          "Aiding",
+          "GNSS, barometric, magnetic, odometry, air data"
+        ],
+        [
+          "Update rate",
+          "200Hz navigation solution, 2kHz IMU sampling"
+        ],
+        [
+          "Alignment",
+          "60s coarse, 300s fine gyrocompass alignment"
+        ],
+        [
+          "Interfaces",
+          "ARINC-429, MIL-STD-1553B, RS-422, CAN FD, Ethernet"
+        ],
+        [
+          "Environment",
+          "DO-160G Cat. D, -40degC to +71degC"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "10"
+        ],
+        [
+          "Dimensions",
+          "110mm x 90mm"
+        ],
+        [
+          "Stackup",
+          "Isolated IMU mounting island, thermally symmetric"
+        ],
+        [
+          "IPC Class",
+          "Class 3"
+        ],
+        [
+          "Finish",
+          "ENIG, conformal coated"
+        ],
+        [
+          "Mechanical",
+          "Machined aluminium housing, vibration isolated"
+        ]
+      ],
+      "compliance": [
+        [
+          "DO-334",
+          "Airborne navigation sensors MOPS"
+        ],
+        [
+          "STANAG 4572",
+          "Standard interfaces for inertial navigation"
+        ],
+        [
+          "DO-160G",
+          "Environmental qualification"
+        ],
+        [
+          "MIL-STD-810H",
+          "Environmental engineering considerations"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "adis16505",
+          "qty": 3,
+          "description": "Tactical-grade IMU triad"
+        },
+        {
+          "ref": "U2",
+          "part": "artix7_35t",
+          "qty": 1,
+          "description": "IMU sampling, sync and pre-filtering"
+        },
+        {
+          "ref": "U3",
+          "part": "stm32h743",
+          "qty": 2,
+          "description": "Kalman filter processor, dual redundant"
+        },
+        {
+          "ref": "U4",
+          "part": "zed_f9p",
+          "qty": 1,
+          "description": "GNSS aiding receiver"
+        },
+        {
+          "ref": "U5",
+          "part": "ms5611",
+          "qty": 2,
+          "description": "Barometric altitude aiding"
+        },
+        {
+          "ref": "U6",
+          "part": "mmc5983",
+          "qty": 2,
+          "description": "Magnetic heading aiding"
+        },
+        {
+          "ref": "U7",
+          "part": "hi3593",
+          "qty": 2,
+          "description": "ARINC-429 interface"
+        },
+        {
+          "ref": "U8",
+          "part": "bu65170",
+          "qty": 1,
+          "description": "MIL-STD-1553B terminal"
+        },
+        {
+          "ref": "U9",
+          "part": "max3485",
+          "qty": 2,
+          "description": "RS-422 interface"
+        },
+        {
+          "ref": "U10",
+          "part": "tcan1042",
+          "qty": 2,
+          "description": "CAN FD transceiver"
+        },
+        {
+          "ref": "U11",
+          "part": "ksz9031",
+          "qty": 1,
+          "description": "Gigabit Ethernet PHY"
+        },
+        {
+          "ref": "U12",
+          "part": "mr25h256",
+          "qty": 2,
+          "description": "MRAM for alignment and calibration state"
+        },
+        {
+          "ref": "U13",
+          "part": "tmp117",
+          "qty": 6,
+          "description": "IMU thermal compensation sensing"
+        },
+        {
+          "ref": "U14",
+          "part": "lm5164",
+          "qty": 3,
+          "description": "Primary buck regulator"
+        },
+        {
+          "ref": "U15",
+          "part": "tps7a4701",
+          "qty": 4,
+          "description": "Low-noise IMU supply"
+        },
+        {
+          "ref": "J1",
+          "part": "d38999_25",
+          "qty": 2
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_8l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 150
+        },
+        {
+          "ref": "C2",
+          "part": "cap_10u_0805",
+          "qty": 32
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 85
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eINS-900 Inertial Navigation System",
+        "bus_v": 28,
+        "efficiency": 0.86,
+        "loads": [
+          [
+            "ADIS16505 IMU triad",
+            0.63
+          ],
+          [
+            "Artix-7 IMU sampling FPGA",
+            0.95
+          ],
+          [
+            "STM32H743 Kalman processor x2",
+            1.2
+          ],
+          [
+            "ZED-F9P GNSS aiding",
+            0.135
+          ],
+          [
+            "Barometer and magnetometer aiding",
+            0.06
+          ],
+          [
+            "ARINC-429 / 1553B interfaces",
+            0.72
+          ],
+          [
+            "Ethernet PHY and serial",
+            0.38
+          ],
+          [
+            "Thermal control and housekeeping",
+            1.4
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "space_weather",
+      "taxonomy": "eSpaceWeather",
+      "title": "Space Weather Monitoring",
+      "part": "eSWX-200",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Radiation, magnetometry and TEC monitoring",
+        "standard": "ECSS-E-ST-10-04C / ISO 15390",
+        "ics": "GR712RC, AD7124, MMC5983MA"
+      },
+      "overview": "Space weather instrument package measuring energetic particle flux, total ionising dose, magnetic field, and ionospheric total electron content. Flown as a hosted payload or on a dedicated smallsat, feeding both spacecraft anomaly attribution and ground forecasting models.",
+      "family": [
+        [
+          "eSWX-200",
+          "Space weather instrument controller",
+          "Eurocard 3U"
+        ],
+        [
+          "eSWX-PD",
+          "Particle detector head",
+          "Aperture 25mm"
+        ],
+        [
+          "eSWX-MAG",
+          "Boom-mounted fluxgate magnetometer",
+          "Boom head"
+        ]
+      ],
+      "specs": [
+        [
+          "Controller",
+          "GR712RC rad-hard dual-core LEON3FT"
+        ],
+        [
+          "Particle detection",
+          "Silicon telescope, 0.1-100 MeV protons, 0.05-10 MeV electrons"
+        ],
+        [
+          "Dosimetry",
+          "RADFET total ionising dose, 0.1 rad resolution"
+        ],
+        [
+          "Magnetometer",
+          "Fluxgate triad, +/-65000 nT, 0.1 nT resolution"
+        ],
+        [
+          "TEC measurement",
+          "Dual-frequency GNSS occultation, 0.1 TECU"
+        ],
+        [
+          "Sample rate",
+          "1Hz nominal, 20Hz burst during events"
+        ],
+        [
+          "Data volume",
+          "180 MB/day nominal, 900 MB/day in burst"
+        ],
+        [
+          "Interfaces",
+          "SpaceWire x2, CAN FD, MIL-STD-1553B"
+        ],
+        [
+          "Total ionising dose",
+          "100 krad(Si) instrument survival"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "12"
+        ],
+        [
+          "Dimensions",
+          "160mm x 100mm (3U Eurocard)"
+        ],
+        [
+          "Stackup",
+          "Guarded analogue island for detector bias"
+        ],
+        [
+          "IPC Class",
+          "Class 3/A per IPC-6012DS"
+        ],
+        [
+          "Finish",
+          "Electroplated nickel-gold, staked, conformal coated"
+        ],
+        [
+          "Outgassing",
+          "ASTM E595, TML < 1.0%, CVCM < 0.1%"
+        ]
+      ],
+      "compliance": [
+        [
+          "ECSS-E-ST-10-04C",
+          "Space environment specification"
+        ],
+        [
+          "ISO 15390",
+          "Galactic cosmic ray model reference"
+        ],
+        [
+          "ECSS-Q-ST-60C",
+          "EEE component selection and screening"
+        ],
+        [
+          "ECSS-E-ST-50-12C",
+          "SpaceWire interface"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "gr712rc",
+          "qty": 1,
+          "description": "Rad-hard instrument controller"
+        },
+        {
+          "ref": "U2",
+          "part": "ad7124",
+          "qty": 4,
+          "description": "24-bit low-noise ADC for detector and dosimetry"
+        },
+        {
+          "ref": "U3",
+          "part": "ads131m08",
+          "qty": 2,
+          "description": "Simultaneous-sampling ADC for fluxgate triad"
+        },
+        {
+          "ref": "U4",
+          "part": "mmc5983",
+          "qty": 3,
+          "description": "Reference magnetometer for boom cross-check"
+        },
+        {
+          "ref": "U5",
+          "part": "zed_f9p",
+          "qty": 2,
+          "description": "Dual-frequency GNSS for TEC occultation"
+        },
+        {
+          "ref": "U6",
+          "part": "ina849",
+          "qty": 8,
+          "description": "Detector charge-sensitive preamplifier"
+        },
+        {
+          "ref": "U7",
+          "part": "opa2188",
+          "qty": 8,
+          "description": "Zero-drift shaping amplifier"
+        },
+        {
+          "ref": "U8",
+          "part": "ut54lvds032",
+          "qty": 2,
+          "description": "SpaceWire LVDS interface"
+        },
+        {
+          "ref": "U9",
+          "part": "mr25h256",
+          "qty": 4,
+          "description": "MRAM science data buffer"
+        },
+        {
+          "ref": "U10",
+          "part": "isl71001",
+          "qty": 3,
+          "description": "Rad-hard point-of-load regulator"
+        },
+        {
+          "ref": "U11",
+          "part": "tps7h1101",
+          "qty": 3,
+          "description": "Rad-hard low-noise detector bias supply"
+        },
+        {
+          "ref": "U12",
+          "part": "bu65170",
+          "qty": 1,
+          "description": "MIL-STD-1553B terminal"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_12l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 160
+        },
+        {
+          "ref": "C2",
+          "part": "cap_47u_1210",
+          "qty": 22
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 95
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eSWX-200 Space Weather Instrument",
+        "bus_v": 28,
+        "efficiency": 0.82,
+        "loads": [
+          [
+            "GR712RC instrument controller",
+            3.2
+          ],
+          [
+            "AD7124 ADC x4",
+            0.36
+          ],
+          [
+            "ADS131M08 fluxgate ADC x2",
+            0.62
+          ],
+          [
+            "Detector preamplifier chain",
+            0.88
+          ],
+          [
+            "ZED-F9P GNSS occultation x2",
+            0.27
+          ],
+          [
+            "SpaceWire LVDS interface",
+            0.24
+          ],
+          [
+            "MRAM science buffer",
+            0.12
+          ],
+          [
+            "Detector bias and housekeeping",
+            0.65
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "rad_tolerant_electronics",
+      "taxonomy": "eRadTolerant",
+      "title": "Radiation-Tolerant Electronics",
+      "part": "eRAD-100",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Rad-tolerant building blocks and SEE mitigation",
+        "standard": "MIL-STD-883 TM1019 / ESCC 22900",
+        "ics": "RTAX2000S, GR740, ISL71001"
+      },
+      "overview": "Radiation-tolerant building-block board set for missions that cannot afford full rad-hard silicon everywhere. Combines a rad-hard processor and antifuse FPGA core with latch-up-protected COTS peripherals, triple modular redundancy in fabric, and scrubbing of configuration memory.",
+      "family": [
+        [
+          "eRAD-100",
+          "Rad-tolerant processing core",
+          "Eurocard 6U"
+        ],
+        [
+          "eRAD-LCL",
+          "Latch-up current limiter array",
+          "Eurocard 3U"
+        ],
+        [
+          "eRAD-SCRUB",
+          "Configuration memory scrubber",
+          "Mezzanine"
+        ]
+      ],
+      "specs": [
+        [
+          "Processor",
+          "GR740 quad-core LEON4FT, 250MHz"
+        ],
+        [
+          "Antifuse logic",
+          "RTAX2000S, immune to configuration upset"
+        ],
+        [
+          "Redundancy",
+          "Triple modular redundancy with majority voting"
+        ],
+        [
+          "Scrubbing",
+          "Configuration memory scrub cycle every 500ms"
+        ],
+        [
+          "Latch-up protection",
+          "Per-rail current limiters, 10us trip, autonomous retry"
+        ],
+        [
+          "Total ionising dose",
+          "300 krad(Si) qualified"
+        ],
+        [
+          "Single-event upset",
+          "<1e-10 errors/bit-day at GEO worst case"
+        ],
+        [
+          "Single-event latch-up",
+          "Immune to 80 MeV-cm2/mg"
+        ],
+        [
+          "Displacement damage",
+          "1e12 protons/cm2 at 60 MeV"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "16"
+        ],
+        [
+          "Dimensions",
+          "233mm x 220mm (6U Eurocard)"
+        ],
+        [
+          "Stackup",
+          "Polyimide, buried vias, symmetric construction"
+        ],
+        [
+          "IPC Class",
+          "Class 3/A per IPC-6012DS space addendum"
+        ],
+        [
+          "Finish",
+          "Electroplated nickel-gold, staked and bonded"
+        ],
+        [
+          "Shielding",
+          "Selective tantalum spot shielding over sensitive die"
+        ]
+      ],
+      "compliance": [
+        [
+          "MIL-STD-883 TM1019",
+          "Total ionising dose test method"
+        ],
+        [
+          "ESCC 22900",
+          "TID steady-state irradiation test method"
+        ],
+        [
+          "JESD57",
+          "Single-event effects test procedures"
+        ],
+        [
+          "ECSS-Q-ST-60-15C",
+          "Radiation hardness assurance"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "gr740",
+          "qty": 1,
+          "description": "Rad-hard quad-core LEON4FT processor"
+        },
+        {
+          "ref": "U2",
+          "part": "rtax2000s",
+          "qty": 1,
+          "description": "Antifuse FPGA, TMR voting fabric"
+        },
+        {
+          "ref": "U3",
+          "part": "rtg4_150",
+          "qty": 1,
+          "description": "Rad-tolerant flash FPGA with scrubbing"
+        },
+        {
+          "ref": "U4",
+          "part": "ddr4_2gb",
+          "qty": 4,
+          "description": "DDR4 with Reed-Solomon EDAC"
+        },
+        {
+          "ref": "U5",
+          "part": "mr25h256",
+          "qty": 6,
+          "description": "MRAM, inherently upset-immune state store"
+        },
+        {
+          "ref": "U6",
+          "part": "isl71001",
+          "qty": 8,
+          "description": "Rad-hard buck with latch-up current limiting"
+        },
+        {
+          "ref": "U7",
+          "part": "tps7h1101",
+          "qty": 6,
+          "description": "Rad-hard LDO for core and analogue rails"
+        },
+        {
+          "ref": "U8",
+          "part": "ut54lvds032",
+          "qty": 6,
+          "description": "Rad-hard LVDS for SpaceWire fabric"
+        },
+        {
+          "ref": "U9",
+          "part": "ina228",
+          "qty": 12,
+          "description": "Per-rail latch-up detection telemetry"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_12l_c3",
+          "qty": 1,
+          "description": "16-layer polyimide Class 3/A PCB with spot shielding"
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 300
+        },
+        {
+          "ref": "C2",
+          "part": "cap_47u_1210",
+          "qty": 40
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 150
+        },
+        {
+          "ref": "L1",
+          "part": "ind_4u7",
+          "qty": 12
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eRAD-100 Rad-Tolerant Processing Core",
+        "bus_v": 28,
+        "efficiency": 0.8,
+        "loads": [
+          [
+            "GR740 quad-core LEON4FT",
+            8.5
+          ],
+          [
+            "RTAX2000S antifuse FPGA",
+            3.2
+          ],
+          [
+            "RTG4 FPGA with scrubber",
+            4.5
+          ],
+          [
+            "DDR4 with EDAC x4",
+            3.2
+          ],
+          [
+            "MRAM x6",
+            0.18
+          ],
+          [
+            "SpaceWire LVDS x6",
+            0.72
+          ],
+          [
+            "Latch-up limiter overhead",
+            1.1
+          ],
+          [
+            "Telemetry and housekeeping",
+            0.55
+          ]
+        ]
+      }
+    }
+  ]
+}

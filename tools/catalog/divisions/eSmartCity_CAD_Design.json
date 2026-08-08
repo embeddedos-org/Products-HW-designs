@@ -1,0 +1,628 @@
+{
+  "_comment": [
+    "Smart city & public sector. The hand-authored telecom, urban_infrastructure",
+    "and utilities directories predate this catalog and are left as written."
+  ],
+  "division": "eSmartCity_CAD_Design",
+  "products": [
+    {
+      "slug": "public_safety",
+      "taxonomy": "ePublicSafety",
+      "title": "Public Safety Systems",
+      "part": "ePS-1200",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Mission-critical responder communications", "standard": "3GPP MCPTT / TETRA", "ics": "AM6254, RM520N-GL, SE050"},
+      "overview": "Public safety communications node bridging mission-critical push-to-talk over 5G with legacy TETRA and P25 radio estates. Bridging matters because migration takes a decade and responders cannot be left unable to reach each other partway through it.",
+      "specs": [
+        ["Processor", "TI AM6254 quad Cortex-A53"],
+        ["Cellular", "5G NR Sub-6GHz with 3GPP MCPTT, MCVideo and MCData"],
+        ["Legacy bridging", "TETRA and P25 gateway with transcoding"],
+        ["Priority", "3GPP ARP and pre-emption for responder traffic"],
+        ["Resilience", "Isolated operation when backhaul is lost, 72-hour battery"],
+        ["Location", "GNSS with indoor dead-reckoning fallback"],
+        ["Environment", "IP67, -30degC to +60degC, MIL-STD-810H shock"]
+      ],
+      "pcb": [
+        ["Layers", "10"],
+        ["Dimensions", "180mm x 140mm"],
+        ["IPC Class", "Class 3"],
+        ["Finish", "ENIG, conformal coated"],
+        ["Stackup", "Isolated RF section with shielding cans"]
+      ],
+      "compliance": [
+        ["3GPP TS 23.379", "Mission critical push-to-talk"],
+        ["ETSI EN 303 413", "GNSS receiver requirements"],
+        ["EN 301 489-1", "EMC for radio equipment"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "am625", "qty": 1, "description": "Communications bridging processor"},
+        {"ref": "U2", "part": "quectel_rm520n", "qty": 1, "description": "5G NR mission-critical modem"},
+        {"ref": "U3", "part": "adrv9002", "qty": 1, "description": "TETRA and P25 legacy transceiver"},
+        {"ref": "U4", "part": "zed_f9p", "qty": 1, "description": "GNSS position reference"},
+        {"ref": "U5", "part": "icm42688", "qty": 1, "description": "Indoor dead-reckoning IMU"},
+        {"ref": "U6", "part": "ddr4_2gb", "qty": 2, "description": "System memory"},
+        {"ref": "U7", "part": "emmc_64gb", "qty": 1, "description": "Call recording and configuration"},
+        {"ref": "U8", "part": "se050", "qty": 1, "description": "Secure element for radio identity"},
+        {"ref": "U9", "part": "dp83867", "qty": 2, "description": "Gigabit Ethernet backhaul"},
+        {"ref": "U10", "part": "bq25798", "qty": 1, "description": "Battery charger for isolated operation"},
+        {"ref": "U11", "part": "tps54360", "qty": 4, "description": "Primary buck regulator"},
+        {"ref": "BT1", "part": "batt_18650", "qty": 8, "description": "72-hour resilience battery pack"},
+        {"ref": "ANT1", "part": "ant_lte_fpc", "qty": 2},
+        {"ref": "PCB1", "part": "pcb_8l_c3", "qty": 1},
+        {"ref": "ENC1", "part": "encl_ip67_alu", "qty": 1},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 150},
+        {"ref": "C2", "part": "cap_10u_0805", "qty": 34},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 88}
+      ],
+      "power": {
+        "kind": "budget", "label": "ePS-1200 Public Safety Node", "bus_v": 24, "efficiency": 0.87,
+        "loads": [
+          ["AM6254 bridging processor", 4.2],
+          ["5G NR modem", 6.5],
+          ["ADRV9002 legacy transceiver", 3.4],
+          ["GNSS and IMU", 0.21],
+          ["DDR4 x2", 1.6],
+          ["Gigabit Ethernet PHY x2", 0.9],
+          ["Charger and housekeeping", 0.8]
+        ]
+      }
+    },
+    {
+      "slug": "emergency_response",
+      "taxonomy": "eEmergency",
+      "title": "Emergency Response Systems",
+      "part": "eEMR-800",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Incident command and dispatch hardware", "standard": "NENA i3 / EN 50136", "ics": "AM6254, RM520N-GL, ZED-F9P"},
+      "overview": "Deployable incident command unit providing dispatch, responder tracking and multi-agency interoperability at the scene. Designed to establish a local command network in under five minutes without relying on surviving fixed infrastructure.",
+      "specs": [
+        ["Processor", "TI AM6254 quad Cortex-A53"],
+        ["Deployment time", "<5 minutes from case-open to operational network"],
+        ["Local network", "Wi-Fi 6 access point plus sub-GHz responder mesh"],
+        ["Backhaul", "5G, satellite, or wired, with automatic failover"],
+        ["Responder tracking", "GNSS plus UWB for indoor positioning"],
+        ["Capacity", "250 tracked responders, 60 concurrent voice channels"],
+        ["Endurance", "18 hours on internal battery, hot-swappable"]
+      ],
+      "pcb": [
+        ["Layers", "10"],
+        ["Dimensions", "220mm x 160mm"],
+        ["IPC Class", "Class 3"],
+        ["Finish", "ENIG, conformal coated"],
+        ["Enclosure", "IP67 transit case, MIL-STD-810H"]
+      ],
+      "compliance": [
+        ["NENA i3 (STA-010)", "Next generation 9-1-1 architecture"],
+        ["EN 50136", "Alarm transmission systems"],
+        ["EN 301 489-1", "EMC for radio equipment"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "am625", "qty": 1, "description": "Incident command processor"},
+        {"ref": "U2", "part": "quectel_rm520n", "qty": 1, "description": "5G backhaul modem"},
+        {"ref": "U3", "part": "iridium_9603", "qty": 1, "description": "Satellite backhaul fallback"},
+        {"ref": "U4", "part": "esp32c6", "qty": 2, "description": "Wi-Fi 6 access point radio"},
+        {"ref": "U5", "part": "sx1262", "qty": 2, "description": "Sub-GHz responder mesh"},
+        {"ref": "U6", "part": "nrf5340", "qty": 2, "description": "UWB indoor responder positioning"},
+        {"ref": "U7", "part": "zed_f9p", "qty": 1, "description": "GNSS reference"},
+        {"ref": "U8", "part": "ddr4_2gb", "qty": 2, "description": "System memory"},
+        {"ref": "U9", "part": "emmc_64gb", "qty": 2, "description": "Incident log and map storage"},
+        {"ref": "U10", "part": "ksz8863", "qty": 1, "description": "Local switch fabric"},
+        {"ref": "U11", "part": "lcd_ips_5in", "qty": 1, "description": "Command console display"},
+        {"ref": "U12", "part": "bq25798", "qty": 1, "description": "Hot-swap battery charger"},
+        {"ref": "BT1", "part": "batt_18650", "qty": 12, "description": "18-hour endurance pack"},
+        {"ref": "ANT1", "part": "ant_lte_fpc", "qty": 3},
+        {"ref": "PCB1", "part": "pcb_8l_c3", "qty": 1},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 170},
+        {"ref": "C2", "part": "cap_10u_0805", "qty": 40},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 98}
+      ],
+      "power": {
+        "kind": "budget", "label": "eEMR-800 Incident Command Unit", "bus_v": 24, "efficiency": 0.87,
+        "loads": [
+          ["AM6254 command processor", 4.2],
+          ["5G backhaul modem", 6.5],
+          ["Satellite modem (standby)", 0.9],
+          ["Wi-Fi 6 access point x2", 4.4],
+          ["Sub-GHz mesh x2", 0.9],
+          ["UWB positioning x2", 0.7],
+          ["Console display", 1.8],
+          ["Switch and housekeeping", 1.6]
+        ]
+      }
+    },
+    {
+      "slug": "disaster_management",
+      "taxonomy": "eDisaster",
+      "title": "Disaster Management Systems",
+      "part": "eDIS-600",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Early warning and disaster monitoring", "standard": "ITU-T X.1303 CAP / WMO", "ics": "STM32U575, SX1262, Swarm M138"},
+      "overview": "Disaster early-warning node monitoring seismic, hydrological and meteorological precursors and issuing Common Alerting Protocol messages over independent paths. Alert delivery uses satellite as well as terrestrial links because the terrestrial network is often the first casualty of the event being warned about.",
+      "specs": [
+        ["Controller", "STM32U575 Cortex-M33 ultra-low-power"],
+        ["Sensing", "3-axis seismic accelerometer, water level, rainfall, wind"],
+        ["Detection", "P-wave arrival within 1.2 s of onset"],
+        ["Alerting", "CAP 1.2 messages over LoRa, cellular and satellite"],
+        ["Independence", "Satellite path survives terrestrial network loss"],
+        ["Power", "Solar with 5-day autonomy, 10-year design life"],
+        ["Environment", "IP68, -40degC to +70degC, flood submersible"]
+      ],
+      "pcb": [
+        ["Layers", "8"],
+        ["Dimensions", "120mm x 90mm"],
+        ["IPC Class", "Class 3"],
+        ["Finish", "ENIG, potted"],
+        ["Construction", "No electrolytics; ceramic only for 10-year life"]
+      ],
+      "compliance": [
+        ["ITU-T X.1303", "Common alerting protocol"],
+        ["WMO No. 8", "Meteorological instrument measurement guidance"],
+        ["ETSI EN 300 220", "Sub-GHz short-range devices"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "stm32u575", "qty": 1, "description": "Early-warning controller"},
+        {"ref": "U2", "part": "ads131m08", "qty": 1, "description": "Seismic accelerometer acquisition"},
+        {"ref": "U3", "part": "iim42652", "qty": 2, "description": "3-axis seismic sensing"},
+        {"ref": "U4", "part": "ms5611", "qty": 2, "description": "Barometric and water level sensing"},
+        {"ref": "U5", "part": "bme280", "qty": 1, "description": "Meteorological sensing"},
+        {"ref": "U6", "part": "sx1262", "qty": 1, "description": "LoRa alert path"},
+        {"ref": "U7", "part": "quectel_bg95", "qty": 1, "description": "Cellular alert path"},
+        {"ref": "U8", "part": "swarm_m138", "qty": 1, "description": "Satellite alert path"},
+        {"ref": "U9", "part": "max_m10s", "qty": 1, "description": "GNSS time and position"},
+        {"ref": "U10", "part": "bq25504", "qty": 1, "description": "Solar MPPT charge controller"},
+        {"ref": "U11", "part": "tps62840", "qty": 3, "description": "Low-Iq point-of-load regulator"},
+        {"ref": "U12", "part": "fm24v10", "qty": 1, "description": "Event log"},
+        {"ref": "U13", "part": "atecc608b", "qty": 1, "description": "Alert message signing"},
+        {"ref": "BT1", "part": "batt_lisocl2", "qty": 4},
+        {"ref": "PV1", "part": "solar_5w", "qty": 2},
+        {"ref": "ANT1", "part": "ant_lora_helix", "qty": 1},
+        {"ref": "PCB1", "part": "pcb_8l_c3", "qty": 1},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 90},
+        {"ref": "C2", "part": "cap_10u_0805", "qty": 22},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 55}
+      ],
+      "power": {
+        "kind": "duty", "label": "eDIS-600 Disaster Early-Warning Node", "battery_mah": 14400, "battery_desc": "4x 3.6Ah LiSOCl2 with 10W solar",
+        "modes": [
+          ["Continuous seismic monitoring", 0.0085, 0.978],
+          ["Meteorological sample and log", 0.0320, 0.020],
+          ["LoRa and cellular alert", 0.2400, 0.0015],
+          ["Satellite alert burst", 0.9500, 0.0005]
+        ]
+      }
+    },
+    {
+      "slug": "street_lighting",
+      "taxonomy": "eStreetLight",
+      "title": "Smart Street Lighting",
+      "part": "eSL-400",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Adaptive luminaire control and metering", "standard": "ANSI C136.41 / TALQ", "ics": "STM32G474, SX1262, INA228"},
+      "overview": "NEMA socket luminaire controller providing adaptive dimming, energy metering and fault reporting across a city lighting estate. Revenue-grade metering per luminaire is what allows unmetered-supply tariffs to be replaced with measured billing, which usually funds the retrofit.",
+      "specs": [
+        ["Controller", "STM32G474 Cortex-M4 at 170MHz"],
+        ["Socket", "ANSI C136.41 7-pin NEMA twist-lock"],
+        ["Dimming", "0-10V and DALI-2 output, 1% to 100%"],
+        ["Metering", "Class 1 energy accuracy per IEC 62053-21"],
+        ["Adaptive control", "Ambient light, motion and schedule-driven profiles"],
+        ["Communications", "LoRaWAN with TALQ 2.x smart city interface"],
+        ["Lifetime", "20 years, 25000 dim cycles"]
+      ],
+      "pcb": [
+        ["Layers", "6"],
+        ["Dimensions", "70mm diameter circular"],
+        ["IPC Class", "Class 2"],
+        ["Finish", "ENIG, conformal coated"],
+        ["Isolation", "4kV reinforced between mains and control"]
+      ],
+      "compliance": [
+        ["ANSI C136.41", "Dimming receptacles for roadway lighting"],
+        ["IEC 62053-21", "Static meters for active energy, Class 1"],
+        ["EN 61000-6-3", "Residential and light industrial emissions"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "stm32g474", "qty": 1, "description": "Luminaire controller"},
+        {"ref": "U2", "part": "sx1262", "qty": 1, "description": "LoRaWAN transceiver"},
+        {"ref": "U3", "part": "ina228", "qty": 2, "description": "Revenue-grade energy metering"},
+        {"ref": "U4", "part": "vl53l1x", "qty": 1, "description": "Motion and presence detection"},
+        {"ref": "U5", "part": "bme280", "qty": 1, "description": "Ambient light and environment sensing"},
+        {"ref": "U6", "part": "iso7741", "qty": 2, "description": "Mains isolation barrier"},
+        {"ref": "U7", "part": "max3485", "qty": 1, "description": "DALI-2 interface"},
+        {"ref": "U8", "part": "mp2315", "qty": 2, "description": "Auxiliary buck regulator"},
+        {"ref": "U9", "part": "fm24v10", "qty": 1, "description": "Energy accumulator and fault log"},
+        {"ref": "U10", "part": "atecc608b", "qty": 1, "description": "Message authentication"},
+        {"ref": "ANT1", "part": "ant_lora_helix", "qty": 1},
+        {"ref": "PCB1", "part": "pcb_6l_std", "qty": 1},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 55},
+        {"ref": "C2", "part": "cap_10u_0805", "qty": 14},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 36},
+        {"ref": "D1", "part": "tvs_smbj", "qty": 4, "description": "Mains surge protection"},
+        {"ref": "FL1", "part": "cmc_line", "qty": 1}
+      ],
+      "power": {
+        "kind": "budget", "label": "eSL-400 Street Lighting Controller", "bus_v": 12, "efficiency": 0.85,
+        "loads": [
+          ["STM32G474 controller", 0.28],
+          ["LoRaWAN transceiver (idle listen)", 0.02],
+          ["Energy metering x2", 0.03],
+          ["Motion and ambient sensing", 0.04],
+          ["Isolation and DALI drive", 0.16],
+          ["Regulator overhead", 0.12]
+        ]
+      }
+    },
+    {
+      "slug": "waste_management",
+      "taxonomy": "eWasteMgmt",
+      "title": "Smart Waste Management",
+      "part": "eWM-300",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Container fill sensing and collection routing", "standard": "EN 300 220 / IP67", "ics": "STM32L071, VL53L1X, SX1262"},
+      "overview": "Bin-mounted fill level sensor reporting container state so collection routes follow actual demand rather than a fixed calendar. Time-of-flight sensing handles irregular waste surfaces better than ultrasonic, which is easily confused by soft or angled loads.",
+      "specs": [
+        ["Controller", "STM32L071 Cortex-M0+ ultra-low-power"],
+        ["Fill sensing", "VL53L1X time-of-flight, 4 m range, 2 cm resolution"],
+        ["Fire detection", "Temperature threshold with immediate alert"],
+        ["Tilt detection", "Accelerometer for overturn and theft reporting"],
+        ["Reporting", "LoRaWAN, 4 scheduled reports per day plus events"],
+        ["Battery life", "8 years on a single lithium primary cell"],
+        ["Environment", "IP67, -30degC to +70degC, impact resistant"]
+      ],
+      "pcb": [
+        ["Layers", "4"],
+        ["Dimensions", "60mm x 45mm"],
+        ["IPC Class", "Class 2"],
+        ["Finish", "ENIG, potted"],
+        ["Construction", "Shock-mounted for lid-slam impact"]
+      ],
+      "compliance": [
+        ["ETSI EN 300 220", "Sub-GHz short-range devices"],
+        ["IEC 60529 IP67", "Ingress protection"],
+        ["EN 61000-6-3", "Residential emissions"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "stm32l071", "qty": 1, "description": "Ultra-low-power sensor controller"},
+        {"ref": "U2", "part": "vl53l1x", "qty": 2, "description": "Time-of-flight fill level sensing"},
+        {"ref": "U3", "part": "sx1262", "qty": 1, "description": "LoRaWAN transceiver"},
+        {"ref": "U4", "part": "bma456", "qty": 1, "description": "Tilt and overturn detection"},
+        {"ref": "U5", "part": "tmp117", "qty": 1, "description": "Fire detection temperature sensing"},
+        {"ref": "U6", "part": "tps62840", "qty": 1, "description": "60nA quiescent regulator"},
+        {"ref": "U7", "part": "fm24v10", "qty": 1, "description": "Event and fill history log"},
+        {"ref": "BT1", "part": "batt_lisocl2", "qty": 1},
+        {"ref": "ANT1", "part": "ant_lora_helix", "qty": 1},
+        {"ref": "PCB1", "part": "pcb_4l_std", "qty": 1},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 30},
+        {"ref": "C2", "part": "cap_10u_0805", "qty": 8},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 20}
+      ],
+      "power": {
+        "kind": "duty", "label": "eWM-300 Waste Container Sensor", "battery_mah": 3600, "battery_desc": "3.6Ah LiSOCl2",
+        "modes": [
+          ["Deep sleep with tilt wake armed", 0.0000038, 0.9980],
+          ["Fill level measurement", 0.0210, 0.0016],
+          ["LoRaWAN report", 0.1180, 0.0004]
+        ]
+      }
+    },
+    {
+      "slug": "public_kiosks",
+      "taxonomy": "eKiosk",
+      "title": "Public Information Kiosks",
+      "part": "eKSK-900",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Outdoor interactive public terminals", "standard": "EN 301 549 / IEC 62368-1", "ics": "i.MX 8M Plus, ESP32-C6, SE050"},
+      "overview": "Outdoor interactive kiosk providing wayfinding, transit information and emergency messaging with accessibility compliance built into the hardware rather than retrofitted. Sunlight-readable display and tactile audio navigation are specified from the outset because both drive enclosure and thermal design.",
+      "specs": [
+        ["Processor", "NXP i.MX 8M Plus quad Cortex-A53"],
+        ["Display", "32-inch 2500 nit sunlight-readable, capacitive touch"],
+        ["Accessibility", "EN 301 549 conformant: audio navigation, tactile keypad, induction loop"],
+        ["Connectivity", "Wi-Fi 6 public hotspot, 5G backhaul, wired fallback"],
+        ["Emergency mode", "Priority override for civil alert messaging"],
+        ["Vandal resistance", "IK10 impact rating, anti-graffiti coating"],
+        ["Environment", "IP65, -20degC to +50degC with active thermal management"]
+      ],
+      "pcb": [
+        ["Layers", "10"],
+        ["Dimensions", "220mm x 170mm"],
+        ["IPC Class", "Class 2"],
+        ["Finish", "ENIG, conformal coated"],
+        ["Thermal", "Heater and fan control for the full ambient range"]
+      ],
+      "compliance": [
+        ["EN 301 549", "Accessibility requirements for ICT products"],
+        ["IEC 62368-1", "Equipment safety"],
+        ["IEC 62262 IK10", "Impact protection"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "imx8mp", "qty": 1, "description": "Kiosk application processor"},
+        {"ref": "U2", "part": "esp32c6", "qty": 2, "description": "Wi-Fi 6 public hotspot radio"},
+        {"ref": "U3", "part": "quectel_rm520n", "qty": 1, "description": "5G backhaul modem"},
+        {"ref": "U4", "part": "lpddr4_4gb", "qty": 2, "description": "System memory"},
+        {"ref": "U5", "part": "emmc_64gb", "qty": 1, "description": "Content and application storage"},
+        {"ref": "U6", "part": "se050", "qty": 1, "description": "Secure element for content signing"},
+        {"ref": "U7", "part": "dp83867", "qty": 2, "description": "Gigabit Ethernet"},
+        {"ref": "U8", "part": "ar0234", "qty": 1, "description": "Presence detection and vandalism recording"},
+        {"ref": "U9", "part": "bme280", "qty": 2, "description": "Enclosure thermal management sensing"},
+        {"ref": "U10", "part": "tps54360", "qty": 6, "description": "Primary buck regulator"},
+        {"ref": "U11", "part": "ina228", "qty": 4, "description": "Rail and heater telemetry"},
+        {"ref": "J1", "part": "rj45_mag", "qty": 2},
+        {"ref": "PCB1", "part": "pcb_8l_c3", "qty": 1},
+        {"ref": "ENC1", "part": "encl_ip67_alu", "qty": 1},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 160},
+        {"ref": "C2", "part": "cap_47u_1210", "qty": 24},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 92}
+      ],
+      "power": {
+        "kind": "budget", "label": "eKSK-900 Public Information Kiosk", "bus_v": 24, "efficiency": 0.88,
+        "loads": [
+          ["i.MX 8M Plus processor", 8.5],
+          ["32-inch sunlight-readable display", 120.0],
+          ["Wi-Fi 6 hotspot x2", 4.4],
+          ["5G backhaul modem", 6.5],
+          ["LPDDR4 x2", 2.2],
+          ["Camera and sensing", 0.9],
+          ["Thermal management", 15.0]
+        ]
+      }
+    },
+    {
+      "slug": "egov_terminals",
+      "taxonomy": "eEGov",
+      "title": "E-Government Terminals",
+      "part": "eGOV-500",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Citizen identity and service terminals", "standard": "ICAO 9303 / eIDAS", "ics": "AM6254, SE050, SLB9670"},
+      "overview": "Citizen service terminal handling identity document verification, biometric capture and secure form submission for government services. Biometric templates are matched on the terminal's secure element and never stored locally, which keeps the deployment out of the highest-risk data categories.",
+      "specs": [
+        ["Processor", "TI AM6254 quad Cortex-A53"],
+        ["Document reading", "ICAO 9303 MRZ, contactless chip, UV and IR inspection"],
+        ["Biometrics", "Fingerprint and facial capture, ISO/IEC 19794 templates"],
+        ["Template handling", "Matched in the secure element, never persisted on disk"],
+        ["Signature", "eIDAS-compliant qualified electronic signature support"],
+        ["Printing", "Integrated receipt and document printer interface"],
+        ["Accessibility", "EN 301 549 conformant interaction"]
+      ],
+      "pcb": [
+        ["Layers", "10"],
+        ["Dimensions", "200mm x 150mm"],
+        ["IPC Class", "Class 2"],
+        ["Finish", "ENIG"],
+        ["Security", "Tamper switch on enclosure wired to zeroise"]
+      ],
+      "compliance": [
+        ["ICAO Doc 9303", "Machine readable travel documents"],
+        ["eIDAS Regulation 910/2014", "Electronic identification and trust services"],
+        ["EN 301 549", "Accessibility requirements for ICT products"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "am625", "qty": 1, "description": "Terminal application processor"},
+        {"ref": "U2", "part": "se050", "qty": 2, "description": "Biometric template matching secure element"},
+        {"ref": "U3", "part": "optiga_slb9670", "qty": 1, "description": "TPM 2.0 platform attestation"},
+        {"ref": "U4", "part": "ar0234", "qty": 2, "description": "Facial capture and document imaging"},
+        {"ref": "U5", "part": "ov5640", "qty": 1, "description": "Document UV and IR inspection camera"},
+        {"ref": "U6", "part": "ddr4_2gb", "qty": 2, "description": "System memory"},
+        {"ref": "U7", "part": "emmc_64gb", "qty": 1, "description": "Application storage"},
+        {"ref": "U8", "part": "lcd_ips_5in", "qty": 1, "description": "Citizen interaction display"},
+        {"ref": "U9", "part": "dp83867", "qty": 2, "description": "Gigabit Ethernet"},
+        {"ref": "U10", "part": "usb3343", "qty": 2, "description": "Peripheral and printer interface"},
+        {"ref": "U11", "part": "lt8640", "qty": 5, "description": "Point-of-load regulator"},
+        {"ref": "J1", "part": "rj45_mag", "qty": 2},
+        {"ref": "PCB1", "part": "pcb_8l_c3", "qty": 1},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 150},
+        {"ref": "C2", "part": "cap_10u_0805", "qty": 34},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 88}
+      ],
+      "power": {
+        "kind": "budget", "label": "eGOV-500 E-Government Terminal", "bus_v": 12, "efficiency": 0.89,
+        "loads": [
+          ["AM6254 processor", 4.2],
+          ["Imaging cameras x3", 3.0],
+          ["DDR4 x2", 1.6],
+          ["Interaction display", 1.8],
+          ["Secure elements and TPM", 0.15],
+          ["Ethernet and USB", 1.7],
+          ["Printer interface", 2.5]
+        ]
+      }
+    },
+    {
+      "slug": "civic_sensing",
+      "taxonomy": "eCivicSensing",
+      "title": "Civic Sensing Networks",
+      "part": "eCS-200",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Distributed urban environmental sensing", "standard": "EN 300 220 / ISO 37122", "ics": "STM32U575, SPS30, SCD41"},
+      "overview": "Multi-parameter urban sensing node measuring air quality, noise, temperature and pedestrian flow on street furniture. Sensor drift over a multi-year deployment is the main data quality risk, so each node carries a reference channel for periodic in-situ recalibration.",
+      "specs": [
+        ["Controller", "STM32U575 Cortex-M33"],
+        ["Air quality", "PM1/2.5/4/10, CO2, NO2, ozone and VOC"],
+        ["Noise", "Class 2 sound level, LAeq and third-octave bands"],
+        ["Pedestrian flow", "60GHz radar counting, no imagery captured"],
+        ["Drift management", "Reference channel for in-situ recalibration"],
+        ["Communications", "LoRaWAN with NB-IoT fallback"],
+        ["Power", "Solar with 14-day autonomy, or PoE where available"]
+      ],
+      "pcb": [
+        ["Layers", "8"],
+        ["Dimensions", "140mm x 100mm"],
+        ["IPC Class", "Class 2"],
+        ["Finish", "ENIG, conformal coated"],
+        ["Construction", "Sensor chamber isolated from board self-heating"]
+      ],
+      "compliance": [
+        ["ISO 37122", "Sustainable cities indicators for smart cities"],
+        ["IEC 61672-1 Class 2", "Sound level meter performance"],
+        ["ETSI EN 300 220", "Sub-GHz short-range devices"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "stm32u575", "qty": 1, "description": "Sensing node controller"},
+        {"ref": "U2", "part": "sps30", "qty": 1, "description": "Particulate matter sensor"},
+        {"ref": "U3", "part": "scd41", "qty": 1, "description": "NDIR CO2 sensor"},
+        {"ref": "U4", "part": "bme680", "qty": 2, "description": "VOC, temperature, humidity and pressure"},
+        {"ref": "U5", "part": "sfa30", "qty": 1, "description": "Formaldehyde reference channel"},
+        {"ref": "U6", "part": "ads131m08", "qty": 1, "description": "Microphone acquisition for noise measurement"},
+        {"ref": "U7", "part": "iwr6843", "qty": 1, "description": "Pedestrian flow radar counting"},
+        {"ref": "U8", "part": "sx1262", "qty": 1, "description": "LoRaWAN transceiver"},
+        {"ref": "U9", "part": "quectel_bg95", "qty": 1, "description": "NB-IoT fallback"},
+        {"ref": "U10", "part": "bq25504", "qty": 1, "description": "Solar MPPT charge controller"},
+        {"ref": "U11", "part": "tps62840", "qty": 4, "description": "Low-Iq point-of-load regulator"},
+        {"ref": "U12", "part": "fm24v10", "qty": 1, "description": "Measurement buffer and calibration store"},
+        {"ref": "BT1", "part": "batt_18650", "qty": 4},
+        {"ref": "PV1", "part": "solar_5w", "qty": 2},
+        {"ref": "ANT1", "part": "ant_lora_helix", "qty": 1},
+        {"ref": "PCB1", "part": "pcb_8l_c3", "qty": 1},
+        {"ref": "ENC1", "part": "encl_ip67_alu", "qty": 1},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 95},
+        {"ref": "C2", "part": "cap_10u_0805", "qty": 24},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 58}
+      ],
+      "power": {
+        "kind": "duty", "label": "eCS-200 Civic Sensing Node", "battery_mah": 14000, "battery_desc": "4x 3500mAh Li-ion with 10W solar",
+        "modes": [
+          ["Sleep between measurement cycles", 0.00028, 0.760],
+          ["Air quality measurement", 0.14500, 0.180],
+          ["Noise and pedestrian sensing", 0.09200, 0.055],
+          ["LoRaWAN and NB-IoT reporting", 0.22000, 0.005]
+        ]
+      }
+    },
+    {
+      "slug": "humanitarian_systems",
+      "taxonomy": "eHumanitarian",
+      "title": "Humanitarian Field Systems",
+      "part": "eHUM-400",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Field connectivity and aid logistics", "standard": "IEC 62368-1 / Sphere Standards", "ics": "AM6254, Swarm M138, ESP32-C6"},
+      "overview": "Field deployment kit providing connectivity, beneficiary registration and cold chain monitoring for humanitarian operations in areas without infrastructure. Solar-powered with a repairable design, since a device that cannot be fixed with locally available parts becomes waste at the first fault.",
+      "specs": [
+        ["Processor", "TI AM6254 quad Cortex-A53"],
+        ["Connectivity", "Satellite backhaul, Wi-Fi 6 local network, LoRa mesh"],
+        ["Registration", "Offline-capable beneficiary registration with sync"],
+        ["Cold chain", "8 monitored vaccine and medicine storage channels"],
+        ["Power", "40W solar with 5-day autonomy, 12V vehicle input"],
+        ["Repairability", "Socketed modules, no adhesives, documented spares"],
+        ["Environment", "IP66, -10degC to +55degC, dust and sand resistant"]
+      ],
+      "pcb": [
+        ["Layers", "8"],
+        ["Dimensions", "180mm x 140mm"],
+        ["IPC Class", "Class 2"],
+        ["Finish", "ENIG, conformal coated"],
+        ["Construction", "Socketed radio modules for field replacement"]
+      ],
+      "compliance": [
+        ["IEC 62368-1", "Equipment safety"],
+        ["WHO PQS E006", "Cold chain temperature monitoring devices"],
+        ["EN 301 489-1", "EMC for radio equipment"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "am625", "qty": 1, "description": "Field kit application processor"},
+        {"ref": "U2", "part": "swarm_m138", "qty": 1, "description": "Satellite data backhaul"},
+        {"ref": "U3", "part": "iridium_9603", "qty": 1, "description": "Satellite emergency messaging"},
+        {"ref": "U4", "part": "esp32c6", "qty": 2, "description": "Wi-Fi 6 local network"},
+        {"ref": "U5", "part": "sx1262", "qty": 1, "description": "LoRa mesh for remote sensors"},
+        {"ref": "U6", "part": "max31865", "qty": 4, "description": "Cold chain RTD monitoring"},
+        {"ref": "U7", "part": "tmp117", "qty": 8, "description": "Cold chain temperature sensing"},
+        {"ref": "U8", "part": "ddr4_2gb", "qty": 2, "description": "System memory"},
+        {"ref": "U9", "part": "emmc_64gb", "qty": 2, "description": "Offline registration database"},
+        {"ref": "U10", "part": "se050", "qty": 1, "description": "Beneficiary data encryption key store"},
+        {"ref": "U11", "part": "bq25798", "qty": 2, "description": "Solar MPPT charge controller"},
+        {"ref": "U12", "part": "lcd_ips_5in", "qty": 1, "description": "Field operator display"},
+        {"ref": "BT1", "part": "batt_18650", "qty": 12},
+        {"ref": "PV1", "part": "solar_5w", "qty": 8},
+        {"ref": "ANT1", "part": "ant_lora_helix", "qty": 1},
+        {"ref": "PCB1", "part": "pcb_8l_c3", "qty": 1},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 150},
+        {"ref": "C2", "part": "cap_10u_0805", "qty": 36},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 88}
+      ],
+      "power": {
+        "kind": "budget", "label": "eHUM-400 Humanitarian Field Kit", "bus_v": 12, "efficiency": 0.88,
+        "loads": [
+          ["AM6254 processor", 4.2],
+          ["Satellite modems", 3.1],
+          ["Wi-Fi 6 access point x2", 4.4],
+          ["LoRa mesh gateway", 0.45],
+          ["Cold chain monitoring", 0.62],
+          ["DDR4 and storage", 2.2],
+          ["Operator display", 1.8]
+        ]
+      }
+    },
+    {
+      "slug": "rural_connectivity",
+      "taxonomy": "eRural",
+      "title": "Rural Connectivity Systems",
+      "part": "eRUR-700",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Last-mile rural broadband and backhaul", "standard": "3GPP Release 17 / ETSI EN 302 217", "ics": "XCZU3EG, ADRV9002, RM520N-GL"},
+      "overview": "Rural connectivity node combining a small-cell base station with long-range point-to-point backhaul for communities beyond fibre reach. Runs from solar with battery buffer, since grid supply in target deployments is frequently absent or unreliable.",
+      "specs": [
+        ["Baseband", "Zynq UltraScale+ XCZU3EG, 5G NR small cell"],
+        ["Coverage", "8 km radius rural macro, 64 concurrent users"],
+        ["Backhaul", "Point-to-point 5-6 GHz, 40 km at 400 Mbps"],
+        ["Spectrum", "Sub-6GHz NR bands plus licensed-exempt backhaul"],
+        ["Power", "200W solar array with 48-hour battery autonomy"],
+        ["Mounting", "Tower or pole, 30 kg including radome"],
+        ["Environment", "IP66, -30degC to +55degC"]
+      ],
+      "pcb": [
+        ["Layers", "14"],
+        ["Dimensions", "260mm x 200mm"],
+        ["IPC Class", "Class 3"],
+        ["Finish", "ENIG with RF shielding cans"],
+        ["Stackup", "Rogers RO4350B RF layers over FR-4 core"]
+      ],
+      "compliance": [
+        ["3GPP TS 38.104", "NR base station radio transmission and reception"],
+        ["ETSI EN 302 217", "Fixed radio systems point-to-point"],
+        ["EN 301 489-1", "EMC for radio equipment"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "zynq_ultrascale", "qty": 1, "description": "5G NR baseband processor"},
+        {"ref": "U2", "part": "adrv9002", "qty": 2, "description": "NR radio transceiver"},
+        {"ref": "U3", "part": "quectel_rm520n", "qty": 1, "description": "Backup cellular backhaul"},
+        {"ref": "U4", "part": "lmx2594", "qty": 2, "description": "RF LO synthesiser"},
+        {"ref": "U5", "part": "hmc7044", "qty": 1, "description": "Clock distribution"},
+        {"ref": "U6", "part": "zed_f9t", "qty": 1, "description": "GNSS timing for NR synchronisation"},
+        {"ref": "U7", "part": "ocxo_10mhz", "qty": 1, "description": "Holdover timing reference"},
+        {"ref": "U8", "part": "lpddr4_4gb", "qty": 4, "description": "Baseband and user plane memory"},
+        {"ref": "U9", "part": "emmc_64gb", "qty": 1, "description": "Configuration and logging"},
+        {"ref": "U10", "part": "dp83867", "qty": 2, "description": "Gigabit Ethernet"},
+        {"ref": "U11", "part": "bq25798", "qty": 4, "description": "Solar MPPT charge controller"},
+        {"ref": "U12", "part": "lt8640", "qty": 8, "description": "Point-of-load regulator"},
+        {"ref": "BT1", "part": "batt_18650", "qty": 40, "description": "48-hour autonomy battery bank"},
+        {"ref": "PV1", "part": "solar_5w", "qty": 40, "description": "200W solar array"},
+        {"ref": "J1", "part": "sfp_cage", "qty": 2},
+        {"ref": "J2", "part": "sma_edge", "qty": 6},
+        {"ref": "PCB1", "part": "pcb_rf_rogers", "qty": 1},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 240},
+        {"ref": "C2", "part": "cap_47u_1210", "qty": 40},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 130}
+      ],
+      "power": {
+        "kind": "budget", "label": "eRUR-700 Rural Connectivity Node", "bus_v": 48, "efficiency": 0.9,
+        "loads": [
+          ["Zynq UltraScale+ baseband", 16.0],
+          ["ADRV9002 transceiver x2", 6.8],
+          ["RF power amplifier stage", 42.0],
+          ["LMX2594 synthesiser x2", 1.4],
+          ["OCXO and GNSS timing", 2.1],
+          ["LPDDR4 x4", 4.4],
+          ["Backhaul radio", 8.5],
+          ["Ethernet and housekeeping", 2.4]
+        ]
+      }
+    }
+  ]
+}

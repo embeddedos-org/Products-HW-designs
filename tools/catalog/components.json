@@ -1,0 +1,1917 @@
+{
+  "_comment": [
+    "Curated component library for the eCAD product catalog.",
+    "",
+    "Every product BOM composes parts from this file by key, so a component",
+    "carries the same manufacturer, part number, package and unit cost in every",
+    "design that uses it. tools/generate_products.py computes extended costs and",
+    "BOM totals from these figures, which is why no cost is ever typed into a",
+    "generated bom.csv by hand.",
+    "",
+    "EVIDENCE CLASS: Assumed. Unit costs are order-of-magnitude estimates at",
+    "roughly qty-100 distributor pricing and were NOT retrieved from a live",
+    "distributor API. Part numbers were authored from domain knowledge and have",
+    "NOT been checked against a manufacturer catalogue. Before any of this data",
+    "is used for procurement or quoting, every MPN and price needs verifying",
+    "against Mouser/Digi-Key/Octopart. tools/validate_products.py deliberately",
+    "does not claim to check either -- it proves internal consistency only.",
+    "A component with \"assembly\": true is part of the product but is NOT mounted on the PCB (enclosure, battery pack, solar panel, the bare board itself, panel-mount antenna, external module). It appears in the BOM and its cost counts, but it is excluded from board placement and area checks."
+  ],
+  "components": {
+    "stm32h7b3": {
+      "manufacturer": "STMicroelectronics",
+      "mpn": "STM32H7B3ZIT6",
+      "value": "STM32H7B3",
+      "footprint": "LQFP144",
+      "description": "ARM Cortex-M7 280MHz MCU",
+      "cost": 12.5,
+      "source": "Mouser"
+    },
+    "stm32h743": {
+      "manufacturer": "STMicroelectronics",
+      "mpn": "STM32H743ZIT6",
+      "value": "STM32H743",
+      "footprint": "LQFP144",
+      "description": "ARM Cortex-M7 480MHz MCU",
+      "cost": 11.8,
+      "source": "Mouser"
+    },
+    "stm32g474": {
+      "manufacturer": "STMicroelectronics",
+      "mpn": "STM32G474RET6",
+      "value": "STM32G474",
+      "footprint": "LQFP64",
+      "description": "ARM Cortex-M4 170MHz motor-control MCU",
+      "cost": 5.5,
+      "source": "Mouser"
+    },
+    "stm32g431": {
+      "manufacturer": "STMicroelectronics",
+      "mpn": "STM32G431CBT6",
+      "value": "STM32G431",
+      "footprint": "LQFP48",
+      "description": "ARM Cortex-M4 170MHz MCU",
+      "cost": 3.4,
+      "source": "Mouser"
+    },
+    "stm32l496": {
+      "manufacturer": "STMicroelectronics",
+      "mpn": "STM32L496ZGT6",
+      "value": "STM32L496",
+      "footprint": "LQFP144",
+      "description": "ARM Cortex-M4 ultra-low-power MCU",
+      "cost": 8.2,
+      "source": "Mouser"
+    },
+    "stm32l071": {
+      "manufacturer": "STMicroelectronics",
+      "mpn": "STM32L071CBT6",
+      "value": "STM32L071",
+      "footprint": "LQFP48",
+      "description": "ARM Cortex-M0+ ultra-low-power MCU",
+      "cost": 2.6,
+      "source": "Mouser"
+    },
+    "stm32f407": {
+      "manufacturer": "STMicroelectronics",
+      "mpn": "STM32F407VGT6",
+      "value": "STM32F407",
+      "footprint": "LQFP100",
+      "description": "ARM Cortex-M4 168MHz MCU",
+      "cost": 7.4,
+      "source": "Mouser"
+    },
+    "stm32u575": {
+      "manufacturer": "STMicroelectronics",
+      "mpn": "STM32U575ZIT6Q",
+      "value": "STM32U575",
+      "footprint": "LQFP144",
+      "description": "ARM Cortex-M33 ultra-low-power secure MCU",
+      "cost": 9.1,
+      "source": "Mouser"
+    },
+    "stm32wb55": {
+      "manufacturer": "STMicroelectronics",
+      "mpn": "STM32WB55RGV6",
+      "value": "STM32WB55",
+      "footprint": "VFQFPN68",
+      "description": "ARM Cortex-M4 + M0 BLE 5.4 SoC",
+      "cost": 6.3,
+      "source": "Mouser"
+    },
+    "nrf5340": {
+      "manufacturer": "Nordic Semiconductor",
+      "mpn": "NRF5340-QKAA-R7",
+      "value": "nRF5340",
+      "footprint": "aQFN94",
+      "description": "Dual-core Cortex-M33 BLE 5.4 SoC",
+      "cost": 6.5,
+      "source": "Mouser"
+    },
+    "nrf52840": {
+      "manufacturer": "Nordic Semiconductor",
+      "mpn": "NRF52840-QIAA-R",
+      "value": "nRF52840",
+      "footprint": "aQFN73",
+      "description": "Cortex-M4F BLE 5.4 / 802.15.4 SoC",
+      "cost": 4.9,
+      "source": "Mouser"
+    },
+    "nrf9160": {
+      "manufacturer": "Nordic Semiconductor",
+      "mpn": "NRF9160-SICA-R",
+      "value": "nRF9160",
+      "footprint": "SiP-LGA",
+      "description": "LTE-M / NB-IoT SiP with GNSS",
+      "cost": 17.5,
+      "source": "Mouser"
+    },
+    "esp32s3": {
+      "manufacturer": "Espressif",
+      "mpn": "ESP32-S3-WROOM-1-N16R8",
+      "value": "ESP32-S3",
+      "footprint": "Module",
+      "description": "Wi-Fi 4 + BLE 5 module, 16MB flash 8MB PSRAM",
+      "cost": 3.8,
+      "source": "Mouser"
+    },
+    "esp32c6": {
+      "manufacturer": "Espressif",
+      "mpn": "ESP32-C6-WROOM-1-N8",
+      "value": "ESP32-C6",
+      "footprint": "Module",
+      "description": "Wi-Fi 6 + BLE 5.3 + 802.15.4 RISC-V module",
+      "cost": 3.2,
+      "source": "Mouser"
+    },
+    "cc1352p": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "CC1352P1F3RGZR",
+      "value": "CC1352P",
+      "footprint": "VQFN48",
+      "description": "Sub-1GHz + 2.4GHz multiprotocol wireless MCU",
+      "cost": 7.1,
+      "source": "Mouser"
+    },
+    "sx1262": {
+      "manufacturer": "Semtech",
+      "mpn": "SX1262IMLTRT",
+      "value": "SX1262",
+      "footprint": "QFN24",
+      "description": "LoRa sub-GHz transceiver +22dBm",
+      "cost": 5.4,
+      "source": "Mouser"
+    },
+    "sx1302": {
+      "manufacturer": "Semtech",
+      "mpn": "SX1302IMLTRT",
+      "value": "SX1302",
+      "footprint": "QFN68",
+      "description": "LoRaWAN 8-channel gateway baseband",
+      "cost": 14.2,
+      "source": "Mouser"
+    },
+    "rk3588s": {
+      "manufacturer": "Rockchip",
+      "mpn": "RK3588S",
+      "value": "RK3588S",
+      "footprint": "FCBGA",
+      "description": "8-core ARM SoC with 6-TOPS NPU",
+      "cost": 85.0,
+      "source": "Mouser"
+    },
+    "imx8mp": {
+      "manufacturer": "NXP",
+      "mpn": "MIMX8ML8DVNLZAB",
+      "value": "i.MX 8M Plus",
+      "footprint": "FCBGA",
+      "description": "Quad Cortex-A53 SoC with 2.3-TOPS NPU",
+      "cost": 62.0,
+      "source": "Mouser"
+    },
+    "imxrt1064": {
+      "manufacturer": "NXP",
+      "mpn": "MIMXRT1064DVL6A",
+      "value": "i.MX RT1064",
+      "footprint": "BGA196",
+      "description": "Cortex-M7 600MHz crossover MCU",
+      "cost": 13.6,
+      "source": "Mouser"
+    },
+    "am625": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "AM6254ATCGGAALW",
+      "value": "AM6254",
+      "footprint": "FCBGA",
+      "description": "Quad Cortex-A53 industrial SoC",
+      "cost": 24.5,
+      "source": "Mouser"
+    },
+    "jetson_orin_nx": {
+      "manufacturer": "NVIDIA",
+      "mpn": "900-13767-0000-000",
+      "value": "Jetson Orin NX 16GB",
+      "footprint": "SO-DIMM 260",
+      "description": "100-TOPS edge AI compute module",
+      "cost": 699.0,
+      "source": "Arrow"
+    },
+    "jetson_orin_nano": {
+      "manufacturer": "NVIDIA",
+      "mpn": "900-13767-0030-000",
+      "value": "Jetson Orin Nano 8GB",
+      "footprint": "SO-DIMM 260",
+      "description": "40-TOPS edge AI compute module",
+      "cost": 299.0,
+      "source": "Arrow"
+    },
+    "hailo8": {
+      "manufacturer": "Hailo",
+      "mpn": "HAILO-8-M2-B",
+      "value": "Hailo-8",
+      "footprint": "M.2 2242",
+      "description": "26-TOPS edge AI inference accelerator",
+      "cost": 199.0,
+      "source": "Arrow"
+    },
+    "kendryte_k230": {
+      "manufacturer": "Canaan",
+      "mpn": "K230",
+      "value": "K230",
+      "footprint": "BGA",
+      "description": "RISC-V dual-core SoC with KPU vision NPU",
+      "cost": 18.0,
+      "source": "Arrow"
+    },
+    "artix7_100t": {
+      "manufacturer": "AMD Xilinx",
+      "mpn": "XC7A100T-2FGG484I",
+      "value": "XC7A100T",
+      "footprint": "FBGA484",
+      "description": "Artix-7 FPGA 101k logic cells",
+      "cost": 95.0,
+      "source": "Digi-Key"
+    },
+    "artix7_35t": {
+      "manufacturer": "AMD Xilinx",
+      "mpn": "XC7A35T-2FGG484I",
+      "value": "XC7A35T",
+      "footprint": "FBGA484",
+      "description": "Artix-7 FPGA 33k logic cells",
+      "cost": 42.0,
+      "source": "Digi-Key"
+    },
+    "zynq7020": {
+      "manufacturer": "AMD Xilinx",
+      "mpn": "XC7Z020-2CLG484I",
+      "value": "XC7Z020",
+      "footprint": "FBGA484",
+      "description": "Zynq-7000 dual Cortex-A9 + FPGA SoC",
+      "cost": 118.0,
+      "source": "Digi-Key"
+    },
+    "zynq_ultrascale": {
+      "manufacturer": "AMD Xilinx",
+      "mpn": "XCZU3EG-1SFVC784E",
+      "value": "XCZU3EG",
+      "footprint": "FBGA784",
+      "description": "Zynq UltraScale+ MPSoC quad A53 + FPGA",
+      "cost": 385.0,
+      "source": "Digi-Key"
+    },
+    "ecp5_um5g": {
+      "manufacturer": "Lattice",
+      "mpn": "LFE5UM5G-45F-8BG381I",
+      "value": "LFE5UM5G-45F",
+      "footprint": "caBGA381",
+      "description": "ECP5-5G FPGA 44k LUT with SERDES",
+      "cost": 38.0,
+      "source": "Mouser"
+    },
+    "ice40up5k": {
+      "manufacturer": "Lattice",
+      "mpn": "ICE40UP5K-SG48ITR",
+      "value": "iCE40UP5K",
+      "footprint": "QFN48",
+      "description": "Ultra-low-power FPGA 5.2k LUT",
+      "cost": 6.2,
+      "source": "Mouser"
+    },
+    "polarfire_mpf300": {
+      "manufacturer": "Microchip",
+      "mpn": "MPF300T-1FCG484I",
+      "value": "MPF300T",
+      "footprint": "FCBGA484",
+      "description": "PolarFire flash FPGA 300k LE, low power",
+      "cost": 265.0,
+      "source": "Digi-Key"
+    },
+    "gr712rc": {
+      "manufacturer": "Frontgrade Gaisler",
+      "mpn": "GR712RC",
+      "value": "GR712RC",
+      "footprint": "CQFP240",
+      "description": "Rad-hard dual-core LEON3FT SPARC V8 processor",
+      "cost": 12500.0,
+      "source": "Frontgrade"
+    },
+    "gr740": {
+      "manufacturer": "Frontgrade Gaisler",
+      "mpn": "GR740",
+      "value": "GR740",
+      "footprint": "CQFP625",
+      "description": "Rad-hard quad-core LEON4FT flight processor",
+      "cost": 28000.0,
+      "source": "Frontgrade"
+    },
+    "rtax2000s": {
+      "manufacturer": "Microchip",
+      "mpn": "RTAX2000S-CQ352",
+      "value": "RTAX2000S",
+      "footprint": "CQFP352",
+      "description": "Rad-tolerant antifuse FPGA 2M gates",
+      "cost": 18500.0,
+      "source": "Microchip"
+    },
+    "rtg4_150": {
+      "manufacturer": "Microchip",
+      "mpn": "RTG4-150-CG1657",
+      "value": "RT4G150",
+      "footprint": "CCGA1657",
+      "description": "Rad-tolerant flash FPGA 150k LE",
+      "cost": 22000.0,
+      "source": "Microchip"
+    },
+    "isl71001": {
+      "manufacturer": "Renesas",
+      "mpn": "ISL71001SEHVF",
+      "value": "ISL71001",
+      "footprint": "CFP",
+      "description": "Rad-hard 6A synchronous buck regulator",
+      "cost": 1850.0,
+      "source": "Renesas"
+    },
+    "tps7h1101": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "TPS7H1101A-SP",
+      "value": "TPS7H1101A",
+      "footprint": "CFP-20",
+      "description": "Rad-hard 3A LDO regulator, space grade",
+      "cost": 980.0,
+      "source": "Texas Instruments"
+    },
+    "ut54lvds032": {
+      "manufacturer": "Frontgrade",
+      "mpn": "UT54LVDS032-UCC",
+      "value": "UT54LVDS032",
+      "footprint": "CFP16",
+      "description": "Rad-hard quad LVDS receiver",
+      "cost": 620.0,
+      "source": "Frontgrade"
+    },
+    "hi8596": {
+      "manufacturer": "Holt Integrated Circuits",
+      "mpn": "HI-8596PQI",
+      "value": "HI-8596",
+      "footprint": "PLCC44",
+      "description": "ARINC-429 quad line receiver",
+      "cost": 18.0,
+      "source": "Digi-Key"
+    },
+    "hi8585": {
+      "manufacturer": "Holt Integrated Circuits",
+      "mpn": "HI-8585PQI",
+      "value": "HI-8585",
+      "footprint": "PLCC44",
+      "description": "ARINC-429 quad line transmitter",
+      "cost": 22.0,
+      "source": "Digi-Key"
+    },
+    "bu65170": {
+      "manufacturer": "Data Device Corp",
+      "mpn": "BU-65170I2-300",
+      "value": "BU-65170",
+      "footprint": "QFP",
+      "description": "MIL-STD-1553B dual-redundant BC/RT/MT terminal",
+      "cost": 185.0,
+      "source": "Digi-Key"
+    },
+    "hi3593": {
+      "manufacturer": "Holt Integrated Circuits",
+      "mpn": "HI-3593PQI",
+      "value": "HI-3593",
+      "footprint": "PLCC44",
+      "description": "ARINC-429 dual Rx / single Tx with SPI",
+      "cost": 24.5,
+      "source": "Digi-Key"
+    },
+    "zed_f9p": {
+      "manufacturer": "u-blox",
+      "mpn": "ZED-F9P-04B",
+      "value": "ZED-F9P",
+      "footprint": "LGA-54",
+      "description": "Dual-band RTK GNSS receiver, cm accuracy",
+      "cost": 75.0,
+      "source": "Mouser"
+    },
+    "neo_m9n": {
+      "manufacturer": "u-blox",
+      "mpn": "NEO-M9N-00B",
+      "value": "NEO-M9N",
+      "footprint": "LCC-24",
+      "description": "Multi-constellation GNSS receiver",
+      "cost": 22.0,
+      "source": "Mouser"
+    },
+    "max_m10s": {
+      "manufacturer": "u-blox",
+      "mpn": "MAX-M10S-00B",
+      "value": "MAX-M10S",
+      "footprint": "LCC-18",
+      "description": "Ultra-low-power GNSS receiver",
+      "cost": 14.5,
+      "source": "Mouser"
+    },
+    "zed_f9t": {
+      "manufacturer": "u-blox",
+      "mpn": "ZED-F9T-00B",
+      "value": "ZED-F9T",
+      "footprint": "LGA-54",
+      "description": "Timing GNSS receiver, 5ns accuracy",
+      "cost": 89.0,
+      "source": "Mouser"
+    },
+    "adis16505": {
+      "manufacturer": "Analog Devices",
+      "mpn": "ADIS16505-2BMLZ",
+      "value": "ADIS16505-2",
+      "footprint": "Module",
+      "description": "Tactical-grade 6-DOF IMU, 0.4deg/hr bias stability",
+      "cost": 385.0,
+      "source": "Mouser"
+    },
+    "adis16470": {
+      "manufacturer": "Analog Devices",
+      "mpn": "ADIS16470AMLZ",
+      "value": "ADIS16470",
+      "footprint": "Module",
+      "description": "Industrial 6-DOF IMU with factory calibration",
+      "cost": 245.0,
+      "source": "Mouser"
+    },
+    "icm42688": {
+      "manufacturer": "TDK InvenSense",
+      "mpn": "ICM-42688-P",
+      "value": "ICM-42688-P",
+      "footprint": "LGA14",
+      "description": "6-axis IMU, low-noise MEMS",
+      "cost": 4.8,
+      "source": "Mouser"
+    },
+    "bmi270": {
+      "manufacturer": "Bosch Sensortec",
+      "mpn": "BMI270",
+      "value": "BMI270",
+      "footprint": "LGA14",
+      "description": "Low-power 6-axis IMU with gesture engine",
+      "cost": 3.1,
+      "source": "Mouser"
+    },
+    "bma456": {
+      "manufacturer": "Bosch Sensortec",
+      "mpn": "BMA456",
+      "value": "BMA456",
+      "footprint": "LGA12",
+      "description": "Ultra-low-power 3-axis accelerometer",
+      "cost": 1.2,
+      "source": "Mouser"
+    },
+    "iim42652": {
+      "manufacturer": "TDK InvenSense",
+      "mpn": "IIM-42652",
+      "value": "IIM-42652",
+      "footprint": "LGA14",
+      "description": "Industrial 6-axis IMU, high shock tolerance",
+      "cost": 6.9,
+      "source": "Mouser"
+    },
+    "mmc5983": {
+      "manufacturer": "MEMSIC",
+      "mpn": "MMC5983MA",
+      "value": "MMC5983MA",
+      "footprint": "LGA16",
+      "description": "3-axis AMR magnetometer, 0.4mG resolution",
+      "cost": 2.9,
+      "source": "Mouser"
+    },
+    "bme680": {
+      "manufacturer": "Bosch Sensortec",
+      "mpn": "BME680",
+      "value": "BME680",
+      "footprint": "LGA8",
+      "description": "Temperature / humidity / pressure / VOC sensor",
+      "cost": 8.4,
+      "source": "Mouser"
+    },
+    "bme280": {
+      "manufacturer": "Bosch Sensortec",
+      "mpn": "BME280",
+      "value": "BME280",
+      "footprint": "LGA8",
+      "description": "Temperature / humidity / pressure sensor",
+      "cost": 4.6,
+      "source": "Mouser"
+    },
+    "sht45": {
+      "manufacturer": "Sensirion",
+      "mpn": "SHT45-AD1B-R2",
+      "value": "SHT45",
+      "footprint": "DFN4",
+      "description": "High-accuracy humidity / temperature sensor",
+      "cost": 3.9,
+      "source": "Mouser"
+    },
+    "scd41": {
+      "manufacturer": "Sensirion",
+      "mpn": "SCD41-D-R2",
+      "value": "SCD41",
+      "footprint": "LGA",
+      "description": "Photoacoustic NDIR CO2 sensor, 400-5000ppm",
+      "cost": 28.5,
+      "source": "Mouser"
+    },
+    "sps30": {
+      "manufacturer": "Sensirion",
+      "mpn": "SPS30",
+      "value": "SPS30",
+      "footprint": "Module",
+      "description": "Laser PM1.0/2.5/4/10 particulate matter sensor",
+      "cost": 32.0,
+      "source": "Mouser"
+    },
+    "sfa30": {
+      "manufacturer": "Sensirion",
+      "mpn": "SFA30-D-T",
+      "value": "SFA30",
+      "footprint": "Module",
+      "description": "Formaldehyde + humidity + temperature sensor",
+      "cost": 41.0,
+      "source": "Mouser"
+    },
+    "ms5611": {
+      "manufacturer": "TE Connectivity",
+      "mpn": "MS561101BA03-50",
+      "value": "MS5611",
+      "footprint": "QFN8",
+      "description": "High-resolution barometric pressure sensor 10cm",
+      "cost": 12.8,
+      "source": "Mouser"
+    },
+    "lps22hh": {
+      "manufacturer": "STMicroelectronics",
+      "mpn": "LPS22HHTR",
+      "value": "LPS22HH",
+      "footprint": "HLGA10",
+      "description": "Absolute barometric pressure sensor",
+      "cost": 2.7,
+      "source": "Mouser"
+    },
+    "tmp117": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "TMP117AIDRVR",
+      "value": "TMP117",
+      "footprint": "WSON6",
+      "description": "0.1degC precision digital temperature sensor",
+      "cost": 4.2,
+      "source": "Mouser"
+    },
+    "max31865": {
+      "manufacturer": "Analog Devices",
+      "mpn": "MAX31865ATP+",
+      "value": "MAX31865",
+      "footprint": "TQFN20",
+      "description": "RTD-to-digital converter for PT100/PT1000",
+      "cost": 6.1,
+      "source": "Mouser"
+    },
+    "mlx90640": {
+      "manufacturer": "Melexis",
+      "mpn": "MLX90640ESF-BAB",
+      "value": "MLX90640",
+      "footprint": "TO-39",
+      "description": "32x24 far-infrared thermal imaging array",
+      "cost": 48.0,
+      "source": "Mouser"
+    },
+    "vl53l1x": {
+      "manufacturer": "STMicroelectronics",
+      "mpn": "VL53L1CXV0FY/1",
+      "value": "VL53L1X",
+      "footprint": "OLGA12",
+      "description": "4m time-of-flight ranging sensor",
+      "cost": 5.3,
+      "source": "Mouser"
+    },
+    "vl53l5cx": {
+      "manufacturer": "STMicroelectronics",
+      "mpn": "VL53L5CXV0GC/1",
+      "value": "VL53L5CX",
+      "footprint": "OLGA16",
+      "description": "8x8 multizone time-of-flight ranging sensor",
+      "cost": 11.4,
+      "source": "Mouser"
+    },
+    "ldsm_rplidar": {
+      "manufacturer": "Slamtec",
+      "mpn": "RPLIDAR-S3",
+      "value": "RPLIDAR S3",
+      "footprint": "Module",
+      "description": "40m 360-degree ToF laser scanner",
+      "cost": 349.0,
+      "source": "Slamtec",
+      "assembly": true
+    },
+    "ads1299": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "ADS1299IPAGR",
+      "value": "ADS1299",
+      "footprint": "TQFP64",
+      "description": "8-channel 24-bit biopotential AFE for EEG/ECG",
+      "cost": 42.0,
+      "source": "Mouser"
+    },
+    "ads1292r": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "ADS1292RIPBSR",
+      "value": "ADS1292R",
+      "footprint": "TQFP32",
+      "description": "2-channel 24-bit ECG AFE with respiration",
+      "cost": 18.6,
+      "source": "Mouser"
+    },
+    "max30102": {
+      "manufacturer": "Analog Devices",
+      "mpn": "MAX30102EFD+T",
+      "value": "MAX30102",
+      "footprint": "OLGA14",
+      "description": "Integrated pulse oximetry and heart-rate sensor",
+      "cost": 4.5,
+      "source": "Mouser"
+    },
+    "max86178": {
+      "manufacturer": "Analog Devices",
+      "mpn": "MAX86178GWE+",
+      "value": "MAX86178",
+      "footprint": "WLP",
+      "description": "Integrated ECG / PPG / BioZ analog front end",
+      "cost": 9.8,
+      "source": "Mouser"
+    },
+    "afe4900": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "AFE4900YZR",
+      "value": "AFE4900",
+      "footprint": "DSBGA",
+      "description": "Integrated PPG and ECG biosensing AFE",
+      "cost": 7.9,
+      "source": "Mouser"
+    },
+    "ad8232": {
+      "manufacturer": "Analog Devices",
+      "mpn": "AD8232ACPZ-R7",
+      "value": "AD8232",
+      "footprint": "LFCSP20",
+      "description": "Single-lead ECG analog front end",
+      "cost": 4.7,
+      "source": "Mouser"
+    },
+    "as7058": {
+      "manufacturer": "ams OSRAM",
+      "mpn": "AS7058-AWLT-S",
+      "value": "AS7058",
+      "footprint": "OLGA",
+      "description": "Multi-channel PPG and biosensor AFE",
+      "cost": 5.8,
+      "source": "Mouser"
+    },
+    "ad9361": {
+      "manufacturer": "Analog Devices",
+      "mpn": "AD9361BBCZ",
+      "value": "AD9361",
+      "footprint": "BGA144",
+      "description": "2x2 RF agile transceiver 70MHz-6GHz",
+      "cost": 245.0,
+      "source": "Mouser"
+    },
+    "adrv9002": {
+      "manufacturer": "Analog Devices",
+      "mpn": "ADRV9002BBCZ",
+      "value": "ADRV9002",
+      "footprint": "BGA196",
+      "description": "Dual narrowband/wideband RF transceiver 30MHz-6GHz",
+      "cost": 385.0,
+      "source": "Mouser"
+    },
+    "lmx2594": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "LMX2594RHAT",
+      "value": "LMX2594",
+      "footprint": "VQFN40",
+      "description": "15GHz wideband RF synthesiser with PLL",
+      "cost": 58.0,
+      "source": "Mouser"
+    },
+    "hmc7044": {
+      "manufacturer": "Analog Devices",
+      "mpn": "HMC7044LP10BE",
+      "value": "HMC7044",
+      "footprint": "LFCSP",
+      "description": "Dual-loop JESD204B clock jitter attenuator",
+      "cost": 78.0,
+      "source": "Mouser"
+    },
+    "adf4351": {
+      "manufacturer": "Analog Devices",
+      "mpn": "ADF4351BCPZ",
+      "value": "ADF4351",
+      "footprint": "LFCSP32",
+      "description": "35MHz-4.4GHz wideband frequency synthesiser",
+      "cost": 22.5,
+      "source": "Mouser"
+    },
+    "awmf0129": {
+      "manufacturer": "Qorvo",
+      "mpn": "AWMF-0129",
+      "value": "AWMF-0129",
+      "footprint": "QFN",
+      "description": "24-30GHz beamforming front-end IC, 4-channel",
+      "cost": 145.0,
+      "source": "Qorvo"
+    },
+    "bgt60ltr11": {
+      "manufacturer": "Infineon",
+      "mpn": "BGT60LTR11AIP",
+      "value": "BGT60LTR11",
+      "footprint": "QFN",
+      "description": "60GHz FMCW radar sensor with antennas in package",
+      "cost": 14.8,
+      "source": "Mouser"
+    },
+    "awr1843": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "AWR1843AQABEGABLQ1",
+      "value": "AWR1843",
+      "footprint": "FCBGA",
+      "description": "77GHz automotive FMCW radar SoC with DSP",
+      "cost": 62.0,
+      "source": "Mouser"
+    },
+    "iwr6843": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "IWR6843AOPAQGABLQ1",
+      "value": "IWR6843AOP",
+      "footprint": "FCBGA",
+      "description": "60GHz industrial mmWave radar with on-package antenna",
+      "cost": 48.0,
+      "source": "Mouser"
+    },
+    "ksz9031": {
+      "manufacturer": "Microchip",
+      "mpn": "KSZ9031RNXIA",
+      "value": "KSZ9031",
+      "footprint": "QFN48",
+      "description": "Gigabit Ethernet PHY with RGMII",
+      "cost": 4.5,
+      "source": "Mouser"
+    },
+    "dp83867": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "DP83867IRPAPR",
+      "value": "DP83867",
+      "footprint": "HTQFP64",
+      "description": "Robust gigabit Ethernet PHY, industrial temp",
+      "cost": 6.8,
+      "source": "Mouser"
+    },
+    "dp83td510": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "DP83TD510EPWR",
+      "value": "DP83TD510E",
+      "footprint": "TSSOP24",
+      "description": "10BASE-T1L single-pair Ethernet PHY",
+      "cost": 5.2,
+      "source": "Mouser"
+    },
+    "ksz8863": {
+      "manufacturer": "Microchip",
+      "mpn": "KSZ8863MLLI",
+      "value": "KSZ8863",
+      "footprint": "LQFP48",
+      "description": "3-port 10/100 managed Ethernet switch",
+      "cost": 7.4,
+      "source": "Mouser"
+    },
+    "tcan1042": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "TCAN1042VDRQ1",
+      "value": "TCAN1042",
+      "footprint": "SOIC8",
+      "description": "CAN FD transceiver 5Mbps, automotive",
+      "cost": 1.85,
+      "source": "Mouser"
+    },
+    "tcan4550": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "TCAN4550RGYR",
+      "value": "TCAN4550",
+      "footprint": "VQFN20",
+      "description": "CAN FD controller with integrated transceiver",
+      "cost": 3.6,
+      "source": "Mouser"
+    },
+    "max3485": {
+      "manufacturer": "Analog Devices",
+      "mpn": "MAX3485EESA+T",
+      "value": "MAX3485",
+      "footprint": "SOIC8",
+      "description": "3.3V RS-485/RS-422 transceiver 10Mbps",
+      "cost": 0.85,
+      "source": "Mouser"
+    },
+    "adm2587": {
+      "manufacturer": "Analog Devices",
+      "mpn": "ADM2587EBRWZ",
+      "value": "ADM2587E",
+      "footprint": "SOIC20W",
+      "description": "Isolated RS-485 transceiver with integrated DC-DC",
+      "cost": 9.4,
+      "source": "Mouser"
+    },
+    "adm3053": {
+      "manufacturer": "Analog Devices",
+      "mpn": "ADM3053BRWZ",
+      "value": "ADM3053",
+      "footprint": "SOIC20W",
+      "description": "Isolated CAN transceiver with integrated DC-DC",
+      "cost": 11.2,
+      "source": "Mouser"
+    },
+    "sn65hvd78": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "SN65HVD78DR",
+      "value": "SN65HVD78",
+      "footprint": "SOIC8",
+      "description": "3.3V RS-485 transceiver, 50Mbps",
+      "cost": 1.6,
+      "source": "Mouser"
+    },
+    "usb3343": {
+      "manufacturer": "Microchip",
+      "mpn": "USB3343-CP-TR",
+      "value": "USB3343",
+      "footprint": "QFN24",
+      "description": "USB 2.0 ULPI high-speed transceiver",
+      "cost": 2.4,
+      "source": "Mouser"
+    },
+    "max14830": {
+      "manufacturer": "Analog Devices",
+      "mpn": "MAX14830ETM+",
+      "value": "MAX14830",
+      "footprint": "TQFN48",
+      "description": "Quad UART with 128-word FIFO and SPI",
+      "cost": 8.7,
+      "source": "Mouser"
+    },
+    "iso7741": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "ISO7741DWR",
+      "value": "ISO7741",
+      "footprint": "SOIC16W",
+      "description": "Quad-channel 5kVrms reinforced digital isolator",
+      "cost": 3.9,
+      "source": "Mouser"
+    },
+    "atecc608b": {
+      "manufacturer": "Microchip",
+      "mpn": "ATECC608B-MAHDA-T",
+      "value": "ATECC608B",
+      "footprint": "UDFN8",
+      "description": "Crypto co-processor with secure key storage",
+      "cost": 0.95,
+      "source": "Mouser"
+    },
+    "optiga_slb9670": {
+      "manufacturer": "Infineon",
+      "mpn": "SLB9670VQ2.0",
+      "value": "SLB9670",
+      "footprint": "TSSOP28",
+      "description": "TPM 2.0 trusted platform module, SPI",
+      "cost": 4.3,
+      "source": "Mouser"
+    },
+    "optiga_trust_m": {
+      "manufacturer": "Infineon",
+      "mpn": "SLS32AIA010MK",
+      "value": "OPTIGA Trust M",
+      "footprint": "USON10",
+      "description": "Secure element with ECC-256 and shielded I2C",
+      "cost": 2.1,
+      "source": "Mouser"
+    },
+    "se050": {
+      "manufacturer": "NXP",
+      "mpn": "SE050C2HQ1/Z01SDZ",
+      "value": "SE050",
+      "footprint": "HX2QFN20",
+      "description": "EdgeLock secure element, CC EAL6+ certified",
+      "cost": 3.4,
+      "source": "Mouser"
+    },
+    "max32520": {
+      "manufacturer": "Analog Devices",
+      "mpn": "MAX32520-KIT",
+      "value": "MAX32520",
+      "footprint": "TQFN",
+      "description": "Secure Cortex-M4 MCU with PUF root of trust",
+      "cost": 11.9,
+      "source": "Mouser"
+    },
+    "sti_stsafe": {
+      "manufacturer": "STMicroelectronics",
+      "mpn": "STSAFE-A110",
+      "value": "STSAFE-A110",
+      "footprint": "UFDFPN8",
+      "description": "Authentication secure element with ECDSA",
+      "cost": 1.4,
+      "source": "Mouser"
+    },
+    "tps54360": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "TPS54360BDDAR",
+      "value": "TPS54360B",
+      "footprint": "SO-8 PowerPAD",
+      "description": "60V 3.5A step-down DC-DC converter",
+      "cost": 2.9,
+      "source": "Mouser"
+    },
+    "lm5164": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "LM5164DDAR",
+      "value": "LM5164",
+      "footprint": "SO-8 PowerPAD",
+      "description": "100V 1A synchronous buck converter",
+      "cost": 3.7,
+      "source": "Mouser"
+    },
+    "tps62840": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "TPS62840DGRR",
+      "value": "TPS62840",
+      "footprint": "WSON8",
+      "description": "750mA buck with 60nA quiescent current",
+      "cost": 0.65,
+      "source": "Mouser"
+    },
+    "tps63070": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "TPS63070RNMR",
+      "value": "TPS63070",
+      "footprint": "VQFN15",
+      "description": "2A buck-boost converter 2V-16V",
+      "cost": 2.2,
+      "source": "Mouser"
+    },
+    "lt8640": {
+      "manufacturer": "Analog Devices",
+      "mpn": "LT8640IUDC#PBF",
+      "value": "LT8640",
+      "footprint": "QFN18",
+      "description": "42V 5A Silent Switcher synchronous buck",
+      "cost": 6.4,
+      "source": "Mouser"
+    },
+    "mp2315": {
+      "manufacturer": "Monolithic Power",
+      "mpn": "MP2315GJ-Z",
+      "value": "MP2315",
+      "footprint": "TSOT23-8",
+      "description": "24V 3A synchronous step-down converter",
+      "cost": 0.75,
+      "source": "Mouser"
+    },
+    "tps7a4701": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "TPS7A4701RGWT",
+      "value": "TPS7A4701",
+      "footprint": "VQFN20",
+      "description": "36V 1A ultra-low-noise LDO regulator",
+      "cost": 3.1,
+      "source": "Mouser"
+    },
+    "bq25798": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "BQ25798RQMR",
+      "value": "BQ25798",
+      "footprint": "VQFN29",
+      "description": "1-4 cell buck-boost charger with MPPT",
+      "cost": 4.8,
+      "source": "Mouser"
+    },
+    "bq25504": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "BQ25504RGTR",
+      "value": "BQ25504",
+      "footprint": "VQFN16",
+      "description": "Ultra-low-power energy-harvesting charger with MPPT",
+      "cost": 2.8,
+      "source": "Mouser"
+    },
+    "bq40z80": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "BQ40Z80RSMR",
+      "value": "BQ40Z80",
+      "footprint": "VQFN32",
+      "description": "1-7 cell battery gas gauge with Impedance Track",
+      "cost": 8.5,
+      "source": "Mouser"
+    },
+    "ltc4015": {
+      "manufacturer": "Analog Devices",
+      "mpn": "LTC4015IUHF#PBF",
+      "value": "LTC4015",
+      "footprint": "QFN38",
+      "description": "Multichemistry buck battery charger with telemetry",
+      "cost": 12.0,
+      "source": "Mouser"
+    },
+    "ltc6813": {
+      "manufacturer": "Analog Devices",
+      "mpn": "LTC6813ILWE-1#PBF",
+      "value": "LTC6813-1",
+      "footprint": "SSOP64",
+      "description": "18-cell battery stack monitor, 1.8mV accuracy",
+      "cost": 22.0,
+      "source": "Mouser"
+    },
+    "ltc3300": {
+      "manufacturer": "Analog Devices",
+      "mpn": "LTC3300IUHF-1#PBF",
+      "value": "LTC3300-1",
+      "footprint": "QFN38",
+      "description": "Bidirectional active cell balancer, 6 cells",
+      "cost": 8.5,
+      "source": "Mouser"
+    },
+    "ina3221": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "INA3221AIRGVR",
+      "value": "INA3221",
+      "footprint": "VQFN16",
+      "description": "Triple-channel current and voltage monitor",
+      "cost": 3.2,
+      "source": "Mouser"
+    },
+    "ina228": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "INA228AIDGSR",
+      "value": "INA228",
+      "footprint": "VSSOP10",
+      "description": "85V 20-bit power and energy monitor",
+      "cost": 3.5,
+      "source": "Mouser"
+    },
+    "lm5170": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "LM5170QRVFRQ1",
+      "value": "LM5170-Q1",
+      "footprint": "VQFN40",
+      "description": "Bidirectional 48V-12V dual-channel DC-DC controller",
+      "cost": 7.6,
+      "source": "Mouser"
+    },
+    "ucc21750": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "UCC21750QDWRQ1",
+      "value": "UCC21750",
+      "footprint": "SOIC16W",
+      "description": "Isolated IGBT/SiC gate driver with DESAT protection",
+      "cost": 4.9,
+      "source": "Mouser"
+    },
+    "c3m0016120k": {
+      "manufacturer": "Wolfspeed",
+      "mpn": "C3M0016120K",
+      "value": "C3M0016120K",
+      "footprint": "TO-247-4",
+      "description": "1200V 16mOhm SiC MOSFET",
+      "cost": 38.0,
+      "source": "Mouser"
+    },
+    "ikw40n120": {
+      "manufacturer": "Infineon",
+      "mpn": "IKW40N120H3",
+      "value": "IKW40N120H3",
+      "footprint": "TO-247",
+      "description": "1200V 40A trench IGBT with diode",
+      "cost": 8.9,
+      "source": "Mouser"
+    },
+    "drv8353": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "DRV8353RSRTAR",
+      "value": "DRV8353RS",
+      "footprint": "VQFN40",
+      "description": "100V three-phase BLDC gate driver with current sense",
+      "cost": 5.7,
+      "source": "Mouser"
+    },
+    "tmc5160": {
+      "manufacturer": "Analog Devices Trinamic",
+      "mpn": "TMC5160A-TA",
+      "value": "TMC5160A",
+      "footprint": "TQFP48",
+      "description": "Stepper motor driver with ramp generator, 60V",
+      "cost": 9.3,
+      "source": "Mouser"
+    },
+    "lpddr4_4gb": {
+      "manufacturer": "Micron",
+      "mpn": "MT53E1G32D2FW-046",
+      "value": "4GB LPDDR4X",
+      "footprint": "FBGA200",
+      "description": "4GB LPDDR4X-4266 SDRAM",
+      "cost": 19.5,
+      "source": "Mouser"
+    },
+    "lpddr5_8gb": {
+      "manufacturer": "Samsung",
+      "mpn": "K3KL8L80CM-MGCT",
+      "value": "8GB LPDDR5",
+      "footprint": "FBGA",
+      "description": "8GB LPDDR5-6400 SDRAM",
+      "cost": 28.0,
+      "source": "Mouser"
+    },
+    "ddr4_2gb": {
+      "manufacturer": "Micron",
+      "mpn": "MT40A1G16KNR-075",
+      "value": "2GB DDR4",
+      "footprint": "FBGA96",
+      "description": "2GB DDR4-2666 SDRAM",
+      "cost": 9.4,
+      "source": "Mouser"
+    },
+    "emmc_64gb": {
+      "manufacturer": "Micron",
+      "mpn": "MTFC64GAKAENA-4M",
+      "value": "64GB eMMC",
+      "footprint": "FBGA153",
+      "description": "64GB eMMC 5.1 managed NAND",
+      "cost": 18.0,
+      "source": "Mouser"
+    },
+    "emmc_16gb": {
+      "manufacturer": "Micron",
+      "mpn": "MTFC16GAPALBH-IT",
+      "value": "16GB eMMC",
+      "footprint": "FBGA153",
+      "description": "16GB eMMC 5.1 industrial managed NAND",
+      "cost": 8.6,
+      "source": "Mouser"
+    },
+    "w25q128": {
+      "manufacturer": "Winbond",
+      "mpn": "W25Q128JVSIQ",
+      "value": "16MB QSPI",
+      "footprint": "SOIC8",
+      "description": "128Mbit QSPI NOR flash",
+      "cost": 1.35,
+      "source": "Mouser"
+    },
+    "w25q32": {
+      "manufacturer": "Winbond",
+      "mpn": "W25Q32JVSSIQ",
+      "value": "4MB QSPI",
+      "footprint": "SOIC8",
+      "description": "32Mbit QSPI NOR flash",
+      "cost": 0.45,
+      "source": "Mouser"
+    },
+    "mr25h256": {
+      "manufacturer": "Everspin",
+      "mpn": "MR25H256ACDF",
+      "value": "256kbit MRAM",
+      "footprint": "SOIC8",
+      "description": "Non-volatile MRAM, unlimited endurance",
+      "cost": 6.2,
+      "source": "Mouser"
+    },
+    "fm24v10": {
+      "manufacturer": "Infineon",
+      "mpn": "FM24V10-G",
+      "value": "1Mbit FRAM",
+      "footprint": "SOIC8",
+      "description": "1Mbit I2C FRAM, 10^14 write endurance",
+      "cost": 4.7,
+      "source": "Mouser"
+    },
+    "ds3231": {
+      "manufacturer": "Analog Devices",
+      "mpn": "DS3231SN#",
+      "value": "DS3231",
+      "footprint": "SOIC16",
+      "description": "TCXO real-time clock, +/-2ppm",
+      "cost": 7.2,
+      "source": "Mouser"
+    },
+    "rv8263": {
+      "manufacturer": "Micro Crystal",
+      "mpn": "RV-8263-C7",
+      "value": "RV-8263-C7",
+      "footprint": "CSOIC8",
+      "description": "Ultra-low-power RTC module, 130nA",
+      "cost": 1.9,
+      "source": "Mouser"
+    },
+    "ocxo_10mhz": {
+      "manufacturer": "SiTime",
+      "mpn": "SIT5711AI-FD-33E0-10.000000",
+      "value": "10MHz OCXO",
+      "footprint": "9x7mm",
+      "description": "Stratum-3 MEMS OCXO, +/-5ppb stability",
+      "cost": 78.0,
+      "source": "Mouser"
+    },
+    "tcxo_26mhz": {
+      "manufacturer": "TXC",
+      "mpn": "7L26070003",
+      "value": "26MHz TCXO",
+      "footprint": "2016",
+      "description": "26MHz TCXO +/-0.5ppm for RF reference",
+      "cost": 1.8,
+      "source": "Mouser"
+    },
+    "dp83640": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "DP83640TVV/NOPB",
+      "value": "DP83640",
+      "footprint": "LQFP48",
+      "description": "IEEE 1588 PTP precision timing Ethernet PHY",
+      "cost": 12.4,
+      "source": "Mouser"
+    },
+    "ads131m08": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "ADS131M08IPBSR",
+      "value": "ADS131M08",
+      "footprint": "TQFP32",
+      "description": "8-channel 24-bit simultaneous-sampling delta-sigma ADC",
+      "cost": 11.6,
+      "source": "Mouser"
+    },
+    "ads8688": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "ADS8688IDBTR",
+      "value": "ADS8688",
+      "footprint": "TSSOP38",
+      "description": "8-channel 16-bit SAR ADC with +/-10V inputs",
+      "cost": 14.8,
+      "source": "Mouser"
+    },
+    "ad7124": {
+      "manufacturer": "Analog Devices",
+      "mpn": "AD7124-8BCPZ",
+      "value": "AD7124-8",
+      "footprint": "LFCSP32",
+      "description": "8-channel 24-bit low-noise sigma-delta ADC",
+      "cost": 9.7,
+      "source": "Mouser"
+    },
+    "ad9265": {
+      "manufacturer": "Analog Devices",
+      "mpn": "AD9265BCPZ-125",
+      "value": "AD9265",
+      "footprint": "LFCSP64",
+      "description": "16-bit 125MSPS pipelined ADC",
+      "cost": 68.0,
+      "source": "Mouser"
+    },
+    "dac8560": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "DAC8560IBDGKR",
+      "value": "DAC8560",
+      "footprint": "VSSOP8",
+      "description": "16-bit voltage-output DAC with reference",
+      "cost": 8.3,
+      "source": "Mouser"
+    },
+    "opa2188": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "OPA2188AIDR",
+      "value": "OPA2188",
+      "footprint": "SOIC8",
+      "description": "Dual zero-drift precision op-amp, 6uV offset",
+      "cost": 3.4,
+      "source": "Mouser"
+    },
+    "ina849": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "INA849IDR",
+      "value": "INA849",
+      "footprint": "SOIC8",
+      "description": "Ultra-low-noise instrumentation amplifier 1nV/rtHz",
+      "cost": 6.8,
+      "source": "Mouser"
+    },
+    "imx477": {
+      "manufacturer": "Sony",
+      "mpn": "IMX477-AACK",
+      "value": "IMX477",
+      "footprint": "CSP",
+      "description": "12.3MP 1/2.3-inch CMOS image sensor",
+      "cost": 32.0,
+      "source": "Arrow"
+    },
+    "ar0234": {
+      "manufacturer": "onsemi",
+      "mpn": "AR0234CSSC00SUKA0-CRBR",
+      "value": "AR0234",
+      "footprint": "iBGA",
+      "description": "2.3MP global-shutter CMOS image sensor",
+      "cost": 28.5,
+      "source": "Mouser"
+    },
+    "ov5640": {
+      "manufacturer": "OmniVision",
+      "mpn": "OV5640",
+      "value": "OV5640",
+      "footprint": "CSP",
+      "description": "5MP CMOS image sensor with autofocus",
+      "cost": 8.4,
+      "source": "Arrow"
+    },
+    "flir_lepton": {
+      "manufacturer": "Teledyne FLIR",
+      "mpn": "500-0771-01",
+      "value": "Lepton 3.5",
+      "footprint": "Socket",
+      "description": "160x120 radiometric LWIR thermal camera module",
+      "cost": 219.0,
+      "source": "Digi-Key"
+    },
+    "lcd_ips_5in": {
+      "manufacturer": "Riverdi",
+      "mpn": "RVT50HQSNWC00-B",
+      "value": "5in 800x480 IPS",
+      "footprint": "Module",
+      "description": "5-inch IPS TFT display with capacitive touch",
+      "cost": 42.0,
+      "source": "Mouser",
+      "assembly": true
+    },
+    "eink_29": {
+      "manufacturer": "Pervasive Displays",
+      "mpn": "E2290CS0F1",
+      "value": "2.9in E-Paper",
+      "footprint": "Module",
+      "description": "2.9-inch monochrome e-paper display 296x128",
+      "cost": 14.5,
+      "source": "Mouser",
+      "assembly": true
+    },
+    "oled_128x64": {
+      "manufacturer": "Winstar",
+      "mpn": "WEO012864M-CTP",
+      "value": "0.96in OLED",
+      "footprint": "Module",
+      "description": "128x64 monochrome OLED display, I2C",
+      "cost": 8.9,
+      "source": "Mouser",
+      "assembly": true
+    },
+    "quectel_bg95": {
+      "manufacturer": "Quectel",
+      "mpn": "BG95-M3",
+      "value": "BG95-M3",
+      "footprint": "LCC-LGA",
+      "description": "LTE Cat-M1 / NB-IoT / EGPRS module with GNSS",
+      "cost": 14.8,
+      "source": "Quectel"
+    },
+    "quectel_rm520n": {
+      "manufacturer": "Quectel",
+      "mpn": "RM520N-GL",
+      "value": "RM520N-GL",
+      "footprint": "M.2",
+      "description": "5G NR Sub-6GHz module, 3GPP Release 16",
+      "cost": 189.0,
+      "source": "Quectel"
+    },
+    "quectel_ec25": {
+      "manufacturer": "Quectel",
+      "mpn": "EC25-E",
+      "value": "EC25-E",
+      "footprint": "LCC",
+      "description": "LTE Cat-4 module with GNSS",
+      "cost": 22.5,
+      "source": "Quectel"
+    },
+    "iridium_9603": {
+      "manufacturer": "Iridium",
+      "mpn": "9603N",
+      "value": "Iridium 9603N",
+      "footprint": "Module",
+      "description": "Short-burst-data satellite transceiver",
+      "cost": 210.0,
+      "source": "Ground Control"
+    },
+    "swarm_m138": {
+      "manufacturer": "Swarm",
+      "mpn": "M138",
+      "value": "Swarm M138",
+      "footprint": "Module",
+      "description": "VHF satellite IoT modem for LEO constellation",
+      "cost": 89.0,
+      "source": "Swarm"
+    },
+    "vpx_vita46": {
+      "manufacturer": "Amphenol",
+      "mpn": "VPX-P1-046",
+      "value": "VPX VITA 46",
+      "footprint": "VPX",
+      "description": "VPX VITA 46 backplane connector, 7-row",
+      "cost": 35.0,
+      "source": "Digi-Key"
+    },
+    "arinc600": {
+      "manufacturer": "TE Connectivity",
+      "mpn": "ARINC600-2-SHELL",
+      "value": "ARINC 600",
+      "footprint": "Rack",
+      "description": "ARINC 600 size-2 rack and panel connector",
+      "cost": 148.0,
+      "source": "TE Connectivity"
+    },
+    "d38999_25": {
+      "manufacturer": "Amphenol",
+      "mpn": "D38999/26WD35SN",
+      "value": "D38999 Series III",
+      "footprint": "Circular",
+      "description": "MIL-DTL-38999 circular connector, 37-way",
+      "cost": 92.0,
+      "source": "Digi-Key"
+    },
+    "m12_8pin": {
+      "manufacturer": "Phoenix Contact",
+      "mpn": "1441011",
+      "value": "M12 8-pin",
+      "footprint": "M12 A-code",
+      "description": "M12 8-pin A-coded panel connector, IP67",
+      "cost": 14.6,
+      "source": "Mouser"
+    },
+    "rj45_mag": {
+      "manufacturer": "Pulse Electronics",
+      "mpn": "JXD0-0001NL",
+      "value": "RJ45 magjack",
+      "footprint": "THT",
+      "description": "Gigabit RJ45 jack with integrated magnetics",
+      "cost": 3.2,
+      "source": "Mouser"
+    },
+    "usbc_recept": {
+      "manufacturer": "Amphenol",
+      "mpn": "12401610E4-2A",
+      "value": "USB-C",
+      "footprint": "SMT",
+      "description": "USB Type-C receptacle, 24-pin, IP67",
+      "cost": 1.4,
+      "source": "Mouser"
+    },
+    "sma_edge": {
+      "manufacturer": "Amphenol",
+      "mpn": "132289",
+      "value": "SMA edge",
+      "footprint": "Edge mount",
+      "description": "SMA edge-launch RF connector, DC-18GHz",
+      "cost": 6.8,
+      "source": "Mouser"
+    },
+    "sfp_cage": {
+      "manufacturer": "TE Connectivity",
+      "mpn": "2007196-1",
+      "value": "SFP+ cage",
+      "footprint": "Press-fit",
+      "description": "SFP+ cage and connector assembly, 10Gbps",
+      "cost": 8.4,
+      "source": "Mouser"
+    },
+    "ant_gnss_patch": {
+      "manufacturer": "Taoglas",
+      "mpn": "AA.171.301111",
+      "value": "GNSS patch",
+      "footprint": "Patch 25mm",
+      "description": "Dual-band GNSS active patch antenna, 28dB LNA",
+      "cost": 18.5,
+      "source": "Mouser"
+    },
+    "ant_24ghz_chip": {
+      "manufacturer": "Johanson",
+      "mpn": "2450AT18B100E",
+      "value": "2.4GHz chip",
+      "footprint": "0805",
+      "description": "2.4GHz ceramic chip antenna",
+      "cost": 0.68,
+      "source": "Mouser"
+    },
+    "ant_lte_fpc": {
+      "manufacturer": "Taoglas",
+      "mpn": "FXUB63.07.0150C",
+      "value": "LTE FPC",
+      "footprint": "Flex",
+      "description": "Wideband 600MHz-6GHz flexible PCB antenna",
+      "cost": 6.9,
+      "source": "Mouser"
+    },
+    "ant_lora_helix": {
+      "manufacturer": "Linx",
+      "mpn": "ANT-868-CW-HWR-SMA",
+      "value": "868MHz whip",
+      "footprint": "SMA",
+      "description": "868MHz half-wave whip antenna, 2dBi",
+      "cost": 7.4,
+      "source": "Mouser",
+      "assembly": true
+    },
+    "cap_100n_0402": {
+      "manufacturer": "Murata",
+      "mpn": "GRM155R71C104KA88D",
+      "value": "100nF",
+      "footprint": "0402",
+      "description": "100nF X7R decoupling capacitor 16V",
+      "cost": 0.02,
+      "source": "Mouser"
+    },
+    "cap_100n_0201": {
+      "manufacturer": "Murata",
+      "mpn": "GRM033R61A104KE84D",
+      "value": "100nF",
+      "footprint": "0201",
+      "description": "100nF X5R decoupling capacitor 10V",
+      "cost": 0.02,
+      "source": "Mouser"
+    },
+    "cap_1u_0402": {
+      "manufacturer": "Murata",
+      "mpn": "GRM155R61A105KE15D",
+      "value": "1uF",
+      "footprint": "0402",
+      "description": "1uF X5R filter capacitor 10V",
+      "cost": 0.03,
+      "source": "Mouser"
+    },
+    "cap_10u_0805": {
+      "manufacturer": "Murata",
+      "mpn": "GRM21BR61A106KE19L",
+      "value": "10uF",
+      "footprint": "0805",
+      "description": "10uF X5R bulk capacitor 10V",
+      "cost": 0.09,
+      "source": "Mouser"
+    },
+    "cap_47u_1210": {
+      "manufacturer": "Murata",
+      "mpn": "GRM32ER61E476ME15L",
+      "value": "47uF",
+      "footprint": "1210",
+      "description": "47uF X5R bulk capacitor 25V",
+      "cost": 0.42,
+      "source": "Mouser"
+    },
+    "res_10k_0402": {
+      "manufacturer": "Yageo",
+      "mpn": "RC0402FR-0710KL",
+      "value": "10k",
+      "footprint": "0402",
+      "description": "10k 1% thin-film resistor",
+      "cost": 0.01,
+      "source": "Mouser"
+    },
+    "res_10k_0201": {
+      "manufacturer": "Yageo",
+      "mpn": "RC0201FR-0710KL",
+      "value": "10k",
+      "footprint": "0201",
+      "description": "10k 1% thin-film resistor",
+      "cost": 0.01,
+      "source": "Mouser"
+    },
+    "res_shunt_1m": {
+      "manufacturer": "Vishay",
+      "mpn": "WSLP3921L1000FEA",
+      "value": "1mOhm",
+      "footprint": "3921",
+      "description": "1mOhm 3W precision current-sense shunt",
+      "cost": 1.85,
+      "source": "Mouser"
+    },
+    "ind_4u7": {
+      "manufacturer": "Coilcraft",
+      "mpn": "XAL5030-472MEB",
+      "value": "4.7uH",
+      "footprint": "5.3x5.3mm",
+      "description": "4.7uH 6.4A shielded power inductor",
+      "cost": 0.72,
+      "source": "Coilcraft"
+    },
+    "tvs_smbj": {
+      "manufacturer": "Littelfuse",
+      "mpn": "SMBJ33CA",
+      "value": "33V TVS",
+      "footprint": "SMB",
+      "description": "600W bidirectional TVS diode, 33V standoff",
+      "cost": 0.28,
+      "source": "Mouser"
+    },
+    "esd_usb": {
+      "manufacturer": "Nexperia",
+      "mpn": "PESD5V0X4UAB",
+      "value": "ESD array",
+      "footprint": "DFN6",
+      "description": "4-line ESD protection array, IEC 61000-4-2 L4",
+      "cost": 0.22,
+      "source": "Mouser"
+    },
+    "fuse_ptc": {
+      "manufacturer": "Littelfuse",
+      "mpn": "1812L200/33MR",
+      "value": "2A PTC",
+      "footprint": "1812",
+      "description": "2A resettable PTC fuse, 33V",
+      "cost": 0.34,
+      "source": "Mouser"
+    },
+    "cmc_line": {
+      "manufacturer": "Wurth",
+      "mpn": "744232222",
+      "value": "2.2mH CMC",
+      "footprint": "THT",
+      "description": "2.2mH common-mode choke for EMC filtering",
+      "cost": 1.6,
+      "source": "Mouser"
+    },
+    "max1978": {
+      "manufacturer": "Analog Devices",
+      "mpn": "MAX1978ETM+",
+      "value": "MAX1978",
+      "footprint": "TQFN48",
+      "description": "Integrated TEC controller with 0.01degC stability",
+      "cost": 14.6,
+      "source": "Mouser"
+    },
+    "opa858": {
+      "manufacturer": "Texas Instruments",
+      "mpn": "OPA858IDSGR",
+      "value": "OPA858",
+      "footprint": "WSON8",
+      "description": "5.5GHz decompensated transimpedance amplifier",
+      "cost": 6.4,
+      "source": "Mouser"
+    },
+    "ldd_ichg": {
+      "manufacturer": "iC-Haus",
+      "mpn": "IC-HG6",
+      "value": "iC-HG",
+      "footprint": "QFN40",
+      "description": "6-channel 3A laser diode driver, 2ns rise time",
+      "cost": 28.5,
+      "source": "iC-Haus"
+    },
+    "apd_c30659": {
+      "manufacturer": "Excelitas",
+      "mpn": "C30659-1550-3A",
+      "value": "InGaAs APD",
+      "footprint": "TO-46",
+      "description": "1550nm InGaAs avalanche photodiode with preamp",
+      "cost": 185.0,
+      "source": "Excelitas"
+    },
+    "eo_modulator": {
+      "manufacturer": "EmbeddedOS",
+      "mpn": "EOS-EOM-LN-10G",
+      "value": "LiNbO3 modulator",
+      "footprint": "Butterfly",
+      "description": "10GHz lithium niobate electro-optic modulator",
+      "cost": 1450.0,
+      "source": "Custom",
+      "assembly": true
+    },
+    "dfb_laser_1550": {
+      "manufacturer": "EmbeddedOS",
+      "mpn": "EOS-DFB-1550-40",
+      "value": "1550nm DFB",
+      "footprint": "Butterfly-14",
+      "description": "1550nm DFB laser diode, 40mW, TEC and thermistor",
+      "cost": 385.0,
+      "source": "Custom",
+      "assembly": true
+    },
+    "loihi_class_npu": {
+      "manufacturer": "EmbeddedOS",
+      "mpn": "EOS-NEURO-256K",
+      "value": "Neuromorphic ASIC",
+      "footprint": "FCBGA",
+      "description": "256k-neuron spiking neural network processor",
+      "cost": 620.0,
+      "source": "Custom",
+      "assembly": true
+    },
+    "piezo_driver": {
+      "manufacturer": "Analog Devices",
+      "mpn": "ADHV4702-1BCPZ",
+      "value": "ADHV4702-1",
+      "footprint": "LFCSP16",
+      "description": "220V high-voltage precision piezo driver amplifier",
+      "cost": 21.5,
+      "source": "Mouser"
+    },
+    "harmonic_drive": {
+      "manufacturer": "EmbeddedOS",
+      "mpn": "EOS-HD-25-100",
+      "value": "Harmonic drive",
+      "footprint": "Custom",
+      "description": "Size-25 harmonic gear reducer, 100:1, zero backlash",
+      "cost": 480.0,
+      "source": "Custom",
+      "assembly": true
+    },
+    "pcb_4l_std": {
+      "manufacturer": "EmbeddedOS",
+      "mpn": "EOS-PCB-4L-STD",
+      "value": "4-layer FR4",
+      "footprint": "Custom",
+      "description": "4-layer FR-4 PCB, ENIG, IPC Class 2",
+      "cost": 6.5,
+      "source": "Custom",
+      "assembly": true
+    },
+    "pcb_6l_std": {
+      "manufacturer": "EmbeddedOS",
+      "mpn": "EOS-PCB-6L-STD",
+      "value": "6-layer FR4",
+      "footprint": "Custom",
+      "description": "6-layer FR-4 PCB, ENIG, IPC Class 2",
+      "cost": 11.0,
+      "source": "Custom",
+      "assembly": true
+    },
+    "pcb_8l_c3": {
+      "manufacturer": "EmbeddedOS",
+      "mpn": "EOS-PCB-8L-C3",
+      "value": "8-layer FR4",
+      "footprint": "Custom",
+      "description": "8-layer FR-4 PCB, ENIG, IPC Class 3",
+      "cost": 24.0,
+      "source": "Custom",
+      "assembly": true
+    },
+    "pcb_12l_c3": {
+      "manufacturer": "EmbeddedOS",
+      "mpn": "EOS-PCB-12L-C3",
+      "value": "12-layer FR4",
+      "footprint": "Custom",
+      "description": "12-layer FR-4 PCB, ENIG, IPC Class 3",
+      "cost": 48.0,
+      "source": "Custom",
+      "assembly": true
+    },
+    "pcb_rf_rogers": {
+      "manufacturer": "EmbeddedOS",
+      "mpn": "EOS-PCB-RF-RO4350",
+      "value": "RF hybrid",
+      "footprint": "Custom",
+      "description": "Rogers RO4350B / FR-4 hybrid RF PCB, 8-layer",
+      "cost": 96.0,
+      "source": "Custom",
+      "assembly": true
+    },
+    "pcb_rigidflex": {
+      "manufacturer": "EmbeddedOS",
+      "mpn": "EOS-PCB-RGDFLX-6L",
+      "value": "6-layer rigid-flex",
+      "footprint": "Custom",
+      "description": "6-layer rigid-flex PCB, polyimide, IPC Class 3",
+      "cost": 62.0,
+      "source": "Custom",
+      "assembly": true
+    },
+    "encl_ip67_alu": {
+      "manufacturer": "EmbeddedOS",
+      "mpn": "EOS-ENCL-IP67-AL",
+      "value": "IP67 aluminium",
+      "footprint": "Custom",
+      "description": "Die-cast aluminium IP67 enclosure with gasket",
+      "cost": 34.0,
+      "source": "Custom",
+      "assembly": true
+    },
+    "encl_din_rail": {
+      "manufacturer": "Phoenix Contact",
+      "mpn": "2200907",
+      "value": "DIN enclosure",
+      "footprint": "DIN 35",
+      "description": "DIN-rail modular housing, 6TE",
+      "cost": 18.5,
+      "source": "Mouser",
+      "assembly": true
+    },
+    "encl_atex": {
+      "manufacturer": "EmbeddedOS",
+      "mpn": "EOS-ENCL-ATEX-EXD",
+      "value": "Ex d enclosure",
+      "footprint": "Custom",
+      "description": "ATEX/IECEx Ex d flameproof enclosure, 316L",
+      "cost": 420.0,
+      "source": "Custom",
+      "assembly": true
+    },
+    "heatsink_forced": {
+      "manufacturer": "Wakefield-Vette",
+      "mpn": "657-40AB",
+      "value": "Heatsink",
+      "footprint": "40mm",
+      "description": "Extruded aluminium heatsink for forced convection",
+      "cost": 4.8,
+      "source": "Mouser",
+      "assembly": true
+    },
+    "batt_lipo_2000": {
+      "manufacturer": "EmbeddedOS",
+      "mpn": "EOS-BAT-LIPO-2000",
+      "value": "2000mAh LiPo",
+      "footprint": "Pouch",
+      "description": "3.7V 2000mAh LiPo cell with protection",
+      "cost": 8.4,
+      "source": "Custom",
+      "assembly": true
+    },
+    "batt_18650": {
+      "manufacturer": "Samsung SDI",
+      "mpn": "INR18650-35E",
+      "value": "3500mAh 18650",
+      "footprint": "18650",
+      "description": "3.6V 3500mAh Li-ion cylindrical cell",
+      "cost": 4.6,
+      "source": "Digi-Key",
+      "assembly": true
+    },
+    "batt_lisocl2": {
+      "manufacturer": "Saft",
+      "mpn": "LS17500",
+      "value": "3.6Ah LiSOCl2",
+      "footprint": "A-size",
+      "description": "3.6V 3.6Ah lithium thionyl chloride primary cell",
+      "cost": 9.8,
+      "source": "Mouser",
+      "assembly": true
+    },
+    "batt_coin_cr2032": {
+      "manufacturer": "Panasonic",
+      "mpn": "CR2032",
+      "value": "225mAh coin",
+      "footprint": "Coin 20mm",
+      "description": "3V 225mAh lithium coin cell",
+      "cost": 0.42,
+      "source": "Mouser"
+    },
+    "supercap_10f": {
+      "manufacturer": "Eaton",
+      "mpn": "HV1030-2R7106-R",
+      "value": "10F supercap",
+      "footprint": "Radial",
+      "description": "2.7V 10F supercapacitor for hold-up",
+      "cost": 3.9,
+      "source": "Mouser"
+    },
+    "solar_5w": {
+      "manufacturer": "EmbeddedOS",
+      "mpn": "EOS-PV-5W-MONO",
+      "value": "5W PV panel",
+      "footprint": "Custom",
+      "description": "5W monocrystalline PV panel, IP65 laminate",
+      "cost": 12.5,
+      "source": "Custom",
+      "assembly": true
+    },
+    "stm32u575_lqfp64": {
+      "manufacturer": "STMicroelectronics",
+      "mpn": "STM32U575RIT6",
+      "value": "STM32U575RI",
+      "footprint": "LQFP64",
+      "description": "ARM Cortex-M33 ultra-low-power secure MCU, 64-pin",
+      "cost": 8.4,
+      "source": "Mouser"
+    }
+  }
+}

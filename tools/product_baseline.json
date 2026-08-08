@@ -1,0 +1,247 @@
+{
+  "_comment": [
+    "Accepted deviations from the product data contract enforced by",
+    "tools/validate_products.py. Every entry is a finding the validator still",
+    "reports, tolerated because it predates the contract or needs an owner",
+    "decision. Entries marked UNRESOLVED DEFECT are real data errors that have",
+    "not been fixed -- they are recorded so they stay visible, not excused.",
+    "New product data must pass the contract outright and must not be added here.",
+    "Regenerate the report with: python3 tools/validate_products.py --show-known",
+    "An entry whose finding ends in '*' matches by prefix, for findings carrying a measured value that varies between runs."
+  ],
+  "baselined": "2026-08-08",
+  "accepted": {
+    "eConsumer_CAD_Design/smart_devices": [
+      {
+        "finding": "bom.csv: stated total 477.50 != sum of line items 476.50 (difference +1.00)",
+        "reason": "UNRESOLVED DEFECT: the stated BOM total disagrees with the sum of the line items. Not corrected here because it cannot be determined whether the total or a line item is authoritative; needs the product owner."
+      }
+    ],
+    "eDefense_CAD_Design/tactical_communications": [
+      {
+        "finding": "bom.csv: stated total 1467.95 != sum of line items 1466.95 (difference +1.00)",
+        "reason": "UNRESOLVED DEFECT: the stated BOM total disagrees with the sum of the line items. Not corrected here because it cannot be determined whether the total or a line item is authoritative; needs the product owner."
+      }
+    ],
+    "eHealth365_CAD_Design": [
+      {
+        "finding": "missing required file docs/regulatory_path.md",
+        "reason": "Division predates the README + docs + ebuild_simulation document set. Backfilling it is tracked separately."
+      },
+      {
+        "finding": "missing required file ebuild_simulation/README.md",
+        "reason": "Division predates the README + docs + ebuild_simulation document set. Backfilling it is tracked separately."
+      }
+    ],
+    "eHealth365_CAD_Design/smart_patch_pro": [
+      {
+        "finding": "missing required directory hardware/cad/",
+        "reason": "Bespoke tree predating the hardware/cad + hardware/pcb placeholder layout."
+      },
+      {
+        "finding": "missing required directory hardware/pcb/",
+        "reason": "Bespoke tree predating the hardware/cad + hardware/pcb placeholder layout."
+      },
+      {
+        "finding": "missing required directory simulation/",
+        "reason": "Bespoke tree: this product carries no simulation of its own."
+      },
+      {
+        "finding": "bom.csv: non-canonical BOM schema: missing ['Quantity', 'Footprint', 'Unit Cost USD', 'Extended Cost USD', 'Source']; unexpected ['Package', 'Qty', 'Unit Cost']",
+        "reason": "Hand-authored BOM predating the canonical 10-column schema. Converting it would rewrite costed data and is a separate, owner-approved change."
+      },
+      {
+        "finding": "product_datasheet.md: no '**Revision:** vX.Y' line",
+        "reason": "Datasheet predates the revision-stamp convention."
+      }
+    ],
+    "eHealth365_CAD_Design/smart_ring_pro": [
+      {
+        "finding": "missing required directory hardware/cad/",
+        "reason": "Bespoke tree predating the hardware/cad + hardware/pcb placeholder layout."
+      },
+      {
+        "finding": "missing required directory hardware/pcb/",
+        "reason": "Bespoke tree predating the hardware/cad + hardware/pcb placeholder layout."
+      },
+      {
+        "finding": "missing required directory simulation/",
+        "reason": "Bespoke tree: this product carries no simulation of its own."
+      },
+      {
+        "finding": "bom.csv: non-canonical BOM schema: missing ['Quantity', 'Footprint', 'Unit Cost USD', 'Extended Cost USD', 'Source']; unexpected ['Package', 'Qty', 'Unit Cost']",
+        "reason": "Hand-authored BOM predating the canonical 10-column schema. Converting it would rewrite costed data and is a separate, owner-approved change."
+      },
+      {
+        "finding": "product_datasheet.md: no '**Revision:** vX.Y' line",
+        "reason": "Datasheet predates the revision-stamp convention."
+      }
+    ],
+    "ePAM_CAD_Design": [
+      {
+        "finding": "missing required file ebuild_simulation/README.md",
+        "reason": "Division predates the README + docs + ebuild_simulation document set. Backfilling it is tracked separately."
+      }
+    ],
+    "ePAM_CAD_Design/eco_car": [
+      {
+        "finding": "missing required directory hardware/cad/",
+        "reason": "Bespoke tree predating the hardware/cad + hardware/pcb placeholder layout."
+      },
+      {
+        "finding": "missing required directory hardware/pcb/",
+        "reason": "Bespoke tree predating the hardware/cad + hardware/pcb placeholder layout."
+      },
+      {
+        "finding": "missing required directory simulation/",
+        "reason": "Bespoke tree: this product carries no simulation of its own."
+      },
+      {
+        "finding": "bom.csv: non-canonical BOM schema: missing ['Quantity', 'Value', 'Footprint', 'Manufacturer', 'MPN', 'Unit Cost USD', 'Extended Cost USD', 'Source']; unexpected ['Category', 'Qty', 'Unit Cost', 'Total']",
+        "reason": "Hand-authored BOM predating the canonical 10-column schema. Converting it would rewrite costed data and is a separate, owner-approved change."
+      },
+      {
+        "finding": "product_datasheet.md: no '**Revision:** vX.Y' line",
+        "reason": "Datasheet predates the revision-stamp convention."
+      }
+    ],
+    "ePAM_CAD_Design/space_shuttle": [
+      {
+        "finding": "missing required directory hardware/cad/",
+        "reason": "Bespoke tree predating the hardware/cad + hardware/pcb placeholder layout."
+      },
+      {
+        "finding": "missing required directory hardware/pcb/",
+        "reason": "Bespoke tree predating the hardware/cad + hardware/pcb placeholder layout."
+      },
+      {
+        "finding": "missing required directory simulation/",
+        "reason": "Bespoke tree: this product carries no simulation of its own."
+      },
+      {
+        "finding": "bom.csv: non-canonical BOM schema: missing ['Quantity', 'Value', 'Footprint', 'Manufacturer', 'MPN', 'Unit Cost USD', 'Extended Cost USD', 'Source']; unexpected ['Category', 'Qty', 'Unit Cost', 'Total']",
+        "reason": "Hand-authored BOM predating the canonical 10-column schema. Converting it would rewrite costed data and is a separate, owner-approved change."
+      },
+      {
+        "finding": "product_datasheet.md: no '**Revision:** vX.Y' line",
+        "reason": "Datasheet predates the revision-stamp convention."
+      }
+    ],
+    "ePAM_CAD_Design/urban_drone": [
+      {
+        "finding": "missing required directory hardware/cad/",
+        "reason": "Bespoke tree predating the hardware/cad + hardware/pcb placeholder layout."
+      },
+      {
+        "finding": "missing required directory hardware/pcb/",
+        "reason": "Bespoke tree predating the hardware/cad + hardware/pcb placeholder layout."
+      },
+      {
+        "finding": "missing required directory simulation/",
+        "reason": "Bespoke tree: this product carries no simulation of its own."
+      },
+      {
+        "finding": "bom.csv: non-canonical BOM schema: missing ['Quantity', 'Value', 'Footprint', 'Manufacturer', 'MPN', 'Unit Cost USD', 'Extended Cost USD', 'Source']; unexpected ['Category', 'Qty', 'Unit Cost', 'Total']",
+        "reason": "Hand-authored BOM predating the canonical 10-column schema. Converting it would rewrite costed data and is a separate, owner-approved change."
+      },
+      {
+        "finding": "product_datasheet.md: no '**Revision:** vX.Y' line",
+        "reason": "Datasheet predates the revision-stamp convention."
+      }
+    ],
+    "eRadar360_CAD_Design": [
+      {
+        "finding": "missing required file docs/business_plan.md",
+        "reason": "Division predates the README + docs + ebuild_simulation document set. Backfilling it is tracked separately."
+      },
+      {
+        "finding": "missing required file docs/regulatory_path.md",
+        "reason": "Division predates the README + docs + ebuild_simulation document set. Backfilling it is tracked separately."
+      },
+      {
+        "finding": "missing required file ebuild_simulation/README.md",
+        "reason": "Division predates the README + docs + ebuild_simulation document set. Backfilling it is tracked separately."
+      }
+    ],
+    "eRadar360_CAD_Design/hardware": [
+      {
+        "finding": "missing required directory hardware/cad/",
+        "reason": "Bespoke tree predating the hardware/cad + hardware/pcb placeholder layout."
+      },
+      {
+        "finding": "missing required directory hardware/pcb/",
+        "reason": "Bespoke tree predating the hardware/cad + hardware/pcb placeholder layout."
+      },
+      {
+        "finding": "missing required directory simulation/",
+        "reason": "Bespoke tree: this product carries no simulation of its own."
+      },
+      {
+        "finding": "bom.csv: non-canonical BOM schema: missing ['Quantity', 'Value', 'Footprint', 'Unit Cost USD', 'Extended Cost USD', 'Source']; unexpected ['Component', 'Package', 'Qty', 'Unit_Cost_USD']",
+        "reason": "Hand-authored BOM predating the canonical 10-column schema. Converting it would rewrite costed data and is a separate, owner-approved change."
+      },
+      {
+        "finding": "product_datasheet.md: no '**Revision:** vX.Y' line",
+        "reason": "Datasheet predates the revision-stamp convention."
+      }
+    ],
+    "eosHealth_CAD_Design": [
+      {
+        "finding": "missing required file docs/business_plan.md",
+        "reason": "Division predates the README + docs + ebuild_simulation document set. Backfilling it is tracked separately."
+      },
+      {
+        "finding": "missing required file docs/regulatory_path.md",
+        "reason": "Division predates the README + docs + ebuild_simulation document set. Backfilling it is tracked separately."
+      }
+    ],
+    "eosHealth_CAD_Design/HEALTH-BAND-Neuro": [
+      {
+        "finding": "missing required directory hardware/cad/",
+        "reason": "Bespoke tree: hardware artefacts are committed directly under the directories that exist, rather than as .gitkeep placeholders in both."
+      },
+      {
+        "finding": "missing required directory hardware/pcb/",
+        "reason": "Bespoke tree: hardware artefacts are committed directly under the directories that exist, rather than as .gitkeep placeholders in both."
+      },
+      {
+        "finding": "bom.csv: stated total 148.60 != sum of line items 145.95 (difference +2.65)",
+        "reason": "UNRESOLVED DEFECT: the stated BOM total disagrees with the sum of the line items. Not corrected here because it cannot be determined whether the total or a line item is authoritative; needs the product owner."
+      }
+    ],
+    "eosHealth_CAD_Design/HEALTH-KEY-ULTRA": [
+      {
+        "finding": "missing required directory hardware/pcb/",
+        "reason": "Bespoke tree: hardware artefacts are committed directly under the directories that exist, rather than as .gitkeep placeholders in both."
+      },
+      {
+        "finding": "bom.csv: stated total 57.89 != sum of line items 64.19 (difference -6.30)",
+        "reason": "UNRESOLVED DEFECT: the stated BOM total disagrees with the sum of the line items. Not corrected here because it cannot be determined whether the total or a line item is authoritative; needs the product owner."
+      }
+    ],
+    "eosHealth_CAD_Design/HEALTH-LAB": [
+      {
+        "finding": "missing required directory hardware/cad/",
+        "reason": "Bespoke tree: hardware artefacts are committed directly under the directories that exist, rather than as .gitkeep placeholders in both."
+      },
+      {
+        "finding": "bom.csv: stated total 77.35 != sum of line items 76.05 (difference +1.30)",
+        "reason": "UNRESOLVED DEFECT: the stated BOM total disagrees with the sum of the line items. Not corrected here because it cannot be determined whether the total or a line item is authoritative; needs the product owner."
+      }
+    ],
+    "eosHealth_CAD_Design/HEALTH-RING": [
+      {
+        "finding": "missing required directory hardware/cad/",
+        "reason": "Bespoke tree: hardware artefacts are committed directly under the directories that exist, rather than as .gitkeep placeholders in both."
+      },
+      {
+        "finding": "bom.csv: stated total 66.13 != sum of line items 71.13 (difference -5.00)",
+        "reason": "UNRESOLVED DEFECT: the stated BOM total disagrees with the sum of the line items. Not corrected here because it cannot be determined whether the total or a line item is authoritative; needs the product owner."
+      },
+      {
+        "finding": "simulation/ppg_biosensor_sim.py: exited 1:*",
+        "reason": "UNRESOLVED DEFECT, TWO FAULTS. (1) The simulation calls np.random.normal with no seed, so it is not reproducible and cannot serve as evidence. (2) The HbA1c estimate sits on its own 0.5% spec limit: measured 2026-08-08 over 8 runs the mean error ranged 0.409%-0.643% and the script exited non-zero 4 times out of 8. Baselined by prefix because the reported figure changes every run. NOT fixed here: seeding the RNG to a value that happens to pass would weaken the check rather than address the marginal design."
+      }
+    ]
+  }
+}

@@ -1,0 +1,1732 @@
+{
+  "_comment": [
+    "AI & compute at the edge. This category had no division in the repository,",
+    "so the division-level documents are generated here alongside the products."
+  ],
+  "division": "eEdgeAI_CAD_Design",
+  "division_docs": {
+    "title": "eEdgeAI CAD Design",
+    "blurb": "EmbeddedOS edge AI hardware portfolio — inference accelerators, vision and speech front ends, sensor fusion and SLAM compute, all running the eOS embedded stack.",
+    "market": "Edge inference is moving off general-purpose CPUs and onto dedicated NPUs as latency, privacy and connectivity constraints make cloud round-trips untenable for real-time control. EmbeddedOS targets the board and runtime layer beneath the model, where the hardware/software contract is set.",
+    "segments": [
+      [
+        "Edge AI accelerators",
+        "$28B",
+        "0.6%"
+      ],
+      [
+        "Embedded vision",
+        "$21B",
+        "0.9%"
+      ],
+      [
+        "Voice and audio front ends",
+        "$9B",
+        "0.7%"
+      ],
+      [
+        "Robotics perception and SLAM",
+        "$14B",
+        "1.1%"
+      ]
+    ],
+    "revenue": [
+      "Hardware licensing of eOS-certified inference modules",
+      "Runtime and model-compiler licensing for the eAI toolchain",
+      "Per-device royalty on the eOS NPU hardware abstraction layer",
+      "Model optimisation and quantisation services"
+    ],
+    "certifications": [
+      [
+        "Inference accelerator",
+        "CE / FCC Part 15B",
+        "EU / FCC",
+        "6 months"
+      ],
+      [
+        "Vision front end",
+        "IEC 62471 photobiological safety",
+        "Notified body",
+        "9 months"
+      ],
+      [
+        "Automotive sensor fusion",
+        "ISO 26262 ASIL-B",
+        "TUV",
+        "24 months"
+      ],
+      [
+        "Speech front end",
+        "EN 301 489-1 EMC",
+        "Notified body",
+        "6 months"
+      ]
+    ],
+    "standards": [
+      [
+        "ISO 26262",
+        "Functional safety for automotive sensor fusion products"
+      ],
+      [
+        "IEC 62471",
+        "Photobiological safety of lamps and lamp systems"
+      ],
+      [
+        "EN 301 489-1",
+        "EMC requirements for radio equipment"
+      ],
+      [
+        "IEC 62368-1",
+        "Audio/video and information technology equipment safety"
+      ]
+    ]
+  },
+  "products": [
+    {
+      "slug": "edge_ai_accelerators",
+      "taxonomy": "eEdgeAI",
+      "title": "Edge AI Accelerator Modules",
+      "part": "eAI-2000",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "General-purpose edge inference compute",
+        "standard": "CE / FCC Part 15B",
+        "sim": "Thermal and power budget",
+        "eos": "eOS eAI runtime"
+      },
+      "overview": "General-purpose edge inference module pairing a Jetson Orin NX with a discrete Hailo-8 accelerator, so vision pipelines and transformer workloads can run concurrently without contending for the same compute. Conduction-cooled to a 40W sustained envelope in a 150x115mm footprint.",
+      "specs": [
+        [
+          "Primary compute",
+          "NVIDIA Jetson Orin NX 16GB, 100 TOPS INT8"
+        ],
+        [
+          "Secondary accelerator",
+          "Hailo-8 M.2, 26 TOPS for parallel vision pipeline"
+        ],
+        [
+          "Memory",
+          "16GB LPDDR5 on module plus 8GB carrier-side"
+        ],
+        [
+          "Storage",
+          "128GB eMMC with hardware encryption"
+        ],
+        [
+          "Camera input",
+          "8 lanes MIPI CSI-2, 4 simultaneous sensors"
+        ],
+        [
+          "Networking",
+          "2.5GbE, Wi-Fi 6 and BLE 5.3"
+        ],
+        [
+          "Thermal envelope",
+          "40W sustained conduction-cooled, 60W peak"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "12"
+        ],
+        [
+          "Dimensions",
+          "150mm x 115mm"
+        ],
+        [
+          "IPC Class",
+          "Class 2"
+        ],
+        [
+          "Finish",
+          "ENIG"
+        ],
+        [
+          "Thermal",
+          "Copper coin under module, 6W/mK gap pad to chassis"
+        ]
+      ],
+      "compliance": [
+        [
+          "FCC Part 15 Subpart B",
+          "Unintentional radiator emissions"
+        ],
+        [
+          "EN 55032 Class B",
+          "Multimedia equipment emissions"
+        ],
+        [
+          "IEC 62368-1",
+          "Equipment safety"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "jetson_orin_nx",
+          "qty": 1,
+          "description": "Primary inference compute module"
+        },
+        {
+          "ref": "U2",
+          "part": "hailo8",
+          "qty": 1,
+          "description": "Parallel vision inference accelerator"
+        },
+        {
+          "ref": "U3",
+          "part": "lpddr5_8gb",
+          "qty": 1,
+          "description": "Carrier-side sample and buffer memory"
+        },
+        {
+          "ref": "U4",
+          "part": "emmc_64gb",
+          "qty": 2,
+          "description": "Encrypted model and application storage"
+        },
+        {
+          "ref": "U5",
+          "part": "dp83867",
+          "qty": 1,
+          "description": "2.5GbE Ethernet PHY"
+        },
+        {
+          "ref": "U6",
+          "part": "esp32c6",
+          "qty": 1,
+          "description": "Wi-Fi 6 and BLE 5.3 connectivity"
+        },
+        {
+          "ref": "U7",
+          "part": "optiga_trust_m",
+          "qty": 1,
+          "description": "Secure element for model integrity"
+        },
+        {
+          "ref": "U8",
+          "part": "lt8640",
+          "qty": 6,
+          "description": "Point-of-load regulator"
+        },
+        {
+          "ref": "U9",
+          "part": "ina228",
+          "qty": 4,
+          "description": "Per-rail power telemetry"
+        },
+        {
+          "ref": "U10",
+          "part": "tmp117",
+          "qty": 4,
+          "description": "Thermal throttling feedback"
+        },
+        {
+          "ref": "J1",
+          "part": "usbc_recept",
+          "qty": 2
+        },
+        {
+          "ref": "J2",
+          "part": "rj45_mag",
+          "qty": 1
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_12l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "HS1",
+          "part": "heatsink_forced",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 160
+        },
+        {
+          "ref": "C2",
+          "part": "cap_47u_1210",
+          "qty": 24
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 90
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eAI-2000 Edge Inference Module",
+        "bus_v": 12,
+        "efficiency": 0.9,
+        "loads": [
+          [
+            "Jetson Orin NX (sustained inference)",
+            25.0
+          ],
+          [
+            "Hailo-8 accelerator",
+            5.5
+          ],
+          [
+            "LPDDR5 carrier memory",
+            1.1
+          ],
+          [
+            "eMMC x2",
+            0.6
+          ],
+          [
+            "2.5GbE PHY",
+            0.55
+          ],
+          [
+            "Wi-Fi 6 / BLE module",
+            0.9
+          ],
+          [
+            "Telemetry and housekeeping",
+            0.45
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "tinyml_platforms",
+      "taxonomy": "eTinyML",
+      "title": "TinyML Platforms",
+      "part": "eTML-100",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Always-on microcontroller-class inference",
+        "standard": "CE / FCC Part 15B",
+        "sim": "Duty-cycled power and battery life",
+        "eos": "eOS eAI micro runtime"
+      },
+      "overview": "Battery-powered TinyML sensor node running quantised models entirely on a Cortex-M33, with no external accelerator. The design target is a year of always-on keyword and anomaly detection from a single coin cell, which constrains the model budget to roughly 256KB and 2 MFLOPs per inference.",
+      "specs": [
+        [
+          "Processor",
+          "STM32U575 Cortex-M33 at 160MHz with TrustZone"
+        ],
+        [
+          "Model budget",
+          "256KB quantised INT8, ~2 MFLOPs per inference"
+        ],
+        [
+          "Inference rate",
+          "10Hz always-on, 1.8ms per keyword inference"
+        ],
+        [
+          "Sensing",
+          "IMU, microphone, temperature, humidity and pressure"
+        ],
+        [
+          "Wake power",
+          "3.2uA in always-on listening with hardware VAD"
+        ],
+        [
+          "Connectivity",
+          "BLE 5.4 for model update and event reporting"
+        ],
+        [
+          "Battery life",
+          "12 months on a single CR2032 at 10Hz duty"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "6"
+        ],
+        [
+          "Dimensions",
+          "48mm x 36mm"
+        ],
+        [
+          "IPC Class",
+          "Class 2"
+        ],
+        [
+          "Finish",
+          "ENIG"
+        ],
+        [
+          "Constraint",
+          "No component above 1.2mm for wearable enclosure"
+        ]
+      ],
+      "compliance": [
+        [
+          "FCC Part 15 Subpart B",
+          "Unintentional radiator emissions"
+        ],
+        [
+          "EN 300 328",
+          "2.4GHz wideband transmission systems"
+        ],
+        [
+          "IEC 62368-1",
+          "Equipment safety"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "stm32u575_lqfp64",
+          "qty": 1,
+          "description": "TinyML inference microcontroller, 64-pin"
+        },
+        {
+          "ref": "U2",
+          "part": "nrf52840",
+          "qty": 1,
+          "description": "BLE 5.4 model update and reporting"
+        },
+        {
+          "ref": "U3",
+          "part": "bmi270",
+          "qty": 1,
+          "description": "Low-power IMU for gesture and anomaly models"
+        },
+        {
+          "ref": "U4",
+          "part": "bme280",
+          "qty": 1,
+          "description": "Environmental sensing"
+        },
+        {
+          "ref": "U5",
+          "part": "w25q32",
+          "qty": 1,
+          "description": "Model and firmware storage"
+        },
+        {
+          "ref": "U6",
+          "part": "tps62840",
+          "qty": 2,
+          "description": "60nA quiescent point-of-load regulator"
+        },
+        {
+          "ref": "U7",
+          "part": "optiga_trust_m",
+          "qty": 1,
+          "description": "Signed model verification"
+        },
+        {
+          "ref": "BT1",
+          "part": "batt_coin_cr2032",
+          "qty": 1
+        },
+        {
+          "ref": "ANT1",
+          "part": "ant_24ghz_chip",
+          "qty": 1
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_6l_std",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0201",
+          "qty": 32
+        },
+        {
+          "ref": "C2",
+          "part": "cap_1u_0402",
+          "qty": 12
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0201",
+          "qty": 20
+        }
+      ],
+      "power": {
+        "kind": "duty",
+        "label": "eTML-100 TinyML Sensor Node",
+        "battery_mah": 225,
+        "battery_desc": "CR2032 coin cell",
+        "modes": [
+          [
+            "Always-on listening (hardware VAD)",
+            3.2e-06,
+            0.968
+          ],
+          [
+            "Inference burst",
+            0.0089,
+            0.03
+          ],
+          [
+            "BLE event report",
+            0.0062,
+            0.0018
+          ],
+          [
+            "Model update over BLE",
+            0.015,
+            0.0002
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "npu_subsystems",
+      "taxonomy": "eNPU",
+      "title": "NPU Subsystems",
+      "part": "eNPU-800",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "FPGA-based custom NPU fabric",
+        "standard": "CE / FCC Part 15B",
+        "sim": "Power budget",
+        "eos": "eOS NPU HAL"
+      },
+      "overview": "FPGA-implemented neural processing fabric for workloads whose dataflow does not map well onto a fixed-function NPU — sparse models, unusual quantisation, or operators a vendor toolchain will not lower. Trades peak TOPS for the ability to change the datapath after tape-out is no longer an option.",
+      "specs": [
+        [
+          "Fabric",
+          "Zynq UltraScale+ XCZU3EG, systolic array in PL"
+        ],
+        [
+          "Throughput",
+          "4.2 TOPS INT8 at 300MHz fabric clock"
+        ],
+        [
+          "Precision",
+          "INT4, INT8, INT16 and bfloat16 datapaths"
+        ],
+        [
+          "Memory bandwidth",
+          "19.2 GB/s to LPDDR4"
+        ],
+        [
+          "Toolchain",
+          "eAI compiler lowering ONNX to fabric microcode"
+        ],
+        [
+          "Reconfiguration",
+          "Partial reconfiguration, 40ms datapath swap"
+        ],
+        [
+          "Host interface",
+          "PCIe Gen2 x4 or 1GbE"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "14"
+        ],
+        [
+          "Dimensions",
+          "120mm x 90mm"
+        ],
+        [
+          "IPC Class",
+          "Class 2"
+        ],
+        [
+          "Finish",
+          "ENIG"
+        ],
+        [
+          "Stackup",
+          "Length-matched LPDDR4 fly-by, back-drilled PCIe"
+        ]
+      ],
+      "compliance": [
+        [
+          "FCC Part 15 Subpart B",
+          "Unintentional radiator emissions"
+        ],
+        [
+          "EN 55032 Class A",
+          "Multimedia equipment emissions"
+        ],
+        [
+          "IEC 62368-1",
+          "Equipment safety"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "zynq_ultrascale",
+          "qty": 1,
+          "description": "NPU fabric MPSoC"
+        },
+        {
+          "ref": "U2",
+          "part": "lpddr4_4gb",
+          "qty": 4,
+          "description": "Weight and activation memory"
+        },
+        {
+          "ref": "U3",
+          "part": "emmc_64gb",
+          "qty": 1,
+          "description": "Bitstream and model storage"
+        },
+        {
+          "ref": "U4",
+          "part": "w25q128",
+          "qty": 2,
+          "description": "Boot bitstream storage"
+        },
+        {
+          "ref": "U5",
+          "part": "ksz9031",
+          "qty": 1,
+          "description": "Gigabit Ethernet host interface"
+        },
+        {
+          "ref": "U6",
+          "part": "hmc7044",
+          "qty": 1,
+          "description": "Fabric clock generation"
+        },
+        {
+          "ref": "U7",
+          "part": "lt8640",
+          "qty": 8,
+          "description": "Point-of-load regulator"
+        },
+        {
+          "ref": "U8",
+          "part": "ina228",
+          "qty": 6,
+          "description": "Per-rail power telemetry"
+        },
+        {
+          "ref": "U9",
+          "part": "tmp117",
+          "qty": 4,
+          "description": "Fabric thermal monitoring"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_12l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "HS1",
+          "part": "heatsink_forced",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 260
+        },
+        {
+          "ref": "C2",
+          "part": "cap_47u_1210",
+          "qty": 34
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 130
+        },
+        {
+          "ref": "L1",
+          "part": "ind_4u7",
+          "qty": 8
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eNPU-800 FPGA Neural Fabric",
+        "bus_v": 12,
+        "efficiency": 0.9,
+        "loads": [
+          [
+            "Zynq UltraScale+ fabric at full utilisation",
+            18.5
+          ],
+          [
+            "LPDDR4 x4",
+            4.4
+          ],
+          [
+            "eMMC and boot flash",
+            0.42
+          ],
+          [
+            "Gigabit Ethernet PHY",
+            0.45
+          ],
+          [
+            "Clock generation",
+            1.1
+          ],
+          [
+            "Telemetry and housekeeping",
+            0.5
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "vision_processing",
+      "taxonomy": "eVision",
+      "title": "Embedded Vision Processing",
+      "part": "eVIS-600",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Multi-camera vision pipeline and ISP",
+        "standard": "IEC 62471 / CE",
+        "sim": "Power budget",
+        "eos": "eOS eVision pipeline"
+      },
+      "overview": "Multi-camera embedded vision processor handling ISP, rectification, and detection across four synchronised global-shutter sensors. Hardware frame synchronisation keeps inter-camera skew under 1us, which is what makes the stereo and structured-light modes usable on moving subjects.",
+      "specs": [
+        [
+          "Processor",
+          "NXP i.MX 8M Plus with 2.3-TOPS NPU"
+        ],
+        [
+          "Camera inputs",
+          "4x MIPI CSI-2, 2.3MP global shutter, hardware synchronised"
+        ],
+        [
+          "Frame sync skew",
+          "<1us inter-camera"
+        ],
+        [
+          "ISP",
+          "Hardware debayer, lens correction, HDR fusion, tone mapping"
+        ],
+        [
+          "Detection",
+          "30fps object detection at 1920x1080"
+        ],
+        [
+          "Illumination",
+          "Synchronised 850nm IR strobe, IEC 62471 Risk Group 1"
+        ],
+        [
+          "Output",
+          "1GbE with GigE Vision, USB 3.0, H.265 encode"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "12"
+        ],
+        [
+          "Dimensions",
+          "100mm x 80mm"
+        ],
+        [
+          "IPC Class",
+          "Class 2"
+        ],
+        [
+          "Finish",
+          "ENIG"
+        ],
+        [
+          "Stackup",
+          "Impedance-controlled 100 ohm differential MIPI lanes"
+        ]
+      ],
+      "compliance": [
+        [
+          "IEC 62471",
+          "Photobiological safety of the IR illuminator"
+        ],
+        [
+          "EN 55032 Class B",
+          "Emissions"
+        ],
+        [
+          "IEC 62368-1",
+          "Equipment safety"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "imx8mp",
+          "qty": 1,
+          "description": "Vision application processor with NPU"
+        },
+        {
+          "ref": "U2",
+          "part": "ar0234",
+          "qty": 4,
+          "description": "Global-shutter image sensor"
+        },
+        {
+          "ref": "U3",
+          "part": "ice40up5k",
+          "qty": 1,
+          "description": "Hardware frame sync and strobe timing"
+        },
+        {
+          "ref": "U4",
+          "part": "lpddr4_4gb",
+          "qty": 2,
+          "description": "Frame buffer"
+        },
+        {
+          "ref": "U5",
+          "part": "emmc_64gb",
+          "qty": 1,
+          "description": "Application and model storage"
+        },
+        {
+          "ref": "U6",
+          "part": "ksz9031",
+          "qty": 1,
+          "description": "GigE Vision output"
+        },
+        {
+          "ref": "U7",
+          "part": "usb3343",
+          "qty": 2,
+          "description": "USB 3.0 transceiver"
+        },
+        {
+          "ref": "U8",
+          "part": "drv8353",
+          "qty": 1,
+          "description": "IR strobe current driver"
+        },
+        {
+          "ref": "U9",
+          "part": "lt8640",
+          "qty": 5,
+          "description": "Point-of-load regulator"
+        },
+        {
+          "ref": "U10",
+          "part": "tps7a4701",
+          "qty": 4,
+          "description": "Low-noise sensor analogue supply"
+        },
+        {
+          "ref": "J1",
+          "part": "rj45_mag",
+          "qty": 1
+        },
+        {
+          "ref": "J2",
+          "part": "usbc_recept",
+          "qty": 1
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_12l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 150
+        },
+        {
+          "ref": "C2",
+          "part": "cap_10u_0805",
+          "qty": 40
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 85
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eVIS-600 Multi-Camera Vision Processor",
+        "bus_v": 12,
+        "efficiency": 0.89,
+        "loads": [
+          [
+            "i.MX 8M Plus with NPU active",
+            8.5
+          ],
+          [
+            "Global-shutter sensor x4",
+            3.2
+          ],
+          [
+            "iCE40 frame sync FPGA",
+            0.18
+          ],
+          [
+            "LPDDR4 x2",
+            2.2
+          ],
+          [
+            "IR strobe (850nm, 20% duty)",
+            3.6
+          ],
+          [
+            "GigE and USB 3.0",
+            1.35
+          ],
+          [
+            "Housekeeping",
+            0.4
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "speech_processing",
+      "taxonomy": "eSpeech",
+      "title": "Speech and Audio Front Ends",
+      "part": "eSPX-300",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Far-field voice capture and keyword spotting",
+        "standard": "EN 301 489-1 / CE",
+        "sim": "Duty-cycled power",
+        "eos": "eOS eSpeech runtime"
+      },
+      "overview": "Far-field voice front end running beamforming, echo cancellation and on-device keyword spotting across an eight-microphone array. Wake-word detection stays local so no audio leaves the device until the wake word fires, which is a privacy property rather than only a bandwidth one.",
+      "specs": [
+        [
+          "Processor",
+          "STM32U575 Cortex-M33 with DSP extensions"
+        ],
+        [
+          "Microphone array",
+          "8-element circular, 65mm radius"
+        ],
+        [
+          "Beamforming",
+          "Adaptive MVDR, 360-degree steering"
+        ],
+        [
+          "Echo cancellation",
+          "Full-duplex AEC, 40dB ERLE"
+        ],
+        [
+          "Wake word",
+          "On-device, <2% false reject at 0.1 FA/hour"
+        ],
+        [
+          "Far-field range",
+          "5m at 65 dB SPL ambient"
+        ],
+        [
+          "Privacy",
+          "Audio never leaves the device before wake-word detection"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "8"
+        ],
+        [
+          "Dimensions",
+          "140mm diameter circular"
+        ],
+        [
+          "IPC Class",
+          "Class 2"
+        ],
+        [
+          "Finish",
+          "ENIG"
+        ],
+        [
+          "Constraint",
+          "Acoustically isolated microphone mounting, no ground loops"
+        ]
+      ],
+      "compliance": [
+        [
+          "EN 301 489-1",
+          "EMC for radio equipment"
+        ],
+        [
+          "EN 55032 Class B",
+          "Emissions"
+        ],
+        [
+          "IEC 62368-1",
+          "Equipment safety"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "stm32u575",
+          "qty": 1,
+          "description": "Beamforming and keyword spotting processor"
+        },
+        {
+          "ref": "U2",
+          "part": "ads131m08",
+          "qty": 1,
+          "description": "8-channel simultaneous microphone acquisition"
+        },
+        {
+          "ref": "U3",
+          "part": "opa2188",
+          "qty": 4,
+          "description": "Microphone preamplifier"
+        },
+        {
+          "ref": "U4",
+          "part": "nrf5340",
+          "qty": 1,
+          "description": "BLE 5.4 and companion connectivity"
+        },
+        {
+          "ref": "U5",
+          "part": "w25q128",
+          "qty": 1,
+          "description": "Model and firmware storage"
+        },
+        {
+          "ref": "U6",
+          "part": "tps62840",
+          "qty": 3,
+          "description": "Low-Iq point-of-load regulator"
+        },
+        {
+          "ref": "U7",
+          "part": "tps7a4701",
+          "qty": 2,
+          "description": "Low-noise analogue supply for microphones"
+        },
+        {
+          "ref": "U8",
+          "part": "optiga_trust_m",
+          "qty": 1,
+          "description": "Model signature verification"
+        },
+        {
+          "ref": "ANT1",
+          "part": "ant_24ghz_chip",
+          "qty": 1
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_8l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 80
+        },
+        {
+          "ref": "C2",
+          "part": "cap_10u_0805",
+          "qty": 20
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 48
+        }
+      ],
+      "power": {
+        "kind": "duty",
+        "label": "eSPX-300 Far-Field Voice Front End",
+        "battery_mah": 2000,
+        "battery_desc": "2000mAh LiPo",
+        "modes": [
+          [
+            "Wake-word listening (2 mics active)",
+            0.0135,
+            0.93
+          ],
+          [
+            "Full array beamforming",
+            0.062,
+            0.055
+          ],
+          [
+            "Streaming to host over BLE",
+            0.091,
+            0.014
+          ],
+          [
+            "Model update",
+            0.12,
+            0.001
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "sensor_fusion",
+      "taxonomy": "eSensorFusion",
+      "title": "Sensor Fusion Platforms",
+      "part": "eSFU-500",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Multi-modal perception fusion",
+        "standard": "ISO 26262 ASIL-B",
+        "sim": "Power budget",
+        "eos": "eOS eFusion"
+      },
+      "overview": "Multi-modal sensor fusion controller combining camera, radar, lidar and inertial inputs into a single tracked object list with per-object covariance. Time alignment across modalities is handled in hardware, since a fusion result is only as good as the worst-synchronised sensor feeding it.",
+      "specs": [
+        [
+          "Processor",
+          "TI AM6254 quad Cortex-A53 with R5F safety island"
+        ],
+        [
+          "Sensor inputs",
+          "4 camera, 2 radar, 1 lidar, 2 IMU"
+        ],
+        [
+          "Time alignment",
+          "Hardware PTP, <50us cross-modality skew"
+        ],
+        [
+          "Fusion output",
+          "Tracked object list with per-object covariance at 20Hz"
+        ],
+        [
+          "Functional safety",
+          "ISO 26262 ASIL-B target, R5F lockstep monitor"
+        ],
+        [
+          "Interfaces",
+          "Automotive Ethernet 1000BASE-T1, CAN FD x4"
+        ],
+        [
+          "Environment",
+          "-40degC to +105degC AEC-Q100 Grade 2 target"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "10"
+        ],
+        [
+          "Dimensions",
+          "140mm x 100mm"
+        ],
+        [
+          "IPC Class",
+          "Class 3"
+        ],
+        [
+          "Finish",
+          "ENIG, conformal coated"
+        ],
+        [
+          "Constraint",
+          "Automotive temperature-rated passives throughout"
+        ]
+      ],
+      "compliance": [
+        [
+          "ISO 26262 ASIL-B",
+          "Automotive functional safety"
+        ],
+        [
+          "AEC-Q100 Grade 2",
+          "Automotive component qualification"
+        ],
+        [
+          "CISPR 25 Class 5",
+          "Vehicle EMC emissions"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "am625",
+          "qty": 1,
+          "description": "Fusion processor with safety island"
+        },
+        {
+          "ref": "U2",
+          "part": "iwr6843",
+          "qty": 2,
+          "description": "60GHz radar input processing"
+        },
+        {
+          "ref": "U3",
+          "part": "ar0234",
+          "qty": 4,
+          "description": "Global-shutter camera input"
+        },
+        {
+          "ref": "U4",
+          "part": "iim42652",
+          "qty": 2,
+          "description": "High-shock automotive IMU"
+        },
+        {
+          "ref": "U5",
+          "part": "ddr4_2gb",
+          "qty": 2,
+          "description": "Fusion state and buffer memory"
+        },
+        {
+          "ref": "U6",
+          "part": "emmc_16gb",
+          "qty": 1,
+          "description": "Application storage"
+        },
+        {
+          "ref": "U7",
+          "part": "dp83td510",
+          "qty": 4,
+          "description": "1000BASE-T1 automotive Ethernet PHY"
+        },
+        {
+          "ref": "U8",
+          "part": "tcan4550",
+          "qty": 4,
+          "description": "CAN FD controller and transceiver"
+        },
+        {
+          "ref": "U9",
+          "part": "dp83640",
+          "qty": 1,
+          "description": "PTP hardware time alignment"
+        },
+        {
+          "ref": "U10",
+          "part": "zed_f9p",
+          "qty": 1,
+          "description": "GNSS reference for global frame"
+        },
+        {
+          "ref": "U11",
+          "part": "lm5164",
+          "qty": 5,
+          "description": "Automotive-rated buck regulator"
+        },
+        {
+          "ref": "U12",
+          "part": "ina228",
+          "qty": 4,
+          "description": "Rail telemetry for safety monitoring"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_8l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 170
+        },
+        {
+          "ref": "C2",
+          "part": "cap_10u_0805",
+          "qty": 42
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 100
+        },
+        {
+          "ref": "D1",
+          "part": "tvs_smbj",
+          "qty": 12
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eSFU-500 Sensor Fusion Controller",
+        "bus_v": 12,
+        "efficiency": 0.88,
+        "loads": [
+          [
+            "AM6254 fusion processor",
+            4.2
+          ],
+          [
+            "IWR6843 radar x2",
+            4.0
+          ],
+          [
+            "Camera input x4",
+            3.2
+          ],
+          [
+            "IMU x2",
+            0.14
+          ],
+          [
+            "DDR4 x2",
+            1.6
+          ],
+          [
+            "Automotive Ethernet PHY x4",
+            1.8
+          ],
+          [
+            "CAN FD x4 and PTP",
+            0.72
+          ],
+          [
+            "GNSS and housekeeping",
+            0.55
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "slam_compute",
+      "taxonomy": "eSLAM",
+      "title": "SLAM Compute Modules",
+      "part": "eSLM-700",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Simultaneous localisation and mapping",
+        "standard": "CE / FCC Part 15B",
+        "sim": "Power budget",
+        "eos": "eOS eSLAM"
+      },
+      "overview": "Visual-inertial SLAM compute module for robots and handheld scanners, running feature extraction, loop closure and dense mapping on board. A hardware-synchronised stereo pair and IMU keep visual-inertial initialisation robust, which is where most SLAM stacks fail first in low-texture spaces.",
+      "specs": [
+        [
+          "Processor",
+          "NVIDIA Jetson Orin Nano 8GB, 40 TOPS"
+        ],
+        [
+          "Visual input",
+          "Hardware-synchronised stereo, 2.3MP global shutter"
+        ],
+        [
+          "Lidar",
+          "RPLIDAR S3 40m 360-degree scanner"
+        ],
+        [
+          "Inertial",
+          "ADIS16470 industrial IMU, hardware time-stamped"
+        ],
+        [
+          "Map scale",
+          "500m x 500m dense, 2cm voxel resolution"
+        ],
+        [
+          "Loop closure",
+          "Bag-of-words with 50k vocabulary, <200ms"
+        ],
+        [
+          "Relocalisation",
+          "<1s from cold start in a known map"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "10"
+        ],
+        [
+          "Dimensions",
+          "100mm x 80mm"
+        ],
+        [
+          "IPC Class",
+          "Class 2"
+        ],
+        [
+          "Finish",
+          "ENIG"
+        ],
+        [
+          "Stackup",
+          "Impedance-controlled MIPI and PCIe routing"
+        ]
+      ],
+      "compliance": [
+        [
+          "FCC Part 15 Subpart B",
+          "Unintentional radiator emissions"
+        ],
+        [
+          "EN 55032 Class B",
+          "Emissions"
+        ],
+        [
+          "IEC 62368-1",
+          "Equipment safety"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "jetson_orin_nano",
+          "qty": 1,
+          "description": "SLAM inference and mapping compute"
+        },
+        {
+          "ref": "U2",
+          "part": "ar0234",
+          "qty": 2,
+          "description": "Synchronised stereo camera pair"
+        },
+        {
+          "ref": "U3",
+          "part": "ldsm_rplidar",
+          "qty": 1,
+          "description": "360-degree laser scanner"
+        },
+        {
+          "ref": "U4",
+          "part": "adis16470",
+          "qty": 1,
+          "description": "Industrial IMU for visual-inertial odometry"
+        },
+        {
+          "ref": "U5",
+          "part": "ice40up5k",
+          "qty": 1,
+          "description": "Stereo frame sync and IMU time-stamping"
+        },
+        {
+          "ref": "U6",
+          "part": "lpddr4_4gb",
+          "qty": 1,
+          "description": "Map and keyframe memory"
+        },
+        {
+          "ref": "U7",
+          "part": "emmc_64gb",
+          "qty": 1,
+          "description": "Map persistence storage"
+        },
+        {
+          "ref": "U8",
+          "part": "ksz9031",
+          "qty": 1,
+          "description": "Gigabit Ethernet"
+        },
+        {
+          "ref": "U9",
+          "part": "usb3343",
+          "qty": 2,
+          "description": "USB 3.0 transceiver"
+        },
+        {
+          "ref": "U10",
+          "part": "lt8640",
+          "qty": 5,
+          "description": "Point-of-load regulator"
+        },
+        {
+          "ref": "U11",
+          "part": "tps7a4701",
+          "qty": 3,
+          "description": "Low-noise sensor supply"
+        },
+        {
+          "ref": "J1",
+          "part": "usbc_recept",
+          "qty": 1
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_8l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 130
+        },
+        {
+          "ref": "C2",
+          "part": "cap_10u_0805",
+          "qty": 32
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 78
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eSLM-700 SLAM Compute Module",
+        "bus_v": 12,
+        "efficiency": 0.89,
+        "loads": [
+          [
+            "Jetson Orin Nano SLAM pipeline",
+            12.0
+          ],
+          [
+            "Stereo camera pair",
+            1.6
+          ],
+          [
+            "RPLIDAR S3 scanner",
+            3.5
+          ],
+          [
+            "ADIS16470 IMU",
+            0.21
+          ],
+          [
+            "iCE40 sync FPGA",
+            0.18
+          ],
+          [
+            "LPDDR4 map memory",
+            1.1
+          ],
+          [
+            "Ethernet and USB",
+            1.35
+          ]
+        ]
+      }
+    },
+    {
+      "slug": "inference_servers",
+      "taxonomy": "eInference",
+      "title": "Edge Inference Servers",
+      "part": "eINF-4000",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {
+        "category": "Rack and cabinet edge inference aggregation",
+        "standard": "IEC 62368-1 / EN 55032 Class A",
+        "sim": "Power budget",
+        "eos": "eOS eAI serving runtime"
+      },
+      "overview": "Edge inference server aggregating four accelerator modules behind a single 10GbE ingress, for sites that need on-premise model serving without a data-centre power or cooling envelope. Sized for a 250W cabinet budget so it can be deployed in existing telecom and retail enclosures.",
+      "specs": [
+        [
+          "Accelerators",
+          "4x Jetson Orin NX, 400 TOPS aggregate"
+        ],
+        [
+          "Ingress",
+          "10GbE SFP+ with load balancing across modules"
+        ],
+        [
+          "Model serving",
+          "Concurrent multi-model, 40 streams at 30fps"
+        ],
+        [
+          "Memory",
+          "64GB aggregate LPDDR5"
+        ],
+        [
+          "Storage",
+          "1TB NVMe model repository"
+        ],
+        [
+          "Power envelope",
+          "250W sustained, fits existing cabinet budgets"
+        ],
+        [
+          "Management",
+          "Redfish-compatible out-of-band management"
+        ]
+      ],
+      "pcb": [
+        [
+          "Layers",
+          "16"
+        ],
+        [
+          "Dimensions",
+          "420mm x 300mm (1U backplane)"
+        ],
+        [
+          "IPC Class",
+          "Class 2"
+        ],
+        [
+          "Finish",
+          "ENIG"
+        ],
+        [
+          "Thermal",
+          "Front-to-back forced air, 4x 40mm fans"
+        ]
+      ],
+      "compliance": [
+        [
+          "IEC 62368-1",
+          "Equipment safety"
+        ],
+        [
+          "EN 55032 Class A",
+          "Emissions for commercial environments"
+        ],
+        [
+          "EN 55035",
+          "Immunity for multimedia equipment"
+        ]
+      ],
+      "bom": [
+        {
+          "ref": "U1",
+          "part": "jetson_orin_nx",
+          "qty": 4,
+          "description": "Inference accelerator module"
+        },
+        {
+          "ref": "U2",
+          "part": "am625",
+          "qty": 1,
+          "description": "Management and load-balancing processor"
+        },
+        {
+          "ref": "U3",
+          "part": "ksz8863",
+          "qty": 2,
+          "description": "Internal Ethernet switching to modules"
+        },
+        {
+          "ref": "U4",
+          "part": "dp83867",
+          "qty": 4,
+          "description": "Gigabit Ethernet PHY per module"
+        },
+        {
+          "ref": "U5",
+          "part": "ddr4_2gb",
+          "qty": 2,
+          "description": "Management processor memory"
+        },
+        {
+          "ref": "U6",
+          "part": "emmc_64gb",
+          "qty": 2,
+          "description": "Model repository staging"
+        },
+        {
+          "ref": "U7",
+          "part": "optiga_slb9670",
+          "qty": 1,
+          "description": "TPM 2.0 platform attestation"
+        },
+        {
+          "ref": "U8",
+          "part": "lm5170",
+          "qty": 4,
+          "description": "48V to 12V intermediate bus converter"
+        },
+        {
+          "ref": "U9",
+          "part": "lt8640",
+          "qty": 12,
+          "description": "Point-of-load regulator"
+        },
+        {
+          "ref": "U10",
+          "part": "ina228",
+          "qty": 10,
+          "description": "Per-module power telemetry"
+        },
+        {
+          "ref": "U11",
+          "part": "tmp117",
+          "qty": 8,
+          "description": "Thermal management sensing"
+        },
+        {
+          "ref": "J1",
+          "part": "sfp_cage",
+          "qty": 2,
+          "description": "10GbE ingress"
+        },
+        {
+          "ref": "J2",
+          "part": "rj45_mag",
+          "qty": 1,
+          "description": "Out-of-band management"
+        },
+        {
+          "ref": "PCB1",
+          "part": "pcb_12l_c3",
+          "qty": 1
+        },
+        {
+          "ref": "HS1",
+          "part": "heatsink_forced",
+          "qty": 4
+        },
+        {
+          "ref": "C1",
+          "part": "cap_100n_0402",
+          "qty": 340
+        },
+        {
+          "ref": "C2",
+          "part": "cap_47u_1210",
+          "qty": 48
+        },
+        {
+          "ref": "R1",
+          "part": "res_10k_0402",
+          "qty": 180
+        },
+        {
+          "ref": "L1",
+          "part": "ind_4u7",
+          "qty": 16
+        }
+      ],
+      "power": {
+        "kind": "budget",
+        "label": "eINF-4000 Edge Inference Server",
+        "bus_v": 48,
+        "efficiency": 0.92,
+        "loads": [
+          [
+            "Jetson Orin NX x4 (sustained)",
+            100.0
+          ],
+          [
+            "AM6254 management processor",
+            4.2
+          ],
+          [
+            "Ethernet switch x2 + PHY x4",
+            3.4
+          ],
+          [
+            "DDR4 and eMMC",
+            2.2
+          ],
+          [
+            "SFP+ modules x2",
+            2.0
+          ],
+          [
+            "Cooling fans x4",
+            9.6
+          ],
+          [
+            "Telemetry and housekeeping",
+            1.2
+          ]
+        ]
+      }
+    }
+  ]
+}

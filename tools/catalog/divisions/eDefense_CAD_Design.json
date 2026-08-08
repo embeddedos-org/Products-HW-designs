@@ -1,0 +1,1008 @@
+{
+  "_comment": [
+    "Defence & security product catalog.",
+    "",
+    "eTacticalComms and eSurveillance are already served by the hand-authored",
+    "tactical_communications and surveillance_systems directories and are not",
+    "duplicated. eRadar360 has its own division and is untouched."
+  ],
+  "division": "eDefense_CAD_Design",
+  "products": [
+    {
+      "slug": "naval_systems",
+      "taxonomy": "eNaval",
+      "title": "Naval Combat Systems",
+      "part": "eNAV-5000",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Shipboard combat management and control", "standard": "MIL-STD-1399 / DDS-300-1", "ics": "XCZU3EG, DP83867, ADIS16505"},
+      "overview": "Shipboard combat management processing node handling sensor fusion, track management, and weapon assignment across a distributed naval network. Built for the shock, vibration and power-quality environment of MIL-STD-1399 shipboard service, with conduction cooling and no rotating media.",
+      "specs": [
+        ["Processor", "Zynq UltraScale+ XCZU3EG, quad Cortex-A53 + FPGA"],
+        ["Network", "Dual redundant 10GbE, IEEE 1588 PTP synchronised"],
+        ["Track capacity", "4000 simultaneous tracks, 50Hz update"],
+        ["Shipboard power", "440VAC 60Hz 3-phase and 28VDC per MIL-STD-1399-300"],
+        ["Shock", "MIL-S-901D Grade A, Class I heavyweight"],
+        ["Cooling", "Conduction-cooled, no fans or rotating media"],
+        ["Environment", "MIL-STD-810H, salt fog per Method 509"]
+      ],
+      "pcb": [
+        ["Layers", "14"],
+        ["Dimensions", "233mm x 160mm (3U VPX)"],
+        ["IPC Class", "Class 3"],
+        ["Finish", "ENIG, conformal coated per IPC-CC-830"],
+        ["Connector", "VPX VITA 46 with wedge locks"]
+      ],
+      "compliance": [
+        ["MIL-STD-1399-300", "Shipboard electrical power interface"],
+        ["MIL-S-901D", "Shock test for shipboard machinery"],
+        ["MIL-STD-461G", "Electromagnetic interference control"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "zynq_ultrascale", "qty": 1, "description": "Combat management processing MPSoC"},
+        {"ref": "U2", "part": "lpddr4_4gb", "qty": 4, "description": "Track database memory"},
+        {"ref": "U3", "part": "emmc_64gb", "qty": 2, "description": "Mission data and configuration storage"},
+        {"ref": "U4", "part": "dp83867", "qty": 4, "description": "Gigabit Ethernet PHY, redundant pairs"},
+        {"ref": "U5", "part": "dp83640", "qty": 2, "description": "IEEE 1588 PTP timing PHY"},
+        {"ref": "U6", "part": "adis16505", "qty": 1, "description": "Ship motion reference unit"},
+        {"ref": "U7", "part": "optiga_slb9670", "qty": 1, "description": "TPM 2.0 for secure boot"},
+        {"ref": "U8", "part": "lm5164", "qty": 6, "description": "28V shipboard buck regulator"},
+        {"ref": "U9", "part": "ina228", "qty": 6, "description": "Rail telemetry"},
+        {"ref": "J1", "part": "vpx_vita46", "qty": 4},
+        {"ref": "J2", "part": "sfp_cage", "qty": 4, "description": "10GbE combat network"},
+        {"ref": "PCB1", "part": "pcb_12l_c3", "qty": 1},
+        {"ref": "HS1", "part": "heatsink_forced", "qty": 2, "description": "Conduction-cooled thermal interface"},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 220},
+        {"ref": "C2", "part": "cap_47u_1210", "qty": 30},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 120},
+        {"ref": "FL1", "part": "cmc_line", "qty": 4, "description": "MIL-STD-461 power line filter"}
+      ],
+      "power": {
+        "kind": "budget", "label": "eNAV-5000 Naval Combat Node", "bus_v": 28, "efficiency": 0.85,
+        "loads": [
+          ["Zynq UltraScale+ XCZU3EG", 14.5],
+          ["LPDDR4 x4", 4.4],
+          ["eMMC x2", 0.6],
+          ["Gigabit Ethernet PHY x4", 1.8],
+          ["PTP timing PHY x2", 1.0],
+          ["SFP+ modules x4", 4.0],
+          ["Telemetry and housekeeping", 0.7]
+        ]
+      }
+    },
+    {
+      "slug": "maritime_defense",
+      "taxonomy": "eMaritimeDefense",
+      "title": "Maritime Defence Systems",
+      "part": "eMDS-800",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Coastal surveillance and vessel interdiction", "standard": "IMO SOLAS / IALA V-128", "ics": "IWR6843, ADRV9002, AM6254"},
+      "overview": "Coastal and harbour surveillance node fusing X-band radar returns, AIS reception, and electro-optical tracking to detect small craft that AIS alone would miss. Deployed on fixed towers and offshore platforms, feeding a maritime domain awareness picture over redundant backhaul.",
+      "specs": [
+        ["Processor", "TI AM6254 quad Cortex-A53"],
+        ["Radar", "IWR6843AOP 60GHz mmWave, 300m small-craft detection"],
+        ["AIS", "Dual-channel 161.975/162.025MHz Class-A reception"],
+        ["Electro-optical", "Dual sensor: 4K visible and LWIR thermal"],
+        ["Detection range", "12 nmi vessel, 3 nmi RHIB-class target"],
+        ["Backhaul", "10GbE fibre primary, LTE Cat-4 backup"],
+        ["Environment", "IP67, -25degC to +60degC, salt fog qualified"]
+      ],
+      "pcb": [
+        ["Layers", "10"],
+        ["Dimensions", "200mm x 150mm"],
+        ["IPC Class", "Class 3"],
+        ["Finish", "ENIG, conformal coated for marine exposure"],
+        ["Enclosure", "316L stainless, IP67, sacrificial anode"]
+      ],
+      "compliance": [
+        ["IMO SOLAS Chapter V", "Maritime safety and navigation equipment"],
+        ["IALA V-128", "Operational and technical performance for VTS"],
+        ["IEC 60945", "Maritime equipment general requirements"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "am625", "qty": 1, "description": "Surveillance fusion processor"},
+        {"ref": "U2", "part": "iwr6843", "qty": 2, "description": "60GHz mmWave surface search radar"},
+        {"ref": "U3", "part": "adrv9002", "qty": 1, "description": "AIS dual-channel receiver"},
+        {"ref": "U4", "part": "ar0234", "qty": 2, "description": "Global-shutter visible camera"},
+        {"ref": "U5", "part": "flir_lepton", "qty": 1, "description": "LWIR thermal imaging module"},
+        {"ref": "U6", "part": "ddr4_2gb", "qty": 2, "description": "System memory"},
+        {"ref": "U7", "part": "emmc_64gb", "qty": 1, "description": "Track recording storage"},
+        {"ref": "U8", "part": "zed_f9p", "qty": 1, "description": "GNSS position and timing reference"},
+        {"ref": "U9", "part": "quectel_ec25", "qty": 1, "description": "LTE backup backhaul"},
+        {"ref": "U10", "part": "dp83867", "qty": 2, "description": "Gigabit Ethernet PHY"},
+        {"ref": "U11", "part": "tps54360", "qty": 4, "description": "Primary buck regulator"},
+        {"ref": "J1", "part": "sfp_cage", "qty": 2, "description": "Fibre backhaul"},
+        {"ref": "J2", "part": "sma_edge", "qty": 4},
+        {"ref": "ANT1", "part": "ant_lte_fpc", "qty": 2},
+        {"ref": "PCB1", "part": "pcb_8l_c3", "qty": 1},
+        {"ref": "ENC1", "part": "encl_ip67_alu", "qty": 1},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 150},
+        {"ref": "C2", "part": "cap_10u_0805", "qty": 36},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 85}
+      ],
+      "power": {
+        "kind": "budget", "label": "eMDS-800 Maritime Surveillance Node", "bus_v": 24, "efficiency": 0.87,
+        "loads": [
+          ["AM6254 fusion processor", 4.2],
+          ["IWR6843 mmWave radar x2", 4.0],
+          ["ADRV9002 AIS receiver", 3.4],
+          ["Visible camera x2", 1.6],
+          ["LWIR thermal module", 0.65],
+          ["DDR4 x2", 1.6],
+          ["Ethernet PHY and SFP+", 2.9],
+          ["LTE backhaul modem", 2.2]
+        ]
+      }
+    },
+    {
+      "slug": "subsea_systems",
+      "taxonomy": "eSubsea",
+      "title": "Subsea Systems",
+      "part": "eSUB-400",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Pressure-tolerant subsea control and telemetry", "standard": "API 17F / IEC 61508 SIL 2", "ics": "STM32H743, AD7124, DP83TD510E"},
+      "overview": "Subsea electronics module for ROV, AUV and seabed installation control at depths to 3000m. Uses a pressure-balanced oil-filled housing rather than a one-atmosphere vessel, which removes the dominant implosion failure mode and cuts housing mass substantially.",
+      "specs": [
+        ["Controller", "STM32H743 Cortex-M7, dual redundant"],
+        ["Depth rating", "3000m, pressure-balanced oil-filled"],
+        ["Sensing", "24-bit AD7124 for strain, pressure and temperature"],
+        ["Subsea comms", "10BASE-T1L single-pair Ethernet over umbilical, 1km reach"],
+        ["Acoustic link", "Backup acoustic modem interface, 9kbps"],
+        ["Power", "375VDC subsea bus, isolated step-down"],
+        ["Design life", "25 years without intervention"]
+      ],
+      "pcb": [
+        ["Layers", "8"],
+        ["Dimensions", "140mm x 90mm"],
+        ["IPC Class", "Class 3"],
+        ["Finish", "ENIG, parylene coated for oil immersion"],
+        ["Construction", "No electrolytics; oil-compatible components only"]
+      ],
+      "compliance": [
+        ["API 17F", "Subsea production control systems"],
+        ["IEC 61508 SIL 2", "Functional safety of shutdown paths"],
+        ["ISO 13628-6", "Subsea production control system design"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "stm32h743", "qty": 2, "description": "Dual-redundant subsea controller"},
+        {"ref": "U2", "part": "ad7124", "qty": 4, "description": "24-bit sensor conditioning ADC"},
+        {"ref": "U3", "part": "max31865", "qty": 4, "description": "RTD temperature conditioning"},
+        {"ref": "U4", "part": "dp83td510", "qty": 2, "description": "10BASE-T1L single-pair Ethernet PHY"},
+        {"ref": "U5", "part": "adm2587", "qty": 2, "description": "Isolated RS-485 for acoustic modem"},
+        {"ref": "U6", "part": "mr25h256", "qty": 2, "description": "MRAM event and state log"},
+        {"ref": "U7", "part": "iso7741", "qty": 4, "description": "Isolation barrier for valve commands"},
+        {"ref": "U8", "part": "lm5164", "qty": 4, "description": "Isolated step-down from 375VDC bus"},
+        {"ref": "U9", "part": "ina228", "qty": 6, "description": "Rail and actuator telemetry"},
+        {"ref": "U10", "part": "tps7a4701", "qty": 3, "description": "Low-noise analogue supply"},
+        {"ref": "U11", "part": "opa2188", "qty": 6, "description": "Zero-drift sensor amplification"},
+        {"ref": "J1", "part": "d38999_25", "qty": 2, "description": "Subsea penetrator interface"},
+        {"ref": "PCB1", "part": "pcb_8l_c3", "qty": 1},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 110},
+        {"ref": "C2", "part": "cap_10u_0805", "qty": 30},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 70},
+        {"ref": "D1", "part": "tvs_smbj", "qty": 8}
+      ],
+      "power": {
+        "kind": "budget", "label": "eSUB-400 Subsea Control Module", "bus_v": 24, "efficiency": 0.84,
+        "loads": [
+          ["STM32H743 controller x2", 1.2],
+          ["AD7124 ADC x4", 0.36],
+          ["RTD conditioning x4", 0.24],
+          ["10BASE-T1L PHY x2", 0.18],
+          ["Isolated RS-485 x2", 0.7],
+          ["Sensor amplification chain", 0.42],
+          ["Isolation and housekeeping", 0.55]
+        ]
+      }
+    },
+    {
+      "slug": "sonar_systems",
+      "taxonomy": "eSonar",
+      "title": "Sonar Systems",
+      "part": "eSON-2400",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Active and passive sonar beamforming", "standard": "STANAG 1170 / IEC 60565", "ics": "XCZU3EG, ADS131M08, AD9265"},
+      "overview": "Multi-channel sonar processing unit performing beamforming, matched filtering and classification for hull-mounted, towed-array and dipping sonar. A 64-element array is digitised at the wet end and beamformed in FPGA fabric, so array gain is not lost to analogue cable runs.",
+      "specs": [
+        ["Processor", "Zynq UltraScale+ XCZU3EG, beamforming in fabric"],
+        ["Channels", "64 hydrophone elements, simultaneous sampling"],
+        ["Bandwidth", "1kHz-100kHz, active and passive modes"],
+        ["Dynamic range", "120 dB with 24-bit acquisition"],
+        ["Beamforming", "Time-domain delay-and-sum, 256 simultaneous beams"],
+        ["Classification", "Spectrogram-based, DEMON and LOFAR analysis"],
+        ["Transmit", "4-channel projector drive, 2kW peak"]
+      ],
+      "pcb": [
+        ["Layers", "12"],
+        ["Dimensions", "233mm x 160mm (3U VPX)"],
+        ["IPC Class", "Class 3"],
+        ["Finish", "ENIG, conformal coated"],
+        ["Stackup", "Segregated analogue acquisition island"]
+      ],
+      "compliance": [
+        ["STANAG 1170", "NATO underwater acoustic equipment"],
+        ["IEC 60565", "Hydrophone calibration"],
+        ["MIL-STD-461G", "Electromagnetic interference control"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "zynq_ultrascale", "qty": 1, "description": "Beamforming and classification MPSoC"},
+        {"ref": "U2", "part": "ads131m08", "qty": 8, "description": "24-bit simultaneous hydrophone acquisition"},
+        {"ref": "U3", "part": "ad9265", "qty": 2, "description": "High-rate digitiser for active returns"},
+        {"ref": "U4", "part": "ina849", "qty": 16, "description": "Hydrophone preamplifier"},
+        {"ref": "U5", "part": "opa2188", "qty": 16, "description": "Anti-alias filter stage"},
+        {"ref": "U6", "part": "lpddr4_4gb", "qty": 2, "description": "Beam and spectrogram buffer"},
+        {"ref": "U7", "part": "hmc7044", "qty": 1, "description": "Sample clock distribution"},
+        {"ref": "U8", "part": "ucc21750", "qty": 4, "description": "Projector transmit gate driver"},
+        {"ref": "U9", "part": "lt8640", "qty": 6, "description": "Point-of-load regulator"},
+        {"ref": "U10", "part": "tps7a4701", "qty": 6, "description": "Low-noise analogue supply"},
+        {"ref": "J1", "part": "vpx_vita46", "qty": 4},
+        {"ref": "PCB1", "part": "pcb_12l_c3", "qty": 1},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 280},
+        {"ref": "C2", "part": "cap_47u_1210", "qty": 32},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 160}
+      ],
+      "power": {
+        "kind": "budget", "label": "eSON-2400 Sonar Processing Unit", "bus_v": 28, "efficiency": 0.86,
+        "loads": [
+          ["Zynq UltraScale+ beamformer", 16.0],
+          ["ADS131M08 acquisition x8", 2.48],
+          ["AD9265 digitiser x2", 2.4],
+          ["Hydrophone preamplifier x16", 1.76],
+          ["Anti-alias filter stage", 0.96],
+          ["LPDDR4 x2", 2.2],
+          ["Clock distribution", 1.1],
+          ["Analogue reference and housekeeping", 1.2]
+        ]
+      }
+    },
+    {
+      "slug": "land_systems",
+      "taxonomy": "eLandSystems",
+      "title": "Land Combat Vehicle Systems",
+      "part": "eLCS-1500",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Armoured vehicle electronic architecture", "standard": "MIL-STD-1275E / STANAG 4754", "ics": "AM6254, XC7A100T, IIM-42652"},
+      "overview": "Vehicle electronic architecture controller implementing a NATO Generic Vehicle Architecture backbone for armoured platforms, bridging legacy CAN subsystems onto a switched Ethernet core. Survives the 28V transients of MIL-STD-1275E without shedding load, including 100V spike and 250V surge events.",
+      "specs": [
+        ["Processor", "TI AM6254 quad Cortex-A53"],
+        ["Vehicle bus", "NATO GVA over 1GbE, plus CAN FD x8 legacy bridge"],
+        ["Power transients", "MIL-STD-1275E compliant, 100V spike / 250V surge"],
+        ["Inertial", "IIM-42652 high-shock IMU for hull motion"],
+        ["Crew displays", "4x DisplayPort outputs, sunlight readable"],
+        ["Interfaces", "1GbE x8, CAN FD x8, RS-422 x4, 48 discrete I/O"],
+        ["Environment", "MIL-STD-810H, -46degC to +71degC"]
+      ],
+      "pcb": [
+        ["Layers", "10"],
+        ["Dimensions", "200mm x 160mm"],
+        ["IPC Class", "Class 3"],
+        ["Finish", "ENIG, conformal coated"],
+        ["Connector", "MIL-DTL-38999 Series III"]
+      ],
+      "compliance": [
+        ["MIL-STD-1275E", "28V vehicle electrical power characteristics"],
+        ["STANAG 4754", "NATO Generic Vehicle Architecture"],
+        ["MIL-STD-810H", "Environmental engineering considerations"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "am625", "qty": 1, "description": "Vehicle architecture processor"},
+        {"ref": "U2", "part": "artix7_35t", "qty": 1, "description": "Discrete I/O and legacy bus bridging"},
+        {"ref": "U3", "part": "ddr4_2gb", "qty": 2, "description": "System memory"},
+        {"ref": "U4", "part": "emmc_16gb", "qty": 1, "description": "Application storage"},
+        {"ref": "U5", "part": "ksz8863", "qty": 2, "description": "Managed Ethernet switch, GVA backbone"},
+        {"ref": "U6", "part": "dp83867", "qty": 4, "description": "Gigabit Ethernet PHY"},
+        {"ref": "U7", "part": "tcan4550", "qty": 8, "description": "CAN FD controller and transceiver"},
+        {"ref": "U8", "part": "max3485", "qty": 4, "description": "RS-422 interface"},
+        {"ref": "U9", "part": "iim42652", "qty": 2, "description": "High-shock hull motion IMU"},
+        {"ref": "U10", "part": "iso7741", "qty": 12, "description": "Discrete I/O isolation"},
+        {"ref": "U11", "part": "tps54360", "qty": 6, "description": "MIL-STD-1275E tolerant buck"},
+        {"ref": "U12", "part": "optiga_slb9670", "qty": 1, "description": "TPM 2.0 secure boot"},
+        {"ref": "J1", "part": "d38999_25", "qty": 6},
+        {"ref": "PCB1", "part": "pcb_8l_c3", "qty": 1},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 190},
+        {"ref": "C2", "part": "cap_47u_1210", "qty": 28},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 110},
+        {"ref": "D1", "part": "tvs_smbj", "qty": 20, "description": "Transient suppression for MIL-STD-1275E"}
+      ],
+      "power": {
+        "kind": "budget", "label": "eLCS-1500 Vehicle Architecture Controller", "bus_v": 28, "efficiency": 0.86,
+        "loads": [
+          ["AM6254 processor", 4.2],
+          ["Artix-7 I/O FPGA", 0.95],
+          ["DDR4 x2", 1.6],
+          ["Ethernet switch x2 + PHY x4", 3.4],
+          ["CAN FD controller x8", 0.72],
+          ["RS-422 interface x4", 0.28],
+          ["Digital isolation x12", 0.9],
+          ["Housekeeping", 0.6]
+        ]
+      }
+    },
+    {
+      "slug": "c4isr",
+      "taxonomy": "eC4ISR",
+      "title": "C4ISR Systems",
+      "part": "eC4I-7000",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Command, control and battlespace integration", "standard": "MIL-STD-6016 / NATO STANAG 5516", "ics": "XCZU3EG, Jetson Orin NX, SE050"},
+      "overview": "Deployable command and control node integrating Link-16, VMF and situational awareness feeds into a common operating picture. Cross-domain guard functions run on physically separate processors so classified and unclassified enclaves never share a memory controller.",
+      "specs": [
+        ["Processor", "Zynq UltraScale+ XCZU3EG + Jetson Orin NX for AI fusion"],
+        ["Tactical data links", "Link-16 (MIL-STD-6016), VMF, JREAP-C"],
+        ["Track capacity", "8000 tracks, correlated across 6 sources"],
+        ["Cross-domain", "Physically separate enclave processors, unidirectional guard"],
+        ["Cryptography", "Suite B, hardware key store, zeroise on tamper"],
+        ["Interfaces", "10GbE x4, 1GbE x8, serial x8"],
+        ["Environment", "MIL-STD-810H transit case, -32degC to +60degC"]
+      ],
+      "pcb": [
+        ["Layers", "14"],
+        ["Dimensions", "260mm x 200mm"],
+        ["IPC Class", "Class 3"],
+        ["Finish", "ENIG, conformal coated"],
+        ["Security", "Tamper mesh over key storage region"]
+      ],
+      "compliance": [
+        ["MIL-STD-6016", "Tactical data link Link-16 message standard"],
+        ["STANAG 5516", "NATO tactical data exchange"],
+        ["FIPS 140-3 Level 3", "Cryptographic module security"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "zynq_ultrascale", "qty": 1, "description": "Tactical data link processor"},
+        {"ref": "U2", "part": "jetson_orin_nx", "qty": 1, "description": "AI track fusion accelerator"},
+        {"ref": "U3", "part": "stm32u575", "qty": 2, "description": "Cross-domain guard processor, separate enclave"},
+        {"ref": "U4", "part": "lpddr4_4gb", "qty": 4, "description": "Track and message memory"},
+        {"ref": "U5", "part": "emmc_64gb", "qty": 2, "description": "Mission data storage"},
+        {"ref": "U6", "part": "se050", "qty": 2, "description": "Secure element for Suite B key storage"},
+        {"ref": "U7", "part": "max32520", "qty": 1, "description": "PUF root of trust with tamper zeroise"},
+        {"ref": "U8", "part": "dp83867", "qty": 8, "description": "Gigabit Ethernet PHY"},
+        {"ref": "U9", "part": "max14830", "qty": 2, "description": "Quad UART for serial data links"},
+        {"ref": "U10", "part": "lt8640", "qty": 8, "description": "Point-of-load regulator"},
+        {"ref": "J1", "part": "sfp_cage", "qty": 4, "description": "10GbE tactical network"},
+        {"ref": "J2", "part": "d38999_25", "qty": 4},
+        {"ref": "PCB1", "part": "pcb_12l_c3", "qty": 1},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 300},
+        {"ref": "C2", "part": "cap_47u_1210", "qty": 36},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 150}
+      ],
+      "power": {
+        "kind": "budget", "label": "eC4I-7000 C4ISR Node", "bus_v": 28, "efficiency": 0.87,
+        "loads": [
+          ["Zynq UltraScale+ data link processor", 14.5],
+          ["Jetson Orin NX AI fusion", 25.0],
+          ["Cross-domain guard processors", 0.8],
+          ["LPDDR4 x4", 4.4],
+          ["eMMC x2", 0.6],
+          ["Gigabit Ethernet PHY x8", 3.6],
+          ["SFP+ modules x4", 4.0],
+          ["Security and housekeeping", 1.1]
+        ]
+      }
+    },
+    {
+      "slug": "isr_payloads",
+      "taxonomy": "eISR",
+      "title": "ISR Payload Systems",
+      "part": "eISR-1200",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Airborne multi-sensor ISR payload", "standard": "STANAG 4609 / MISB ST 0601", "ics": "Jetson Orin NX, AR0234, Lepton 3.5"},
+      "overview": "Gimbal-mounted intelligence, surveillance and reconnaissance payload combining electro-optical, thermal and laser rangefinder sensing with on-board target detection. Metadata is encoded to MISB ST 0601 in the payload, so exploitation downstream does not depend on a separate telemetry correlation step.",
+      "specs": [
+        ["Processor", "Jetson Orin NX, 100 TOPS on-board inference"],
+        ["Electro-optical", "2.3MP global shutter, 30x continuous optical zoom"],
+        ["Thermal", "640x512 LWIR, 25mK NETD"],
+        ["Laser rangefinder", "1550nm eye-safe, 8km range, 1m accuracy"],
+        ["Stabilisation", "4-axis gimbal, 15 urad RMS jitter"],
+        ["Video", "H.265 encode, STANAG 4609 with MISB ST 0601 metadata"],
+        ["Detection", "On-board vehicle and personnel detection, 30fps"]
+      ],
+      "pcb": [
+        ["Layers", "12"],
+        ["Dimensions", "120mm x 100mm"],
+        ["IPC Class", "Class 3"],
+        ["Finish", "ENIG, conformal coated"],
+        ["Constraint", "Mass-optimised for gimbal payload budget"]
+      ],
+      "compliance": [
+        ["STANAG 4609", "NATO digital motion imagery format"],
+        ["MISB ST 0601", "UAS datalink local metadata set"],
+        ["DO-160G", "Airborne environmental qualification"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "jetson_orin_nx", "qty": 1, "description": "On-board detection and video encode"},
+        {"ref": "U2", "part": "ar0234", "qty": 2, "description": "Global-shutter electro-optical sensor"},
+        {"ref": "U3", "part": "flir_lepton", "qty": 1, "description": "LWIR thermal imaging core"},
+        {"ref": "U4", "part": "artix7_35t", "qty": 1, "description": "Sensor synchronisation and gimbal control"},
+        {"ref": "U5", "part": "adis16505", "qty": 1, "description": "Gimbal stabilisation IMU"},
+        {"ref": "U6", "part": "drv8353", "qty": 2, "description": "Gimbal BLDC axis driver"},
+        {"ref": "U7", "part": "zed_f9p", "qty": 1, "description": "Geolocation reference for metadata"},
+        {"ref": "U8", "part": "lpddr4_4gb", "qty": 2, "description": "Frame buffer"},
+        {"ref": "U9", "part": "emmc_64gb", "qty": 1, "description": "On-board video recording"},
+        {"ref": "U10", "part": "ksz9031", "qty": 2, "description": "Gigabit Ethernet video output"},
+        {"ref": "U11", "part": "lt8640", "qty": 6, "description": "Point-of-load regulator"},
+        {"ref": "PCB1", "part": "pcb_12l_c3", "qty": 1},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 160},
+        {"ref": "C2", "part": "cap_10u_0805", "qty": 40},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 95}
+      ],
+      "power": {
+        "kind": "budget", "label": "eISR-1200 ISR Payload", "bus_v": 28, "efficiency": 0.87,
+        "loads": [
+          ["Jetson Orin NX inference", 25.0],
+          ["Electro-optical sensor x2", 1.6],
+          ["LWIR thermal core", 0.65],
+          ["Artix-7 sync and gimbal control", 0.95],
+          ["Gimbal IMU", 0.21],
+          ["Gimbal BLDC drive (4 axes)", 18.0],
+          ["LPDDR4 x2", 2.2],
+          ["Ethernet PHY x2", 0.9]
+        ]
+      }
+    },
+    {
+      "slug": "sigint_systems",
+      "taxonomy": "eSIGINT",
+      "title": "Signals Intelligence Systems",
+      "part": "eSIG-3600",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Wideband signal collection and geolocation", "standard": "MIL-STD-461G / STANAG 4658", "ics": "ADRV9002, XCZU3EG, HMC7044"},
+      "overview": "Wideband signals intelligence receiver performing continuous spectrum survey, emitter classification and time-difference-of-arrival geolocation. Four coherent receive channels share a common clock tree, which is what makes cross-channel phase interferometry usable for direction finding.",
+      "specs": [
+        ["Receiver", "4x ADRV9002 coherent channels, 30MHz-6GHz"],
+        ["Instantaneous bandwidth", "160MHz per channel"],
+        ["Survey rate", "40 GHz/s spectrum sweep"],
+        ["Direction finding", "Phase interferometry, 1 degree RMS accuracy"],
+        ["Geolocation", "TDOA across networked nodes, <100m CEP at 20km"],
+        ["Classification", "Automatic modulation recognition, 40 signal classes"],
+        ["Recording", "Continuous IQ capture to NVMe, 2GB/s sustained"]
+      ],
+      "pcb": [
+        ["Layers", "16"],
+        ["Dimensions", "280mm x 200mm"],
+        ["IPC Class", "Class 3"],
+        ["Finish", "ENIG with RF shielding cans"],
+        ["Stackup", "Rogers RO4350B RF layers, phase-matched channel routing"]
+      ],
+      "compliance": [
+        ["MIL-STD-461G", "Electromagnetic interference control"],
+        ["STANAG 4658", "Electronic warfare data exchange"],
+        ["DO-160G", "Airborne environmental qualification"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "adrv9002", "qty": 4, "description": "Coherent wideband receive channel"},
+        {"ref": "U2", "part": "zynq_ultrascale", "qty": 1, "description": "Survey, classification and DF processing"},
+        {"ref": "U3", "part": "hmc7044", "qty": 2, "description": "Phase-coherent clock distribution"},
+        {"ref": "U4", "part": "lmx2594", "qty": 4, "description": "Per-channel LO synthesiser"},
+        {"ref": "U5", "part": "ocxo_10mhz", "qty": 1, "description": "TDOA timing reference"},
+        {"ref": "U6", "part": "zed_f9t", "qty": 1, "description": "GNSS discipline for TDOA"},
+        {"ref": "U7", "part": "ad9265", "qty": 4, "description": "Wideband IF digitiser"},
+        {"ref": "U8", "part": "lpddr4_4gb", "qty": 4, "description": "IQ capture buffer"},
+        {"ref": "U9", "part": "emmc_64gb", "qty": 2, "description": "Recording and firmware storage"},
+        {"ref": "U10", "part": "lt8640", "qty": 10, "description": "Point-of-load regulator"},
+        {"ref": "U11", "part": "tps7a4701", "qty": 8, "description": "Low-noise RF supply"},
+        {"ref": "J1", "part": "sma_edge", "qty": 8, "description": "Coherent antenna array input"},
+        {"ref": "J2", "part": "sfp_cage", "qty": 2, "description": "10GbE node interconnect"},
+        {"ref": "PCB1", "part": "pcb_rf_rogers", "qty": 1},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 340},
+        {"ref": "C2", "part": "cap_10u_0805", "qty": 70},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 170}
+      ],
+      "power": {
+        "kind": "budget", "label": "eSIG-3600 SIGINT Receiver", "bus_v": 28, "efficiency": 0.87,
+        "loads": [
+          ["ADRV9002 receive channel x4", 13.6],
+          ["Zynq UltraScale+ processing", 16.0],
+          ["AD9265 IF digitiser x4", 4.8],
+          ["LMX2594 synthesiser x4", 2.8],
+          ["HMC7044 clock tree x2", 2.2],
+          ["10MHz OCXO", 1.8],
+          ["LPDDR4 x4", 4.4],
+          ["Storage and housekeeping", 1.6]
+        ]
+      }
+    },
+    {
+      "slug": "electronic_warfare",
+      "taxonomy": "eElectronicWarfare",
+      "title": "Electronic Warfare Systems",
+      "part": "eEW-4400",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Threat warning and countermeasures", "standard": "MIL-STD-461G / STANAG 4193", "ics": "ADRV9002, XCZU3EG, LMX2594"},
+      "overview": "Electronic warfare suite providing radar warning, emitter identification and coordinated countermeasure response. Threat library matching runs in FPGA fabric to keep detection-to-response latency inside the pulse repetition interval of the threats it is designed against.",
+      "specs": [
+        ["Receiver", "2x ADRV9002 wideband, 0.5-18GHz with downconverters"],
+        ["Response latency", "<1ms detection to countermeasure activation"],
+        ["Threat library", "4096 emitter signatures, field-updatable"],
+        ["Direction finding", "Amplitude comparison, 4 quadrant antennas"],
+        ["Techniques", "Noise, range-gate pull-off, velocity-gate pull-off"],
+        ["Interfaces", "MIL-STD-1553B, 10GbE, discrete dispense commands"],
+        ["Environment", "DO-160G Cat. D, MIL-STD-810H"]
+      ],
+      "pcb": [
+        ["Layers", "14"],
+        ["Dimensions", "233mm x 160mm (3U VPX)"],
+        ["IPC Class", "Class 3"],
+        ["Finish", "ENIG with RF shielding"],
+        ["Stackup", "Rogers RO4350B RF layers over FR-4 core"]
+      ],
+      "compliance": [
+        ["MIL-STD-461G", "Electromagnetic interference control"],
+        ["STANAG 4193", "NATO IFF interrogator and transponder"],
+        ["DO-160G", "Airborne environmental qualification"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "adrv9002", "qty": 2, "description": "Wideband threat receiver"},
+        {"ref": "U2", "part": "zynq_ultrascale", "qty": 1, "description": "Threat library matching and technique generation"},
+        {"ref": "U3", "part": "lmx2594", "qty": 4, "description": "Fast-hopping LO synthesiser"},
+        {"ref": "U4", "part": "hmc7044", "qty": 1, "description": "Clock distribution"},
+        {"ref": "U5", "part": "ad9265", "qty": 4, "description": "Wideband IF digitiser"},
+        {"ref": "U6", "part": "awmf0129", "qty": 2, "description": "Ka-band beamforming front end"},
+        {"ref": "U7", "part": "lpddr4_4gb", "qty": 2, "description": "Threat library and pulse buffer"},
+        {"ref": "U8", "part": "bu65170", "qty": 1, "description": "MIL-STD-1553B terminal"},
+        {"ref": "U9", "part": "iso7741", "qty": 4, "description": "Dispense command isolation"},
+        {"ref": "U10", "part": "lt8640", "qty": 8, "description": "Point-of-load regulator"},
+        {"ref": "U11", "part": "tps7a4701", "qty": 6, "description": "Low-noise RF supply"},
+        {"ref": "J1", "part": "vpx_vita46", "qty": 4},
+        {"ref": "J2", "part": "sma_edge", "qty": 8},
+        {"ref": "PCB1", "part": "pcb_rf_rogers", "qty": 1},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 260},
+        {"ref": "C2", "part": "cap_10u_0805", "qty": 55},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 140}
+      ],
+      "power": {
+        "kind": "budget", "label": "eEW-4400 Electronic Warfare Suite", "bus_v": 28, "efficiency": 0.86,
+        "loads": [
+          ["ADRV9002 threat receiver x2", 6.8],
+          ["Zynq UltraScale+ processing", 16.0],
+          ["AD9265 IF digitiser x4", 4.8],
+          ["LMX2594 synthesiser x4", 2.8],
+          ["Ka-band beamformer x2", 7.0],
+          ["LPDDR4 x2", 2.2],
+          ["1553B and discrete I/O", 0.65],
+          ["Housekeeping", 0.9]
+        ]
+      }
+    },
+    {
+      "slug": "soldier_systems",
+      "taxonomy": "eSoldierSystems",
+      "title": "Dismounted Soldier Systems",
+      "part": "eSLD-300",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Wearable soldier computing and situational awareness", "standard": "NATO STANAG 4677 / MIL-STD-810H", "ics": "i.MX 8M Plus, nRF5340, MAX-M10S"},
+      "overview": "Body-worn soldier computer providing blue-force tracking, tactical messaging and heads-up situational awareness on a single battery cycle covering a 72-hour mission. Power draw was the primary design constraint, so the display and radio duty-cycle aggressively against soldier activity state.",
+      "specs": [
+        ["Processor", "NXP i.MX 8M Plus quad Cortex-A53 with NPU"],
+        ["Positioning", "MAX-M10S GNSS with dead-reckoning fallback"],
+        ["Tactical radio", "Sub-GHz mesh, 2W, 4km urban range"],
+        ["Personal area network", "BLE 5.4 for weapon sight and helmet display"],
+        ["Battery life", "72 hours with adaptive duty cycling"],
+        ["Mass", "480g including battery and harness"],
+        ["Environment", "MIL-STD-810H, IP68, -32degC to +60degC"]
+      ],
+      "pcb": [
+        ["Layers", "10"],
+        ["Dimensions", "110mm x 70mm"],
+        ["IPC Class", "Class 3"],
+        ["Finish", "ENIG, conformal coated"],
+        ["Construction", "Rigid-flex to reduce interconnect failure under load"]
+      ],
+      "compliance": [
+        ["STANAG 4677", "Dismounted soldier system architecture"],
+        ["MIL-STD-810H", "Environmental engineering considerations"],
+        ["MIL-STD-461G", "Electromagnetic interference control"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "imx8mp", "qty": 1, "description": "Soldier computer application processor"},
+        {"ref": "U2", "part": "nrf5340", "qty": 1, "description": "BLE 5.4 personal area network"},
+        {"ref": "U3", "part": "sx1262", "qty": 1, "description": "Sub-GHz tactical mesh radio"},
+        {"ref": "U4", "part": "max_m10s", "qty": 1, "description": "Low-power GNSS receiver"},
+        {"ref": "U5", "part": "bmi270", "qty": 1, "description": "Pedestrian dead-reckoning IMU"},
+        {"ref": "U6", "part": "mmc5983", "qty": 1, "description": "Heading reference"},
+        {"ref": "U7", "part": "lpddr4_4gb", "qty": 1, "description": "System memory"},
+        {"ref": "U8", "part": "emmc_16gb", "qty": 1, "description": "Map and application storage"},
+        {"ref": "U9", "part": "se050", "qty": 1, "description": "Secure element for radio keys"},
+        {"ref": "U10", "part": "bq25798", "qty": 1, "description": "Battery charger with solar MPPT"},
+        {"ref": "U11", "part": "bq40z80", "qty": 1, "description": "Battery gas gauge"},
+        {"ref": "U12", "part": "tps62840", "qty": 6, "description": "Low-Iq point-of-load regulator"},
+        {"ref": "BT1", "part": "batt_lipo_2000", "qty": 4, "description": "Mission battery pack"},
+        {"ref": "ANT1", "part": "ant_lora_helix", "qty": 1},
+        {"ref": "ANT2", "part": "ant_24ghz_chip", "qty": 1},
+        {"ref": "PCB1", "part": "pcb_rigidflex", "qty": 1},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 120},
+        {"ref": "C2", "part": "cap_10u_0805", "qty": 26},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 70}
+      ],
+      "power": {
+        "kind": "duty", "label": "eSLD-300 Soldier Computer", "battery_mah": 8000, "battery_desc": "4x 2000mAh LiPo",
+        "modes": [
+          ["Standby (GNSS fix, mesh listen)", 0.062, 0.62],
+          ["Active display and messaging", 0.480, 0.22],
+          ["Map rendering and NPU detection", 1.150, 0.11],
+          ["Mesh transmit burst", 1.800, 0.05]
+        ]
+      }
+    },
+    {
+      "slug": "counter_uas",
+      "taxonomy": "eCounterUAS",
+      "title": "Counter-UAS Systems",
+      "part": "eCUAS-900",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Drone detection, identification and mitigation", "standard": "ETSI EN 303 883 / ASTM F3411", "ics": "ADRV9002, IWR6843, Jetson Orin Nano"},
+      "overview": "Counter-UAS node combining RF protocol detection, mmWave radar tracking and acoustic cueing to detect and classify small unmanned aircraft. Remote ID decoding per ASTM F3411 separates cooperative traffic from genuine intrusions, which keeps the false alarm rate workable in urban airspace.",
+      "specs": [
+        ["RF detection", "ADRV9002, 400MHz-6GHz protocol fingerprinting"],
+        ["Radar", "IWR6843AOP 60GHz, 1.2km Group-1 UAS detection"],
+        ["Remote ID", "ASTM F3411 Bluetooth and Wi-Fi NAN decoding"],
+        ["Classification", "On-board inference, 60 airframe and protocol classes"],
+        ["Detection range", "3km RF, 1.2km radar for 250g quadrotor"],
+        ["Direction finding", "4-element array, 3 degree RMS bearing accuracy"],
+        ["Environment", "IP67, -30degC to +60degC, pole or vehicle mount"]
+      ],
+      "pcb": [
+        ["Layers", "12"],
+        ["Dimensions", "200mm x 160mm"],
+        ["IPC Class", "Class 3"],
+        ["Finish", "ENIG with RF shielding cans"],
+        ["Stackup", "Rogers RO4350B RF layer over FR-4"]
+      ],
+      "compliance": [
+        ["ETSI EN 303 883", "Radio measurement equipment"],
+        ["ASTM F3411", "Remote identification of unmanned aircraft"],
+        ["EN 301 489-1", "EMC for radio equipment"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "adrv9002", "qty": 2, "description": "RF protocol detection and direction finding"},
+        {"ref": "U2", "part": "iwr6843", "qty": 2, "description": "60GHz mmWave UAS tracking radar"},
+        {"ref": "U3", "part": "jetson_orin_nano", "qty": 1, "description": "Classification inference engine"},
+        {"ref": "U4", "part": "esp32c6", "qty": 2, "description": "Remote ID Bluetooth and Wi-Fi NAN decoding"},
+        {"ref": "U5", "part": "lmx2594", "qty": 2, "description": "Receiver LO synthesiser"},
+        {"ref": "U6", "part": "hmc7044", "qty": 1, "description": "Coherent clock distribution"},
+        {"ref": "U7", "part": "zed_f9t", "qty": 1, "description": "Timing and position reference"},
+        {"ref": "U8", "part": "lpddr4_4gb", "qty": 2, "description": "Signal and track buffer"},
+        {"ref": "U9", "part": "emmc_64gb", "qty": 1, "description": "Event recording"},
+        {"ref": "U10", "part": "dp83867", "qty": 2, "description": "Gigabit Ethernet backhaul"},
+        {"ref": "U11", "part": "tps54360", "qty": 6, "description": "Primary buck regulator"},
+        {"ref": "J1", "part": "sma_edge", "qty": 6},
+        {"ref": "ANT1", "part": "ant_lte_fpc", "qty": 4, "description": "Direction-finding array element"},
+        {"ref": "PCB1", "part": "pcb_rf_rogers", "qty": 1},
+        {"ref": "ENC1", "part": "encl_ip67_alu", "qty": 1},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 200},
+        {"ref": "C2", "part": "cap_10u_0805", "qty": 45},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 110}
+      ],
+      "power": {
+        "kind": "budget", "label": "eCUAS-900 Counter-UAS Node", "bus_v": 24, "efficiency": 0.87,
+        "loads": [
+          ["ADRV9002 RF detection x2", 6.8],
+          ["IWR6843 mmWave radar x2", 4.0],
+          ["Jetson Orin Nano inference", 12.0],
+          ["ESP32-C6 Remote ID x2", 0.6],
+          ["LMX2594 synthesiser x2", 1.4],
+          ["HMC7044 clock tree", 1.1],
+          ["LPDDR4 x2", 2.2],
+          ["Ethernet and housekeeping", 1.4]
+        ]
+      }
+    },
+    {
+      "slug": "border_security",
+      "taxonomy": "eBorderSecurity",
+      "title": "Border Security Systems",
+      "part": "eBRD-600",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Unattended ground sensing and border surveillance", "standard": "IEC 62676 / MIL-STD-810H", "ics": "STM32U575, IWR6843, SX1262"},
+      "overview": "Solar-powered unattended ground sensor for border and perimeter monitoring, combining seismic, magnetic, passive infrared and mmWave sensing to classify crossings as personnel, vehicle or livestock. Designed to run for five years without a site visit, which puts every design decision behind the power budget.",
+      "specs": [
+        ["Controller", "STM32U575 Cortex-M33 ultra-low-power secure MCU"],
+        ["Sensing", "Seismic geophone, magnetometer, PIR, 60GHz mmWave"],
+        ["Classification", "On-device TinyML, personnel / vehicle / animal"],
+        ["False alarm rate", "<1 per sensor per week in field trials target"],
+        ["Communications", "LoRa mesh 868/915MHz, 8km range, satellite backhaul"],
+        ["Power", "5W solar with 3.6Ah lithium buffer, 5-year design life"],
+        ["Environment", "IP68, buried or staked, -40degC to +70degC"]
+      ],
+      "pcb": [
+        ["Layers", "6"],
+        ["Dimensions", "90mm x 60mm"],
+        ["IPC Class", "Class 3"],
+        ["Finish", "ENIG, potted for burial"],
+        ["Construction", "No electrolytics; ceramic only for 5-year life"]
+      ],
+      "compliance": [
+        ["IEC 62676", "Video surveillance systems for security"],
+        ["MIL-STD-810H", "Environmental engineering considerations"],
+        ["ETSI EN 300 220", "Sub-GHz short-range devices"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "stm32u575", "qty": 1, "description": "Ultra-low-power secure controller"},
+        {"ref": "U2", "part": "iwr6843", "qty": 1, "description": "60GHz mmWave presence and motion sensing"},
+        {"ref": "U3", "part": "ads131m08", "qty": 1, "description": "Seismic geophone acquisition"},
+        {"ref": "U4", "part": "mmc5983", "qty": 2, "description": "Magnetic vehicle detection"},
+        {"ref": "U5", "part": "sx1262", "qty": 1, "description": "LoRa mesh transceiver"},
+        {"ref": "U6", "part": "swarm_m138", "qty": 1, "description": "Satellite backhaul modem"},
+        {"ref": "U7", "part": "max_m10s", "qty": 1, "description": "GNSS position and time"},
+        {"ref": "U8", "part": "bq25504", "qty": 1, "description": "Solar energy-harvesting charger with MPPT"},
+        {"ref": "U9", "part": "tps62840", "qty": 3, "description": "60nA quiescent point-of-load regulator"},
+        {"ref": "U10", "part": "atecc608b", "qty": 1, "description": "Message authentication key store"},
+        {"ref": "U11", "part": "fm24v10", "qty": 1, "description": "FRAM event log"},
+        {"ref": "BT1", "part": "batt_lisocl2", "qty": 2, "description": "Lithium primary energy buffer"},
+        {"ref": "PV1", "part": "solar_5w", "qty": 1},
+        {"ref": "ANT1", "part": "ant_lora_helix", "qty": 1},
+        {"ref": "PCB1", "part": "pcb_6l_std", "qty": 1},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 60},
+        {"ref": "C2", "part": "cap_10u_0805", "qty": 14},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 40}
+      ],
+      "power": {
+        "kind": "duty", "label": "eBRD-600 Unattended Ground Sensor", "battery_mah": 7200, "battery_desc": "2x 3.6Ah LiSOCl2 with 5W solar",
+        "modes": [
+          ["Deep sleep (PIR and seismic armed)", 0.000042, 0.958],
+          ["Wake and classify", 0.085, 0.030],
+          ["mmWave confirmation sweep", 0.310, 0.008],
+          ["LoRa mesh report", 0.120, 0.003],
+          ["Satellite backhaul burst", 0.950, 0.001]
+        ]
+      }
+    },
+    {
+      "slug": "ruggedized_computing",
+      "taxonomy": "eRuggedized",
+      "title": "Ruggedised Computing Platforms",
+      "part": "eRGD-2000",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Deployable rugged compute and storage", "standard": "MIL-STD-810H / MIL-STD-461G", "ics": "i.MX 8M Plus, DP83867, SLB9670"},
+      "overview": "Fanless ruggedised mission computer for vehicle, airborne and dismounted deployment. Conduction cooling through the chassis removes the fan as a failure point and lets the unit be sealed to IP67, at the cost of a lower sustained thermal envelope than an equivalent forced-air design.",
+      "specs": [
+        ["Processor", "NXP i.MX 8M Plus quad Cortex-A53 with 2.3-TOPS NPU"],
+        ["Memory", "8GB LPDDR4, 128GB eMMC with hardware encryption"],
+        ["Cooling", "Fanless conduction to chassis, 45W sustained"],
+        ["Interfaces", "1GbE x4, USB 3.0 x4, CAN FD x2, RS-422 x4"],
+        ["Shock and vibration", "MIL-STD-810H Method 516.8 and 514.8"],
+        ["Power", "MIL-STD-1275E 28V with 50ms hold-up"],
+        ["Ingress", "IP67 sealed, -40degC to +71degC operating"]
+      ],
+      "pcb": [
+        ["Layers", "12"],
+        ["Dimensions", "180mm x 140mm"],
+        ["IPC Class", "Class 3"],
+        ["Finish", "ENIG, conformal coated"],
+        ["Thermal", "Copper coin under SoC for conduction path"]
+      ],
+      "compliance": [
+        ["MIL-STD-810H", "Environmental engineering considerations"],
+        ["MIL-STD-461G", "Electromagnetic interference control"],
+        ["MIL-STD-1275E", "28V vehicle electrical power characteristics"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "imx8mp", "qty": 1, "description": "Mission computer application processor"},
+        {"ref": "U2", "part": "lpddr4_4gb", "qty": 2, "description": "System memory"},
+        {"ref": "U3", "part": "emmc_64gb", "qty": 2, "description": "Encrypted mission storage"},
+        {"ref": "U4", "part": "dp83867", "qty": 4, "description": "Gigabit Ethernet PHY"},
+        {"ref": "U5", "part": "usb3343", "qty": 4, "description": "USB 3.0 transceiver"},
+        {"ref": "U6", "part": "tcan4550", "qty": 2, "description": "CAN FD controller and transceiver"},
+        {"ref": "U7", "part": "max3485", "qty": 4, "description": "RS-422 interface"},
+        {"ref": "U8", "part": "optiga_slb9670", "qty": 1, "description": "TPM 2.0 secure boot and disk key"},
+        {"ref": "U9", "part": "tps54360", "qty": 6, "description": "MIL-STD-1275E tolerant buck"},
+        {"ref": "U10", "part": "supercap_10f", "qty": 4, "description": "50ms power hold-up"},
+        {"ref": "U11", "part": "ina228", "qty": 4, "description": "Rail telemetry"},
+        {"ref": "J1", "part": "d38999_25", "qty": 4},
+        {"ref": "PCB1", "part": "pcb_12l_c3", "qty": 1},
+        {"ref": "HS1", "part": "heatsink_forced", "qty": 1, "description": "Copper conduction block to chassis"},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 180},
+        {"ref": "C2", "part": "cap_47u_1210", "qty": 26},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 100},
+        {"ref": "D1", "part": "tvs_smbj", "qty": 12}
+      ],
+      "power": {
+        "kind": "budget", "label": "eRGD-2000 Rugged Mission Computer", "bus_v": 28, "efficiency": 0.87,
+        "loads": [
+          ["i.MX 8M Plus processor", 8.5],
+          ["LPDDR4 x2", 2.2],
+          ["eMMC x2", 0.6],
+          ["Gigabit Ethernet PHY x4", 1.8],
+          ["USB 3.0 transceiver x4", 1.6],
+          ["CAN FD and RS-422", 0.64],
+          ["TPM and housekeeping", 0.5]
+        ]
+      }
+    },
+    {
+      "slug": "milspec_qualification",
+      "taxonomy": "eMilSpec",
+      "title": "MIL-SPEC Qualification Platform",
+      "part": "eMIL-100",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Environmental and EMI qualification instrumentation", "standard": "MIL-STD-810H / MIL-STD-461G", "ics": "STM32H743, ADS8688, AD7124"},
+      "overview": "Instrumentation platform for running MIL-STD-810H environmental and MIL-STD-461G emissions qualification campaigns, logging chamber conditions and unit-under-test telemetry against a common time base. Existing chamber controllers and spectrum analysers are integrated rather than replaced.",
+      "specs": [
+        ["Controller", "STM32H743 Cortex-M7"],
+        ["Analogue channels", "64 differential, 16-bit, 100kSPS aggregate"],
+        ["Thermocouples", "32 channels, Type-J/K/T, 0.5degC accuracy"],
+        ["Chamber control", "GPIB, RS-232, LXI and Modbus TCP instrument bridge"],
+        ["Vibration", "4-channel IEPE accelerometer input, 20kHz bandwidth"],
+        ["Logging", "Time-stamped to 1ms, 30-day continuous campaign"],
+        ["Traceability", "Records instrument calibration state with each run"]
+      ],
+      "pcb": [
+        ["Layers", "8"],
+        ["Dimensions", "220mm x 160mm"],
+        ["IPC Class", "Class 2"],
+        ["Finish", "ENIG"],
+        ["Stackup", "Guarded analogue island with isolated returns"]
+      ],
+      "compliance": [
+        ["MIL-STD-810H", "Environmental test method reference"],
+        ["MIL-STD-461G", "EMI test method reference"],
+        ["ISO/IEC 17025", "Testing laboratory competence"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "stm32h743", "qty": 1, "description": "Instrumentation controller"},
+        {"ref": "U2", "part": "ads8688", "qty": 8, "description": "8-channel 16-bit analogue acquisition"},
+        {"ref": "U3", "part": "ad7124", "qty": 4, "description": "24-bit thermocouple acquisition"},
+        {"ref": "U4", "part": "max31865", "qty": 4, "description": "RTD reference junction conditioning"},
+        {"ref": "U5", "part": "ina849", "qty": 8, "description": "IEPE accelerometer conditioning"},
+        {"ref": "U6", "part": "opa2188", "qty": 8, "description": "Zero-drift input buffer"},
+        {"ref": "U7", "part": "max14830", "qty": 2, "description": "Quad UART for instrument bridge"},
+        {"ref": "U8", "part": "ksz9031", "qty": 1, "description": "Gigabit Ethernet for LXI"},
+        {"ref": "U9", "part": "adm2587", "qty": 2, "description": "Isolated RS-485 Modbus"},
+        {"ref": "U10", "part": "emmc_64gb", "qty": 1, "description": "Campaign data logging"},
+        {"ref": "U11", "part": "ds3231", "qty": 1, "description": "Time-stamp reference clock"},
+        {"ref": "U12", "part": "tps54360", "qty": 4, "description": "Primary buck regulator"},
+        {"ref": "U13", "part": "tps7a4701", "qty": 4, "description": "Low-noise analogue supply"},
+        {"ref": "PCB1", "part": "pcb_8l_c3", "qty": 1},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 170},
+        {"ref": "C2", "part": "cap_10u_0805", "qty": 38},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 95}
+      ],
+      "power": {
+        "kind": "budget", "label": "eMIL-100 Qualification Instrumentation", "bus_v": 12, "efficiency": 0.88,
+        "loads": [
+          ["STM32H743 controller", 0.6],
+          ["ADS8688 acquisition x8", 2.64],
+          ["AD7124 thermocouple x4", 0.36],
+          ["IEPE conditioning x8", 0.88],
+          ["Input buffer stage", 0.48],
+          ["Instrument bridge UARTs", 0.42],
+          ["Ethernet and isolated RS-485", 1.15],
+          ["Logging and housekeeping", 0.55]
+        ]
+      }
+    },
+    {
+      "slug": "anti_tamper",
+      "taxonomy": "eAntiTamper",
+      "title": "Anti-Tamper Systems",
+      "part": "eATP-500",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Physical tamper detection and response", "standard": "FIPS 140-3 Level 4 / DoDI 5200.39", "ics": "MAX32520, STM32U575, SE050"},
+      "overview": "Anti-tamper subsystem protecting critical program information in fielded equipment, combining an active enclosure mesh, environmental monitoring and immediate key zeroisation. Detection to zeroise completes in under 50ms on the tamper battery alone, so removing main power does not defeat it.",
+      "specs": [
+        ["Root of trust", "MAX32520 with SRAM PUF, no stored key material"],
+        ["Tamper mesh", "4-layer serpentine, <100um pitch, resistance and capacitance monitored"],
+        ["Environmental", "Temperature, voltage, light and X-ray detection"],
+        ["Response time", "<50ms detection to complete key zeroisation"],
+        ["Backup power", "Coin cell sustains tamper monitoring for 10 years"],
+        ["Evidence", "Tamper events logged to write-once FRAM with timestamp"],
+        ["Certification target", "FIPS 140-3 Level 4 physical security"]
+      ],
+      "pcb": [
+        ["Layers", "10"],
+        ["Dimensions", "80mm x 60mm"],
+        ["IPC Class", "Class 3"],
+        ["Finish", "ENIG, potted in opaque tamper-evident epoxy"],
+        ["Security", "Active mesh layers 2 and 9 enclosing all secret routing"]
+      ],
+      "compliance": [
+        ["FIPS 140-3 Level 4", "Cryptographic module physical security"],
+        ["DoDI 5200.39", "Critical program information protection"],
+        ["Common Criteria EAL5+", "Security evaluation target"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "max32520", "qty": 1, "description": "PUF root of trust with tamper zeroise"},
+        {"ref": "U2", "part": "stm32u575", "qty": 1, "description": "Tamper monitoring supervisor"},
+        {"ref": "U3", "part": "se050", "qty": 2, "description": "Secure element for protected key storage"},
+        {"ref": "U4", "part": "optiga_slb9670", "qty": 1, "description": "TPM 2.0 platform attestation"},
+        {"ref": "U5", "part": "ad7124", "qty": 2, "description": "Mesh resistance and capacitance measurement"},
+        {"ref": "U6", "part": "tmp117", "qty": 4, "description": "Temperature attack detection"},
+        {"ref": "U7", "part": "ina228", "qty": 4, "description": "Supply glitch and voltage attack detection"},
+        {"ref": "U8", "part": "fm24v10", "qty": 2, "description": "Write-once tamper evidence log"},
+        {"ref": "U9", "part": "tps62840", "qty": 3, "description": "60nA quiescent tamper-domain regulator"},
+        {"ref": "U10", "part": "opa2188", "qty": 4, "description": "Mesh sense amplification"},
+        {"ref": "BT1", "part": "batt_coin_cr2032", "qty": 2, "description": "Tamper monitoring backup cell"},
+        {"ref": "PCB1", "part": "pcb_8l_c3", "qty": 1, "description": "10-layer PCB with active tamper mesh layers"},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 70},
+        {"ref": "C2", "part": "cap_10u_0805", "qty": 16},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 50}
+      ],
+      "power": {
+        "kind": "duty", "label": "eATP-500 Anti-Tamper Subsystem", "battery_mah": 450, "battery_desc": "2x CR2032 tamper cell",
+        "modes": [
+          ["Tamper monitoring on backup cell", 0.0000045, 0.900],
+          ["Mesh integrity sweep", 0.00220, 0.095],
+          ["Alarm evaluation", 0.01800, 0.004],
+          ["Zeroise sequence", 0.09500, 0.001]
+        ]
+      }
+    },
+    {
+      "slug": "perimeter_security",
+      "taxonomy": "ePerimeter",
+      "title": "Perimeter Security Systems",
+      "part": "ePER-700",
+      "revision": "v1.0",
+      "status": "Design Phase",
+      "readme": {"category": "Fence-line intrusion detection and assessment", "standard": "IEC 62676 / EN 50131", "ics": "STM32H743, IWR6843, ADS131M08"},
+      "overview": "Perimeter intrusion detection system fusing fibre-optic fence disturbance sensing, mmWave zone radar and video assessment across sites of up to 20km. Distinguishing wind and wildlife from genuine climb or cut events is what determines whether an operator keeps trusting the alarms.",
+      "specs": [
+        ["Controller", "STM32H743 Cortex-M7 zone processor"],
+        ["Fibre sensing", "Distributed acoustic sensing, 20km per controller, 5m resolution"],
+        ["Zone radar", "IWR6843AOP 60GHz, 120m coverage per unit"],
+        ["Classification", "Climb, cut, lean and tunnel discrimination"],
+        ["Nuisance rejection", "Wind, rain and wildlife filtering with local weather input"],
+        ["Integration", "ONVIF Profile S video, Modbus TCP, dry contacts"],
+        ["Environment", "IP66, -40degC to +70degC"]
+      ],
+      "pcb": [
+        ["Layers", "8"],
+        ["Dimensions", "160mm x 120mm"],
+        ["IPC Class", "Class 2"],
+        ["Finish", "ENIG, conformal coated"],
+        ["Isolation", "Isolated field interfaces for lightning survivability"]
+      ],
+      "compliance": [
+        ["IEC 62676", "Video surveillance systems for security"],
+        ["EN 50131 Grade 4", "Alarm systems intrusion detection"],
+        ["EN 61000-6-2", "Industrial immunity"]
+      ],
+      "bom": [
+        {"ref": "U1", "part": "stm32h743", "qty": 1, "description": "Zone classification processor"},
+        {"ref": "U2", "part": "ads131m08", "qty": 4, "description": "Distributed acoustic sensing acquisition"},
+        {"ref": "U3", "part": "iwr6843", "qty": 2, "description": "60GHz zone radar"},
+        {"ref": "U4", "part": "ina849", "qty": 8, "description": "Fibre interferometer preamplifier"},
+        {"ref": "U5", "part": "bme280", "qty": 1, "description": "Local weather input for nuisance rejection"},
+        {"ref": "U6", "part": "ksz8863", "qty": 1, "description": "Managed Ethernet switch"},
+        {"ref": "U7", "part": "dp83867", "qty": 2, "description": "Gigabit Ethernet PHY"},
+        {"ref": "U8", "part": "adm2587", "qty": 2, "description": "Isolated RS-485 Modbus"},
+        {"ref": "U9", "part": "iso7741", "qty": 6, "description": "Dry contact isolation"},
+        {"ref": "U10", "part": "emmc_16gb", "qty": 1, "description": "Event and waveform recording"},
+        {"ref": "U11", "part": "tps54360", "qty": 4, "description": "Primary buck regulator"},
+        {"ref": "J1", "part": "m12_8pin", "qty": 4},
+        {"ref": "J2", "part": "rj45_mag", "qty": 2},
+        {"ref": "PCB1", "part": "pcb_8l_c3", "qty": 1},
+        {"ref": "ENC1", "part": "encl_ip67_alu", "qty": 1},
+        {"ref": "C1", "part": "cap_100n_0402", "qty": 140},
+        {"ref": "C2", "part": "cap_10u_0805", "qty": 32},
+        {"ref": "R1", "part": "res_10k_0402", "qty": 80},
+        {"ref": "D1", "part": "tvs_smbj", "qty": 12, "description": "Lightning surge protection on field ports"}
+      ],
+      "power": {
+        "kind": "budget", "label": "ePER-700 Perimeter Intrusion Controller", "bus_v": 24, "efficiency": 0.87,
+        "loads": [
+          ["STM32H743 zone processor", 0.6],
+          ["ADS131M08 acquisition x4", 1.24],
+          ["IWR6843 zone radar x2", 4.0],
+          ["Fibre preamplifier x8", 0.88],
+          ["Ethernet switch and PHY x2", 2.0],
+          ["Isolated RS-485 and contacts", 1.15],
+          ["Recording and housekeeping", 0.6]
+        ]
+      }
+    }
+  ]
+}
