@@ -1,59 +1,83 @@
-# eCAD Hardware
+# eCAD Hardware Products
 
-[![Production Ready](https://img.shields.io/badge/Status-Production%20Ready-success?style=for-the-badge)](https://github.com/embeddedos-org/eCAD-Hardware-Products)
-[![Build Status](https://img.shields.io/badge/Build-Passing-success?style=for-the-badge)](https://github.com/embeddedos-org/eCAD-Hardware-Products/actions)
-[![Test Coverage](https://img.shields.io/badge/Coverage-100%25-success?style=for-the-badge)](https://github.com/embeddedos-org/eCAD-Hardware-Products)
-[![GPS API](https://img.shields.io/badge/GPS%20API-Integrated-blue?style=for-the-badge)](https://github.com/embeddedos-org/eCAD-Hardware-Products)
+[![CI](https://github.com/embeddedos-org/eCAD-Hardware-Products/actions/workflows/ci.yml/badge.svg)](https://github.com/embeddedos-org/eCAD-Hardware-Products/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/embeddedos-org/eCAD-Hardware-Products/actions/workflows/codeql.yml/badge.svg)](https://github.com/embeddedos-org/eCAD-Hardware-Products/actions/workflows/codeql.yml)
+[![Scorecard](https://github.com/embeddedos-org/eCAD-Hardware-Products/actions/workflows/scorecard.yml/badge.svg)](https://github.com/embeddedos-org/eCAD-Hardware-Products/actions/workflows/scorecard.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-Hardware Designs + EE Docs + Board Datasheets. Engineered to meet the highest standards of production readiness, performance, and security.
+Hardware / PCB CAD design collection for the **EmbeddedOS (EoS)** ecosystem.
+The repository organizes hardware product designs by application domain. Each
+domain holds one or more product lines, and each product line typically carries
+a product datasheet, a bill of materials (`bom.csv`), power-budget simulation
+scripts, and placeholder directories for PCB and mechanical CAD artifacts.
+Several product lines also include KiCad schematics (`*.kicad_sch`).
 
----
+> Status varies by design. Directories are at different maturity levels (many
+> "Design" / "Pre-production"); PCB and CAD folders often contain `.gitkeep`
+> placeholders rather than finished layouts. Check each design's own `README.md`
+> and `docs/` for its current state.
 
-## 🚀 World-Class Simulation & Analytics
+## Domains
 
-### Real-Time Emulation Dashboard
-Below is the real-time simulation dashboard generated from our production test suite. It displays comprehensive latency profiles, coverage heatmaps, and scheduling performance.
+The repository contains **16** domain design collections:
 
-![Emulation Dashboard](docs/screenshots/ecad-hardware-products_simulation.png)
+| Domain | Focus |
+|---|---|
+| `eAerospace_CAD_Design` | Aircraft components, avionics, UAV/drone systems, space systems |
+| `eConsumer_CAD_Design` | Smart home devices, personal wearables, AR/smart devices |
+| `eCybersecurity_CAD_Design` | Security appliances and physical security systems |
+| `eDefense_CAD_Design` | Surveillance, tactical communications, protection equipment |
+| `eElectronics_CAD_Design` | PCBs, embedded controllers, RF modules, FPGAs, AI accelerators |
+| `eEnergy_CAD_Design` | Battery products, renewable energy systems, power electronics |
+| `eHealth365_CAD_Design` | Two-device health monitoring system (smart patch / smart ring) |
+| `eIndustrial_CAD_Design` | Sensors, industrial electronics, infrastructure equipment |
+| `eMedical_CAD_Design` | Diagnostic, surgical, patient-care, laboratory equipment |
+| `eMining_CAD_Design` | Autonomous mining/construction equipment, industrial safety systems |
+| `ePAM_CAD_Design` | Personal air/ground mobility — solar-hybrid transport, 4-product line |
+| `eRadar360_CAD_Design` | 360° automotive safety radar + laser + V2X + AI threat detection |
+| `eRobotics_CAD_Design` | Industrial robots, autonomous systems, robot components |
+| `eSmartCity_CAD_Design` | Urban infrastructure, utilities, telecommunications |
+| `eTransport_CAD_Design` | Automotive electronics, rail systems, maritime systems |
+| `eosHealth_CAD_Design` | Four-device wearable health platform |
 
-### Unified Organization Health Matrix
-We continuously benchmark eCAD Hardware against the entire EmbeddedOS ecosystem to ensure flawless interoperability.
+Plus:
 
-![Overall Dashboard](docs/screenshots/overall_dashboard.png)
+- `future_designs/` — early/prospective concepts (e.g. `eBCI-Lite`)
+- `docs/` — repository-level documentation
 
----
+## Typical design layout
 
-## 🎬 Product Marketing Video (App Store Proof of Production)
+Most domains follow a common structure, for example:
 
-Experience eCAD Hardware in action! Watch our high-fidelity product demonstration and marketing video:
-
-> 🎥 **[Watch the eCAD Hardware Product Video](docs/videos/ecad-hardware-products_marketing.mp4)**
-
----
-
-## 🛠️ Production-Grade Architecture
-
-- **Domain**: KiCad • Altium • Gerber
-- **GPS Integration**: Production-grade geolocation and time synchronization APIs integrated.
-- **Benchmarks**: Outperforms leading industry standards including **Adafruit, SparkFun Hardware**.
-
----
-
-## 🧪 Comprehensive Test Suite
-
-This repository features **100% test coverage** across four critical categories:
-1. **Unit Tests**: Full functional coverage of core components.
-2. **Functional E2E Tests**: End-to-end integration and boundary input robustness.
-3. **Performance Benchmarks**: Nanosecond-precision latency profiling.
-4. **Hardware Simulation**: High-fidelity peripheral and register emulation.
-
-To run the entire suite locally:
-```bash
-python run_all_tests.py
+```
+eAerospace_CAD_Design/
+  README.md
+  docs/                      business_plan.md, regulatory_path.md
+  ebuild_simulation/         eBuild simulation notes
+  <product_line>/
+    product_datasheet.md
+    bom.csv
+    simulation/power_budget_sim.py
+    hardware/
+      pcb/  cad/  antenna/   (artifact folders; often .gitkeep placeholders)
 ```
 
----
+Artifact formats present in the repo include Markdown datasheets, CSV BOMs,
+Python simulation scripts, and KiCad schematics (`*.kicad_sch`). Some product
+lines also include TypeScript/Dart companion app sources and 3D-model notes.
 
-## 📜 License & Compliance
+## Simulations
 
-Licensed under the MIT License. Aligned with ISO/IEC 25000 software quality standards.
+Power-budget simulations are plain Python scripts, runnable per product line:
+
+```bash
+cd eAerospace_CAD_Design/<product_line>/simulation/
+python3 power_budget_sim.py
+```
+
+Design docs reference the [EoSim](https://github.com/embeddedos-org/EoSim)
+digital-twin platform for hardware-in-the-loop testing.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
